@@ -2,12 +2,15 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './Home';
+// import Home from './Home';
+import SignUp from './SignUp';
+
 
 function App() {
   return (
     <div className="App">
-       <Home />
+       {/* <Home /> */}
+       <SignUp />
     </div>
   );
 }
