@@ -25,7 +25,7 @@ function Navigation() {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} href="#SignUp">
              Sign Up
             </Nav.Link>
           </Nav>
@@ -87,7 +87,7 @@ function Main() {
               <Card.Header>
                 <Card.Title>Open Voting</Card.Title>
               </Card.Header>
-              <Card.Img variant="top" src="https://d2k1ftgv7pobq7.cloudfront.net/meta/u/res/images/e37168bb8c61e0511029519676466a07/playbooks_boardtile_marketing.png" />
+              <Card.Img variant="top" src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/0cad30a99820b0d840a5b48635d00b6e/updated-layouts-collab.png" />
               <Card.Body>
                 <Card.Text>
                   This card has supporting text below as a natural lead-in to additional
