@@ -3,14 +3,15 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Home from './Home';
-import SignUp from './SignUp';
+//import SignUp from './SignUp';
+import Login from './Login';
 
 
 function App() {
   return (
     <div className="App">
        {/* <Home /> */}
-       <SignUp />
+       <Login />
     </div>
   );
 }

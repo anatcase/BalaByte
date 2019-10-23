@@ -3,20 +3,15 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-function SignUp() {
+function Login() {
   return (
-    <div className="SignUp">
-      <h1>Create a Committee Member Account</h1>
-      <p>or <a href="#/login">or log in to your account</a></p>
+    <div className="Login">
+      <h1>Login to BalaByte</h1>
+      <p>or <a href="#/signup">or create an account</a></p>
       {/* <Alert variant="danger" show={props.state.invalidLogin}>
           Invalid email or password!
       </Alert> */}
-     <Form>
-        <Form.Group controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter name"/>
-        </Form.Group>
-
+     <Form>        
         <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email"/>
@@ -30,22 +25,13 @@ function SignUp() {
             <Form.Control type="password" placeholder="Password"/>
         </Form.Group>
 
-        <Form.Group controlId="formBasicCommunity">
-            <Form.Label>Building Community Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter community name"/>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicAddress">
-            <Form.Label>Full Address</Form.Label>
-            <Form.Control type="text" placeholder="Enter address"/>
-        </Form.Group>
-        
+       
         <Button variant="success" type="button" block>
-            Create New Account
+            Come On In!
         </Button>
     </Form>
 </div>
   );
 }
 
-export default SignUp;
+export default Login;
