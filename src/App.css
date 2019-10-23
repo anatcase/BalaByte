@@ -57,3 +57,27 @@
   outline: none;
   box-shadow:none !important;
   }
+
+  .dropdown .btn-secondary {
+    background-color: white;
+    border-color:#212529;
+    color:#212529;
+    width: 160px;
+  }
+  .dropdown .btn-secondary:hover {
+    background-color: #f8f9fa;
+    border-color:#212529;
+    color:#212529;
+  }
+
+  .dropdown-menu .dropdown-item.active, .dropdown-menu .dropdown-item:active {
+    background-color: #f8f9fa;
+    color:#212529;
+  }
+ 
+  .NavBar .custom-select {
+    width:80%;
+   background:url('images/angle-down-solid.svg') no-repeat right .75rem center/8px 10px; 
+  }
+
+  

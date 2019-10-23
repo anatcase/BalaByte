@@ -36,16 +36,31 @@ class MessagesNavbar extends React.Component {
                             </div>
                         </Row>
                     </Col>
-                    <Col lg={2} className="pr-0">
-                        <DropdownButton id="dropdown-basic-button" title="Filter by priority">
-                            <Dropdown.Item href="#/">Info</Dropdown.Item>
-                            <Dropdown.Item href="#">Important</Dropdown.Item>
-                        </DropdownButton>
+                    <Col lg={2} className="pr-0 select-wrapper">
+                        {/* <DropdownButton data-toggle="dropdown" id="dropdown-basic-button" variant="secondary" title="Filter by priority ">
+                            <Dropdown.Item as="button">Info</Dropdown.Item>
+                            <Dropdown.Item as="button">Important</Dropdown.Item>
+                        </DropdownButton> */}
+
+                         <select className="browser-default custom-select">
+                            <option>Filter by priority</option>
+                            <option value="1">Info</option>
+                            <option value="2">Important</option>                            
+                        </select>
                     </Col>
                     <Col lg={2} className="px-0">
-                        <h6 className="d-inline mr-3">Sort by:</h6>
-                        <Form.Check inline label="Date" type="radio" id="inline-radio-1" />
-                        <Form.Check inline label="Priority" type="radio" id="inline-radio-2" />
+                        <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">Date</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">Priority</label>
+                        </div>
+                        
+                        {/* <Form.Check inline label="Date" type="radio" id="inline-radio-1" />
+                        <Form.Check inline label="Priority" type="radio" id="inline-radio-2" /> */}
                     </Col>
                 </Row>
             </Container>
