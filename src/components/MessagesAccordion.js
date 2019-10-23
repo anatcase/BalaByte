@@ -14,7 +14,7 @@ class MessagesAccordion extends React.Component {
            <div className="MessagesAccordion">
                <Accordion>
                     <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="0" className="text-left font-weight-bold">
+                        <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
                         Dynamic Message Title
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
@@ -26,9 +26,9 @@ class MessagesAccordion extends React.Component {
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
                                             </Col>
                                             <Col lg={8}>                    
-                                                <Card.Text className="text-left font-weight-bold">
-                                                    <p>Details: <span className="text-left font-weight-normal">**Dynamic Content for message details**</span></p>
-                                                    <p>Priority: <span className="text-left font-weight-normal">**Dynamic Content for priority type**</span></p>
+                                                <Card.Text className="font-weight-bold">
+                                                    <p>Details: <span className="font-weight-normal">**Dynamic Content for message details**</span></p>
+                                                    <p>Priority: <span className="font-weight-normal">**Dynamic Content for priority type**</span></p>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
@@ -41,7 +41,7 @@ class MessagesAccordion extends React.Component {
                         </Accordion.Collapse>
                     </Card>                     
                     <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="1" className="text-left font-weight-bold">
+                        <Accordion.Toggle as={Card.Header} eventKey="1" className="font-weight-bold">
                         Dynamic Message Title
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
@@ -53,14 +53,14 @@ class MessagesAccordion extends React.Component {
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
                                             </Col>
                                             <Col lg={8}>                    
-                                                <Card.Text className="text-left font-weight-bold">
-                                                    <p>Details: <span className="text-left font-weight-normal">**Dynamic Content for message details**</span></p>
-                                                    <p>Priority: <span className="text-left font-weight-normal">**Dynamic Content for priority type**</span></p>
+                                                <Card.Text className="font-weight-bold">
+                                                    <p>Details: <span className="font-weight-normal">**Dynamic Content for message details**</span></p>
+                                                    <p>Priority: <span className="font-weight-normal">**Dynamic Content for priority type**</span></p>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
                                     </Col>
-                                    <Col className="text-left">
+                                    <Col>
                                         <h6>Comments:</h6>
                                     </Col>
                                 </Row>
