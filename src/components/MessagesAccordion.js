@@ -60,7 +60,7 @@ class MessagesAccordion extends React.Component {
                                             </Col>
                                         </Row>
                                     </Col>
-                                    <Col>
+                                    <Col className="text-left">
                                         <h6>Comments:</h6>
                                     </Col>
                                 </Row>
