@@ -80,4 +80,7 @@
    background:url('images/angle-down-solid.svg') no-repeat right .75rem center/8px 10px; 
   }
 
-  
+  .accordion .card-header {
+    cursor: pointer;
+    
+  }
