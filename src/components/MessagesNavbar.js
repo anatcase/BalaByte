@@ -12,9 +12,8 @@ class MessagesNavbar extends React.Component {
         return (
             <Card className="recipe">
                 <Card.Body>
-                    <Card.Title>Title</Card.Title>
                     <Card.Text>
-                     Desc
+                     Message search
                     </Card.Text>
                 </Card.Body>
             </Card>

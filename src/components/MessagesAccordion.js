@@ -1,64 +1,76 @@
 import React from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
-import { Redirect } from 'react-router-dom'
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-class RecipeNavbar extends React.Component {
+class MessagesAccordion extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            redirectToHome: false
-        }
-
-        this.logout = this.logout.bind(this);
-    }
-
-    logout() {
-        this.props.handleLogout();
-
-        if (window.location.hash != "#/") {
-            this.setState({redirectToHome: true})
-        }
-    }
-
-    // // this function in onvoked after every render (but not the first)
-    // componentDidUpdate() {
-    //     if (this.state.redirectToHome) {
-    //         this.setState({redirectToHome: false})
-    //     }
-    // }
-
-    
+    }    
 
     render() {
-        const { activeUser } = this.props;
-        const { redirectToHome } = this.state;
-
-        if (redirectToHome) {
-            return <Redirect to="/"/>
-        }
-
-        const signupLink = !activeUser ? <Nav.Link href="#/signup">Signup</Nav.Link> : null;
-        const loginLink = !activeUser ? <Nav.Link href="#/login">Login</Nav.Link> : null;
-        const logoutLink = activeUser ? <Nav.Link onClick={this.logout}>Logout</Nav.Link> : null;
-
-
         return (
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#/">Recipe Book</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#/recipes">Recipes</Nav.Link>
-                    </Nav>
-                    <Nav className="ml-auto">
-                        {signupLink}
-                        {loginLink}
-                        {logoutLink}
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+           <div className="MessagesAccordion">
+               <Accordion>
+                    <Card>
+                        <Accordion.Toggle as={Card.Header} eventKey="0" className="text-left font-weight-bold">
+                        Dynamic Message Title
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body>
+                                <Row>
+                                    <Col>
+                                        <Row>
+                                            <Col lg={4}>
+                                                <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
+                                            </Col>
+                                            <Col lg={8}>                    
+                                                <Card.Text className="text-left font-weight-bold">
+                                                    <p>Details: <span className="text-left font-weight-normal">**Dynamic Content for message details**</span></p>
+                                                    <p>Priority: <span className="text-left font-weight-normal">**Dynamic Content for priority type**</span></p>
+                                                </Card.Text>
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                    <Col>
+                                        <h6>Comments:</h6>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>                     
+                    <Card>
+                        <Accordion.Toggle as={Card.Header} eventKey="1" className="text-left font-weight-bold">
+                        Dynamic Message Title
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="1">
+                            <Card.Body>
+                                <Row>
+                                    <Col>
+                                        <Row>
+                                            <Col lg={4}>
+                                                <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
+                                            </Col>
+                                            <Col lg={8}>                    
+                                                <Card.Text className="text-left font-weight-bold">
+                                                    <p>Details: <span className="text-left font-weight-normal">**Dynamic Content for message details**</span></p>
+                                                    <p>Priority: <span className="text-left font-weight-normal">**Dynamic Content for priority type**</span></p>
+                                                </Card.Text>
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                    <Col>
+                                        <h6>Comments:</h6>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>     
+                </Accordion>
+           </div>
         );
     }
 }
 
-export default RecipeNavbar;
+export default MessagesAccordion;

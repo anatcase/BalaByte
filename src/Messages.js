@@ -5,12 +5,12 @@ import React from 'react';
 //import Button from 'react-bootstrap/Button'
 //import Container from 'react-bootstrap/Container'
 import MessagesNavbar from './components/MessagesNavbar'
+import MessagesAccordion from './components/MessagesAccordion'
+
 //import Modal from 'react-bootstrap/Modal'
 //import Form from 'react-bootstrap/Form'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
-//import MessagesAccordion from '/components/MessagesAccordion'
-
 
 
 // function Navigation() {
@@ -38,6 +38,11 @@ function Messages() {
   return (
     <div className="Messages">
       <MessagesNavbar />
+      <div className="text-right pr-3">
+        <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
+      </div>
+      <MessagesAccordion />
+
       {/* <Container>
           <div className="recipes-header">
               <h1>Messages</h1>
