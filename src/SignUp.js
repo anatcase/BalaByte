@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 function SignUp() {
   return (
     <div className="SignUp">
-      <h1>Create a Committee Member Account</h1>
+      <h1>Create a BalaByte Account</h1>
       <p>or <a href="#/login">or log in to your account</a></p>
       {/* <Alert variant="danger" show={props.state.invalidLogin}>
           Invalid email or password!
