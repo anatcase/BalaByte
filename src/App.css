@@ -33,3 +33,18 @@
   border:none;
 }
 
+.fa-info-circle {
+  color:blue;
+}
+
+.fa-exclamation-circle {
+  color:red;
+}
+
+.border-2 {
+  border-right: 2px solid black;
+}
+
+.avatar {
+  width:44px;
+}
