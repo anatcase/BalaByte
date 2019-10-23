@@ -48,3 +48,13 @@
 .avatar {
   width:44px;
 }
+
+.NavBar > .rounded {
+  border-radius: 6.25rem!important;
+}
+
+.NavBar input[type="text"] {
+  outline: none;
+  box-shadow:none !important;
+  
+  }

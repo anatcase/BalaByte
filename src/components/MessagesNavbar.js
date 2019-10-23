@@ -1,5 +1,9 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 
 class MessagesNavbar extends React.Component {
@@ -10,21 +14,16 @@ class MessagesNavbar extends React.Component {
     render() {
         //const { recipe } = this.props;
         return (
-            <Card className="recipe">
-                <Card.Body>
-                    <Card.Text>
-                     Message search
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-        //     <div className="container">
-        //         <ReactBootstrap.Navbar className="px-0">
-        //         <ReactBootstrap.Form.Control type="text" placeholder="Filter gallery based on actor's name" onChange={this.handleChange} />
-        //         </ReactBootstrap.Navbar>
-        //         <ReactBootstrap.Row className="justify-content-md-center">
-        //         {actorCards}
-        //         </ReactBootstrap.Row>
-        //   </div>
+            <Container fluid className="NavBar">
+                <Row className="border justify-content-center rounded">
+                    <Col className="col-auto px-0 d-flex align-items-center">
+                        <i className="fas fa-search"></i>
+                    </Col>
+                    <Col className="col-11 px-0">
+                        <Form.Control className="border-0" type="text" placeholder="Filter by text in title and details" onChange={this.handleChange} />
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }

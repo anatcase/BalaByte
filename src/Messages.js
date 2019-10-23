@@ -38,7 +38,7 @@ function Messages() {
   return (
     <Container fluid className="Messages p-4">
       <MessagesNavbar />
-      <div className="text-right pr-3">
+      <div className="text-right pr-3 pt-4">
         <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
       </div>
       <MessagesAccordion />
