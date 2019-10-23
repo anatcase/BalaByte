@@ -1,6 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
-import './Home.css';
+//import './Home.css';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Jumbotron from 'react-bootstrap/Jumbotron'

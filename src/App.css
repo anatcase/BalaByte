@@ -26,3 +26,9 @@
   max-width: 500px;
   margin: 50px auto;
 }
+
+/*Home feature cards style*/
+.card-deck .card, .card-deck .card-footer, .card-deck .card-header {
+  background-color: transparent;
+  border:none;
+}
