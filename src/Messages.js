@@ -3,7 +3,7 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-//import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container'
 import MessagesNavbar from './components/MessagesNavbar'
 import MessagesAccordion from './components/MessagesAccordion'
 
@@ -36,7 +36,7 @@ import MessagesAccordion from './components/MessagesAccordion'
 
 function Messages() {
   return (
-    <div className="Messages">
+    <Container fluid className="Messages p-4">
       <MessagesNavbar />
       <div className="text-right pr-3">
         <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
@@ -94,7 +94,7 @@ function Messages() {
               </Button>
           </Modal.Footer>
       </Modal> */}
-    </div>
+    </Container>
   );
 }
 

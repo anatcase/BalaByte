@@ -3,6 +3,8 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class MessagesAccordion extends React.Component {
     constructor(props) {
@@ -64,30 +66,35 @@ class MessagesAccordion extends React.Component {
                                     </Col>
                                     <Col>
                                         <h6>Comments:</h6>
-                                        <div className="Comment mt-4 my-2">
-                                            <Row className="mx-0">
-                                                <Col lg={1} className="p-0">
-                                                    <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
-                                                </Col>
-                                                <Col lg={11} className="pl-0">
-                                                    <h7 className="font-weight-bold">Dynamic Tenant Name:</h7>
-                                                    <p>Dynamic comment text</p>
-                                                </Col>
-                                            </Row>
-                                        </div>
-                                        <div className="Comment mt-4 my-2">
-                                            <Row className="mx-0">
-                                                <Col lg={1} className="p-0">
-                                                    <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
-                                                </Col>
-                                                <Col lg={11} className="pl-0">
-                                                    <h7 className="font-weight-bold">Dynamic Tenant Name 2:</h7>
-                                                    <p>Dynamic comment text 2</p>
-                                                </Col>
-                                            </Row>
-                                        </div>
+                                        <Row className="Comment mt-4 my-2 mx-0">                                            
+                                            <Col lg={1} className="p-0">
+                                                <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
+                                            </Col>
+                                            <Col lg={11} className="pl-0">
+                                                <h7 className="font-weight-bold">Dynamic Tenant Name:</h7>
+                                                <p>Dynamic comment text</p>
+                                            </Col>
+                                        </Row>
+                                        <Row className="Comment mt-4 my-2 mx-0">                                            
+                                            <Col lg={1} className="p-0">
+                                                <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
+                                            </Col>
+                                            <Col lg={11} className="pl-0">
+                                                <h7 className="font-weight-bold">Dynamic Tenant Name 2:</h7>
+                                                <p>Dynamic comment text 2</p>
+                                            </Col>
+                                        </Row>                                         
+                                        <Row>
+                                            <Col lg={8}>
+                                                <Form.Control as="textarea" rows="3" placeholder="Add comment"/>
+                                            </Col>
+                                            <Col lg={4} className="d-flex align-items-end">
+                                                <Button variant="outline-dark" className="mx-2 align-bottom">Update</Button>
+                                                <Button variant="danger" className="mx-2  align-bottom">Delete</Button>
+                                            </Col>
+                                        </Row>
                                     </Col>
-                                </Row>
+                                </Row>                             
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>     

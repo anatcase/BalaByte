@@ -17,6 +17,14 @@ class MessagesNavbar extends React.Component {
                     </Card.Text>
                 </Card.Body>
             </Card>
+        //     <div className="container">
+        //         <ReactBootstrap.Navbar className="px-0">
+        //         <ReactBootstrap.Form.Control type="text" placeholder="Filter gallery based on actor's name" onChange={this.handleChange} />
+        //         </ReactBootstrap.Navbar>
+        //         <ReactBootstrap.Row className="justify-content-md-center">
+        //         {actorCards}
+        //         </ReactBootstrap.Row>
+        //   </div>
         );
     }
 }
