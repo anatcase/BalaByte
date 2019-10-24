@@ -84,9 +84,25 @@ class MessagesAccordion extends React.Component {
                                                     <Col lg={10} className="pl-0">
                                                         <h7 className="font-weight-bold">Dynamic Tenant Name 2:</h7>
                                                         <p>Dynamic comment text 2</p>
+                                                        <div className="responses">
+                                                            Dynamic responses
+                                                            <Row className="Comment mt-4 my-2 mx-0">                                            
+                                                                <Col lg={2} className="p-0">
+                                                                    <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
+                                                                </Col>
+                                                                <Col lg={10} className="pl-0">
+                                                                    <h7 className="font-weight-bold">Dynamic responder Name 1 :</h7>
+                                                                    <p>Dynamic response text 1</p>
+                                                                    <a href="#">Reply</a>
+                                                                    <Form.Control as="textarea" rows="3" placeholder="Write your response" className="mt-1"/> 
+                                                                </Col>
+                                                            </Row>
+                                                        </div>
+                                                        <a href="#">Reply</a>
+                                                        <Form.Control as="textarea" rows="3" placeholder="Write your response" className="mt-1"/> 
                                                     </Col>
                                                 </Row>
-                                                <Form.Control as="textarea" rows="3" placeholder="Add comment"/>                   
+                                                <Form.Control as="textarea" rows="3" placeholder="Write a comment" className="mt-4"/>                   
                                             </Col>
                                             <Col lg={4} className="p-0 d-flex align-items-end justify-content-end">
                                                 <Button variant="outline-dark" className="mx-2 align-bottom">Update</Button>

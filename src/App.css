@@ -49,6 +49,10 @@
   width:44px;
 }
 
+.responses .avatar {
+  width:24px;
+}
+
 .NavBar .rounded {
   border-radius: 6.25rem!important;
 }
