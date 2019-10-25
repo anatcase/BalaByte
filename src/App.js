@@ -6,14 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import SignUp from './SignUp';
 //import Login from './Login';
 //import Messages from './Messages';
-import Tenants from './Tenants';
+//import Tenants from './Tenants';
+import Votings from './Votings';
 
 
 function App() {
   return (
     <div className="App">
        {/* <Home /> */}
-       <Tenants />
+       <Votings />
     </div>
   );
 }
