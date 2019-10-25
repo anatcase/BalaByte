@@ -37,7 +37,7 @@ class MessagesAccordion extends React.Component {
                                         </Row>
                                     </Col>
                                     <Col>
-                                    <h6>Comments:</h6>
+                                        <h6>Comments:</h6>
                                     </Col>
                                 </Row>
                             </Card.Body>

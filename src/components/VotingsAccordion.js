@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import PieChart from 'react-minimal-pie-chart';
+
 
 class VotingsAccordion extends React.Component {
     constructor(props) {
@@ -23,56 +25,44 @@ class VotingsAccordion extends React.Component {
                             <Card.Body>
                                 <Row>
                                     <Col>
-                                        <Row>
-                                            <Col lg={4}>
-                                                <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
-                                            </Col>
+                                        <Row>                                           
                                             <Col lg={8}>                    
                                                 <Card.Text>
-                                                    <p><h6 className="d-inline">Name: </h6>**Dynamic Voting Name**</p>
-                                                    <p><h6 className="d-inline">Email: </h6>**Dynamic Voting Email**</p>
-                                                    <p><h6 className="d-inline">Apt: </h6>**Dynamic Apt**</p>
+                                                    <Row>
+                                                        <p>
+                                                            <h6 className="d-inline">Details: </h6> *Dynamic Voting Details*
+                                                        </p>
+                                                    </Row>
+                                                    <Row>
+                                                        <Col>
+                                                            <p>
+                                                              <h6 className="d-inline">End Date: </h6> *Dynamic End Date*
+                                                            </p>
+                                                        </Col>
+                                                        <Col>
+                                                            <Button variant="outline-dark" className="mx-2 align-bottom">Update End Date</Button>
+                                                        </Col>
+                                                    </Row>
                                                 </Card.Text>
                                             </Col>
+                                            <Col lg={4}>
+                                                <h6 className="text-center mb-3">Voting Precentage</h6>
+                                                <PieChart
+                                                    data={[
+                                                        { title: 'One', value: 10, color: '#E38627' },
+                                                        { title: 'Two', value: 15, color: '#C13C37' },
+                                                        { title: 'Three', value: 20, color: '#6A2135' },
+                                                    ]}
+                                                    />;
+                                                {/* <canvas id="pieChart"></canvas> */}
+                                            </Col>
                                         </Row>
-                                    </Col>
-                                    <Col className="p-0 d-flex align-items-end justify-content-end">
-                                        <Button variant="outline-dark" className="mx-2 align-bottom">Update</Button>
-                                        <Button variant="danger" className="mx-2  align-bottom">Delete</Button>
-                                    </Col>
+                                    </Col>                                 
                                 </Row>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
-                    <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="1" className="font-weight-bold">
-                        Dynamic Voting Name2
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="1">
-                            <Card.Body>
-                                <Row>
-                                    <Col>
-                                        <Row>
-                                            <Col lg={4}>
-                                                <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
-                                            </Col>
-                                            <Col lg={8}>                    
-                                                <Card.Text>
-                                                    <p><h6 className="d-inline">Name: </h6>*Dynamic Voting Name2*</p>
-                                                    <p><h6 className="d-inline">Email: </h6>*Dynamic Voting Email2*</p>
-                                                    <p><h6 className="d-inline">Apt: </h6>*Dynamic Apt2*</p>
-                                                </Card.Text>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                    <Col className="p-0 d-flex align-items-end justify-content-end">
-                                        <Button variant="outline-dark" className="mx-2 align-bottom">Update</Button>
-                                        <Button variant="danger" className="mx-2  align-bottom">Delete</Button>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>                     
+                         
                 </Accordion>
            </div>
         );
