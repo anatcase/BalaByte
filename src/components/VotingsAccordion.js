@@ -23,37 +23,35 @@ class VotingsAccordion extends React.Component {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
-                                <Row>
-                                                                              
-                                            <Col lg={8}>                    
-                                                <Card.Text>
-                                                    <Row>
-                                                        <p>
-                                                            <h6 className="d-inline">Details: </h6> *Dynamic Voting Details*
-                                                        </p>
-                                                    </Row>
-                                                    <Row>
-                                                        <Col className="px-0">
-                                                            <p>
-                                                              <h6 className="d-inline">End Date: </h6> *Dynamic End Date*
-                                                            </p>
-                                                        </Col>
-                                                        <Col className="px-0">
-                                                            <Button variant="outline-dark" className="mx-2 align-bottom">Update End Date</Button>
-                                                        </Col>
-                                                    </Row>
-                                                </Card.Text>
-                                            </Col>
-                                            <Col lg={4}>
-                                                <h6 className="text-center mb-3">Voting Precentage</h6>
-                                                <PieChart
-                                                    data={[
-                                                        { title: 'Upvotes', value: 10, color: '#90ee90' },
-                                                        { title: 'Downvotes', value: 15, color: '#a2012c' },
-                                                    ]}
-                                                    />                                              
-                                            </Col>
-                                                                  
+                                <Row className="mx-0">
+                                    <Col lg={8} className="px-0">                    
+                                        <Card.Text className="d-flex flex-column h-100 justify-content-between">
+                                            <Row className="mx-0">
+                                                <p>
+                                                    <h6 className="d-inline">Details: </h6> *Dynamic Voting Details*
+                                                </p>
+                                            </Row>
+                                            <Row className="mx-0">
+                                                <Col className="px-0">
+                                                    <p>
+                                                        <h6 className="d-inline">End Date: </h6> *Dynamic End Date*
+                                                    </p>
+                                                </Col>
+                                                <Col className="px-0">
+                                                    <Button variant="outline-dark" className="mx-2 align-bottom">Update End Date</Button>
+                                                </Col>
+                                            </Row>
+                                        </Card.Text>
+                                    </Col>
+                                    <Col lg={4}>
+                                        <h6 className="text-center mb-3">Voting Precentage</h6>
+                                        <PieChart
+                                            data={[
+                                                { title: 'For', value: 10, color: '#90ee90' },
+                                                { title: 'Against', value: 15, color: '#a2012c' },
+                                            ]}
+                                            />                                              
+                                    </Col>
                                 </Row>
                             </Card.Body>
                         </Accordion.Collapse>

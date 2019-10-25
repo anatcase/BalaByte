@@ -45,7 +45,7 @@ function Messages() {
             </div>
             <MessagesAccordion />
         </Container>
-        <Modal show="true" size="lg">
+        {/* <Modal show="true" size="lg">
             <Modal.Header closeButton>
                 <Modal.Title>New Message</Modal.Title>
             </Modal.Header>
@@ -105,7 +105,7 @@ function Messages() {
                     Create
                 </Button>
             </Modal.Footer>
-        </Modal>
+        </Modal> */}
     </div>
   );
 }
