@@ -17,7 +17,7 @@ class VotingsAccordion extends React.Component {
                <Accordion>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
-                        Dynamic Voting Name
+                        Dynamic Voting Title
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
