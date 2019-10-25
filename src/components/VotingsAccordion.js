@@ -32,9 +32,9 @@ class VotingsAccordion extends React.Component {
                                                 </p>
                                             </Row>
                                             <Row className="mx-0">
-                                                <Col className="px-0">
-                                                    <p>
-                                                        <h6 className="d-inline">End Date: </h6> *Dynamic End Date*
+                                                <Col className="px-0 d-flex align-items-center">
+                                                    <p className="m-0">
+                                                        <h6 className="d-inline">End Date: </h6> *Date &amp; Hour*
                                                     </p>
                                                 </Col>
                                                 <Col className="px-0">
