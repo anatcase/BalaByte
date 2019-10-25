@@ -28,6 +28,7 @@
 }
 
 /*Home feature cards style*/
+
 .card-deck .card, .card-deck .card-footer, .card-deck .card-header {
   background-color: transparent;
   border:none;
@@ -86,7 +87,13 @@
 
   .accordion .card-header {
     cursor: pointer;
-    
+  }
+
+  .accordion .card {
+    border-bottom: 1px solid rgba(0,0,0,.125) !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: solid !important;
+    border-bottom-color: rgba(0, 0, 0, 0.125) !important;
   }
 
   

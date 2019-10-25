@@ -3,8 +3,8 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import MessagesNavbar from './components/MessagesNavbar'
-import MessagesAccordion from './components/MessagesAccordion'
+import TenantsNavbar from './components/TenantsNavbar'
+import TenantsAccordion from './components/TenantsAccordion'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 
 
@@ -23,7 +23,7 @@ import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap
 //           <Nav className="mr-auto">
 //             <Nav.Link href="#features">Dashboard</Nav.Link>
 //             <Nav.Link href="#pricing">Tenants</Nav.Link>
-//             <Nav.Link href="#pricing">Messages</Nav.Link>
+//             <Nav.Link href="#pricing">Tenants</Nav.Link>
 //             <Nav.Link href="#pricing">Issues</Nav.Link>
 //             <Nav.Link href="#pricing">Voting</Nav.Link>
 //           </Nav>
@@ -38,19 +38,19 @@ import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap
 function Tenants() {
   return (
       <div>
-        <Container fluid className="Messages p-4">
-            <MessagesNavbar />
+        <Container fluid className="Tenants p-4">
+            <TenantsNavbar />
             <div className="text-right pr-3 pt-4 pb-1">
-                <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
+                <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
             </div>
-            <MessagesAccordion />
+            <TenantsAccordion />
         </Container>
-        <Modal show="true" size="lg">
+        {/* <Modal show="true" size="lg">
             <Modal.Header closeButton>
                 <Modal.Title>New Tenant</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form className="messageModalFrm">
+                <Form className="tenantModalFrm">
                     <Form.Group as={Row} controlId="formNameTxt">
                         <Form.Label column sm={2}>
                             Name:
@@ -103,10 +103,9 @@ function Tenants() {
                     Create
                 </Button>
             </Modal.Footer>
-        </Modal>
+        </Modal> */}
     </div>
   );
 }
-
 
 export default Tenants;
