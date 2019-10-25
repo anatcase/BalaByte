@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import PieChart from 'react-minimal-pie-chart';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 class VotingsAccordion extends React.Component {
@@ -38,7 +40,11 @@ class VotingsAccordion extends React.Component {
                                                     </p>
                                                 </Col>
                                                 <Col className="px-0">
-                                                    <Button variant="outline-dark" className="mx-2 align-bottom">Update End Date</Button>
+                                                    <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
+                                                    timeFormat="HH:mm"
+                                                    timeIntervals={30}
+                                                    timeCaption="time"
+                                                    dateFormat="MMMM d, hh:mm"/>
                                                 </Col>
                                             </Row>
                                         </Card.Text>
