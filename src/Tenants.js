@@ -53,33 +53,31 @@ function Tenants() {
                 <Form className="messageModalFrm">
                     <Form.Group as={Row} controlId="formNameTxt">
                         <Form.Label column sm={2}>
-                            Title:
+                            Name:
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" placeholder="Message title" />
+                            <Form.Control type="text" placeholder="Enter tenant's name" />
                         </Col>
                     </Form.Group>
 
-                    <Form.Group as={Row} controlId="formDetailsTxt">
+                    <Form.Group as={Row} controlId="formEmailTxt">
                         <Form.Label column sm={2}>
-                            Details:
+                            Email:
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" placeholder="Message Details" />
+                            <Form.Control type="email" placeholder="Enter tenant's email" />
                         </Col>
                     </Form.Group>
 
-                    <Form.Group as={Row} controlId="formPrioritySelect">
+                    <Form.Group as={Row} controlId="formAptTxt">
                         <Form.Label column sm={2}>
-                            Priority:
+                            Appartment:
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control as="select" className="priority-select">
-                                <option value="info">Information</option>
-                                <option value="important">Important</option>
-                            </Form.Control>
+                            <Form.Control type="text" placeholder="Enter tenant's appartment" />
                         </Col>
                     </Form.Group>
+
 
                     <Form.Group as={Row} controlId="formImgControl" className="align-items-center">
                         <Form.Label column sm={2}>
