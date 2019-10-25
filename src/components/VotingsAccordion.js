@@ -24,8 +24,7 @@ class VotingsAccordion extends React.Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row>
-                                    <Col>
-                                        <Row>                                           
+                                                                              
                                             <Col lg={8}>                    
                                                 <Card.Text>
                                                     <Row>
@@ -34,12 +33,12 @@ class VotingsAccordion extends React.Component {
                                                         </p>
                                                     </Row>
                                                     <Row>
-                                                        <Col>
+                                                        <Col className="px-0">
                                                             <p>
                                                               <h6 className="d-inline">End Date: </h6> *Dynamic End Date*
                                                             </p>
                                                         </Col>
-                                                        <Col>
+                                                        <Col className="px-0">
                                                             <Button variant="outline-dark" className="mx-2 align-bottom">Update End Date</Button>
                                                         </Col>
                                                     </Row>
@@ -49,14 +48,12 @@ class VotingsAccordion extends React.Component {
                                                 <h6 className="text-center mb-3">Voting Precentage</h6>
                                                 <PieChart
                                                     data={[
-                                                        { title: 'One', value: 10, color: '#E38627' },
-                                                        { title: 'Two', value: 15, color: '#C13C37' },
-                                                        { title: 'Three', value: 20, color: '#6A2135' },
+                                                        { title: 'Upvotes', value: 10, color: '#90ee90' },
+                                                        { title: 'Downvotes', value: 15, color: '#a2012c' },
                                                     ]}
-                                                    />;                                               
+                                                    />                                              
                                             </Col>
-                                        </Row>
-                                    </Col>                                 
+                                                                  
                                 </Row>
                             </Card.Body>
                         </Accordion.Collapse>
