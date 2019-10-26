@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import PieChart from 'react-minimal-pie-chart';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Pagination from './Pagination';
 
 
 class VotingsAccordion extends React.Component {
@@ -64,6 +65,7 @@ class VotingsAccordion extends React.Component {
                     </Card>
                          
                 </Accordion>
+                <Pagination />
            </div>
         );
     }
