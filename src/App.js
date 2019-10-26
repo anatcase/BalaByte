@@ -7,26 +7,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Login from './Login';
 //import Messages from './Messages';
 //import Tenants from './Tenants';
-import Votings from './Votings';
+//import Votings from './Votings';
 import PaginationNav from './components/PaginationNav';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activePage: 15
     };
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
-
+  
   handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    this.setState({activePage: pageNumber});
+    debugger;
+    console.log('active page is' + pageNumber);
+    this.setState({activePage:pageNumber});
   }
 
   render() {
     return (
       <div className="App">
-         <PaginationNav />
+         <PaginationNav handlePageChange={this.handlePageChange}/>
       </div>
     );
   }

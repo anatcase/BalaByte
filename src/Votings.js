@@ -3,7 +3,7 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import VotingsNavbar from './components/VotingsNavbar'
+import VotingsNavbar from './components/VotingsNav'
 import VotingsAccordion from './components/VotingsAccordion'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 

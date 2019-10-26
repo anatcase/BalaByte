@@ -1,16 +1,30 @@
 import React from 'react'
 //import Pagination from 'react-bootstrap/Pagination'
-import Pagination from "react-js-pagination";
-require("bootstrap/less/bootstrap.less");
+import Pagination from 'react-js-pagination'
+import 'bootstrap/less/bootstrap.less';
 
-function PaginationNav() {
+function PaginationNav(props) {
+  
+  const handlePageChange = props.handlePageChange;
+  console.log(handlePageChange);
+  
   return (
-    <Pagination
-        activePage={this.state.activePage}
-        itemsCountPerPage={PER_PAGE}
-        totalItemsCount={TOTAL_COUNT}
-        onChange={this.handlePageChange}
-    />
+    <div className="PaginationNav">
+      {/* <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={PER_PAGE}
+          totalItemsCount={TOTAL_COUNT}
+          onChange={this.handlePageChange}
+      /> */}
+      
+      <Pagination
+          activePage={4}
+          itemsCountPerPage={10}
+          totalItemsCount={450}
+          pageRangeDisplayed={5}
+          onChange={handlePageChange}
+      />
+   </div>
   );
 }
 

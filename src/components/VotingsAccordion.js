@@ -3,12 +3,10 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import PieChart from 'react-minimal-pie-chart';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import PaginationBar from './PaginationNav';
+import PieChart from 'react-minimal-pie-chart'
+import DatePicker from "react-datepicker"
+import 'react-datepicker/dist/react-datepicker.css'
+import PaginationNav from 'PaginationNav'
 
 
 class VotingsAccordion extends React.Component {
