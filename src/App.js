@@ -14,21 +14,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePage: 15
+      activePage: 1,
+      totalItemsCount: 10
     };
     this.handlePageChange = this.handlePageChange.bind(this);
   }
   
-  handlePageChange(pageNumber) {
-    debugger;
-    console.log('active page is' + pageNumber);
+  handlePageChange(e) {
+    let pageNumber =  e.target.text;
+    console.log('active page is ' + pageNumber);
     this.setState({activePage:pageNumber});
   }
 
   render() {
+    console.log(this.state.activePage);
     return (
       <div className="App">
-         <PaginationNav handlePageChange={this.handlePageChange}/>
+         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage}/>
       </div>
     );
   }
