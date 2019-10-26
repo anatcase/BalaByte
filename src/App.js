@@ -8,15 +8,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Messages from './Messages';
 //import Tenants from './Tenants';
 import Votings from './Votings';
+import PaginationNav from './components/PaginationNav';
 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activePage: 15
+    };
+  }
 
-function App() {
-  return (
-    <div className="App">
-       {/* <Home /> */}
-       <Votings />
-    </div>
-  );
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+  }
+
+  render() {
+    return (
+      <div className="App">
+         <PaginationNav />
+      </div>
+    );
+  }
 }
 
 export default App;

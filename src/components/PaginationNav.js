@@ -1,7 +1,9 @@
 import React from 'react'
-import Pagination from 'react-bootstrap/Pagination'
+//import Pagination from 'react-bootstrap/Pagination'
+import Pagination from "react-js-pagination";
+require("bootstrap/less/bootstrap.less");
 
-function Navigation() {
+function PaginationNav() {
   return (
     <Pagination
         activePage={this.state.activePage}
@@ -44,4 +46,4 @@ function Navigation() {
 //     }
 //   }
 
-  export default PaginationBar;
+  export default PaginationNav;
