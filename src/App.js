@@ -15,7 +15,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       activePage: 1,
-      totalItemsCount: 10
+      totalItemsCount: 100 // This will come from the relevant page: messages\votings etc where the total number of records will be stored in the page's state
     };
     this.handlePageChange = this.handlePageChange.bind(this);
   }

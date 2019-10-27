@@ -26,6 +26,20 @@
   margin: 50px auto;
 }
 
+.PaginationNav {
+  max-width: 500px;
+  margin:20px auto;
+  overflow: hidden;
+}
+
+.hide {
+  display: none !important;
+}
+
+.pagination {
+  justify-content: center;
+}
+
 /*Home feature cards style*/
 
 .card-deck .card, .card-deck .card-footer, .card-deck .card-header {
