@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col'
 import PieChart from 'react-minimal-pie-chart'
 import DatePicker from "react-datepicker"
 import 'react-datepicker/dist/react-datepicker.css'
-import PaginationNav from 'PaginationNav'
 
 
 class VotingsAccordion extends React.Component {
@@ -61,9 +60,7 @@ class VotingsAccordion extends React.Component {
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
-                         
                 </Accordion>
-                <PaginationNav />
            </div>
         );
     }

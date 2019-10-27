@@ -5,16 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Home from './Home';
 //import SignUp from './SignUp';
 //import Login from './Login';
-import Messages from './pages/Messages';
+//import Messages from './pages/Messages';
 //import Tenants from './pages/Tenants';
-//import Votings from './pages/Votings';
+import Votings from './pages/Votings';
 
 class App extends React.Component {
 
   render() {
     return (
       <div className="App">
-         <Messages />
+         <Votings />
       </div>
     );
   }
