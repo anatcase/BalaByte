@@ -1,13 +1,13 @@
 import React from 'react'
 import Pagination from 'react-bootstrap/Pagination'
-import Container from 'react-bootstrap/Container';
+//import Container from 'react-bootstrap/Container';
 
 function PaginationNav(props) {
   const handlePageChange = props.handlePageChange;
   const activePage = props.activePage;
-  const totalItemsCount = props.totalItemsCount;
+  const totalItemsCount = props.totalItemsCount; // parseint?
   const itemsCountPerPage = 10;
-  let pages = totalItemsCount / itemsCountPerPage;
+  let pages = Math.ceil(totalItemsCount / itemsCountPerPage);
   let items = []; 
   for (let number = 1; number <= pages; number++) {
   items.push(

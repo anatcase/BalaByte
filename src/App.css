@@ -120,3 +120,10 @@
  .page-item.disabled .page-link {
   display: none;
  }
+
+ .TenantsAccordion .list-group-item {
+   padding: 0.25rem;
+   border:none;
+   background-color:transparent;
+   margin-bottom:0;
+ }

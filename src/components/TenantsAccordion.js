@@ -3,14 +3,11 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
+//import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 class TenantsAccordion extends React.Component {
-    constructor(props) {
-        super(props);
-    }    
-
+ 
     render() {
         return (
            <div className="TenantsAccordion">
@@ -29,9 +26,9 @@ class TenantsAccordion extends React.Component {
                                             </Col>
                                             <Col lg={8}>                    
                                                 <Card.Text>
-                                                    <p><h6 className="d-inline">Name: </h6>**Dynamic Tenant Name**</p>
-                                                    <p><h6 className="d-inline">Email: </h6>**Dynamic Tenant Email**</p>
-                                                    <p><h6 className="d-inline">Apt: </h6>**Dynamic Apt**</p>
+                                                    <li className="list-group-item"><span className="font-weight-bold">Name: </span>**Dynamic Tenant Name**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Email: </span>**Dynamic Tenant Email**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Apt: </span>**Dynamic Apt**</li>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
@@ -58,9 +55,9 @@ class TenantsAccordion extends React.Component {
                                             </Col>
                                             <Col lg={8}>                    
                                                 <Card.Text>
-                                                    <p><h6 className="d-inline">Name: </h6>*Dynamic Tenant Name2*</p>
-                                                    <p><h6 className="d-inline">Email: </h6>*Dynamic Tenant Email2*</p>
-                                                    <p><h6 className="d-inline">Apt: </h6>*Dynamic Apt2*</p>
+                                                    <li className="list-group-item"><span className="font-weight-bold">Name: </span>**Dynamic Tenant Name2**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Email: </span>**Dynamic Tenant Email2**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Apt: </span>**Dynamic Apt2**</li>
                                                 </Card.Text>
                                             </Col>
                                         </Row>

@@ -2,17 +2,14 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+// import Col from 'react-bootstrap/Col'
+// import DropdownButton from 'react-bootstrap/DropdownButton'
+// import Dropdown from 'react-bootstrap/Dropdown'
 
 
 
 class TenantsNavbar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { }
-    }
+  
     render() {
         //const { recipe } = this.props;
         return (
