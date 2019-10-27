@@ -85,13 +85,13 @@ class Votings extends React.Component {
                                         <div className="text-right pt-4 pb-2">
                                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Voting</a>
                                         </div>
-                                    <VotingsAccordion />
+                                    <VotingsAccordion votingStatus="active"/>
                                     <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                                 </Col>
                                 <Col>
                                     <h2>Voting Results</h2>
                                     <VotingsNavbar />
-                                    <VotingsAccordion />
+                                    <VotingsAccordion votingStatus="results"/>
                                     <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                                 </Col>
                             </Row>

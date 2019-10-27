@@ -27,15 +27,15 @@ class VotingsAccordion extends React.Component {
                                     <Col lg={8} className="px-0">                    
                                         <Card.Text className="d-flex flex-column h-100 justify-content-between">
                                             <Row className="mx-0">
-                                                <p>
-                                                    <h6 className="d-inline">Details: </h6> *Dynamic Voting Details*
-                                                </p>
+                                              
+                                                    <h6 className="mr-1">Details:</h6> <span>*Dynamic Voting Details*</span>
+                                               
                                             </Row>
                                             <Row className="mx-0">
                                                 <Col className="px-0 d-flex align-items-center">
-                                                    <p className="m-0">
-                                                        <h6 className="d-inline">End Date: </h6> *Date &amp; Hour*
-                                                    </p>
+                                                    
+                                                        <h6 className="mr-1">End Date:</h6> <span>*Date &amp; Hour*</span>
+                                                   
                                                 </Col>
                                                 <Col className="px-0">
                                                     <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
