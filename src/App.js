@@ -5,10 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Home from './Home';
 //import SignUp from './SignUp';
 //import Login from './Login';
-import Messages from './Messages';
+//import Messages from './Messages';
 //import Tenants from './Tenants';
 //import Votings from './Votings';
-//import PaginationNav from './components/PaginationNav';
+import PaginationNav from './components/PaginationNav';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,16 +22,18 @@ class App extends React.Component {
   
   handlePageChange(e) {
     let val = parseInt(e.target.innerHTML);
-    let pageNumber;
+    let pageNumber = this.state.activePage;
 
     if (isNaN(val)) {
       console.log('Not a number ' + val);
       val = e.target.innerText;
       if (val.includes("‹")) {
         console.log("Previous");
+        pageNumber--;
       }
       else if (val.includes("›")) {
         console.log("Next");
+        pageNumber++;
       }
       
     }
@@ -51,8 +53,8 @@ class App extends React.Component {
     console.log(this.state.activePage);
     return (
       <div className="App">
-         {/* <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage}/> */}
-         <Messages/>
+         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage}/>
+         {/* <Messages/> */}
       </div>
     );
   }
