@@ -43,7 +43,7 @@ class Tenants extends React.Component {
       super(props);
       this.state = {
         activePage: 1,
-        totalItemsCount: 5 // This will come from the relevant page: messages\votings etc, where the total number of records will be stored in the page's state.
+        totalItemsCount: 100 // This will come from the relevant page: messages\votings etc, where the total number of records will be stored in the page's state.
       }; //what happens when it's 50 records divided by 10 per page?
       this.handlePageChange = this.handlePageChange.bind(this);
     }
