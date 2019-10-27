@@ -84,7 +84,7 @@ class Tenants extends React.Component {
             <Container fluid className="Tenants p-4">
                 <TenantsNavbar />
                 <div className="text-right pt-4 pb-1">
-                    <a href="http://www.google.com" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
+                    <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
                 </div>
                 <TenantsAccordion />
                 <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>

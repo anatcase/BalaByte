@@ -5,7 +5,7 @@ import React from 'react';
 //import Button from 'react-bootstrap/Button'
 import VotingsNavbar from '../components/VotingsNav'
 import VotingsAccordion from '../components/VotingsAccordion'
-import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
+import { Container, Row, Col} from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 
 //import Modal from 'react-bootstrap/Modal'

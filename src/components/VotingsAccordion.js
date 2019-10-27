@@ -9,9 +9,9 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 
 class VotingsAccordion extends React.Component {
-    constructor(props) {
-        super(props);
-    }    
+    // constructor(props) {
+    //     super(props);
+    // }    
 
     render() {
         return (
@@ -24,8 +24,8 @@ class VotingsAccordion extends React.Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row className="mx-0">
-                                    <Col lg={8} className="px-0">                    
-                                        <Card.Text className="d-flex flex-column h-100 justify-content-between">
+                                    <Col lg={8} className="px-0 d-flex flex-column justify-content-between">                    
+                                        {/* <Card.Text className="d-flex flex-column h-100 justify-content-between"> */}
                                             <Row className="mx-0">
                                               
                                                     <h6 className="mr-1">Details:</h6> <span>*Dynamic Voting Details*</span>
@@ -45,7 +45,7 @@ class VotingsAccordion extends React.Component {
                                                     dateFormat="MMMM d, hh:mm"/>
                                                 </Col>
                                             </Row>
-                                        </Card.Text>
+                                        {/* </Card.Text> */}
                                     </Col>
                                     <Col lg={4}>
                                         <h6 className="text-center mb-3">Voting Precentage</h6>
