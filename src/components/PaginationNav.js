@@ -21,11 +21,9 @@ function PaginationNav(props) {
   }
   const paginationBasic = (
               <Pagination size="sm" onClick={handlePageChange}>
-                    <Pagination.First />
                     <Pagination.Prev /> 
                     {items}
                     <Pagination.Next />
-                    <Pagination.Last />
               </Pagination>
           );
   
