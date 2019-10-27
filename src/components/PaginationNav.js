@@ -4,11 +4,9 @@ import Pagination from 'react-bootstrap/Pagination'
 //import "bootstrap-less/bootstrap/bootstrap.less";
 
 function PaginationNav(props) {
-  //debugger;
-  console.log (props.activePage);
- 
   const handlePageChange = props.handlePageChange;
   const activePage = props.activePage; //this will be the value of the event.target eg the page number button clicked on the pagination comp
+  const totalItemsCount = props.totalItemsCount;
   let pages = 10; //This will be the result of dividing totalItemsCount in itemsCountPerPage
   //let activePage = 1;
   let items = []; 
@@ -21,9 +19,9 @@ function PaginationNav(props) {
   }
   const paginationBasic = (
               <Pagination size="sm" onClick={handlePageChange}>
-                    <Pagination.Prev /> 
+                    <Pagination.Prev disabled={activePage === 1 ? true : false}/> 
                     {items}
-                    <Pagination.Next />
+                    <Pagination.Next disabled={activePage === totalItemsCount ? true : false}/>
               </Pagination>
           );
   

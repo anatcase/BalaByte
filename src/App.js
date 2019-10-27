@@ -53,7 +53,7 @@ class App extends React.Component {
     console.log(this.state.activePage);
     return (
       <div className="App">
-         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage}/>
+         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
          {/* <Messages/> */}
       </div>
     );
