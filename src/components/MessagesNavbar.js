@@ -48,7 +48,7 @@ class MessagesNavbar extends React.Component {
                     <Col lg={2} className="px-0">
                         <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
                             <label class="form-check-label" for="inlineRadio1">Date</label>
                             </div>
                             <div class="form-check form-check-inline">
