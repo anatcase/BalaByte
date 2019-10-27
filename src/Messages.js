@@ -37,8 +37,8 @@ import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap
 
 function Messages() {
   return (
-      <div>
-        <Container fluid className="Messages p-4">
+      <div className="Messages">
+        <Container fluid className="p-4">
             <MessagesNavbar />
             <div className="text-right pr-3 pt-4 pb-1">
                 <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>

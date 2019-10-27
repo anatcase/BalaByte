@@ -1,6 +1,6 @@
 import React from 'react'
 import Pagination from 'react-bootstrap/Pagination'
-//import Pagination from 'react-js-pagination'
+import Container from 'react-bootstrap/Container';
 //import "bootstrap-less/bootstrap/bootstrap.less";
 
 function PaginationNav(props) {
@@ -26,9 +26,9 @@ function PaginationNav(props) {
           );
   
   return (
-    <div className="PaginationNav">
+    <Container fluid className="PaginationNav d-flex justify-content-center pt-3">
       {paginationBasic}    
-   </div>
+   </Container>
   );
 }
 
