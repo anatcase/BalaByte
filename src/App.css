@@ -128,6 +128,14 @@
    margin-bottom:0;
  }
 
+ .VotingsAccordion .card-body {
+  min-height: 250px !important;
+ }
+
+ .VotingsAccordion .chart {
+   max-width: 142px;
+ }
+
  .VotingsAccordion .card-body h6, .VotingsAccordion .card-text span {
    margin:0;
    line-height: 1.5;

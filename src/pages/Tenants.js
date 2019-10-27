@@ -78,9 +78,12 @@ class Tenants extends React.Component {
     }
   
     render() {
+
+        
       
       return (
         <div>
+            {votingAccordion}  
             <Container fluid className="Tenants p-4">
                 <TenantsNavbar />
                 <div className="text-right pt-4 pb-1">

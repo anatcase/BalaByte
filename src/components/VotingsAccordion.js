@@ -14,53 +14,79 @@ class VotingsAccordion extends React.Component {
     // }    
 
     render() {
-        return (
-           <div className="VotingsAccordion">
-               <Accordion>
+        const votingAccordion = (
+             // <Pagination size="sm" onClick={handlePageChange} className={pages === 1 ? 'hide' : null}>
+            //       <Pagination.Prev disabled={activePage === 1 ? true : false}/> 
+            //       {items}
+            //       <Pagination.Next disabled={activePage === pages ? true : false}/>
+            // </Pagination>
+            <Accordion>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
-                        Dynamic Voting Title
+                        <Row>
+                            <Col>Dynamic Voting Title</Col>
+                            <Col className="text-right">{this.props.votingStatus === "results"? 'Result: Dynamic record result': null}</Col>
+                        </Row>
+                        {/* {this.props.votingStatus === "results"? } */}
+
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row className="mx-0">
-                                    <Col lg={8} className="px-0 d-flex flex-column justify-content-between">                    
-                                        {/* <Card.Text className="d-flex flex-column h-100 justify-content-between"> */}
-                                            <Row className="mx-0">
-                                              
-                                                    <h6 className="mr-1">Details:</h6> <span>*Dynamic Voting Details*</span>
-                                               
-                                            </Row>
-                                            <Row className="mx-0">
-                                                <Col className="px-0 d-flex align-items-center">
-                                                    
-                                                        <h6 className="mr-1">End Date:</h6> <span>*Date &amp; Hour*</span>
-                                                   
-                                                </Col>
-                                                <Col className="px-0">
-                                                    <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
-                                                    timeFormat="HH:mm"
-                                                    timeIntervals={30}
-                                                    timeCaption="time"
-                                                    dateFormat="MMMM d, hh:mm"/>
-                                                </Col>
-                                            </Row>
-                                        {/* </Card.Text> */}
+                                    <Col lg={this.props.votingStatus === "results"? 5 : 8} className="px-0 d-flex flex-column justify-content-between">                    
+                                        <Row className="mx-0">
+                                                <h6 className="mr-1">Details:</h6> <span>*Dynamic Voting Details*</span>
+                                        </Row>
+                                        <Row className="mx-0">
+                                            <Col className="px-0 d-flex align-items-center">
+                                                <h6 className="mr-1">{this.props.votingStatus === "active"? 'End Date': 'Ended'}:</h6> <span>*Date &amp; Hour*</span>
+                                            </Col>
+                                            {this.props.votingStatus === "results"? null:
+                                            <Col className="px-0">
+                                                <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
+                                                timeFormat="HH:mm"
+                                                timeIntervals={30}
+                                                timeCaption="time"
+                                                dateFormat="MMMM d, hh:mm"/>
+                                            </Col>
+                                            }
+                                        </Row>
                                     </Col>
-                                    <Col lg={4}>
-                                        <h6 className="text-center mb-3">Voting Precentage</h6>
-                                        <PieChart
-                                            data={[
-                                                { title: 'For', value: 10, color: '#90ee90' },
-                                                { title: 'Against', value: 15, color: '#a2012c' },
-                                            ]}
-                                            />                                              
+                                    <Col lg={this.props.votingStatus === "results"? 7 : 4}>
+                                        <Row>
+
+                                        {this.props.votingStatus === "results"? 
+                                            <Col>
+                                                <h6 className="text-center mb-3">Results</h6>
+                                                <PieChart className="chart"
+                                                    data={[
+                                                        { title: 'For', value: 80, color: '#90ee90' },
+                                                        { title: 'Against', value: 20, color: '#a2012c' },
+                                                    ]}
+                                                    />
+                                            </Col>
+                                            :null}
+                                            <Col>
+                                                <h6 className="text-center mb-3">Voting Precentage</h6>
+                                                <PieChart className="chart"
+                                                    data={[
+                                                        { title: 'For', value: 10, color: '#90ee90' },
+                                                        { title: 'Against', value: 15, color: '#a2012c' },
+                                                    ]}
+                                                    />
+                                            </Col>    
+                                        </Row>                                           
                                     </Col>
                                 </Row>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
+        );
+
+        return (
+           <div className="VotingsAccordion">
+               {votingAccordion}
            </div>
         );
     }
