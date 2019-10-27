@@ -98,3 +98,7 @@
  .react-datepicker__input-container input {
    text-align: center;
  } 
+
+ .page-item.active .page-link {
+   cursor: pointer;
+ }

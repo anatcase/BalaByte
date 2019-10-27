@@ -21,9 +21,15 @@ class App extends React.Component {
   }
   
   handlePageChange(e) {
-    let pageNumber =  e.target.text;
+    var pageNumber =  parseInt(e.target.innerHTML);
+    if (isNaN(pageNumber)) {
+      console.log('Not a number' + pageNumber);
+    }
+      
     console.log('active page is ' + pageNumber);
-    this.setState({activePage:pageNumber});
+    this.state.activePage = pageNumber;
+    console.log(this.state.activePage);
+    this.setState(this.state);
   }
 
   render() {

@@ -4,7 +4,7 @@ import Pagination from 'react-bootstrap/Pagination'
 //import "bootstrap-less/bootstrap/bootstrap.less";
 
 function PaginationNav(props) {
-  debugger;
+  //debugger;
   console.log (props.activePage);
  
   const handlePageChange = props.handlePageChange;
@@ -14,7 +14,7 @@ function PaginationNav(props) {
   let items = []; 
   for (let number = 1; number <= pages; number++) {
   items.push(
-      <Pagination.Item key={number} active={number == activePage}>
+      <Pagination.Item key={number} active={number === activePage}>
           {number}
       </Pagination.Item>,
        );
