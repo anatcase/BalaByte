@@ -1,15 +1,13 @@
 import React from 'react'
 import Pagination from 'react-bootstrap/Pagination'
 import Container from 'react-bootstrap/Container';
-//import "bootstrap-less/bootstrap/bootstrap.less";
 
 function PaginationNav(props) {
   const handlePageChange = props.handlePageChange;
-  const activePage = props.activePage; //this will be the value of the event.target eg the page number button clicked on the pagination comp
+  const activePage = props.activePage;
   const totalItemsCount = props.totalItemsCount;
   const itemsCountPerPage = 10;
-  let pages = totalItemsCount / itemsCountPerPage; //This will be the result of dividing totalItemsCount in itemsCountPerPage
-  //let activePage = 1;
+  let pages = totalItemsCount / itemsCountPerPage;
   let items = []; 
   for (let number = 1; number <= pages; number++) {
   items.push(

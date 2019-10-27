@@ -5,56 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Home from './Home';
 //import SignUp from './SignUp';
 //import Login from './Login';
-//import Messages from './Messages';
+import Messages from './Messages';
 //import Tenants from './Tenants';
 //import Votings from './Votings';
-import PaginationNav from './components/PaginationNav';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activePage: 1,
-      totalItemsCount: 100 // This will come from the relevant page: messages\votings etc where the total number of records will be stored in the page's state
-    };
-    this.handlePageChange = this.handlePageChange.bind(this);
-  }
-  
-  handlePageChange(e) {
-    let val = parseInt(e.target.innerHTML);
-    let pageNumber = this.state.activePage;
-
-    if (isNaN(val)) {
-      console.log('Not a number ' + val);
-      val = e.target.innerText;
-      if (val.includes("‹")) {
-        console.log("Previous");
-        pageNumber--;
-      }
-      else if (val.includes("›")) {
-        console.log("Next");
-        pageNumber++;
-      }
-      
-    }
-    else {
-      console.log('number ' + val);
-      pageNumber =  val;
-    }
-    console.log('active page is ' + pageNumber);
-    //this.state.activePage = pageNumber;
-    console.log(this.state.activePage);
-    //this.setState(this.state);
-    this.setState({activePage:pageNumber});
-    console.log(this.state.activePage);
-  }
 
   render() {
-    console.log(this.state.activePage);
     return (
       <div className="App">
-         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
-         {/* <Messages/> */}
+         <Messages/>
       </div>
     );
   }
