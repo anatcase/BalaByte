@@ -3,8 +3,8 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import VotingsNavbar from './components/VotingsNav'
-import VotingsAccordion from './components/VotingsAccordion'
+import TenantsNavbar from '../components/TenantsNavbar'
+import TenantsAccordion from '../components/TenantsAccordion'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 
 
@@ -22,8 +22,8 @@ import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap
 //         <Navbar.Collapse id="responsive-navbar-nav">
 //           <Nav className="mr-auto">
 //             <Nav.Link href="#features">Dashboard</Nav.Link>
-//             <Nav.Link href="#pricing">Votings</Nav.Link>
-//             <Nav.Link href="#pricing">Votings</Nav.Link>
+//             <Nav.Link href="#pricing">Tenants</Nav.Link>
+//             <Nav.Link href="#pricing">Tenants</Nav.Link>
 //             <Nav.Link href="#pricing">Issues</Nav.Link>
 //             <Nav.Link href="#pricing">Voting</Nav.Link>
 //           </Nav>
@@ -35,37 +35,28 @@ import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap
 //   );
 // }
 
-function Votings() {
+function Tenants() {
   return (
       <div>
-        <Container fluid className="Votings p-4 vh-100">
-            <Row className="h-100">
-                <Col className="border-2">
-                        <h2>Active Votings</h2>
-                        <div className="text-right pt-4 pb-2">
-                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Voting</a>
-                        </div>
-                    <VotingsAccordion />
-                </Col>
-                <Col>
-                    <h2>Voting Results</h2>
-                    <VotingsNavbar />
-                    <VotingsAccordion />
-                </Col>
-            </Row>
+        <Container fluid className="Tenants p-4">
+            <TenantsNavbar />
+            <div className="text-right pt-4 pb-1">
+                <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
+            </div>
+            <TenantsAccordion />
         </Container>
         {/* <Modal show="true" size="lg">
             <Modal.Header closeButton>
-                <Modal.Title>New Voting</Modal.Title>
+                <Modal.Title>New Tenant</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form className="VotingModalFrm">
+                <Form className="tenantModalFrm">
                     <Form.Group as={Row} controlId="formNameTxt">
                         <Form.Label column sm={2}>
                             Name:
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" placeholder="Enter Voting's name" />
+                            <Form.Control type="text" placeholder="Enter tenant's name" />
                         </Col>
                     </Form.Group>
 
@@ -74,7 +65,7 @@ function Votings() {
                             Email:
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="email" placeholder="Enter Voting's email" />
+                            <Form.Control type="email" placeholder="Enter tenant's email" />
                         </Col>
                     </Form.Group>
 
@@ -83,7 +74,7 @@ function Votings() {
                             Appartment:
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" placeholder="Enter Voting's appartment" />
+                            <Form.Control type="text" placeholder="Enter tenant's appartment" />
                         </Col>
                     </Form.Group>
 
@@ -117,4 +108,4 @@ function Votings() {
   );
 }
 
-export default Votings;
+export default Tenants;
