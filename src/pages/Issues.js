@@ -78,7 +78,7 @@ class Issues extends React.Component {
     render() {
       
       return (
-                <div className="Messages">
+                <div className="Issues">
                     <Container fluid className="p-4">
                         <MessagesNavbar />
                         <div className="text-right pr-3 pt-4 pb-1">
@@ -87,7 +87,7 @@ class Issues extends React.Component {
                         <MessagesAccordion /> {/*Should this include the pagination comp?*/}
                         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                     </Container>
-                    <Modal show="true" size="lg">
+                    {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title>New Issue</Modal.Title>
                         </Modal.Header>
@@ -148,7 +148,7 @@ class Issues extends React.Component {
                                 Create
                             </Button>
                         </Modal.Footer>
-                    </Modal>
+                    </Modal> */}
             </div>
         );
 
