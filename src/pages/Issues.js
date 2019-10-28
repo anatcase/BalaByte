@@ -3,8 +3,8 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import MessagesNavbar from '../components/MessagesNavbar'
-import MessagesAccordion from '../components/MessagesAccordion'
+import IssuesNavbar from '../components/IssuesNavbar'
+import IssuesAccordion from '../components/IssuesAccordion'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 
@@ -24,7 +24,7 @@ import PaginationNav from '../components/PaginationNav';
 //           <Nav className="mr-auto">
 //             <Nav.Link href="#features">Dashboard</Nav.Link>
 //             <Nav.Link href="#pricing">Tenants</Nav.Link>
-//             <Nav.Link href="#pricing">Messages</Nav.Link>
+//             <Nav.Link href="#pricing">Issues</Nav.Link>
 //             <Nav.Link href="#pricing">Issues</Nav.Link>
 //             <Nav.Link href="#pricing">Voting</Nav.Link>
 //           </Nav>
@@ -41,7 +41,7 @@ class Issues extends React.Component {
       super(props);
       this.state = {
         activePage: 1,
-        totalItemsCount: 100 // This will come from the relevant page: messages\votings\issues etc, where the total number of records will be stored in the page's state.
+        totalItemsCount: 100 // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
       };
       this.handlePageChange = this.handlePageChange.bind(this);
     }
@@ -80,11 +80,11 @@ class Issues extends React.Component {
       return (
                 <div className="Issues">
                     <Container fluid className="p-4">
-                        <MessagesNavbar />
+                        <IssuesNavbar />
                         <div className="text-right pr-3 pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
-                        <MessagesAccordion /> {/*Should this include the pagination comp?*/}
+                        <IssuesAccordion /> {/*Should this include the pagination comp?*/}
                         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                     </Container>
                     {/* <Modal show="true" size="lg">

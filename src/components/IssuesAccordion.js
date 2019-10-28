@@ -32,6 +32,7 @@ class IssuesAccordion extends React.Component {
                                                 <Card.Text>
                                                     <p><h6 className="d-inline">Details:</h6> **Dynamic Content for Issue details**</p>
                                                     <p><h6 className="d-inline">Priority:</h6> **Dynamic Content for Issue details**</p>
+                                                    <p><h6 className="d-inline">Status:</h6> **Dynamic Status for Issue**</p>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
