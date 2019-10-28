@@ -17,14 +17,14 @@ function Navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Dashboard</Nav.Link>
-            <Nav.Link href="#pricing">Tenants</Nav.Link>
-            <Nav.Link href="#pricing">Messages</Nav.Link>
-            <Nav.Link href="#pricing">Issues</Nav.Link>
-            <Nav.Link href="#pricing">Voting</Nav.Link>
+            <Nav.Link href="#Dashboard">Dashboard</Nav.Link>
+            <Nav.Link href="#Tenants">Tenants</Nav.Link>
+            <Nav.Link href="#Messages">Messages</Nav.Link>
+            <Nav.Link href="#Issues">Issues</Nav.Link>
+            <Nav.Link href="#Voting">Voting</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Login</Nav.Link>
+            <Nav.Link href="#Login">Login</Nav.Link>
             <Nav.Link eventKey={2} href="#SignUp">
              Sign Up
             </Nav.Link>

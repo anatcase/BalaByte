@@ -7,7 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Login from './Login';
 //import Messages from './pages/Messages';
 //import Tenants from './pages/Tenants';
-import Votings from './pages/Votings';
+//import Votings from './pages/Votings';
+import Issues from './pages/Votings';
+
 
 class App extends React.Component {
 
