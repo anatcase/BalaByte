@@ -10,6 +10,8 @@ import PaginationNav from '../components/PaginationNav';
 import Image from 'react-bootstrap/Image'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
+import DatePicker from "react-datepicker"
+
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 
@@ -136,7 +138,11 @@ class Votings extends React.Component {
                                         End Date:
                                     </Form.Label>
                                     <Col sm={7}>
-                                      
+                                    <DatePicker placeholderText="" withPortal showTimeSelect
+                                        timeFormat="HH:mm"
+                                        timeIntervals={30}
+                                        timeCaption="time"
+                                        dateFormat="MMMM d, hh:mm"/>
                                     </Col>
                                     <Col sm={3}>
                                     </Col>
