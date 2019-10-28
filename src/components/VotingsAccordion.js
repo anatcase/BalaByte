@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PieChart from 'react-minimal-pie-chart'
-import Form from 'react-bootstrap/Form'
+import DatePicker from "react-datepicker"
 import 'react-datepicker/dist/react-datepicker.css'
 
 
@@ -41,14 +41,14 @@ class VotingsAccordion extends React.Component {
                                             <Col className="px-0 d-flex align-items-center">
                                                 <h6 className="mr-1">{this.props.votingStatus === "active"? 'End Date': 'Ended'}:</h6> <span>*Date &amp; Hour*</span>
                                             </Col>
-                                            {this.props.votingStatus === "results"? null :
-                                                <Col className="px-0">
-                                                    <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
-                                                    timeFormat="HH:mm"
-                                                    timeIntervals={30}
-                                                    timeCaption="time"
-                                                    dateFormat="MMMM d, hh:mm"/>
-                                                </Col>
+                                            {this.props.votingStatus === "results"? null:
+                                            <Col className="px-0">
+                                                <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
+                                                timeFormat="HH:mm"
+                                                timeIntervals={30}
+                                                timeCaption="time"
+                                                dateFormat="MMMM d, hh:mm"/>
+                                            </Col>
                                             }
                                         </Row>
                                     </Col>
