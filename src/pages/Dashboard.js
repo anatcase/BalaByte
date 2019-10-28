@@ -6,6 +6,7 @@ import React from 'react';
 import IssuesAccordion from '../components/IssuesAccordion'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
+import Badge from 'react-bootstrap/Badge';
 
 
 //import Modal from 'react-bootstrap/Modal'
@@ -78,13 +79,27 @@ class Dashboard extends React.Component {
       
       return (
                 <div className="Dashboard">
-                    <Container fluid className="p-4">
+                    <Container fluid className="Votings p-4 vh-100">
+                            <Row className="h-100">
+                                <Col className="border-2">
+                                        <h2 className="mb-4">New Reported Issues <Badge variant="light">9</Badge></h2> 
+                                    <IssuesAccordion votingStatus="active"/>
+                                    <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                </Col>
+                                <Col>
+                                    <h2 className="mb-4">Overdue Issues</h2>
+                                    <IssuesAccordion votingStatus="results"/>
+                                    <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                </Col>
+                            </Row>
+                        </Container>
+                    {/* <Container fluid className="p-4">
                         <div className="text-right pr-3 pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
-                        <IssuesAccordion /> {/*Should this include the pagination comp?*/}
+                        <IssuesAccordion /> 
                         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
-                    </Container>
+                    </Container> */}
                     {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title>New Issue</Modal.Title>
