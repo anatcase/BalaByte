@@ -99,7 +99,7 @@ class Votings extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-                        <Modal show size="lg">
+                        {/* <Modal show size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title>New Voting</Modal.Title>
                         </Modal.Header>
@@ -131,7 +131,6 @@ class Votings extends React.Component {
                                         <Form.Control required type="text" className="mb-2"/>
                                         <Form.Control required type="text" />
                                         <Button variant="link" className="pl-0">+ Add option</Button>
-                                        {/**Add onClick behaviour to add option button */}
                                     </Col>
                                 </Form.Group>
 
@@ -153,7 +152,7 @@ class Votings extends React.Component {
                                 Create
                             </Button>
                         </Modal.Footer>
-                    </Modal>
+                    </Modal> */}
                 </div>
                 );
     }
