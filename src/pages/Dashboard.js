@@ -106,11 +106,11 @@ class Dashboard extends React.Component {
                            
                             <Row className="h-50 pt-3 border-top">
                                 <Col>                    
-                                    <Row>
+                                    <Row className="h-50">
                                         <Col><h2>Active Voting Percentage</h2></Col>
                                     </Row>
 
-                                    <Row className="text-center h-100 d-flex align-items-center">
+                                    <Row className="text-center h-50">
                                         {this.props.activeVotings > 0 ?
                                         <>
                                             <Col>

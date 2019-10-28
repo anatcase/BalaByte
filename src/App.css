@@ -154,8 +154,9 @@
   font-weight: 500;
  }
 
- .Dashboard h2 {
+ .Dashboard h2 ,.Dashboard p {
   margin: 0;
+  height:50%;
  }
 
  .Dashboard h7 {
