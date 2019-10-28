@@ -4,9 +4,10 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import IssuesAccordion from '../components/IssuesAccordion'
-import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 import Badge from 'react-bootstrap/Badge';
+import PieChart from 'react-minimal-pie-chart'
 
 
 //import Modal from 'react-bootstrap/Modal'
@@ -79,18 +80,74 @@ class Dashboard extends React.Component {
       
       return (
                 <div className="Dashboard">
-                    <Container fluid className="Votings p-4 vh-100">
-                            <Row className="h-100">
+                    <Container fluid className="Dashboard p-4 vh-100">
+                            <Row className="h-50 pb-2">
                                 <Col className="border-2">
-                                        <h2 className="mb-4">New Reported Issues <Badge variant="light">9</Badge></h2> 
-                                    <IssuesAccordion votingStatus="active"/>
-                                    <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                        <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
+                                        {this.props.newIssues > 0 ? <>
+                                            <IssuesAccordion/> {/*Render issues registered since last login / 7 days only */}
+                                            <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                            </>
+                                            : 
+                                            <p className="noRecordsMsg">Nobody's bichin', bra. All good in da hood :)</p>
+                                        }
                                 </Col>
                                 <Col>
-                                    <h2 className="mb-4">Overdue Issues</h2>
-                                    <IssuesAccordion votingStatus="results"/>
+                                    <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
+                                    {this.props.overdueIssues > 0 ? <>
+                                    <IssuesAccordion/> {/*Render issues with expired end date */}
                                     <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                    </>
+                                    : 
+                                    <p className="noRecordsMsg">You're always on time, man. Amen!</p>
+                                    }
                                 </Col>
+                            </Row>
+                           
+                            <Row className="h-50 pt-3 border-top">
+                                <Col>                    
+                                    <Row>
+                                        <Col><h2>Active Voting Percentage</h2></Col>
+                                    </Row>
+
+                                    <Row className="text-center h-100 d-flex align-items-center">
+                                        {this.props.activeVotings > 0 ?
+                                        <>
+                                            <Col>
+                                                    <h7>Voting Title1</h7> 
+                                                    <p className="mb-1">Voting End Date</p>
+                                                    <PieChart className="chart"
+                                                        data={[
+                                                            { title: 'For', value: 80, color: '#90ee90' },
+                                                            { title: 'Against', value: 20, color: '#a2012c' },
+                                                    ]}/>
+                                            </Col>
+                                            <Col>
+                                            <h7>Voting Title1</h7> 
+                                                <p className="mb-1">Voting End Date</p>
+                                                <PieChart className="chart"
+                                                    data={[
+                                                        { title: 'For', value: 80, color: '#90ee90' },
+                                                        { title: 'Against', value: 20, color: '#a2012c' },
+                                                    ]}
+                                                    />
+                                            </Col>
+                                            <Col>
+                                            <h7>Voting Title1</h7> 
+                                                <p className="mb-1">Voting End Date</p>
+                                                <PieChart className="chart"
+                                                    data={[
+                                                        { title: 'For', value: 80, color: '#90ee90' },
+                                                        { title: 'Against', value: 20, color: '#a2012c' },
+                                                    ]}
+                                                    />
+                                            </Col>
+                                        </>
+                                        :
+                                        <Col><p className="noRecordsMsg">Ain't nobody voting in this house.</p></Col>
+                                       }
+                                </Row>
+                             </Col>
                             </Row>
                         </Container>
                     {/* <Container fluid className="p-4">

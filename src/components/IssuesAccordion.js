@@ -7,10 +7,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 class IssuesAccordion extends React.Component {
-    constructor(props) {
-        super(props);
-    }    
-
+  
     render() {
         return (
            <div className="IssuesAccordion">

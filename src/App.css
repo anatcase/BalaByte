@@ -59,6 +59,10 @@
   border-right: 2px solid rgba(0,0,0,.125);
 }
 
+.border-top {
+  border-top: 2px solid rgba(0,0,0,.125);
+}
+
 .avatar {
   width:44px;
 }
@@ -147,4 +151,23 @@
   border: 2px solid rgba(0,0,0,.125);
   font-size: 60%;
   border-radius: 50%;
+  font-weight: 500;
+ }
+
+ .Dashboard h2 {
+  margin: 0;
+ }
+
+ .Dashboard h7 {
+   font-weight: 500;
+ }
+
+ .Dashboard .chart {
+  max-width: 50%;
+  margin:auto;
+ }
+
+ .Dashboard .noRecordsMsg {
+   text-align: center;
+   font-weight: 500;
  }
