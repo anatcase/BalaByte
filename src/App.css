@@ -125,7 +125,7 @@
   display: none;
  }
 
- .TenantsAccordion .list-group-item , .VotingsAccordion .list-group-item, .IssuesAccordion .list-group-item, .MessagesAccordion .list-group-item {
+ .TenantsAccordion .list-group-item , .VotingsAccordion .list-group-item, .IssuesAccordion .list-group-item, .MessagesAccordion .list-group-item, .DashboardIssuesAccordion .list-group-item {
    padding: 0.25rem;
    border:none;
    background-color:transparent;
