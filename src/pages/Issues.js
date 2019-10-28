@@ -36,7 +36,7 @@ import PaginationNav from '../components/PaginationNav';
 //   );
 // }
 
-class Messages extends React.Component {
+class Issues extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -82,23 +82,23 @@ class Messages extends React.Component {
                     <Container fluid className="p-4">
                         <MessagesNavbar />
                         <div className="text-right pr-3 pt-4 pb-1">
-                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
+                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
                         <MessagesAccordion /> {/*Should this include the pagination comp?*/}
                         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                     </Container>
-                    {/* <Modal show="true" size="lg">
+                    <Modal show="true" size="lg">
                         <Modal.Header closeButton>
-                            <Modal.Title>New Message</Modal.Title>
+                            <Modal.Title>New Issue</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <Form className="messageModalFrm">
+                            <Form className="issueModalFrm">
                                 <Form.Group as={Row} controlId="formNameTxt">
                                     <Form.Label column sm={2}>
                                         Title:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" placeholder="Message title" />
+                                        <Form.Control required type="text" placeholder="Issue title" />
                                     </Col>
                                 </Form.Group>
 
@@ -107,7 +107,7 @@ class Messages extends React.Component {
                                         Details:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" placeholder="Message Details" />
+                                        <Form.Control type="text" placeholder="Issue Details" />
                                     </Col>
                                 </Form.Group>
 
@@ -147,7 +147,7 @@ class Messages extends React.Component {
                                 Create
                             </Button>
                         </Modal.Footer>
-                    </Modal> */}
+                    </Modal>
             </div>
         );
 
@@ -155,4 +155,4 @@ class Messages extends React.Component {
   }   
 
 
-export default Messages;
+export default Issues;

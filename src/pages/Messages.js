@@ -107,7 +107,7 @@ class Messages extends React.Component {
                                         Details:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" placeholder="Message Details" />
+                                        <Form.Control as="textarea" rows="3" />
                                     </Col>
                                 </Form.Group>
 
