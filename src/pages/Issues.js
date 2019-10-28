@@ -98,7 +98,7 @@ class Issues extends React.Component {
                                         Title:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control required type="text" placeholder="Issue title" />
+                                        <Form.Control required type="text" />
                                     </Col>
                                 </Form.Group>
 
@@ -107,7 +107,7 @@ class Issues extends React.Component {
                                         Details:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" placeholder="Issue Details" />
+                                        <Form.Control required as="textarea" rows="3" />
                                     </Col>
                                 </Form.Group>
 
@@ -116,9 +116,10 @@ class Issues extends React.Component {
                                         Priority:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control as="select" className="priority-select">
-                                            <option value="info">Information</option>
+                                        <Form.Control required as="select" className="priority-select">
+                                            <option value="urgent">Urgent</option>
                                             <option value="important">Important</option>
+                                            <option value="normal">Normal</option>
                                         </Form.Control>
                                     </Col>
                                 </Form.Group>
