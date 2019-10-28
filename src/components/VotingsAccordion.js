@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PieChart from 'react-minimal-pie-chart'
-import DatePicker from "react-datepicker"
+import Form from 'react-bootstrap/Form'
 import 'react-datepicker/dist/react-datepicker.css'
 
 
@@ -43,12 +43,15 @@ class VotingsAccordion extends React.Component {
                                             </Col>
                                             {this.props.votingStatus === "results"? null:
                                             <Col className="px-0">
-                                                <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
-                                                timeFormat="HH:mm"
-                                                timeIntervals={30}
-                                                timeCaption="time"
-                                                dateFormat="MMMM d, hh:mm"/>
+                                                <Form.Control required type="datetime-local" className="w-50" />     
                                             </Col>
+                                            // <Col className="px-0">
+                                            //     <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
+                                            //     timeFormat="HH:mm"
+                                            //     timeIntervals={30}
+                                            //     timeCaption="time"
+                                            //     dateFormat="MMMM d, hh:mm"/>
+                                            // </Col>
                                             }
                                         </Row>
                                     </Col>

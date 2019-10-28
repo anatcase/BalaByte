@@ -7,10 +7,11 @@ import VotingsNavbar from '../components/VotingsNav'
 import VotingsAccordion from '../components/VotingsAccordion'
 import { Container, Row, Col} from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
-import Image from 'react-bootstrap/Image'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
-import DatePicker from "react-datepicker"
+import InputGroup from 'react-bootstrap/InputGroup'
+import FormControl from 'react-bootstrap/FormControl'
+
 
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
@@ -42,7 +43,7 @@ class Votings extends React.Component {
       super(props);
       this.state = {
         activePage: 1,
-        totalItemsCount: 14 // This will come from the relevant page: messages\votings etc, where the total number of records will be stored in the page's state.
+        totalItemsCount: 14 // This will come from the relevant page: Votings\votings etc, where the total number of records will be stored in the page's state.
       };
       this.handlePageChange = this.handlePageChange.bind(this);
     }
@@ -98,53 +99,48 @@ class Votings extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-                        <Modal show="true" size="lg">
+                        <Modal show size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title>New Voting</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <Form className="messageModalFrm">
+                            <Form className="VotingModalFrm">
                                 <Form.Group as={Row} controlId="formNameTxt">
-                                    <Form.Label column sm={2}>
+                                    <Form.Label column lg={2}>
                                         Title:
                                     </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control type="text" placeholder="Message title" />
+                                    <Col lg={10}>
+                                        <Form.Control required type="text" placeholder="Voting title" />
                                     </Col>
                                 </Form.Group>
 
                                 <Form.Group as={Row} controlId="formDetailsTxt">
-                                    <Form.Label column sm={2}>
+                                    <Form.Label column lg={2}>
                                         Details:
                                     </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control type="text" placeholder="Message Details" />
+                                    <Col lg={10}>
+                                        <Form.Control required type="text" placeholder="Voting Details" />
                                     </Col>
                                 </Form.Group>
 
                                 <Form.Group as={Row} controlId="formPrioritySelect">
-                                    <Form.Label column sm={2}>
+                                    <Form.Label column lg={2}>
                                         Options:
                                     </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control type="text" />
-                                        <Form.Control type="text" />
-                                        <Button variant="link">+ Add option</Button>
+                                    <Col lg={10}>
+                                        <Form.Control required type="text" className="mb-2"/>
+                                        <Form.Control required type="text" />
+                                        <Button variant="link" className="pl-0">+ Add option</Button>
+                                        {/**Add onClick behaviour to add option button */}
                                     </Col>
                                 </Form.Group>
 
                                 <Form.Group as={Row} controlId="formImgControl" className="align-items-center">
-                                    <Form.Label column sm={2}>
+                                    <Form.Label column lg={2}>
                                         End Date:
                                     </Form.Label>
-                                    <Col sm={7}>
-                                    <DatePicker placeholderText="" withPortal showTimeSelect
-                                        timeFormat="HH:mm"
-                                        timeIntervals={30}
-                                        timeCaption="time"
-                                        dateFormat="MMMM d, hh:mm"/>
-                                    </Col>
-                                    <Col sm={3}>
+                                    <Col lg={5}>
+                                        <Form.Control required type="datetime-local" className="w-50" />     
                                     </Col>
                                 </Form.Group>
                             </Form>
