@@ -2,14 +2,14 @@ import React from 'react';
 //import Nav from 'react-bootstrap/Nav'
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
-//import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button'
 import VotingsNavbar from '../components/VotingsNav'
 import VotingsAccordion from '../components/VotingsAccordion'
 import { Container, Row, Col} from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
-
-//import Modal from 'react-bootstrap/Modal'
-//import Form from 'react-bootstrap/Form'
+import Image from 'react-bootstrap/Image'
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 
@@ -96,66 +96,63 @@ class Votings extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-                        {/* <Modal show="true" size="lg">
-                            <Modal.Header closeButton>
-                                <Modal.Title>New Voting</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <Form className="VotingModalFrm">
-                                    <Form.Group as={Row} controlId="formNameTxt">
-                                        <Form.Label column sm={2}>
-                                            Name:
-                                        </Form.Label>
-                                        <Col sm={10}>
-                                            <Form.Control type="text" placeholder="Enter Voting's name" />
-                                        </Col>
-                                    </Form.Group>
+                        <Modal show="true" size="lg">
+                        <Modal.Header closeButton>
+                            <Modal.Title>New Voting</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form className="messageModalFrm">
+                                <Form.Group as={Row} controlId="formNameTxt">
+                                    <Form.Label column sm={2}>
+                                        Title:
+                                    </Form.Label>
+                                    <Col sm={10}>
+                                        <Form.Control type="text" placeholder="Message title" />
+                                    </Col>
+                                </Form.Group>
 
-                                    <Form.Group as={Row} controlId="formEmailTxt">
-                                        <Form.Label column sm={2}>
-                                            Email:
-                                        </Form.Label>
-                                        <Col sm={10}>
-                                            <Form.Control type="email" placeholder="Enter Voting's email" />
-                                        </Col>
-                                    </Form.Group>
+                                <Form.Group as={Row} controlId="formDetailsTxt">
+                                    <Form.Label column sm={2}>
+                                        Details:
+                                    </Form.Label>
+                                    <Col sm={10}>
+                                        <Form.Control type="text" placeholder="Message Details" />
+                                    </Col>
+                                </Form.Group>
 
-                                    <Form.Group as={Row} controlId="formAptTxt">
-                                        <Form.Label column sm={2}>
-                                            Appartment:
-                                        </Form.Label>
-                                        <Col sm={10}>
-                                            <Form.Control type="text" placeholder="Enter Voting's appartment" />
-                                        </Col>
-                                    </Form.Group>
+                                <Form.Group as={Row} controlId="formPrioritySelect">
+                                    <Form.Label column sm={2}>
+                                        Options:
+                                    </Form.Label>
+                                    <Col sm={10}>
+                                        <Form.Control type="text" />
+                                        <Form.Control type="text" />
+                                        <Button variant="link">+ Add option</Button>
+                                    </Col>
+                                </Form.Group>
 
-
-                                    <Form.Group as={Row} controlId="formImgControl" className="align-items-center">
-                                        <Form.Label column sm={2}>
-                                            Image URL:
-                                        </Form.Label>
-                                        <Col sm={7}>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile" />
-                                                <label class="custom-file-label" for="customFile">Choose image</label>
-                                            </div>
-                                        </Col>
-                                        <Col sm={3}>
-                                            <Image src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" fluid/>
-                                        </Col>
-                                    </Form.Group>
-                                </Form>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary">
-                                    Close
-                                </Button>
-                                <Button variant="primary">
-                                    Create
-                                </Button>
-                            </Modal.Footer>
-                        </Modal> */}
-                    </div>
+                                <Form.Group as={Row} controlId="formImgControl" className="align-items-center">
+                                    <Form.Label column sm={2}>
+                                        End Date:
+                                    </Form.Label>
+                                    <Col sm={7}>
+                                      
+                                    </Col>
+                                    <Col sm={3}>
+                                    </Col>
+                                </Form.Group>
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary">
+                                Close
+                            </Button>
+                            <Button variant="primary">
+                                Create
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </div>
                 );
     }
 }
