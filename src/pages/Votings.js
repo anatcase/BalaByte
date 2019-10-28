@@ -80,8 +80,8 @@ class Votings extends React.Component {
     render() {
       
             return (
-                    <div>
-                        <Container fluid className="Votings p-4 vh-100">
+                    <div className="Votings h-100">
+                        <Container fluid className="p-4 h-100">
                             <Row className="h-100">
                                 <Col className="border-2">
                                         <h2>Active Votings</h2>

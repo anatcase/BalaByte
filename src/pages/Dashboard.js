@@ -79,18 +79,18 @@ class Dashboard extends React.Component {
     render() {
       
       return (
-                <div className="Dashboard">
-                    <Container fluid className="Dashboard p-4 vh-100">
-                            <Row className="h-50 pb-2">
+                <div className="Dashboard h-100">
+                    <Container fluid className="p-4 h-100">
+                            <Row className="pb-2">
                                 <Col className="border-2">
                                         <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
-                                        {this.props.newIssues > 0 ? <>
+                                        {/* {this.props.newIssues > 0 ? <> */}
                                             <IssuesAccordion/> {/*Render issues registered since last login / 7 days only */}
                                             <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
-                                            </>
+                                            {/* </>
                                             : 
                                             <p className="noRecordsMsg">Nobody's bichin', bra. All good in da hood :)</p>
-                                        }
+                                        } */}
                                 </Col>
                                 <Col>
                                     <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
@@ -104,17 +104,17 @@ class Dashboard extends React.Component {
                                 </Col>
                             </Row>
                            
-                            <Row className="h-50 pt-3 border-top">
+                            <Row className="pt-3 border-top">
                                 <Col>                    
-                                    <Row className="h-50">
+                                    <Row>
                                         <Col><h2>Active Voting Percentage</h2></Col>
                                     </Row>
 
-                                    <Row className="text-center h-50">
+                                    <Row className="text-center h-100 d-flex align-items-center">
                                         {this.props.activeVotings > 0 ?
                                         <>
                                             <Col>
-                                                    <h7>Voting Title1</h7> 
+                                                    <h6>Voting Title1</h6> 
                                                     <p className="mb-1">Voting End Date</p>
                                                     <PieChart className="chart"
                                                         data={[
@@ -123,7 +123,7 @@ class Dashboard extends React.Component {
                                                     ]}/>
                                             </Col>
                                             <Col>
-                                            <h7>Voting Title1</h7> 
+                                            <h6>Voting Title1</h6> 
                                                 <p className="mb-1">Voting End Date</p>
                                                 <PieChart className="chart"
                                                     data={[
@@ -133,7 +133,7 @@ class Dashboard extends React.Component {
                                                     />
                                             </Col>
                                             <Col>
-                                            <h7>Voting Title1</h7> 
+                                            <h6>Voting Title1</h6> 
                                                 <p className="mb-1">Voting End Date</p>
                                                 <PieChart className="chart"
                                                     data={[

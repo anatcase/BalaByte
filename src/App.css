@@ -1,12 +1,12 @@
-/* .App {
-  text-align: center;
-} */
+.App {
+  height: 100%;
+}
 
 .App-logo {
   height: 40vmin;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,7 +15,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #09d3ac;
@@ -125,7 +125,7 @@
   display: none;
  }
 
- .TenantsAccordion .list-group-item {
+ .TenantsAccordion .list-group-item , .VotingsAccordion .list-group-item, .IssuesAccordion .list-group-item, .MessagesAccordion .list-group-item {
    padding: 0.25rem;
    border:none;
    background-color:transparent;
@@ -154,17 +154,16 @@
   font-weight: 500;
  }
 
- .Dashboard h2 ,.Dashboard p {
-  margin: 0;
-  height:50%;
+ .Dashboard h2  {
+  margin-bottom: 1.5rem;
  }
 
- .Dashboard h7 {
+ .Dashboard p {
    font-weight: 500;
  }
 
  .Dashboard .chart {
-  max-width: 50%;
+  max-width: 44%;
   margin:auto;
  }
 
