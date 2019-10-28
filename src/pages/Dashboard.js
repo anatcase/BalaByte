@@ -3,7 +3,7 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import IssuesAccordion from '../components/IssuesAccordion'
+import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion'
 import { Container, Row, Col } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 import Badge from 'react-bootstrap/Badge';
@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
                                 <Col className="border-2">
                                         <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
                                         {/* {this.props.newIssues > 0 ? <> */}
-                                            <IssuesAccordion/> {/*Render issues registered since last login / 7 days only */}
+                                            <DashboardIssuesAccordion/> {/*Render issues registered since last login / 7 days only */}
                                             <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                                             {/* </>
                                             : 
@@ -95,7 +95,7 @@ class Dashboard extends React.Component {
                                 <Col>
                                     <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
                                     {this.props.overdueIssues > 0 ? <>
-                                    <IssuesAccordion/> {/*Render issues with expired end date */}
+                                    <DashboardIssuesAccordion/> {/*Render issues with expired end date */}
                                     <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                                     </>
                                     : 
@@ -154,7 +154,7 @@ class Dashboard extends React.Component {
                         <div className="text-right pr-3 pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
-                        <IssuesAccordion /> 
+                        <DashboardIssuesAccordion /> 
                         <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
                     </Container> */}
                     {/* <Modal show="true" size="lg">
