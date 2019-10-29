@@ -8,6 +8,12 @@ import Button from 'react-bootstrap/Button'
 import PaginationNav from '../components/PaginationNav';
 import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion';
 import DashboardResolvedIssuesAccordion from '../components/DashboardResolvedIssuesAccordion';
+import TenantsAccordion from '../components/TenantsAccordion';
+import MessagesAccordion from '../components/MessagesAccordion';
+import DashboardNewMessagesAccordion from '../components/DashboardNewMessagesAccordion';
+import VotingsAccordion from '../components/VotingsAccordion';
+import PendingVotingsAccordion from '../components/PendingVotingsAccordion';
+
 
 class Records extends React.Component {
     
@@ -26,7 +32,7 @@ class Records extends React.Component {
                                 case 'tenants':
                                 return <TenantsAccordion />;
                                 case 'messasges':
-                                return <MessasgesAccordion />;
+                                return <MessagesAccordion />;
                                 case 'new messasges':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':
@@ -34,7 +40,7 @@ class Records extends React.Component {
                                 case 'pending votings':
                                 return <PendingVotingsAccordion />;
                                 case 'voting results':
-                                return <VotingResultsAccordion />;
+                                return <VotingsAccordion />;
                                 default:
                                 return null;
                             }
