@@ -28,8 +28,6 @@ class DashboardIssuesAccordion extends React.Component {
                                                 <Col lg={8}>                    
                                                     <Card.Text>
                                                         <li className="list-group-item"><span className="font-weight-bold">Details: </span>***Dynamic Content for Issue details**</li>
-                                                        <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for Issue details**</li>
-                                                        <li className="list-group-item"><span  className="font-weight-bold">Status: </span>**Dynamic Status for Issue**</li>
                                                     </Card.Text>
                                                 </Col>
                                             </Row>

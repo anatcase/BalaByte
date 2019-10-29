@@ -1,5 +1,6 @@
 import React from 'react'
 import PaginationNav from '../components/PaginationNav';
+import IssuesAccordion from '../components/DashboardIssuesAccordion';
 import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion';
 import TenantsAccordion from '../components/TenantsAccordion';
 import MessagesAccordion from '../components/MessagesAccordion';
@@ -16,6 +17,8 @@ class Records extends React.Component {
                         {
                             (() => {
                             switch(this.props.recordType) {
+                                case 'issues':
+                                return <IssuesAccordion />;
                                 case 'new issues':
                                 return <DashboardIssuesAccordion />;
                                 case 'overdue issues':
