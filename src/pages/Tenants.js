@@ -92,6 +92,9 @@ class Tenants extends React.Component {
                 <TenantsAccordion />
                 <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
             </Container>
+
+            {/* All tenants will have a default password of 1-6 */}
+            
             {/* <Modal show="true" size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>New Tenant</Modal.Title>
