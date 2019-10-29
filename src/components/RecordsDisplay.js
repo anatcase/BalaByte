@@ -61,7 +61,8 @@ class RecordsDisplay extends React.Component {
             this.props.hasRecords? 
                 <div className="recordsDisplay">
                     <Records/>
-                    <PaginationNav />
+                    <PaginationNav /> 
+                    {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}
                 </div>
             : <NoRecords recordType={this.props.recordType}/>

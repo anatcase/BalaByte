@@ -6,6 +6,7 @@ import React from 'react';
 //import DashboardIssuesAccordion from '../components/RecordsDisplay'
 import { Container, Row, Col } from 'react-bootstrap'
 import RecordsDisplay from '../components/RecordsDisplay';
+import ChartsDisplay from '../components/ChartsDisplay';
 import Badge from 'react-bootstrap/Badge';
 import PieChart from 'react-minimal-pie-chart'
 
@@ -20,66 +21,24 @@ class CommitteeDashboard extends React.Component {
                             <Row className="pb-2">
                                 <Col className="border-2">
                                     <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
-                                    <RecordsDisplay hasRecords={true} recordType="new issues" handlePageChange={this.handlePageChange}/>
+                                    {/* Who manages the hasRecords state? */}
+                                    <RecordsDisplay hasRecords={true} recordType="new issues" /> 
                                 </Col>
                                 <Col>
                                     <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
+                                     {/* Who manages the hasRecords state? */}
+                                    <RecordsDisplay hasRecords={false} recordType="overdue issues" />
                                 </Col>
                             </Row>
                            
                             <Row className="pt-3 border-top">
                                 <Col>                    
-                                    <Row>
-                                        <Col><h2>Active Voting Percentage</h2></Col>
-                                    </Row>
-
-                                    <Row className="text-center h-100 d-flex align-items-center">
-                                        {this.props.activeVotings > 0 ?
-                                        <>
-                                            <Col>
-                                                    <h6>Voting Title1</h6> 
-                                                    <p className="mb-1">Voting End Date</p>
-                                                    <PieChart className="chart"
-                                                        data={[
-                                                            { title: 'For', value: 80, color: '#90ee90' },
-                                                            { title: 'Against', value: 20, color: '#a2012c' },
-                                                    ]}/>
-                                            </Col>
-                                            <Col>
-                                            <h6>Voting Title1</h6> 
-                                                <p className="mb-1">Voting End Date</p>
-                                                <PieChart className="chart"
-                                                    data={[
-                                                        { title: 'For', value: 80, color: '#90ee90' },
-                                                        { title: 'Against', value: 20, color: '#a2012c' },
-                                                    ]}
-                                                    />
-                                            </Col>
-                                            <Col>
-                                            <h6>Voting Title1</h6> 
-                                                <p className="mb-1">Voting End Date</p>
-                                                <PieChart className="chart"
-                                                    data={[
-                                                        { title: 'For', value: 80, color: '#90ee90' },
-                                                        { title: 'Against', value: 20, color: '#a2012c' },
-                                                    ]}
-                                                    />
-                                            </Col>
-                                        </>
-                                        :
-                                        <Col><p className="noRecordsMsg">Ain't nobody voting in this house.</p></Col>
-                                       }
-                                </Row>
+                                    <h2>Active Voting Percentage</h2>
+                                    {/* Who manages the hasRecords state? */}
+                                    <ChartsDisplay hasRecords={true} recordType="active votings" />
                              </Col>
                             </Row>
                         </Container>
-                    {/* <Container fluid className="p-4">
-                        <div className="text-right pr-3 pt-4 pb-1">
-                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
-                        </div>
-                        <DashboardIssuesAccordion /> 
-                        <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
-                    </Container> */}
                     {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title>New Issue</Modal.Title>

@@ -167,7 +167,7 @@
   margin:auto;
  }
 
- .Dashboard .noRecordsMsg {
+.noRecordsMsg {
    text-align: center;
    font-weight: 500;
  }
