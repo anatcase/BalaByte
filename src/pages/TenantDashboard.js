@@ -20,14 +20,14 @@ class TenantDashboard extends React.Component {
                     <Container fluid className="p-4 h-100">
                             <Row className="pb-2">
                                 <Col className="border-2">
-                                    <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
+                                    <h2>New Messages <Badge variant="light">0</Badge></h2> 
                                     {/* Who manages the hasRecords state? */}
-                                    <RecordsDisplay hasRecords={true} recordType="new issues" /> 
+                                    <RecordsDisplay hasRecords={true} recordType="new messages" /> 
                                 </Col>
                                 <Col>
-                                    <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
+                                    <h2>Pending Votings <Badge variant="light">9</Badge></h2>
                                      {/* Who manages the hasRecords state? */}
-                                    <RecordsDisplay hasRecords={true} recordType="overdue issues" />
+                                    <RecordsDisplay hasRecords={true} recordType="pending votings" />
                                 </Col>
                             </Row>
                            

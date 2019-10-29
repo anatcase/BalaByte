@@ -3,22 +3,19 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// import Form from 'react-bootstrap/Form'
+// import Button from 'react-bootstrap/Button'
 
 class DashboardNewMessagesAccordion extends React.Component {
-    constructor(props) {
-        super(props);
-    }    
-
+   
     render() {
         return (
-           <div className="MessagesAccordion">
+           <div className="DashboardNewMessagesAccordion">
                <Accordion>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
                         Dynamic Message Title With Dynamic Icon
-                        <i class="fas fa-info-circle float-right"></i>
+                        <i className="fas fa-info-circle float-right"></i>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
@@ -30,8 +27,8 @@ class DashboardNewMessagesAccordion extends React.Component {
                                             </Col>
                                             <Col lg={8}>                    
                                                 <Card.Text>
-                                                    <p><h6 className="d-inline">Details:</h6> **Dynamic Content for message details**</p>
-                                                    <p><h6 className="d-inline">Priority:</h6> **Dynamic Content for message details**</p>
+                                                    <li className="list-group-item"><span className="font-weight-bold">Details: </span>**Dynamic Content for message details**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for message details**</li>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
@@ -46,7 +43,7 @@ class DashboardNewMessagesAccordion extends React.Component {
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1" className="font-weight-bold">
                         Dynamic Message Title With Dynamic Icon 2
-                        <i class="fas fa-exclamation-circle float-right"></i>
+                        <i className="fas fa-exclamation-circle float-right"></i>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
