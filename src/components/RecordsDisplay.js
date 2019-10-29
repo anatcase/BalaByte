@@ -1,7 +1,6 @@
 import React from 'react'
 import PaginationNav from '../components/PaginationNav';
 import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion';
-import DashboardResolvedIssuesAccordion from '../components/DashboardResolvedIssuesAccordion';
 import TenantsAccordion from '../components/TenantsAccordion';
 import MessagesAccordion from '../components/MessagesAccordion';
 import DashboardNewMessagesAccordion from '../components/DashboardNewMessagesAccordion';
@@ -22,7 +21,7 @@ class Records extends React.Component {
                                 case 'overdue issues':
                                 return <DashboardIssuesAccordion />;
                                 case 'new resolved issues':
-                                return <DashboardResolvedIssuesAccordion />;
+                                return <DashboardIssuesAccordion />;
                                 case 'tenants':
                                 return <TenantsAccordion />;
                                 case 'messasges':
