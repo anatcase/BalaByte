@@ -30,8 +30,8 @@ class MessagesAccordion extends React.Component {
                                             </Col>
                                             <Col lg={8}>                    
                                                 <Card.Text>
-                                                    <p><h6 className="d-inline">Details:</h6> **Dynamic Content for message details**</p>
-                                                    <p><h6 className="d-inline">Priority:</h6> **Dynamic Content for message details**</p>
+                                                    <li className="list-group-item"><span className="font-weight-bold">Details: </span>**Dynamic Content for message details**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for message details**</li>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
@@ -58,8 +58,8 @@ class MessagesAccordion extends React.Component {
                                             </Col>
                                             <Col lg={8}>                    
                                                 <Card.Text>
-                                                    <p><h6 className="d-inline">Details:</h6> **Dynamic Content for message details**</p>
-                                                    <p><h6 className="d-inline">Priority:</h6> **Dynamic Content for message details**</p>
+                                                    <li className="list-group-item"><span className="font-weight-bold">Details: </span>**Dynamic Content for message details**</li>
+                                                    <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for message details**</li>
                                                 </Card.Text>
                                             </Col>
                                         </Row>
