@@ -20,7 +20,7 @@ class DashboardNewMessagesAccordion extends React.Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row>
-                                    <Col className="border-2">
+                                    <Col>
                                         <Row>
                                             <Col lg={4}>
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
@@ -32,9 +32,6 @@ class DashboardNewMessagesAccordion extends React.Component {
                                                 </Card.Text>
                                             </Col>
                                         </Row>
-                                    </Col>
-                                    <Col>
-                                        <h6>Comments:</h6>
                                     </Col>
                                 </Row>
                             </Card.Body>
@@ -48,7 +45,7 @@ class DashboardNewMessagesAccordion extends React.Component {
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
                                 <Row>
-                                    <Col className="border-2">
+                                    <Col>
                                         <Row>
                                             <Col lg={4}>
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
