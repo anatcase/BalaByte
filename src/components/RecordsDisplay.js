@@ -27,7 +27,7 @@ class Records extends React.Component {
                                 return <TenantsAccordion />;
                                 case 'messasges':
                                 return <MessagesAccordion />;
-                                case 'new messasges':
+                                case 'new messages':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':
                                 return <VotingsAccordion />;
