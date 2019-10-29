@@ -12,32 +12,6 @@ import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 
-
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
-
-
-// function Navigation() {
-//   return (
-//       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-//         <Navbar.Brand href="#home">BalaByte Holdings</Navbar.Brand>
-//         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-//         <Navbar.Collapse id="responsive-navbar-nav">
-//           <Nav className="mr-auto">
-//             <Nav.Link href="#features">Dashboard</Nav.Link>
-//             <Nav.Link href="#pricing">Votings</Nav.Link>
-//             <Nav.Link href="#pricing">Votings</Nav.Link>
-//             <Nav.Link href="#pricing">Issues</Nav.Link>
-//             <Nav.Link href="#pricing">Voting</Nav.Link>
-//           </Nav>
-//           <Nav>
-//             <Nav.Link href="#deets">Logout</Nav.Link>
-//           </Nav>
-//         </Navbar.Collapse>
-//       </Navbar>
-//   );
-// }
-
 class Votings extends React.Component {
     constructor(props) {
       super(props);

@@ -15,11 +15,6 @@ class VotingsAccordion extends React.Component {
 
     render() {
         const votingAccordion = (
-             // <Pagination size="sm" onClick={handlePageChange} className={pages === 1 ? 'hide' : null}>
-            //       <Pagination.Prev disabled={activePage === 1 ? true : false}/> 
-            //       {items}
-            //       <Pagination.Next disabled={activePage === pages ? true : false}/>
-            // </Pagination>
             <Accordion>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
