@@ -125,7 +125,9 @@
   display: none;
  }
 
- .TenantsAccordion .list-group-item , .VotingsAccordion .list-group-item, .IssuesAccordion .list-group-item, .MessagesAccordion .list-group-item, .DashboardIssuesAccordion .list-group-item {
+ /* .recordsDisplay .list-group-item, .TenantsAccordion .list-group-item , .VotingsAccordion .list-group-item, .IssuesAccordion .list-group-item, .MessagesAccordion .list-group-item, .DashboardIssuesAccordion .list-group-item { */
+
+ .recordsDisplay .list-group-item, .TenantsAccordion .list-group-item , .VotingsAccordion .list-group-item, .IssuesAccordion .list-group-item, .MessagesAccordion .list-group-item, .DashboardIssuesAccordion .list-group-item {
    padding: 0.25rem;
    border:none;
    background-color:transparent;
@@ -145,6 +147,10 @@
    line-height: 1.5;
    font-size: 1rem;
  }
+
+ /* .Dashboard .container-fluid .row {
+  min-height: 50%;
+ } */
 
  .Dashboard .badge {
   color: black;
