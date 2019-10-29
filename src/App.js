@@ -9,7 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import Tenants from './pages/Tenants';
 //import Votings from './pages/Votings';
 //import Issues from './pages/Issues';
-import CommitteeDashboard from './pages/CommitteeDashboard';
+//import CommitteeDashboard from './pages/CommitteeDashboard';
+import TenantDashboard from './pages/TenantDashboard';
 
 
 class App extends React.Component {
@@ -17,7 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-         <CommitteeDashboard />
+         <TenantDashboard />
       </div>
     );
   }
