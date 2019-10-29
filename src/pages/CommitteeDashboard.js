@@ -27,7 +27,7 @@ class CommitteeDashboard extends React.Component {
                                 <Col>
                                     <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
                                      {/* Who manages the hasRecords state? */}
-                                    <RecordsDisplay hasRecords={false} recordType="overdue issues" />
+                                    <RecordsDisplay hasRecords={true} recordType="overdue issues" />
                                 </Col>
                             </Row>
                            

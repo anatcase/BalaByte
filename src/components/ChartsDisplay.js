@@ -38,7 +38,7 @@ class Records extends React.Component {
                     <p className="mb-1 font-weight-normal">By: Date</p>
                         <PieChart className="chart"
                             data={[
-                                { title: 'For', value: 80, color: '#90ee90' },
+                                { title: 'In Favor', value: 80, color: '#90ee90' },
                                 { title: 'Against', value: 20, color: '#a2012c' },
                             ]}
                             />

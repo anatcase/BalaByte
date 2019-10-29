@@ -6,40 +6,49 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import PaginationNav from '../components/PaginationNav';
+import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion';
+import DashboardResolvedIssuesAccordion from '../components/DashboardResolvedIssuesAccordion';
 
-//Formerly named DashboardIssuesAccordion - create a cond rendering for each type  of accordion (per section use)
 class Records extends React.Component {
     
     render () {
+        const accordion = (
+                    <div>
+                        {
+                            (() => {
+                            switch(this.props.recordType) {
+                                case 'new issues':
+                                return <DashboardIssuesAccordion />;
+                                case 'overdue issues':
+                                return <DashboardIssuesAccordion />;
+                                case 'new resolved issues':
+                                return <DashboardResolvedIssuesAccordion />;
+                                case 'tenants':
+                                return <TenantsAccordion />;
+                                case 'messasges':
+                                return <MessasgesAccordion />;
+                                case 'new messasges':
+                                return <DashboardNewMessagesAccordion />;
+                                case 'active votings':
+                                return <VotingsAccordion />;
+                                case 'pending votings':
+                                return <PendingVotingsAccordion />;
+                                case 'voting results':
+                                return <VotingResultsAccordion />;
+                                default:
+                                return null;
+                            }
+                            })()
+                        }
+                  </div>
+            
+        );
+
         return (
-            <Accordion>
-                    <Card>
-                        <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
-                        Dynamic Issue Title With Dynamic Icon 2
-                        <i className="fas fa-exclamation-circle float-right"></i>
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                            <Card.Body>
-                                <Row>
-                                    <Col>
-                                        <Row>
-                                            <Col lg={4}>
-                                                <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
-                                            </Col>
-                                            <Col lg={8}>                    
-                                                <Card.Text>
-                                                    <li className="list-group-item"><span className="font-weight-bold">Details: </span>***Dynamic Content for Issue details**</li>
-                                                    <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for Issue details**</li>
-                                                    <li className="list-group-item"><span  className="font-weight-bold">Status: </span>**Dynamic Status for Issue**</li>
-                                                </Card.Text>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                </Row>                             
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>     
-            </Accordion>
+            //Add a switch for different record types / module name this.props.recordType == "new issues" etc 
+            <div className="Records">
+                {accordion}
+            </div>
         );     
     }
 }
@@ -60,7 +69,7 @@ class RecordsDisplay extends React.Component {
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records/>
+                    <Records recordType={this.props.recordType}/>
                     <PaginationNav /> 
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}

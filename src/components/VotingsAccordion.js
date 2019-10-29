@@ -37,13 +37,31 @@ class VotingsAccordion extends React.Component {
                                                 <h6 className="mr-1">{this.props.votingStatus === "active"? 'End Date': 'Ended'}:</h6> <span>*Date &amp; Hour*</span>
                                             </Col>
                                             {this.props.votingStatus === "results"? null:
-                                            <Col className="px-0">
-                                                <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
-                                                timeFormat="HH:mm"
-                                                timeIntervals={30}
-                                                timeCaption="time"
-                                                dateFormat="MMMM d, hh:mm"/>
-                                            </Col>
+                                                this.props.user === "admin"?
+                                                <Col className="px-0">
+                                                    <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
+                                                    timeFormat="HH:mm"
+                                                    timeIntervals={30}
+                                                    timeCaption="time"
+                                                    dateFormat="MMMM d, hh:mm"/>
+                                                </Col>
+                                                :
+                                                <Col className="px-0">
+                                                    <Form.Group as={Row} controlId="formPrioritySelect">
+                                                        <Form.Label column sm={4}>
+                                                            Your vote:
+                                                        </Form.Label>
+                                                        <Col sm={4}>
+                                                            <Form.Control required as="select" className="priority-select">
+                                                                <option value="In Favor">In Favor</option>
+                                                                <option value="Against">Against</option>
+                                                            </Form.Control>
+                                                        </Col>
+                                                        <Col sm={4}>
+                                                            <Button type="submit">Submit Vote</Button>
+                                                        </Col>
+                                                    </Form.Group>
+                                                </Col>
                                             }
                                         </Row>
                                     </Col>
