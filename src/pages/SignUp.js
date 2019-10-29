@@ -105,10 +105,12 @@ class SignUp extends React.Component {
       }
 
     render() {
+        debugger;
+
         const destination = (
             <div>
             {
-                this.state.signUpSuccess ? 
+                this.state.signUpSuccess ?  <CommitteeDashboard /> :
                                             <div className="SignUp">
                                                 <h1>Create a BalaByte Account</h1>
                                                 <p>or <a href="#/login">or log in to your account</a></p>
@@ -164,8 +166,7 @@ class SignUp extends React.Component {
                                                         Create New Account
                                                     </Button>
                                                 </Form>
-                                            </div>
-                        :  <CommitteeDashboard />    
+                                            </div>    
                 }
             </div>
         );
