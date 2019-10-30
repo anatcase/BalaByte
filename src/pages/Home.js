@@ -37,7 +37,7 @@ function Main() {
   return (
     <main>
       <Jumbotron className="hero text-center">
-        <h1>Welcome to BalaByte!</h1>
+        <h1>Welcome to Homeboy - Your Building Management Buddy!</h1>
         <p>
         With our groundbreaking Homeowner Association Management System,
         communication between tenants and the homeowner association committee has never been easier!
@@ -49,7 +49,7 @@ function Main() {
       <Container className="featureWrapper text-center mt-4">
         <h2>Love Thy Neighbor</h2>
         <p>
-        Use BalaByte to restore peace in the building! We’ve got the features you need to avoid disputes and promote happy neighboring!
+        Use Homeboy to make it good in the hood! We’ve got the features you need to avoid gang fights and promote happy neighboring!
         </p>
         <CardDeck>
           <Card>
@@ -59,7 +59,7 @@ function Main() {
               <Card.Img variant="top" src="./images/issue-management.png" />
               <Card.Body>
                 <Card.Text>
-                Striving to achieve structured tracking for issues reported by tenants?
+                Striving to achieve structured tracking for issues reported by homies?
                 </Card.Text>
               </Card.Body>
               <Card.Footer className="border-0">
@@ -73,7 +73,7 @@ function Main() {
               <Card.Img variant="top" src="./images/messaging.png" />
               <Card.Body>
                 <Card.Text>
-                Begging for tenants to pay attention to messages from the building's committee?
+                Begging for homies to pay attention to messages from the building's committee?
                 </Card.Text>
               </Card.Body>
               <Card.Footer className="border-0">
