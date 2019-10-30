@@ -65,7 +65,7 @@ function Main() {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer className="border-0">
-                  <Button variant="primary">Make It Work</Button>
+                  <Button variant="primary" block>Make It Work</Button>
                 </Card.Footer>
               </Card>
             </Col>
@@ -81,7 +81,7 @@ function Main() {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer className="border-0">
-                  <Button variant="primary">Make It Happen</Button>
+                  <Button variant="primary" block>Make It Happen</Button>
                 </Card.Footer>
               </Card>
             </Col>
@@ -97,7 +97,7 @@ function Main() {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer className="border-0">
-                  <Button variant="primary">Make It Count</Button>
+                  <Button variant="primary" block>Make It Count</Button>
                 </Card.Footer>
             </Card>
           </Col>
