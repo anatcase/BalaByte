@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
-import Navigation from './components/Navigation'
 //import SignUp from './pages/SignUp';
 //import Login from './pages//Login';
 //import Messages from './pages/Messages';
@@ -21,22 +20,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
-      currentPage: ""
+      isLoggedIn: false
   };
 }
 
   render() {
-    const showNav = (
-      
-        this.state.currentPage === "login" || "signup"? null
-        : <Navigation isLoggedIn={this.state.isLoggedIn} />
-      
-    );
 
     return (
       <div className="App">
-        {showNav}
         <Home isLoggedIn={this.state.isLoggedIn}/> */}
       </div>
     );

@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
+import Navigation from '../components/Navigation'
 import Container from 'react-bootstrap/Container'
 
 
@@ -90,10 +91,11 @@ class Home extends React.Component {
   render () {
     return (
       <div className="Home">
+        <Navigation isLoggedIn={this.props.isLoggedIn} />
         <Main />
       </div>
     );
-}
+  }
 }
 
 export default Home;
