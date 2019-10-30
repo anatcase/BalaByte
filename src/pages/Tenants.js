@@ -70,7 +70,7 @@ class Tenants extends React.Component {
                 <div className="text-right pt-4 pb-1">
                     <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
                 </div>
-                <TenantsAccordion />
+                <RecordsDisplay hasRecords={true} recordType="tenants" /> 
                 <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
             </Container>
 

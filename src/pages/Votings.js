@@ -4,7 +4,7 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
 import VotingsNavbar from '../components/VotingsNav'
-import VotingsAccordion from '../components/VotingsAccordion'
+import RecordsDisplay from '../components/RecordsDisplay'
 import { Container, Row, Col} from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 import Modal from 'react-bootstrap/Modal'
@@ -64,14 +64,12 @@ class Votings extends React.Component {
                                         <div className="text-right pt-4 pb-2">
                                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Voting</a>
                                         </div>
-                                    <VotingsAccordion votingStatus="active"/>
-                                    <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                    <RecordsDisplay hasRecords={true} recordType="active votings" /> 
                                 </Col>
                                 <Col>
                                     <h2>Voting Results</h2>
                                     <VotingsNavbar />
-                                    <VotingsAccordion votingStatus="results"/>
-                                    <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                                    <RecordsDisplay hasRecords={true} recordType="voting results" /> 
                                 </Col>
                             </Row>
                         </Container>

@@ -32,11 +32,11 @@ class Records extends React.Component {
                                 case 'new messages':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':
-                                return <VotingsAccordion />;
+                                return <VotingsAccordion votingStatus="active"/>;
                                 case 'pending votings':
                                 return <PendingVotingsAccordion />;
                                 case 'voting results':
-                                return <VotingsAccordion />;
+                                return <VotingsAccordion votingStatus="results"/>;
                                 default:
                                 return null;
                             }
