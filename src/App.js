@@ -23,15 +23,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      currentPage = "";
   };
 }
 
   render() {
+    const showNav = (
+      
+        this.state.currentPage === "login" || "signup"? null
+        : <Navigation isLoggedIn={this.state.isLoggedIn} />
+      
+    );
+
     return (
       <div className="App">
-        <SignUp/>
-        {/* <Navigation isLoggedIn={this.state.isLoggedIn}/>
+        {showNav}
         <Home isLoggedIn={this.state.isLoggedIn}/> */}
       </div>
     );
