@@ -8,12 +8,10 @@ import Home from './pages/Home';
 //import Messages from './pages/Messages';
 //import Tenants from './pages/Tenants';
 //import Votings from './pages/Votings';
-//import Issues from './pages/Issues';
+import Issues from './pages/Issues';
 //import CommitteeDashboard from './pages/CommitteeDashboard';
 // import TenantDashboard from './pages/TenantDashboard';
 //import TenantDashboard from './pages/TenantDashboard';
-
-
 
 class App extends React.Component {
   
@@ -28,7 +26,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Home isLoggedIn={this.state.isLoggedIn}/> */}
+        <Issues isLoggedIn={this.state.isLoggedIn}/>
+        {/* <Home isLoggedIn={this.state.isLoggedIn}/> */} 
       </div>
     );
   }

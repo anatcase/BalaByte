@@ -5,6 +5,7 @@ import React from 'react';
 //import Button from 'react-bootstrap/Button'
 import IssuesNavbar from '../components/IssuesNavbar'
 import IssuesAccordion from '../components/IssuesAccordion'
+import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 
@@ -13,8 +14,6 @@ import PaginationNav from '../components/PaginationNav';
 //import Form from 'react-bootstrap/Form'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
-
-
 
 class Issues extends React.Component {
     constructor(props) {
@@ -58,10 +57,12 @@ class Issues extends React.Component {
     render() {
       
       return (
-                <div className="Issues">
-                    <Container fluid className="p-4">
+                <div className="Issues h-100">
+                    <Navigation isLoggedIn={this.props.isLoggedIn} />
+
+                    <Container className="py-6 px-5">
                         <IssuesNavbar />
-                        <div className="text-right pr-3 pt-4 pb-1">
+                        <div className="text-right pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
                         <IssuesAccordion /> {/*Should this include the pagination comp?*/}

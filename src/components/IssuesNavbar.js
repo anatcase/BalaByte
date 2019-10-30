@@ -13,7 +13,7 @@ class IssuesNavbar extends React.Component {
     render() {
         //const { recipe } = this.props;
         return (
-            <Container fluid className="NavBar">
+            <Container className="NavBar">
                 {/* <Row className="border justify-content-center rounded">
                     <Col className="col-auto px-0 d-flex align-items-center">
                         <i className="fas fa-search"></i>
@@ -23,7 +23,7 @@ class IssuesNavbar extends React.Component {
                     </Col>
                 </Row> */}
                 <Row>
-                    <Col lg={8}>
+                    <Col lg={6}>
                         <Row className="border rounded justify-content-center">
                             <div className="col-auto px-0 d-flex align-items-center">
                                 <i className="fas fa-search"></i>
@@ -33,7 +33,7 @@ class IssuesNavbar extends React.Component {
                             </div>
                         </Row>
                     </Col>
-                    <Col lg={2} className="pr-0 select-wrapper">
+                    <Col lg={3} className="pr-0 select-wrapper">
                         {/* <DropdownButton data-toggle="dropdown" id="dropdown-basic-button" variant="secondary" title="Filter by priority ">
                             <Dropdown.Item as="button">Info</Dropdown.Item>
                             <Dropdown.Item as="button">Important</Dropdown.Item>
@@ -45,13 +45,13 @@ class IssuesNavbar extends React.Component {
                             <option value="2">Important</option>                            
                         </select>
                     </Col>
-                    <Col lg={2} className="px-0">
+                    <Col lg={3} className="px-0 text-right">
                         <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
                             <label class="form-check-label" for="inlineRadio1">Date</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline mr-0">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
                             <label class="form-check-label" for="inlineRadio2">Priority</label>
                         </div>
