@@ -1,5 +1,4 @@
 import React from 'react';
-// import logo from './logo.svg';
 //import './Home.css';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -12,8 +11,8 @@ import Container from 'react-bootstrap/Container'
 
 function Navigation() {
   return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">BalaByte Holdings</Navbar.Brand>
+      <Navbar fixed="top" collapseOnSelect expand="lg">
+        <Navbar.Brand href="#home"><img className="App-logo" src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
@@ -37,31 +36,30 @@ function Navigation() {
 function Main() {
   return (
     <main>
-      <Jumbotron>
+      <Jumbotron className="text-center">
         <h1>Welcome to BalaByte!</h1>
         <p>
         With our groundbreaking Homeowner Association Management System,
         communication between tenants and the homeowner association committee has never been easier!
         </p>
         <p>
-          <Button variant="primary">Sign Up - It's Free!</Button>
+          <Button variant="primary" size="lg" className="px-5 py-2">Sign Up - It's Free!</Button>
         </p>
       </Jumbotron>
-      <Container>
+      <Container className="featureWrapper text-center mt-4">
         <h2>Love Thy Neighbor</h2>
         <p>
-        Use BalaByte to restore peace in the building! We’ve got the features you need to avoid disputes &amp; promote happy neighboring!
+        Use BalaByte to restore peace in the building! We’ve got the features you need to avoid disputes and promote happy neighboring!
         </p>
         <CardDeck>
           <Card>
               <Card.Header>
                 <Card.Title>Issue Management</Card.Title>
               </Card.Header>
-              <Card.Img variant="top" src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/0cad30a99820b0d840a5b48635d00b6e/updated-layouts-collab.png" />
+              <Card.Img variant="top" src="./images/issue-management.png" />
               <Card.Body>
                 <Card.Text>
-                  This card has supporting text below as a natural lead-in to additional
-                  content.{' '}
+                Striving to achieve structured tracking for issues reported by tenants?
                 </Card.Text>
               </Card.Body>
               <Card.Footer className="border-0">
@@ -72,11 +70,10 @@ function Main() {
               <Card.Header>
                 <Card.Title>Easy Messaging</Card.Title>
               </Card.Header>
-              <Card.Img variant="top" src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/6eaaf5e37ab67a8ed6cd7764660513b9/updated-layouts-sync.png" />
+              <Card.Img variant="top" src="./images/messaging.png" />
               <Card.Body>
                 <Card.Text>
-                  This card has supporting text below as a natural lead-in to additional
-                  content.{' '}
+                Begging for tenants to pay attention to messages from the building's committee?
                 </Card.Text>
               </Card.Body>
               <Card.Footer className="border-0">
@@ -87,11 +84,10 @@ function Main() {
               <Card.Header>
                 <Card.Title>Open Voting</Card.Title>
               </Card.Header>
-              <Card.Img variant="top" src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/0cad30a99820b0d840a5b48635d00b6e/updated-layouts-collab.png" />
+              <Card.Img variant="top" src="/images/voting.png" />
               <Card.Body>
                 <Card.Text>
-                  This card has supporting text below as a natural lead-in to additional
-                  content.{' '}
+                Dreaming of improving the way financial desicions are made in your building? 
                 </Card.Text>
               </Card.Body>
               <Card.Footer className="border-0">

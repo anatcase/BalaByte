@@ -2,7 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Home from './Home';
+import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 //import Login from './pages//Login';
 //import Messages from './pages/Messages';
@@ -20,7 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-         <SignUp />
+         <Home />
       </div>
     );
   }
