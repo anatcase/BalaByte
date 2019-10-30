@@ -70,7 +70,7 @@ class Main extends React.Component {
                   <Card.Header>
                     <Card.Title>Open Voting</Card.Title>
                   </Card.Header>
-                  <Card.Img variant="top" src="/images/voting.png" />
+                  <Card.Img variant="top" src="./images/voting.png" />
                   <Card.Body>
                     <Card.Text>
                     Dreaming of improving the way financial desicions are made in your building? 
