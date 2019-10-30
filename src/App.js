@@ -3,7 +3,9 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
-import SignUp from './pages/SignUp';
+import Navigation from './components/Navigation'
+
+//import SignUp from './pages/SignUp';
 //import Login from './pages//Login';
 //import Messages from './pages/Messages';
 //import Tenants from './pages/Tenants';
@@ -27,7 +29,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-         <Home isLoggedIn={this.state.isLoggedIn}/>
+        <Navigation isLoggedIn={this.state.isLoggedIn}/>
+        <Home isLoggedIn={this.state.isLoggedIn}/>
       </div>
     );
   }

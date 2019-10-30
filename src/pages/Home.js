@@ -1,6 +1,5 @@
 import React from 'react';
 //import './Home.css';
-import Nav from 'react-bootstrap/Nav'
 
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
@@ -8,7 +7,6 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-import Navigation from '../components/Navigation'
 
 
 class Main extends React.Component {
@@ -92,7 +90,6 @@ class Home extends React.Component {
   render () {
     return (
       <div className="Home">
-        <Navigation isLoggedIn={this.props.isLoggedIn}/>
         <Main />
       </div>
     );
