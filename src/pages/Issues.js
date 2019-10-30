@@ -4,6 +4,7 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import IssuesNavbar from '../components/IssuesNavbar'
+import RecordsDisplay from '../components/RecordsDisplay'
 import IssuesAccordion from '../components/IssuesAccordion'
 import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
@@ -65,8 +66,8 @@ class Issues extends React.Component {
                         <div className="text-right pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
-                        <IssuesAccordion /> {/*Should this include the pagination comp?*/}
-                        <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                        <RecordsDisplay hasRecords={true} recordType="issues" /> 
+
                     </Container>
                     {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>
