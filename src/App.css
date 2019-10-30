@@ -5,7 +5,8 @@
 .App-logo {
   height: 150px;
   position: absolute;
-  top:10px;
+  top:0;
+  left:4px;
 }
 
 /* .App-header {
@@ -29,7 +30,7 @@
 }
 
 .Home .jumbotron h1 {
-  margin-top:100px;
+  margin-top:120px;
 }
 
 .Home .jumbotron .btn {
