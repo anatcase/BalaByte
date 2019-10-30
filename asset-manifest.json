@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.b754ce78.chunk.css",
-    "main.js": "/static/js/main.fd2fbf7d.chunk.js",
-    "main.js.map": "/static/js/main.fd2fbf7d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ef27e905.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ef27e905.js.map",
-    "static/css/2.4e0883bb.chunk.css": "/static/css/2.4e0883bb.chunk.css",
-    "static/js/2.be96e77d.chunk.js": "/static/js/2.be96e77d.chunk.js",
-    "static/js/2.be96e77d.chunk.js.map": "/static/js/2.be96e77d.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.5b27b27c963774c21764ea9b9156c118.js": "/precache-manifest.5b27b27c963774c21764ea9b9156c118.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.4e0883bb.chunk.css.map": "/static/css/2.4e0883bb.chunk.css.map",
-    "static/css/main.b754ce78.chunk.css.map": "/static/css/main.b754ce78.chunk.css.map",
-    "static/media/App.css": "/static/media/angle-down-solid.8bad8773.svg"
+    "main.css": "/homeboy/static/css/main.0b1ad3f7.chunk.css",
+    "main.js": "/homeboy/static/js/main.7b2cddcc.chunk.js",
+    "main.js.map": "/homeboy/static/js/main.7b2cddcc.chunk.js.map",
+    "runtime-main.js": "/homeboy/static/js/runtime-main.73350fa6.js",
+    "runtime-main.js.map": "/homeboy/static/js/runtime-main.73350fa6.js.map",
+    "static/css/2.4e0883bb.chunk.css": "/homeboy/static/css/2.4e0883bb.chunk.css",
+    "static/js/2.8646961f.chunk.js": "/homeboy/static/js/2.8646961f.chunk.js",
+    "static/js/2.8646961f.chunk.js.map": "/homeboy/static/js/2.8646961f.chunk.js.map",
+    "index.html": "/homeboy/index.html",
+    "precache-manifest.d1499a4c96492604a327225a7b0bb789.js": "/homeboy/precache-manifest.d1499a4c96492604a327225a7b0bb789.js",
+    "service-worker.js": "/homeboy/service-worker.js",
+    "static/css/2.4e0883bb.chunk.css.map": "/homeboy/static/css/2.4e0883bb.chunk.css.map",
+    "static/css/main.0b1ad3f7.chunk.css.map": "/homeboy/static/css/main.0b1ad3f7.chunk.css.map",
+    "static/media/App.css": "/homeboy/static/media/angle-down-solid.8bad8773.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ef27e905.js",
+    "static/js/runtime-main.73350fa6.js",
     "static/css/2.4e0883bb.chunk.css",
-    "static/js/2.be96e77d.chunk.js",
-    "static/css/main.b754ce78.chunk.css",
-    "static/js/main.fd2fbf7d.chunk.js"
+    "static/js/2.8646961f.chunk.js",
+    "static/css/main.0b1ad3f7.chunk.css",
+    "static/js/main.7b2cddcc.chunk.js"
   ]
 }
