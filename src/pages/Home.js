@@ -6,6 +6,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
 
@@ -52,48 +53,54 @@ function Main() {
         Use Homeboy to make it good in the hood! We’ve got the features you need to avoid gang fights and promote happy neighboring!
         </p>
         <CardDeck>
-          <Card>
-              <Card.Header>
-                <Card.Title>Issue Management</Card.Title>
-              </Card.Header>
-              <Card.Img variant="top" src="./images/issue-management.png" />
-              <Card.Body>
-                <Card.Text>
-                Striving to achieve structured tracking for issues reported by homies?
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer className="border-0">
-                <Button variant="primary">Make It Work</Button>
-              </Card.Footer>
-            </Card>
+          <Col lg={4}>
             <Card>
-              <Card.Header>
-                <Card.Title>Easy Messaging</Card.Title>
-              </Card.Header>
-              <Card.Img variant="top" src="./images/messaging.png" />
-              <Card.Body>
-                <Card.Text>
-                Begging for homies to pay attention to messages from the building's committee?
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer className="border-0">
-                <Button variant="primary">Make It Happen</Button>
-              </Card.Footer>
+                <Card.Header>
+                  <Card.Title>Issue Management</Card.Title>
+                </Card.Header>
+                <Card.Img variant="top" src="./images/issue-management.png" />
+                <Card.Body>
+                  <Card.Text>
+                  Striving to achieve structured tracking for issues reported by homies?
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="border-0">
+                  <Button variant="primary">Make It Work</Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col lg={4}>
+              <Card>
+                <Card.Header>
+                  <Card.Title>Easy Messaging</Card.Title>
+                </Card.Header>
+                <Card.Img variant="top" src="./images/messaging.png" />
+                <Card.Body>
+                  <Card.Text>
+                  Begging for homies to pay attention to messages from the building's committee?
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="border-0">
+                  <Button variant="primary">Make It Happen</Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col lg={4}>
+              <Card>
+                <Card.Header>
+                  <Card.Title>Open Voting</Card.Title>
+                </Card.Header>
+                <Card.Img variant="top" src="/images/voting.png" />
+                <Card.Body>
+                  <Card.Text>
+                  Dreaming of improving the way financial desicions are made in your building? 
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="border-0">
+                  <Button variant="primary">Make It Count</Button>
+                </Card.Footer>
             </Card>
-            <Card>
-              <Card.Header>
-                <Card.Title>Open Voting</Card.Title>
-              </Card.Header>
-              <Card.Img variant="top" src="/images/voting.png" />
-              <Card.Body>
-                <Card.Text>
-                Dreaming of improving the way financial desicions are made in your building? 
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer className="border-0">
-                <Button variant="primary">Make It Count</Button>
-              </Card.Footer>
-          </Card>
+          </Col>
         </CardDeck>      
     </Container>
     </main>
