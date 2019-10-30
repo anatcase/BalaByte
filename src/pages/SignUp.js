@@ -112,7 +112,7 @@ class SignUp extends React.Component {
             {
                 this.state.signUpSuccess ?  <CommitteeDashboard /> :
                                             <div className="SignUp">
-                                                <h1>Create a BalaByte Account</h1>
+                                                <h1>Create a Homeboy Account</h1>
                                                 <p>or <a href="#/login">or log in to your account</a></p>
                                                 <Alert variant="danger" show={this.state.signUpError}>
                                                 {this.state.errorMsg}
