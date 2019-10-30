@@ -4,8 +4,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Navigation from './components/Navigation'
-import SignUp from './pages/SignUp';
-
 //import SignUp from './pages/SignUp';
 //import Login from './pages//Login';
 //import Messages from './pages/Messages';
@@ -24,7 +22,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      currentPage = "";
+      currentPage = ""
   };
 }
 
