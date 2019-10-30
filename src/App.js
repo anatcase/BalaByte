@@ -16,11 +16,18 @@ import SignUp from './pages/SignUp';
 
 
 class App extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false
+  };
+}
 
   render() {
     return (
       <div className="App">
-         <Home />
+         <Home isLoggedIn={this.state.isLoggedIn}/>
       </div>
     );
   }
