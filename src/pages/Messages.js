@@ -4,7 +4,8 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import MessagesNavbar from '../components/MessagesNavbar'
-import MessagesAccordion from '../components/MessagesAccordion'
+import RecordsDisplay from '../components/RecordsDisplay'
+import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 
@@ -58,16 +59,16 @@ class Messages extends React.Component {
     render() {
       
       return (
-                <div className="Messages">
+                <div className="Messages h-100">
                     <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Messages"/>
 
-                    <Container fluid className="p-4">
+                    <Container className="py-6 px-5">
                         <MessagesNavbar />
-                        <div className="text-right pr-3 pt-4 pb-1">
+                        <div className="text-right pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
                         </div>
-                        <MessagesAccordion /> {/*Should this include the pagination comp?*/}
-                        <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount} pageName="messages"/>
+                        <RecordsDisplay hasRecords={true} recordType="messasges" /> 
+
                     </Container>
                     {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>

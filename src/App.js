@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 //import SignUp from './pages/SignUp';
 //import Login from './pages//Login';
-//import Messages from './pages/Messages';
+import Messages from './pages/Messages';
 //import Tenants from './pages/Tenants';
 //import Votings from './pages/Votings';
 import Issues from './pages/Issues';
@@ -26,8 +26,9 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Issues isLoggedIn={this.state.isLoggedIn}/>
-        {/* <Home isLoggedIn={this.state.isLoggedIn}/> */} 
+        <Messages isLoggedIn={this.state.isLoggedIn}/>
+        {/* <Issues isLoggedIn={this.state.isLoggedIn}/>
+        {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}  */}
       </div>
     );
   }
