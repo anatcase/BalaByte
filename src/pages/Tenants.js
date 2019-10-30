@@ -4,9 +4,9 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import TenantsNavbar from '../components/TenantsNavbar'
-import TenantsAccordion from '../components/TenantsAccordion'
+import Navigation from '../components/Navigation'
+import RecordsDisplay from '../components/RecordsDisplay'
 import Container from 'react-bootstrap/Container'
-
 //import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
 
@@ -60,18 +60,17 @@ class Tenants extends React.Component {
         
       
       return (
-        <div>
+        <div className="Tenants h-100">
            <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Tenants"/>
 
-            {votingAccordion}  
+            {/* {votingAccordion}   */}
             
-            <Container fluid className="Tenants p-4">
+            <Container className="py-6 px-5">
                 <TenantsNavbar />
                 <div className="text-right pt-4 pb-1">
                     <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
                 </div>
                 <RecordsDisplay hasRecords={true} recordType="tenants" /> 
-                <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
             </Container>
 
             {/* All tenants will have a default password of 1-6 */}

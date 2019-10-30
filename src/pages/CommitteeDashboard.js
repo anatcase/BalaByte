@@ -7,6 +7,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import RecordsDisplay from '../components/RecordsDisplay';
 import ChartsDisplay from '../components/ChartsDisplay';
+import Navigation from '../components/Navigation';
 import Badge from 'react-bootstrap/Badge';
 import PieChart from 'react-minimal-pie-chart'
 

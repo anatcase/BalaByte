@@ -13,7 +13,7 @@ class TenantsNavbar extends React.Component {
     render() {
         //const { recipe } = this.props;
         return (
-            <Container fluid className="NavBar">
+            <Container className="NavBar">
                 {/* <Row className="border justify-content-center rounded">
                     <Col className="col-auto px-0 d-flex align-items-center">
                         <i className="fas fa-search"></i>

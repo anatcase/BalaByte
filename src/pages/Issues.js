@@ -67,8 +67,8 @@ class Issues extends React.Component {
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
                         </div>
                         <RecordsDisplay hasRecords={true} recordType="issues" /> 
-
                     </Container>
+                    
                     {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title>New Issue</Modal.Title>

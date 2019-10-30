@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import VotingsNavbar from '../components/VotingsNav'
 import RecordsDisplay from '../components/RecordsDisplay'
 import { Container, Row, Col} from 'react-bootstrap'
-import PaginationNav from '../components/PaginationNav';
+import Navigation from '../components/Navigation';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
