@@ -13,11 +13,11 @@ class Navigation extends React.Component {
         return (
             <Navbar fixed="top" collapseOnSelect expand="lg">
               <Row className="w-100">
-                    <Col lg={6} sm= {3}>
+                    <Col lg={1} sm= {4} xs={4}>
                       <Navbar.Brand href="#home"><img className="App-logo" src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
                     </Col>
                    
-                  <Col lg={6} sm= {6} className="px-0">
+                  <Col lg={11} sm= {4} xs={4} className="px-0">
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className={isLoggedIn? "mr-auto" : "hide"}>
                           <Nav.Link href="#Dashboard">Dashboard</Nav.Link>
@@ -40,7 +40,7 @@ class Navigation extends React.Component {
                     </Navbar.Collapse>
                   </Col>
 
-                  <Col sm= {3} className="text-right px-0">
+                  <Col sm= {4} xs={4} className="text-right px-0">
                       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   </Col>
                 
