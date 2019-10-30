@@ -80,10 +80,16 @@
   font-weight: 500;
 }
 
-.Login, .SignUp {
+.SignUp {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.Login {
   max-width: 500px;
   margin: 50px auto;
 }
+
 
 .PaginationNav {
   max-width: 500px;
