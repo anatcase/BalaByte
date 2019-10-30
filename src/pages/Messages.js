@@ -59,13 +59,15 @@ class Messages extends React.Component {
       
       return (
                 <div className="Messages">
+                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Messages"/>
+
                     <Container fluid className="p-4">
                         <MessagesNavbar />
                         <div className="text-right pr-3 pt-4 pb-1">
                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
                         </div>
                         <MessagesAccordion /> {/*Should this include the pagination comp?*/}
-                        <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/>
+                        <PaginationNav handlePageChange={this.handlePageChange} activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount} pageName="messages"/>
                     </Container>
                     {/* <Modal show="true" size="lg">
                         <Modal.Header closeButton>

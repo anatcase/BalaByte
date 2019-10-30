@@ -17,6 +17,8 @@ class TenantDashboard extends React.Component {
      
       return (
                 <div className="Dashboard h-100">
+                   <Navigation isLoggedIn={this.props.isLoggedIn} pageName="TenantDashboard"/>
+
                     <Container fluid className="p-4 h-100">
                             <Row className="pb-2">
                                 <Col className="border-2">
@@ -39,7 +41,8 @@ class TenantDashboard extends React.Component {
                               
                                 <Col className="border-2">                   
                                     <h2>New Issues <Badge variant="light">2</Badge></h2>
-                                    <RecordsDisplay hasRecords={true} recordType="new issues" />                                 </Col>
+                                    <RecordsDisplay hasRecords={true} recordType="new issues" />
+                                </Col>
                                  <Col>                    
                                     <h2>New Resolved Issues <Badge variant="light">3</Badge></h2>
                                     <RecordsDisplay hasRecords={true} recordType="new resolved issues" />

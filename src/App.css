@@ -11,7 +11,14 @@
   z-index:2000;
 }
 
-
+.App-logo-inner {
+  max-width: 92px;
+  height: auto;
+  position: fixed;
+  top:0;
+  left:4px;
+  z-index:2000;
+}
 
 /* .App-header {
   background-color: #282c34;

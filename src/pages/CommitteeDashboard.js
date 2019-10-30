@@ -17,6 +17,8 @@ class CommitteeDashboard extends React.Component {
      
       return (
                 <div className="Dashboard h-100">
+                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="CommitteeDashboard"/>
+
                     <Container fluid className="p-4 h-100">
                             <Row className="pb-2">
                                 <Col className="border-2">

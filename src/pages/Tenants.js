@@ -61,7 +61,10 @@ class Tenants extends React.Component {
       
       return (
         <div>
+           <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Tenants"/>
+
             {votingAccordion}  
+            
             <Container fluid className="Tenants p-4">
                 <TenantsNavbar />
                 <div className="text-right pt-4 pb-1">

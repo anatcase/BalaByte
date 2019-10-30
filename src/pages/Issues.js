@@ -59,7 +59,7 @@ class Issues extends React.Component {
       
       return (
                 <div className="Issues h-100">
-                    <Navigation isLoggedIn={this.props.isLoggedIn} />
+                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/>
 
                     <Container className="py-6 px-5">
                         <IssuesNavbar />

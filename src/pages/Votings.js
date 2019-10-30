@@ -55,6 +55,8 @@ class Votings extends React.Component {
       
             return (
                     <div className="Votings h-100">
+                        <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Votings"/>
+
                         <Container fluid className="p-4 h-100">
                             <Row className="h-100">
                                 <Col className="border-2">
