@@ -64,6 +64,10 @@
   font-size: 1.4rem;
 }
 
+.featureWrapper .btn {
+  font-weight: 500;
+}
+
 .Login, .SignUp {
   max-width: 500px;
   margin: 50px auto;
