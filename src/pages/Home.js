@@ -11,23 +11,28 @@ import Container from 'react-bootstrap/Container'
 
 
 function Navigation() {
+  const isLoggedIn = false;
+
   return (
       <Navbar fixed="top" collapseOnSelect expand="lg">
         <Navbar.Brand href="#home"><img className="App-logo" src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className={isLoggedIn? "mr-auto" : "hide"}>
             <Nav.Link href="#Dashboard">Dashboard</Nav.Link>
             <Nav.Link href="#Tenants">Tenants</Nav.Link>
             <Nav.Link href="#Messages">Messages</Nav.Link>
             <Nav.Link href="#Issues">Issues</Nav.Link>
             <Nav.Link href="#Voting">Voting</Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link href="#Login">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#SignUp">
-             Sign Up
-            </Nav.Link>
+          <Nav className={isLoggedIn? "hide" : "ml-auto"}>
+              <Nav.Link href="#Login">Login</Nav.Link>
+              <Nav.Link eventKey={2} href="#SignUp">
+              Sign Up
+              </Nav.Link>
+          </Nav>
+          <Nav className={isLoggedIn? "ml-auto" : "hide"}>
+              <Nav.Link href="#Logout">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
