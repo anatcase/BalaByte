@@ -36,7 +36,7 @@ function Navigation() {
 function Main() {
   return (
     <main>
-      <Jumbotron className="text-center">
+      <Jumbotron className="hero text-center">
         <h1>Welcome to BalaByte!</h1>
         <p>
         With our groundbreaking Homeowner Association Management System,
