@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "97a1f3ce421f6921eb2e6a1485e4927a",
+    "revision": "0dc1748b886e1ded26a09ac5b761c4dd",
     "url": "/homeboy/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/homeboy/static/css/2.4e0883bb.chunk.css"
   },
   {
-    "revision": "024a64fc4d9f4f6360b4",
+    "revision": "0c6627bc2ce5c8162bc3",
     "url": "/homeboy/static/css/main.0b1ad3f7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/homeboy/static/js/2.8646961f.chunk.js"
   },
   {
-    "revision": "024a64fc4d9f4f6360b4",
-    "url": "/homeboy/static/js/main.7b2cddcc.chunk.js"
+    "revision": "0c6627bc2ce5c8162bc3",
+    "url": "/homeboy/static/js/main.2d557543.chunk.js"
   },
   {
     "revision": "82477de94d4184d17e50",
