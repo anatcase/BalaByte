@@ -3,11 +3,15 @@
 }
 
 .App-logo {
-  height: 150px;
+  max-width: 150px;
+  height: auto;
   position: fixed;
   top:0;
   left:4px;
+  z-index:999;
 }
+
+
 
 /* .App-header {
   background-color: #282c34;
