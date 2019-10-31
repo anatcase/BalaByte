@@ -25,12 +25,13 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {/* <Messages isLoggedIn={this.state.isLoggedIn}/> */}
-        {/* <Issues isLoggedIn={this.state.isLoggedIn}/>
-        {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}  */}
-        <CommitteeDashboard isLoggedIn={this.state.isLoggedIn}/>
-        {/* <Tenants isLoggedIn={this.state.isLoggedIn}/> */}
-
+        {/* <Login /> */}
+        
+        {/*<SignUp />*/}
+        <Votings isLoggedIn={this.state.isLoggedIn}/>
+        {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}
+        {/* <TenantDashboard isLoggedIn={this.state.isLoggedIn}/> */}
+        
       </div>
     );
   }

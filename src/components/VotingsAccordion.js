@@ -21,8 +21,8 @@ class VotingsAccordion extends React.Component {
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
                         <Row>
-                            <Col>Dynamic Voting Title</Col>
-                            <Col className="text-right">{this.props.votingStatus === "results"? 'Result: Dynamic record result': null}</Col>
+                            <Col lg={6}>Dynamic Voting Title</Col>
+                            <Col lg={6} className="text-right">{this.props.votingStatus === "results"? 'Result: Dynamic record result': null}</Col>
                         </Row>
                         {/* {this.props.votingStatus === "results"? } */}
 
@@ -39,32 +39,33 @@ class VotingsAccordion extends React.Component {
                                                 <h6 className="mr-1">{this.props.votingStatus === "active"? 'End Date': 'Ended'}:</h6> <span>*Date &amp; Hour*</span>
                                             </Col>
                                             {this.props.votingStatus === "results"? null:
-                                                this.props.user === "admin"?
-                                                <Col className="px-0">
-                                                    <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
-                                                    timeFormat="HH:mm"
-                                                    timeIntervals={30}
-                                                    timeCaption="time"
-                                                    dateFormat="MMMM d, hh:mm"/>
-                                                </Col>
-                                                :
-                                                <Col className="px-0">
-                                                    <Form.Group as={Row} controlId="formPrioritySelect">
-                                                        <Form.Label column sm={4}>
-                                                            Your vote:
+                                                
+                                            <Col className={this.props.user === "tenant"? "hide" : "px-0"}>
+                                                <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
+                                                timeFormat="HH:mm"
+                                                timeIntervals={30}
+                                                timeCaption="time"
+                                                dateFormat="MMMM d, hh:mm"/>
+                                            </Col>
+                                            }
+                                        </Row>
+                                        <Row className={this.props.votingStatus === "results" || this.props.user === "admin" ? "hide" : "mx-0"}>
+                                             <Col className="px-0 d-flex align-items-center">
+                                                <Form.Group as={Row} controlId="formPrioritySelect" className="vote-form">
+                                                        <Form.Label column lg="{3}">
+                                                            Your Vote:
                                                         </Form.Label>
-                                                        <Col sm={4}>
+                                                        <Col lg="{7}">
                                                             <Form.Control required as="select" className="priority-select">
                                                                 <option value="In Favor">In Favor</option>
                                                                 <option value="Against">Against</option>
                                                             </Form.Control>
                                                         </Col>
-                                                        <Col sm={4}>
+                                                        <Col lg="{2}">
                                                             <Button type="submit">Submit Vote</Button>
                                                         </Col>
                                                     </Form.Group>
-                                                </Col>
-                                            }
+                                            </Col>
                                         </Row>
                                     </Col>
                                     <Col lg={this.props.votingStatus === "results"? 7 : 4}>

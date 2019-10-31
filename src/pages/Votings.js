@@ -57,16 +57,16 @@ class Votings extends React.Component {
                     <div className="Votings h-100">
                         <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Votings"/>
 
-                        <Container fluid className="p-4 h-100">
-                            <Row className="h-100">
-                                <Col className="border-2">
+                        <Container fluid className="py-6 px-5">
+                            <Row>
+                                <Col lg={6} className="issue-box">
                                         <h2>Active Votings</h2>
-                                        <div className="text-right pt-4 pb-2">
+                                         <div className="text-right pt-4 pb-2 mobile-center">
                                             <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Voting</a>
                                         </div>
                                     <RecordsDisplay hasRecords={true} recordType="active votings" /> 
                                 </Col>
-                                <Col>
+                                <Col lg={6}>
                                     <h2>Voting Results</h2>
                                     <VotingsNavbar />
                                     <RecordsDisplay hasRecords={true} recordType="voting results" /> 

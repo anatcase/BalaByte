@@ -141,6 +141,10 @@ ul.pagination{
   .issue-box {
     padding-bottom:2rem;
   }
+
+  div.mobile-center {
+    text-align: center !important;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -288,8 +292,8 @@ ul.pagination{
   font-weight: 500;
  }
 
- .Dashboard h2  {
-  margin-bottom: 1.5rem;
+ .Dashboard, .Votings h2  {
+  /* margin-bottom: 1.5rem; */
   text-align: center;
  }
 
@@ -313,4 +317,21 @@ ul.pagination{
 
  .chartBox {
    padding-bottom: 3.5rem;
+ }
+
+ .col-form-label {
+   font-weight:500;
+ }
+
+ .vote-form {
+  margin-left:0 !important;
+  margin-right:0 !important;
+ }
+
+ .vote-form .col-form-label {
+  padding-right: 1rem !important;
+ }
+
+ .vote-form .btn {
+  margin-left: 1rem !important;
  }
