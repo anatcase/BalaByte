@@ -21,8 +21,8 @@ class VotingsAccordion extends React.Component {
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
                         <Row>
-                            <Col lg={6}>Dynamic Voting Title</Col>
-                            <Col lg={6} className="text-right">{this.props.votingStatus === "results"? 'Result: Dynamic record result': null}</Col>
+                            <Col lg={6} className="mobile-center">Dynamic Voting Title</Col>
+                            <Col lg={6} className="text-right mobile-center">{this.props.votingStatus === "results"? <h6>Result: <span className="font-weight-normal">Dynamic record result</span></h6>: null}</Col>
                         </Row>
                         {/* {this.props.votingStatus === "results"? } */}
 
@@ -31,10 +31,10 @@ class VotingsAccordion extends React.Component {
                             <Card.Body>
                                 <Row className="mx-0">
                                     <Col lg={this.props.votingStatus === "results"? 5 : 8} className="px-0 d-flex flex-column justify-content-between">                    
-                                        <Row className="mx-0">
+                                        <Row className="py-1 mx-0 mobile-center">
                                                 <h6 className="mr-1">Details:</h6> <span>*Dynamic Voting Details*</span>
                                         </Row>
-                                        <Row className="mx-0">
+                                        <Row className="py-1 mx-0 mobile-center">
                                             <Col className="px-0 d-flex align-items-center">
                                                 <h6 className="mr-1">{this.props.votingStatus === "active"? 'End Date': 'Ended'}:</h6> <span>*Date &amp; Hour*</span>
                                             </Col>
@@ -49,19 +49,19 @@ class VotingsAccordion extends React.Component {
                                             </Col>
                                             }
                                         </Row>
-                                        <Row className={this.props.votingStatus === "results" || this.props.user === "admin" ? "hide" : "mx-0"}>
+                                        <Row className={this.props.votingStatus === "results" || this.props.user === "admin" ? "hide" : "py-1 mx-0 mobile-center"}>
                                              <Col className="px-0 d-flex align-items-center">
-                                                <Form.Group as={Row} controlId="formPrioritySelect" className="vote-form">
-                                                        <Form.Label column lg="{3}">
+                                                <Form.Group as={Row} controlId="formPrioritySelect" className="vote-form mx-0 mobile-center w-100">
+                                                        <Form.Label column lg={3}>
                                                             Your Vote:
                                                         </Form.Label>
-                                                        <Col lg="{7}">
+                                                        <Col lg={5}>
                                                             <Form.Control required as="select" className="priority-select">
                                                                 <option value="In Favor">In Favor</option>
                                                                 <option value="Against">Against</option>
                                                             </Form.Control>
                                                         </Col>
-                                                        <Col lg="{2}">
+                                                        <Col lg={4} className="text-right mobile-center">
                                                             <Button type="submit">Submit Vote</Button>
                                                         </Col>
                                                     </Form.Group>
@@ -72,7 +72,7 @@ class VotingsAccordion extends React.Component {
                                         <Row>
 
                                         {this.props.votingStatus === "results"? 
-                                            <Col>
+                                            <Col lg={6} className="py-4-mobile">
                                                 <h6 className="text-center mb-3">Results</h6>
                                                 <PieChart className="chart"
                                                     data={[

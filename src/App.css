@@ -142,8 +142,9 @@ ul.pagination{
     padding-bottom:2rem;
   }
 
-  div.mobile-center {
+  div.mobile-center, h6.mobile-center {
     text-align: center !important;
+    margin:auto !important;
   }
 }
 
@@ -225,6 +226,7 @@ ul.pagination{
 
   .accordion .card-header {
     cursor: pointer;
+    min-height: 52px;
   }
 
   .accordion .card {
@@ -256,11 +258,12 @@ ul.pagination{
  }
 
  .VotingsAccordion .card-body {
-  min-height: 250px !important;
+  min-height: 225px !important;
  }
 
  .VotingsAccordion .chart {
    max-width: 142px;
+   margin: auto;
  }
 
  .VotingsAccordion .card-body h6, .VotingsAccordion .card-text span {
@@ -312,6 +315,7 @@ ul.pagination{
  }
 
  i.fas {
+
    line-height: 1.5;
  }
 
@@ -328,10 +332,21 @@ ul.pagination{
   margin-right:0 !important;
  }
 
- .vote-form .col-form-label {
-  padding-right: 1rem !important;
+ .vote-form div, .vote-form label {
+   padding:0 !important;
  }
 
- .vote-form .btn {
-  margin-left: 1rem !important;
- }
+ @media only screen and (max-width: 768px) {
+  .vote-form .btn {
+    width: 100% !important;
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .py-4-mobile {
+    padding-top:1rem;
+    padding-bottom:1rem;
+  }
+}
