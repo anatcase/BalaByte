@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-class IssuesNavbar extends React.Component {
+class InnerNavbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = { }
@@ -68,4 +68,4 @@ class IssuesNavbar extends React.Component {
 
 
 
-export default IssuesNavbar;
+export default InnerNavbar;

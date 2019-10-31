@@ -3,13 +3,12 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import IssuesNavbar from '../components/IssuesNavbar'
+import InnerNavbar from '../components/InnerNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
 import IssuesAccordion from '../components/IssuesAccordion'
 import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
-
 
 //import Modal from 'react-bootstrap/Modal'
 //import Form from 'react-bootstrap/Form'
@@ -62,7 +61,7 @@ class Issues extends React.Component {
                     <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/>
 
                     <Container className="py-6 px-5">
-                        <IssuesNavbar />
+                        <InnerNavbar />
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn">New Issue</Button>
                         </div>

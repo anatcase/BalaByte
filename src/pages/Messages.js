@@ -8,6 +8,7 @@ import RecordsDisplay from '../components/RecordsDisplay'
 import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 import PaginationNav from '../components/PaginationNav';
+import InnerNavbar from '../components/InnerNavbar'
 
 
 //import Modal from 'react-bootstrap/Modal'
@@ -63,9 +64,9 @@ class Messages extends React.Component {
                     <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Messages"/>
 
                     <Container className="py-6 px-5">
-                        <MessagesNavbar />
-                        <div className="text-right pt-4 pb-1">
-                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Message</a>
+                        <InnerNavbar />
+                        <div className="text-right pt-4 pb-1 mobile-center">
+                            <Button variant="link" className="new-btn">New Message</Button>
                         </div>
                         <RecordsDisplay hasRecords={true} recordType="messasges" /> 
 
