@@ -9,8 +9,8 @@ import Button from 'react-bootstrap/Button'
 class DashboardIssuesAccordion extends React.Component {
     
     render () {
-
         return (
+            <div className="DashboardNewIssuesAccordion">
                     <Accordion>
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
@@ -22,12 +22,12 @@ class DashboardIssuesAccordion extends React.Component {
                                     <Row>
                                         <Col>
                                             <Row>
-                                                <Col lg={4} className="px-1">
+                                                <Col lg={4}>
                                                     <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
                                                 </Col>
-                                                <Col lg={8} className="px-1 text-left">                    
+                                                <Col lg={8} className="pl-0">                    
                                                     <Card.Text>
-                                                        <li className="list-group-item"><span className="font-weight-bold">Details: </span>***Dynamic Content for Issue details**</li>
+                                                        <li className="text-left list-group-item mobile-center"><span className="font-weight-bold">Details: </span>***Dynamic Content for Issue details**</li>
                                                     </Card.Text>
                                                 </Col>
                                             </Row>
@@ -36,7 +36,8 @@ class DashboardIssuesAccordion extends React.Component {
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>     
-            </Accordion>
+                </Accordion>
+            </div>
         );
     }
 }

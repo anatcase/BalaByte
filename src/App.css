@@ -142,7 +142,7 @@ ul.pagination{
     padding-bottom:2rem;
   }
 
-  div.mobile-center, h6.mobile-center {
+  div.mobile-center, h6.mobile-center, li.mobile-center {
     text-align: center !important;
     margin:auto !important;
   }
@@ -256,6 +256,10 @@ ul.pagination{
    background-color:transparent;
    margin-bottom:0;
  }
+
+.DashboardNewIssuesAccordion .card-body {
+  padding: 0.5rem !important;
+}
 
  .VotingsAccordion .card-body {
   min-height: 225px !important;
