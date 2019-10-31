@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Comments from '../components/Comments'
 
 class MessagesAccordion extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class MessagesAccordion extends React.Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row>
-                                    <Col lg={6} className="issue-box">
+                                    <Col className="issue-box" lg={6}>
                                         <Row>
                                             <Col lg={4}>
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
@@ -36,29 +37,24 @@ class MessagesAccordion extends React.Component {
                                             </Col>
                                         </Row>
                                     </Col>
-                                    <Col lg={6}>
+                                    <Col lg={4}>
                                         <Row>
-                                            <Col lg={8}>
-                                                <h6>Comments:</h6>
-                                                <Row className="Comment mt-4 my-2 mx-0">                                            
-                                                    <Col lg={2} sm={2} xs={2} className="p-0">
-                                                        <img className="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
-                                                    </Col>
-                                                    <Col lg={10} sm={10} xs={10} className="pl-0">
-                                                        <h7 className="font-weight-bold">Dynamic Tenant Name:</h7>
-                                                        <p>Dynamic comment text</p>
-                                                    </Col>
-                                                </Row>
-                                            
-                                                <Form.Control as="textarea" rows="3" placeholder="Write a comment" className="mt-4"/>                   
+                                            <Col>
+                                               <Comments />
                                             </Col>
-                                            <Col lg={4} className="p-0 d-flex align-items-end justify-content-end">
-                                                <Button variant="outline-dark" className="responsive-btn mx-2 align-bottom" block>Update</Button>
-                                                <Button variant="danger" className=" responsive-btn mx-2 align-bottom" block>Delete</Button>
-                                            </Col>
-                                        </Row>                                                           
+                                        </Row>
                                     </Col>
-                                </Row>                             
+                                    <Col lg={2} className="p-0 d-flex align-items-end justify-content-end pt-3">
+                                        <Row className="w-100 mx-0 text-center">
+                                            <Col lg={6} className="px-0 responsive-btn-wrapper">
+                                                <Button variant="outline-dark" className="m-0 responsive-btn">Update</Button>
+                                            </Col>
+                                            <Col lg={6} className="px-0 responsive-btn-wrapper">
+                                                <Button variant="danger" className="m-0 responsive-btn">Delete</Button>
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                </Row>                                            
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>     
