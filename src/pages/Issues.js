@@ -63,8 +63,8 @@ class Issues extends React.Component {
 
                     <Container className="py-6 px-5">
                         <IssuesNavbar />
-                        <div className="text-right pt-4 pb-1">
-                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Issue</a>
+                        <div className="text-right pt-4 pb-1 mobile-center">
+                            <Button variant="link" className="new-btn">New Issue</Button>
                         </div>
                         <RecordsDisplay hasRecords={true} recordType="issues" /> 
                     </Container>

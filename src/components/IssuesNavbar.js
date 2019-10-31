@@ -23,7 +23,7 @@ class IssuesNavbar extends React.Component {
                     </Col>
                 </Row> */}
                 <Row>
-                    <Col lg={6}>
+                    <Col lg={6} className="mobile-center pb-2">
                         <Row className="border rounded justify-content-center">
                             <div className="col-auto px-0 d-flex align-items-center">
                                 <i className="fas fa-search"></i>
@@ -33,19 +33,19 @@ class IssuesNavbar extends React.Component {
                             </div>
                         </Row>
                     </Col>
-                    <Col lg={3} className="pr-0 select-wrapper">
+                    <Col lg={3} className="pr-0 select-wrapper mobile-center pb-2">
                         {/* <DropdownButton data-toggle="dropdown" id="dropdown-basic-button" variant="secondary" title="Filter by priority ">
                             <Dropdown.Item as="button">Info</Dropdown.Item>
                             <Dropdown.Item as="button">Important</Dropdown.Item>
                         </DropdownButton> */}
 
-                         <select className="browser-default custom-select">
+                         <select className="browser-default custom-select mobile-center">
                             <option>Filter by priority</option>
                             <option value="1">Info</option>
                             <option value="2">Important</option>                            
                         </select>
                     </Col>
-                    <Col lg={3} className="px-0 text-right">
+                    <Col lg={3} className="px-0 text-right mobile-center pb-2">
                         <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>

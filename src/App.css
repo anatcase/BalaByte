@@ -349,4 +349,19 @@ ul.pagination{
     padding-top:1rem;
     padding-bottom:1rem;
   }
+
+  button.new-btn {
+    width:100% !important;
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    text-decoration: none !important;
+    border-radius: .25rem !important;
+    margin-bottom:1rem;
+  }
+}
+
+.new-btn {
+  font-weight: 500 !important;
+  text-decoration: underline !important;
 }
