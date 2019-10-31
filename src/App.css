@@ -342,9 +342,7 @@ ul.pagination{
     margin-top:10px;
     margin-bottom:10px;
   }
-}
 
-@media only screen and (max-width: 768px) {
   .py-4-mobile {
     padding-top:1rem;
     padding-bottom:1rem;
@@ -358,6 +356,10 @@ ul.pagination{
     text-decoration: none !important;
     border-radius: .25rem !important;
     margin-bottom:1rem;
+  }
+
+  .accordion>.card .card-header {
+    padding:10px;
   }
 }
 

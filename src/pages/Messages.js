@@ -10,7 +10,6 @@ import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap
 import PaginationNav from '../components/PaginationNav';
 import InnerNavbar from '../components/InnerNavbar'
 
-
 //import Modal from 'react-bootstrap/Modal'
 //import Form from 'react-bootstrap/Form'
 //import Row from 'react-bootstrap/Row'
