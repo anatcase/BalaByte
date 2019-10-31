@@ -47,13 +47,13 @@ class IssuesNavbar extends React.Component {
                     </Col>
                     <Col lg={3} className="px-0 text-right">
                         <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
-                            <label class="form-check-label" for="inlineRadio1">Date</label>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
+                            <label className="form-check-label" for="inlineRadio1">Date</label>
                             </div>
-                            <div class="form-check form-check-inline mr-0">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label class="form-check-label" for="inlineRadio2">Priority</label>
+                            <div className="form-check form-check-inline mr-0">
+                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label className="form-check-label" for="inlineRadio2">Priority</label>
                         </div>
                         
                         {/* <Form.Check inline label="Date" type="radio" id="inline-radio-1" />

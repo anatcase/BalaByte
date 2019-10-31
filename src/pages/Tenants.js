@@ -114,9 +114,9 @@ class Tenants extends React.Component {
                                 Image URL:
                             </Form.Label>
                             <Col sm={7}>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" />
-                                    <label class="custom-file-label" for="customFile">Choose image</label>
+                                <div className="custom-file">
+                                    <input type="file" className="custom-file-input" id="customFile" />
+                                    <label className="custom-file-label" for="customFile">Choose image</label>
                                 </div>
                             </Col>
                             <Col sm={3}>

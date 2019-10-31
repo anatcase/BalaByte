@@ -20,7 +20,7 @@ class CommitteeDashboard extends React.Component {
                 <div className="Dashboard h-100">
                     <Navigation isLoggedIn={this.props.isLoggedIn} pageName="CommitteeDashboard"/>
 
-                    <Container fluid className="p-4 h-100">
+                    <Container fluid className="px-4"> 
                             <Row className="pb-2">
                                 <Col className="border-2">
                                     <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
@@ -84,9 +84,9 @@ class CommitteeDashboard extends React.Component {
                                         Image URL:
                                     </Form.Label>
                                     <Col sm={7}>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" />
-                                            <label class="custom-file-label" for="customFile">Choose image</label>
+                                        <div className="custom-file">
+                                            <input type="file" className="custom-file-input" id="customFile" />
+                                            <label className="custom-file-label" for="customFile">Choose image</label>
                                         </div>
                                     </Col>
                                     <Col sm={3}>

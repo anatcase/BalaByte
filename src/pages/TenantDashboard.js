@@ -20,7 +20,7 @@ class TenantDashboard extends React.Component {
                 <div className="Dashboard h-100">
                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="TenantDashboard"/>
 
-                    <Container fluid className="p-4 h-100">
+                    <Container className="py-6 px-5">
                             <Row className="pb-2">
                                 <Col className="border-2">
                                     <h2>New Messages <Badge variant="light">0</Badge></h2> 

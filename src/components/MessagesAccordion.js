@@ -18,7 +18,7 @@ class MessagesAccordion extends React.Component {
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
                         Dynamic Message Title With Dynamic Icon
-                        <i class="fas fa-info-circle float-right"></i>
+                        <i className="fas fa-info-circle float-right"></i>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
@@ -46,7 +46,7 @@ class MessagesAccordion extends React.Component {
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1" className="font-weight-bold">
                         Dynamic Message Title With Dynamic Icon 2
-                        <i class="fas fa-exclamation-circle float-right"></i>
+                        <i className="fas fa-exclamation-circle float-right"></i>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
@@ -70,7 +70,7 @@ class MessagesAccordion extends React.Component {
                                                 <h6>Comments:</h6>
                                                 <Row className="Comment mt-4 my-2 mx-0">                                            
                                                     <Col lg={2} className="p-0">
-                                                        <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
+                                                        <img className="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
                                                     </Col>
                                                     <Col lg={10} className="pl-0">
                                                         <h7 className="font-weight-bold">Dynamic Tenant Name:</h7>
@@ -79,7 +79,7 @@ class MessagesAccordion extends React.Component {
                                                 </Row>
                                                 <Row className="Comment mt-4 my-2 mx-0">                                            
                                                     <Col lg={2} className="p-0">
-                                                        <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
+                                                        <img className="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
                                                     </Col>
                                                     <Col lg={10} className="pl-0">
                                                         <h7 className="font-weight-bold">Dynamic Tenant Name 2:</h7>
@@ -88,7 +88,7 @@ class MessagesAccordion extends React.Component {
                                                             Dynamic responses
                                                             <Row className="Comment mt-4 my-2 mx-0">                                            
                                                                 <Col lg={2} className="p-0">
-                                                                    <img class="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
+                                                                    <img className="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
                                                                 </Col>
                                                                 <Col lg={10} className="pl-0">
                                                                     <h7 className="font-weight-bold">Dynamic responder Name 1 :</h7>
