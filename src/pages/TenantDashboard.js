@@ -20,27 +20,26 @@ class TenantDashboard extends React.Component {
                 <div className="Dashboard h-100">
                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="TenantDashboard"/>
 
-                    <Container className="py-6 px-5">
+                    <Container fluid className="px-4">
                             <Row className="pb-2">
-                                <Col className="border-2">
+                                <Col lg={6} className="issue-box">
                                     <h2>New Messages <Badge variant="light">0</Badge></h2> 
                                     {/* Who manages the hasRecords state? */}
                                     <RecordsDisplay hasRecords={true} recordType="new messages" /> 
                                 </Col>
-                                <Col>
+                                <Col lg={6}>
                                     <h2>Pending Votings <Badge variant="light">9</Badge></h2>
-                                     {/* Who manages the hasRecords state? */}
                                     <RecordsDisplay hasRecords={true} recordType="pending votings" />
                                 </Col>
                             </Row>
                            
                             <Row className="pt-3 border-top">
-                                <Col className="border-2">
+                                <Col className="issue-box">
                                     <h2>Voting Results</h2>
                                     <ChartsDisplay hasRecords={true} recordType="voting results" />                                         
                                 </Col>
                               
-                                <Col className="border-2">                   
+                                <Col className="issue-box">                   
                                     <h2>New Issues <Badge variant="light">2</Badge></h2>
                                     <RecordsDisplay hasRecords={true} recordType="new issues" />
                                 </Col>

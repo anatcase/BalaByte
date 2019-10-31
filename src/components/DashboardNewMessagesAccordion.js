@@ -22,10 +22,10 @@ class DashboardNewMessagesAccordion extends React.Component {
                                 <Row>
                                     <Col>
                                         <Row>
-                                            <Col lg={4}>
+                                            <Col lg={4} className="pr-0">
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
                                             </Col>
-                                            <Col lg={8}>                    
+                                            <Col lg={8} className="pl-1">                    
                                                 <Card.Text>
                                                     <li className="list-group-item"><span className="font-weight-bold">Details: </span>**Dynamic Content for message details**</li>
                                                     <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for message details**</li>
@@ -47,23 +47,23 @@ class DashboardNewMessagesAccordion extends React.Component {
                                 <Row>
                                     <Col>
                                         <Row>
-                                            <Col lg={4}>
+                                        <Col lg={4} className="pr-0">
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
-                                            </Col>
-                                            <Col lg={8}>                    
+                                        </Col>
+                                        <Col lg={8} className="pl-1">                    
                                                 <Card.Text>
                                                     <li className="list-group-item"><span className="font-weight-bold">Details: </span>**Dynamic Content for message details**</li>
                                                     <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for message details**</li>
                                                 </Card.Text>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                </Row>                             
-                            </Card.Body>
-                        </Accordion.Collapse>
-                    </Card>     
-                </Accordion>
-           </div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>                             
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>     
+            </Accordion>
+        </div>
         );
     }
 }

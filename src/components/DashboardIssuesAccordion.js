@@ -22,10 +22,10 @@ class DashboardIssuesAccordion extends React.Component {
                                     <Row>
                                         <Col>
                                             <Row>
-                                                <Col lg={4}>
+                                                <Col lg={4} className="px-1">
                                                     <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
                                                 </Col>
-                                                <Col lg={8}>                    
+                                                <Col lg={8} className="px-1 text-left">                    
                                                     <Card.Text>
                                                         <li className="list-group-item"><span className="font-weight-bold">Details: </span>***Dynamic Content for Issue details**</li>
                                                     </Card.Text>

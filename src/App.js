@@ -28,10 +28,10 @@ class App extends React.Component {
         {/* <Login /> */}
         
         {/*<SignUp />*/}
-        <Messages isLoggedIn={this.state.isLoggedIn}/>
+        {/* <Messages isLoggedIn={this.state.isLoggedIn}/> */}
         
         {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}
-        {/* <TenantDashboard isLoggedIn={this.state.isLoggedIn}/> */}
+        <TenantDashboard isLoggedIn={this.state.isLoggedIn}/> 
         
       </div>
     );
