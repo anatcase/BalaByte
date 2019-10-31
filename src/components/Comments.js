@@ -14,11 +14,11 @@ class Comments extends React.Component {
         <div className="Comments">
             <h6>Comments:</h6>
             <Row className="Comment mt-4 my-2 mx-0">                                            
-                <Col lg={2} className="p-0">
+                <Col lg={2} sm={2} xs={2} className="p-0">
                     <img className="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
                 </Col>
-                <Col lg={10} className="pl-0">
-                    <p className="font-weight-bold">Dynamic Tenant Name:</p>
+                <Col lg={10} sm={10} xs={10} className="pl-0">
+                    <p className="font-weight-bold m-0">Dynamic Tenant Name:</p>
                     <p>Dynamic comment text</p>
                 </Col>
             </Row>

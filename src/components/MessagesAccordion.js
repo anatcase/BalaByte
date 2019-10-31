@@ -53,8 +53,8 @@ class MessagesAccordion extends React.Component {
                                                 <Form.Control as="textarea" rows="3" placeholder="Write a comment" className="mt-4"/>                   
                                             </Col>
                                             <Col lg={4} className="p-0 d-flex align-items-end justify-content-end">
-                                                <Button variant="outline-dark" className="mx-2 align-bottom" block>Update</Button>
-                                                <Button variant="danger" className="mx-2 align-bottom" block>Delete</Button>
+                                                <Button variant="outline-dark" className="responsive-btn mx-2 align-bottom" block>Update</Button>
+                                                <Button variant="danger" className=" responsive-btn mx-2 align-bottom" block>Delete</Button>
                                             </Col>
                                         </Row>                                                           
                                     </Col>

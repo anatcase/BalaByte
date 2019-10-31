@@ -339,14 +339,19 @@ ul.pagination{
  @media only screen and (max-width: 768px) {
   .vote-form .btn {
     width: 100% !important;
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:10px !important;
+    margin-bottom:10px !important;
   }
 
-  .MessagesAccordion .btn {
+  .responsive-btn-wrapper {
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+  }
+
+  .responsive-btn {
     width: 100% !important;
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:10px !important;
+    margin-bottom:10px !important;
   }
 
   .py-4-mobile {
