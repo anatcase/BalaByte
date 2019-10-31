@@ -24,21 +24,21 @@ class PendingVotingsAccordion extends React.Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row className="py-1 mx-0 mobile-center">
-                                        <Col className="px-0 d-flex align-items-center">
-                                        <Form.Group as={Row} controlId="formPrioritySelect" className="vote-form mx-0 mobile-center w-100">
-                                                <Form.Label column lg={2}>
-                                                    Your Vote:
-                                                </Form.Label>
-                                                <Col lg={5}>
-                                                    <Form.Control required as="select" className="priority-select">
-                                                        <option value="In Favor">In Favor</option>
-                                                        <option value="Against">Against</option>
-                                                    </Form.Control>
-                                                </Col>
-                                                <Col lg={5} className="mobile-center text-left">
-                                                    <Button type="submit" className="ml-2">Submit Vote</Button>
-                                                </Col>
-                                            </Form.Group>
+                                        <Col lg={12} className="px-0 d-flex align-items-center">
+                                            <Form.Group as={Row} controlId="formPrioritySelect" className="vote-form mx-0 mobile-center w-100">
+                                                    <Form.Label column lg={2}>
+                                                        Your Vote:
+                                                    </Form.Label>
+                                                    <Col lg={5}>
+                                                        <Form.Control required as="select" className="priority-select">
+                                                            <option value="In Favor">In Favor</option>
+                                                            <option value="Against">Against</option>
+                                                        </Form.Control>
+                                                    </Col>
+                                                    <Col lg={5} className="mobile-center text-left">
+                                                        <Button type="submit" className="ml-2 responsive-btn">Submit Vote</Button>
+                                                    </Col>
+                                                </Form.Group>
                                         </Col>
                                 </Row>
                             </Card.Body>
