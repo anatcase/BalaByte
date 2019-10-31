@@ -37,7 +37,7 @@ class IssuesAccordion extends React.Component {
                                     <Col>
                                         <Row>
                                             <Col lg={8}>
-                                                <h6>Comments:</h6>
+                                                {/* <h6>Comments:</h6>
                                                 <Row className="Comment mt-4 my-2 mx-0">                                            
                                                     <Col lg={2} className="p-0">
                                                         <img className="rounded-circle avatar" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" alt="Avatar"></img>
@@ -69,7 +69,7 @@ class IssuesAccordion extends React.Component {
                                                             </Row>
                                                         </div>
                                                         <a href="#">Reply</a>
-                                                        <Form.Control as="textarea" rows="3" placeholder="Write your response" className="mt-1"/> 
+                                                        <Form.Control as="textarea" rows="3" placeholder="Write your response" className="mt-1"/>  */}
                                                     </Col>
                                                 </Row>
                                                 <Form.Control as="textarea" rows="3" placeholder="Write a comment" className="mt-4"/>                   
