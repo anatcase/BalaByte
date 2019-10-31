@@ -38,8 +38,11 @@ class CommitteeDashboard extends React.Component {
                                 <Col>                    
                                     <h2>Active Voting Percentage</h2>
                                     {/* Who manages the hasRecords state? */}
-                                    <ChartsDisplay hasRecords={true} recordType="active votings" />
-                             </Col>
+
+                                    <ChartsDisplay hasRecords={true} recordType="active votings" pageName="CommitteeDashboard"/>
+                                    
+                                   
+                                </Col>
                             </Row>
                         </Container>
                     {/* <Modal show="true" size="lg">

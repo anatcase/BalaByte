@@ -309,7 +309,7 @@ ul.pagination{
  }
 
  .Dashboard .chart {
-  max-width: 44%;
+  max-width: 40%;
   margin:auto;
  }
 
@@ -321,11 +321,7 @@ ul.pagination{
  i.fas {
 
    line-height: 1.5;
- }
-
- .chartBox {
-   padding-bottom: 3.5rem;
- }
+ } 
 
  .col-form-label {
    font-weight:500;

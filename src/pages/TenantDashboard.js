@@ -34,16 +34,16 @@ class TenantDashboard extends React.Component {
                             </Row>
                            
                             <Row className="pt-3 border-top">
-                                <Col className="issue-box">
-                                    <h2>Voting Results</h2>
-                                    <ChartsDisplay hasRecords={true} recordType="voting results" />                                         
+                                <Col className="issue-box" lg={4}>
+                                    <h2 className="mb-4">Voting Results</h2>
+                                    <ChartsDisplay hasRecords={true} recordType="voting results" pageName="TenantDashboard"/>
                                 </Col>
                               
-                                <Col className="issue-box">                   
+                                <Col className="issue-box" lg={4}>                   
                                     <h2>New Issues <Badge variant="light">2</Badge></h2>
                                     <RecordsDisplay hasRecords={true} recordType="new issues" />
                                 </Col>
-                                 <Col>                    
+                                 <Col lg={4}>                    
                                     <h2>New Resolved Issues <Badge variant="light">3</Badge></h2>
                                     <RecordsDisplay hasRecords={true} recordType="new resolved issues" />
                                  </Col>

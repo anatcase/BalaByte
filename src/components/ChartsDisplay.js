@@ -11,10 +11,41 @@ import PieChart from 'react-minimal-pie-chart'
 class Records extends React.Component {
     
     render () {
-        return (
+        const charts = (
+            this.props.pageName === "CommitteeDashboard"?
             <Row className="text-center py-3">
-                {/* Make reusable comp*/}
-                <Col lg={4} className="chartBox">
+
+                <Col className="pb-4" lg={4}>
+                    <h6>Voting Title1</h6> 
+                    <p className="mb-1 font-weight-normal">By: Date</p>
+                    <PieChart className="chart"
+                        data={[
+                            { title: 'For', value: 80, color: '#90ee90' },
+                            { title: 'Against', value: 20, color: '#a2012c' },
+                    ]}/>
+                 </Col>
+                  <Col className="pb-4" lg={4}>
+                  <h6>Voting Title1</h6> 
+                  <p className="mb-1 font-weight-normal">By: Date</p>
+                  <PieChart className="chart"
+                      data={[
+                          { title: 'For', value: 80, color: '#90ee90' },
+                          { title: 'Against', value: 20, color: '#a2012c' },
+                  ]}/>
+               </Col>
+                <Col className="chartBox" lg={4}>
+                <h6>Voting Title1</h6> 
+                <p className="mb-1 font-weight-normal">By: Date</p>
+                <PieChart className="chart"
+                    data={[
+                        { title: 'For', value: 80, color: '#90ee90' },
+                        { title: 'Against', value: 20, color: '#a2012c' },
+                ]}/>
+             </Col>
+             </Row>
+            :
+            <Row className="text-center">
+                <Col className="chartBox" lg={12}>
                     <h6>Voting Title1</h6> 
                     <p className="mb-1 font-weight-normal">By: Date</p>
                     <PieChart className="chart"
@@ -23,27 +54,12 @@ class Records extends React.Component {
                             { title: 'Against', value: 20, color: '#a2012c' },
                     ]}/>
                 </Col>
-                <Col lg={4} className="chartBox">
-                    <h6>Voting Title1</h6> 
-                    <p className="mb-1 font-weight-normal">By: Date</p>
-                        <PieChart className="chart"
-                            data={[
-                                { title: 'For', value: 80, color: '#90ee90' },
-                                { title: 'Against', value: 20, color: '#a2012c' },
-                            ]}
-                            />
-                </Col>
-                <Col lg={4} className="chartBox">
-                    <h6>Voting Title1</h6> 
-                    <p className="mb-1 font-weight-normal">By: Date</p>
-                        <PieChart className="chart"
-                            data={[
-                                { title: 'In Favor', value: 80, color: '#90ee90' },
-                                { title: 'Against', value: 20, color: '#a2012c' },
-                            ]}
-                            />
-                </Col>
             </Row>
+        );
+
+        return (
+          <div className="w-100"> {charts} </div>
+            
         );     
     }
 }
@@ -63,13 +79,8 @@ class ChartsDisplay extends React.Component {
         
         return (
             this.props.hasRecords? 
-                <div className="chartsDisplay">
-                    <Records/>
-                    <PaginationNav /> 
-                    {/* which class should manage the activePage and totalItemsCount? */}
-                    {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}
-                </div>
-            : <NoRecords recordType={this.props.recordType}/>
+                <Records pageName={this.props.pageName}/>
+            :   <NoRecords recordType={this.props.recordType}/>
         );
     }
 }

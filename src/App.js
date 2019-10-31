@@ -31,7 +31,7 @@ class App extends React.Component {
         {/* <Messages isLoggedIn={this.state.isLoggedIn}/> */}
         
         {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}
-        <TenantDashboard isLoggedIn={this.state.isLoggedIn}/> 
+        <CommitteeDashboard isLoggedIn={this.state.isLoggedIn}/> 
         
       </div>
     );
