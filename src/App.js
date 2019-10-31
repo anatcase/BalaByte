@@ -27,8 +27,8 @@ class App extends React.Component {
       <div className="App">
         {/* <Login /> */}
         
-        <SignUp />
-        {/* <Messages isLoggedIn={this.state.isLoggedIn}/> */}
+        {/* <SignUp /> */}
+        <Issues isLoggedIn={this.state.isLoggedIn}/>
         
         {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}
         {/* <CommitteeDashboard isLoggedIn={this.state.isLoggedIn}/>  */}

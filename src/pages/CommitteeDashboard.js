@@ -13,9 +13,9 @@ import PieChart from 'react-minimal-pie-chart'
 
 
 class CommitteeDashboard extends React.Component {
-  
+    
     render() {
-     
+      
       return (
                 <div className="Dashboard h-100">
                     <Navigation isLoggedIn={this.props.isLoggedIn} pageName="CommitteeDashboard"/>
@@ -45,68 +45,6 @@ class CommitteeDashboard extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-                    {/* <Modal show="true" size="lg">
-                        <Modal.Header closeButton>
-                            <Modal.Title>New Issue</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form className="issueModalFrm">
-                                <Form.Group as={Row} controlId="formNameTxt">
-                                    <Form.Label column sm={2}>
-                                        Title:
-                                    </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control required type="text" />
-                                    </Col>
-                                </Form.Group>
-
-                                <Form.Group as={Row} controlId="formDetailsTxt">
-                                    <Form.Label column sm={2}>
-                                        Details:
-                                    </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control required as="textarea" rows="3" />
-                                    </Col>
-                                </Form.Group>
-
-                                <Form.Group as={Row} controlId="formPrioritySelect">
-                                    <Form.Label column sm={2}>
-                                        Priority:
-                                    </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control required as="select" className="priority-select">
-                                            <option value="urgent">Urgent</option>
-                                            <option value="important">Important</option>
-                                            <option value="normal">Normal</option>
-                                        </Form.Control>
-                                    </Col>
-                                </Form.Group>
-
-                                <Form.Group as={Row} controlId="formImgControl" className="align-items-center">
-                                    <Form.Label column sm={2}>
-                                        Image URL:
-                                    </Form.Label>
-                                    <Col sm={7}>
-                                        <div className="custom-file">
-                                            <input type="file" className="custom-file-input" id="customFile" />
-                                            <label className="custom-file-label" for="customFile">Choose image</label>
-                                        </div>
-                                    </Col>
-                                    <Col sm={3}>
-                                        <Image src="https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg" fluid/>
-                                    </Col>
-                                </Form.Group>
-                            </Form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary">
-                                Close
-                            </Button>
-                            <Button variant="primary">
-                                Create
-                            </Button>
-                        </Modal.Footer>
-                    </Modal> */}
             </div>
         );
 
