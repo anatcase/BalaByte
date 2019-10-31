@@ -22,12 +22,12 @@ class CommitteeDashboard extends React.Component {
 
                     <Container fluid className="px-4"> 
                             <Row className="pb-2">
-                                <Col className="border-2">
+                                <Col lg={6} className="issue-box">
                                     <h2>New Reported Issues <Badge variant="light">0</Badge></h2> 
                                     {/* Who manages the hasRecords state? */}
                                     <RecordsDisplay hasRecords={true} recordType="new issues" /> 
                                 </Col>
-                                <Col>
+                                <Col lg={6}>
                                     <h2>Overdue Issues <Badge variant="light">9</Badge></h2>
                                      {/* Who manages the hasRecords state? */}
                                     <RecordsDisplay hasRecords={true} recordType="overdue issues" />

@@ -116,7 +116,7 @@
   justify-content: center;
 }
 
-.pagination ul {
+ul.pagination{
   margin-bottom:0 !important;
 }
 
@@ -136,8 +136,17 @@
   color:red;
 }
 
-.border-2 {
-  border-right: 2px solid rgba(0,0,0,.125);
+
+@media only screen and (max-width: 768px) {
+  .issue-box {
+    padding-bottom:2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .issue-box {
+    border-right: 2px solid rgba(0,0,0,.125);
+  }
 }
 
 .border-top {
@@ -281,6 +290,7 @@
 
  .Dashboard h2  {
   margin-bottom: 1.5rem;
+  text-align: center;
  }
 
  .Dashboard p {
@@ -299,4 +309,8 @@
 
  i.fas {
    line-height: 1.5;
+ }
+
+ .chartBox {
+   padding-bottom: 3.5rem;
  }

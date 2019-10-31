@@ -12,9 +12,9 @@ class Records extends React.Component {
     
     render () {
         return (
-            <Row className="text-center py-1">
+            <Row className="text-center py-3">
                 {/* Make reusable comp*/}
-                <Col>
+                <Col lg={4} className="chartBox">
                     <h6>Voting Title1</h6> 
                     <p className="mb-1 font-weight-normal">By: Date</p>
                     <PieChart className="chart"
@@ -23,7 +23,7 @@ class Records extends React.Component {
                             { title: 'Against', value: 20, color: '#a2012c' },
                     ]}/>
                 </Col>
-                <Col>
+                <Col lg={4} className="chartBox">
                     <h6>Voting Title1</h6> 
                     <p className="mb-1 font-weight-normal">By: Date</p>
                         <PieChart className="chart"
@@ -33,7 +33,7 @@ class Records extends React.Component {
                             ]}
                             />
                 </Col>
-                <Col>
+                <Col lg={4} className="chartBox">
                     <h6>Voting Title1</h6> 
                     <p className="mb-1 font-weight-normal">By: Date</p>
                         <PieChart className="chart"
