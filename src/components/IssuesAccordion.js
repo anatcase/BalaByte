@@ -20,7 +20,7 @@ class IssuesAccordion extends React.Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 <Row>
-                                    <Col className="border-2">
+                                    <Col className="issue-box">
                                         <Row>
                                             <Col lg={4}>
                                                 <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
@@ -76,7 +76,7 @@ class IssuesAccordion extends React.Component {
                                             </Col>
                                             <Col lg={4} className="p-0 d-flex align-items-end justify-content-end">
                                                 <Button variant="outline-dark" className="mx-2 align-bottom">Update</Button>
-                                                <Button variant="danger" className="mx-2  align-bottom">Delete</Button>
+                                                <Button variant="danger" className="mx-2 align-bottom">Delete</Button>
                                             </Col>
                                         </Row>                                                           
                                     </Col>

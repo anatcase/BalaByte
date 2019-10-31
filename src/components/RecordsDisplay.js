@@ -1,6 +1,6 @@
 import React from 'react'
 import PaginationNav from '../components/PaginationNav';
-import IssuesAccordion from '../components/DashboardIssuesAccordion';
+import IssuesAccordion from '../components/IssuesAccordion';
 import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion';
 import TenantsAccordion from '../components/TenantsAccordion';
 import MessagesAccordion from '../components/MessagesAccordion';
