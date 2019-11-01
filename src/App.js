@@ -45,7 +45,7 @@ this.setState(this.state);
   render() {
     const { activeUser, allUsers } = this.state;
     const navigation = (
-      this.state.activePage !== "Login" || "Signup" ?
+      this.state.activePage !== "Login" || "SignUp" ?
       <Navigation isLoggedIn={this.state.isLoggedIn} activePage={this.state.activePage} changeActivePage={this.changeActivePage}/>
       : null
     );

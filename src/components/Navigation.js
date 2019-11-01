@@ -13,7 +13,7 @@ class Navigation extends React.Component {
   
   handleClick(e) {
     console.log(e);
-    this.props.changeActivePage(e.target.value);
+    this.props.changeActivePage(e.target.innerText);
   }
 
     render () {
@@ -24,22 +24,22 @@ class Navigation extends React.Component {
             <Navbar fixed="top" collapseOnSelect expand="lg">
               <Row className="w-100">
                     <Col lg={1} sm= {4} xs={4}>
-                      <Navbar.Brand href="/" onClick={this.handleClick}><img className={logo} src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
+                      <Navbar.Brand onClick={this.handleClick}><img className={logo} src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
                     </Col>
                    
                   <Col lg={11} sm= {4} xs={4} className="px-0">
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className={isLoggedIn? "mr-auto" : "hide"}>
-                          <Nav.Link href="/Dashboard" onClick={this.handleClick}>Dashboard</Nav.Link>
-                          <Nav.Link href="/Tenants" onClick={this.handleClick}>Tenants</Nav.Link>
-                          <Nav.Link href="/Messages" onClick={this.handleClick}>Messages</Nav.Link>
-                          <Nav.Link href="/Issues" onClick={this.handleClick}>Issues</Nav.Link>
-                          <Nav.Link href="/Votings" onClick={this.handleClick}>Voting</Nav.Link>
+                          <Nav.Link onClick={this.handleClick}>Dashboard</Nav.Link>
+                          <Nav.Link onClick={this.handleClick}>Tenants</Nav.Link>
+                          <Nav.Link onClick={this.handleClick}>Messages</Nav.Link>
+                          <Nav.Link onClick={this.handleClick}>Issues</Nav.Link>
+                          <Nav.Link onClick={this.handleClick}>Voting</Nav.Link>
                         </Nav>
 
                         <Nav className={isLoggedIn? "hide" : "ml-auto"}>
-                            <Nav.Link href="/Login" onClick={this.handleClick}>Login</Nav.Link>
-                            <Nav.Link eventKey={2} href="/SignUp" onClick={this.handleClick}>
+                            <Nav.Link onClick={this.handleClick}>Login</Nav.Link>
+                            <Nav.Link eventKey={2} onClick={this.handleClick}>
                             Sign Up
                             </Nav.Link>
                         </Nav>
