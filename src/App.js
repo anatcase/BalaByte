@@ -2,6 +2,12 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages//Login';
@@ -9,30 +15,60 @@ import Messages from './pages/Messages';
 import Tenants from './pages/Tenants';
 import Votings from './pages/Votings';
 import Issues from './pages/Issues';
-import CommitteeDashboard from './pages/CommitteeDashboard';
-import TenantDashboard from './pages/TenantDashboard';
+import Dashboard from './pages/Dashboard';
 
 class App extends React.Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
-  };
+      // activeUser: null,
+      isLoggedIn: false,
+      // allUsers: jsonUsers,
+  }
+
+  // this.handleLogout = this.handleLogout.bind(this);
+  // this.handleLogin = this.handleLogin.bind(this);
 }
 
+// handleLogout() {
+//   this.setState({activeUser: null});
+// }
+
+
   render() {
+    const { activeUser, allUsers, activeUserRecipes } = this.state;
 
     return (
       <div className="App">
-        {/* <Login /> */}
-        
-        {/* <SignUp /> */}
-        <Issues isLoggedIn={this.state.isLoggedIn}/>
-        
-        {/* <Home isLoggedIn={this.state.isLoggedIn}/> */}
-        {/* <CommitteeDashboard isLoggedIn={this.state.isLoggedIn}/>  */}
-        
+         <Router>
+            <Switch>
+            <Route exact path="/">
+              <Home activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+            <Route path="/Login">
+              <Login users={allUsers} handleLogin={this.handleLogin}/>
+            </Route>
+            <Route path="/Issues">
+              <Issues activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+            <Route path="/Messages">
+              <Messages activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+            <Route path="/SignUp">
+              <SignUp activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+            <Route path="/Dashboard">
+              <Dashboard activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+            <Route path="/Tenants">
+              <Tenants activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+            <Route path="/Votings">
+              <Votings activeUser={activeUser} handleLogout={this.handleLogout}/>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }

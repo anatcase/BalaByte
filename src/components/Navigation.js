@@ -14,28 +14,28 @@ class Navigation extends React.Component {
             <Navbar fixed="top" collapseOnSelect expand="lg">
               <Row className="w-100">
                     <Col lg={1} sm= {4} xs={4}>
-                      <Navbar.Brand href="#home"><img className={logo} src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
+                      <Navbar.Brand href="Home"><img className={logo} src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
                     </Col>
                    
                   <Col lg={11} sm= {4} xs={4} className="px-0">
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className={isLoggedIn? "mr-auto" : "hide"}>
-                          <Nav.Link href="#Dashboard">Dashboard</Nav.Link>
-                          <Nav.Link href="#Tenants">Tenants</Nav.Link>
-                          <Nav.Link href="#Messages">Messages</Nav.Link>
-                          <Nav.Link href="#Issues">Issues</Nav.Link>
-                          <Nav.Link href="#Voting">Voting</Nav.Link>
+                          <Nav.Link href="Dashboard">Dashboard</Nav.Link>
+                          <Nav.Link href="Tenants">Tenants</Nav.Link>
+                          <Nav.Link href="Messages">Messages</Nav.Link>
+                          <Nav.Link href="Issues">Issues</Nav.Link>
+                          <Nav.Link href="Voting">Voting</Nav.Link>
                         </Nav>
 
                         <Nav className={isLoggedIn? "hide" : "ml-auto"}>
-                            <Nav.Link href="#Login">Login</Nav.Link>
-                            <Nav.Link eventKey={2} href="#SignUp">
+                            <Nav.Link href="Login">Login</Nav.Link>
+                            <Nav.Link eventKey={2} href="SignUp">
                             Sign Up
                             </Nav.Link>
                         </Nav>
 
                         <Nav className={isLoggedIn? "ml-auto" : "hide"}>
-                            <Nav.Link href="#Logout">Logout</Nav.Link>
+                            <Nav.Link href="Logout">Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                   </Col>

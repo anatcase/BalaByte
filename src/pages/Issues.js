@@ -34,7 +34,7 @@ class Issues extends React.Component {
       this.createIssue = this.createIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
 
-      this.nameInput = React.createRef();
+      this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
 
@@ -70,7 +70,7 @@ class Issues extends React.Component {
             img: this.state.newIssueImg.URL
         }
 
-        this.props.addIssue(newIssue);
+        // this.props.addIssue(newIssue);
         this.closeModal();
     }
 

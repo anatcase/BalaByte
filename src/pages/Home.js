@@ -23,7 +23,7 @@ class Main extends React.Component {
           communication between tenants and the homeowner association committee has never been easier!
           </p>
           <p>
-            <Button variant="primary" size="lg" className="px-5 py-2">Sign Up - It's Free!</Button>
+            <Button href="SignUp" variant="primary" size="lg" className="px-5 py-2">Sign Up - It's Free!</Button>
           </p>
         </Jumbotron>
         <Container className="featureWrapper text-center mt-4">
@@ -44,7 +44,7 @@ class Main extends React.Component {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer className="border-0">
-                    <Button variant="primary" block>Make It Work</Button>
+                    <Button href="Issues" variant="primary" block>Make It Work</Button>
                   </Card.Footer>
                 </Card>
               </Col>
@@ -60,7 +60,7 @@ class Main extends React.Component {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer className="border-0">
-                    <Button variant="primary" block>Make It Happen</Button>
+                    <Button href="Messages" variant="primary" block>Make It Happen</Button>
                   </Card.Footer>
                 </Card>
               </Col>
@@ -76,7 +76,7 @@ class Main extends React.Component {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer className="border-0">
-                    <Button variant="primary" block>Make It Count</Button>
+                    <Button href="Votings" variant="primary" block>Make It Count</Button>
                   </Card.Footer>
               </Card>
             </Col>
