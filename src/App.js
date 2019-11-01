@@ -37,7 +37,7 @@ handleLogout() {
 
 
   render() {
-    const { activeUser, allUsers, activeUserRecipes } = this.state;
+    const { activeUser, allUsers } = this.state;
 
     return (
       <div className="App">
