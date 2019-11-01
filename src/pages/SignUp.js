@@ -98,11 +98,12 @@ class SignUp extends React.Component {
       }
 
     render() {
-
+        this.state.signUpSuccess ?  <Redirect to="/Dashboard"/> : null
+        // <Dashboard userType="admin"/>
         const destination = (
-            <div>
-            {
-                this.state.signUpSuccess ?  <Dashboard userType="admin"/> :
+            // <div>
+            // {
+            //     this.state.signUpSuccess ?  <Dashboard userType="admin"/> :
                                             <div className="SignUp">
                                                 <h1>Create a Homeboy Account</h1>
                                                 <p>or <a href="#/login">or log in to your account</a></p>
@@ -159,8 +160,8 @@ class SignUp extends React.Component {
                                                     </Button>
                                                 </Form>
                                             </div>    
-                }
-            </div>
+            //     }
+            // </div>
         );
         
         return (
