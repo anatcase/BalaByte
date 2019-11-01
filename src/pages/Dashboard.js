@@ -42,7 +42,7 @@ class CommitteeDashboard extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-            
+      );
 
     }
   }   
@@ -53,40 +53,36 @@ class TenantDashboard extends React.Component {
     render() {
      
       return (
-               
-
-                    <Container fluid className="px-4">
-                            <Row className="pb-2">
-                                <Col lg={6} className="issue-box">
-                                    <h2>New Messages <Badge variant="light">0</Badge></h2> 
-                                    {/* Who manages the hasRecords state? */}
-                                    <RecordsDisplay hasRecords={true} recordType="new messages" /> 
-                                </Col>
-                                <Col lg={6}>
-                                    <h2>Pending Votings <Badge variant="light">9</Badge></h2>
-                                    <RecordsDisplay hasRecords={true} recordType="pending votings" />
-                                </Col>
-                            </Row>
-                           
-                            <Row className="pt-3 border-top">
-                                <Col className="issue-box" lg={4}>
-                                    <h2 className="mb-4">Voting Results</h2>
-                                    <ChartsDisplay hasRecords={true} recordType="voting results" pageName="TenantDashboard"/>
-                                </Col>
-                              
-                                <Col className="issue-box" lg={4}>                   
-                                    <h2>New Issues <Badge variant="light">2</Badge></h2>
-                                    <RecordsDisplay hasRecords={true} recordType="new issues" />
-                                </Col>
-                                 <Col lg={4}>                    
-                                    <h2>New Resolved Issues <Badge variant="light">3</Badge></h2>
-                                    <RecordsDisplay hasRecords={true} recordType="new resolved issues" />
-                                 </Col>
-                            </Row>
-                        </Container>
-           
+        <Container fluid className="px-4">
+                <Row className="pb-2">
+                    <Col lg={6} className="issue-box">
+                        <h2>New Messages <Badge variant="light">0</Badge></h2> 
+                        {/* Who manages the hasRecords state? */}
+                        <RecordsDisplay hasRecords={true} recordType="new messages" /> 
+                    </Col>
+                    <Col lg={6}>
+                        <h2>Pending Votings <Badge variant="light">9</Badge></h2>
+                        <RecordsDisplay hasRecords={true} recordType="pending votings" />
+                    </Col>
+                </Row>
+                
+                <Row className="pt-3 border-top">
+                    <Col className="issue-box" lg={4}>
+                        <h2 className="mb-4">Voting Results</h2>
+                        <ChartsDisplay hasRecords={true} recordType="voting results" pageName="TenantDashboard"/>
+                    </Col>
+                    
+                    <Col className="issue-box" lg={4}>                   
+                        <h2>New Issues <Badge variant="light">2</Badge></h2>
+                        <RecordsDisplay hasRecords={true} recordType="new issues" />
+                    </Col>
+                        <Col lg={4}>                    
+                        <h2>New Resolved Issues <Badge variant="light">3</Badge></h2>
+                        <RecordsDisplay hasRecords={true} recordType="new resolved issues" />
+                        </Col>
+                </Row>
+            </Container>
         );
-
     }
   }   
 
