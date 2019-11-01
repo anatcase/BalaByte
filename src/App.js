@@ -46,7 +46,7 @@ handleLogout() {
             <Route exact path="/">
               <Home activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
-            <Route path="Login">
+            <Route path="/Login">
               <Login users={allUsers} handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Issues">
