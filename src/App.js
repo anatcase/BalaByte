@@ -41,34 +41,7 @@ handleLogout() {
 
     return (
       <div className="App">
-         <Router>
-            <Switch>
-            <Route exact path="/">
-              <Home activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/Login">
-              <Login users={allUsers} handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/Issues">
-              <Issues activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/Messages">
-              <Messages activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/SignUp">
-              <SignUp activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/Dashboard">
-              <Dashboard activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/Tenants">
-              <Tenants activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-            <Route path="/Votings">
-              <Votings activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
-          </Switch>
-        </Router>
+        ss
       </div>
     );
   }
