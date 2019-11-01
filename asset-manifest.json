@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/homeboy/static/css/main.b0c57f36.chunk.css",
-    "main.js": "/homeboy/static/js/main.8928e14e.chunk.js",
-    "main.js.map": "/homeboy/static/js/main.8928e14e.chunk.js.map",
+    "main.js": "/homeboy/static/js/main.96dff340.chunk.js",
+    "main.js.map": "/homeboy/static/js/main.96dff340.chunk.js.map",
     "runtime-main.js": "/homeboy/static/js/runtime-main.73350fa6.js",
     "runtime-main.js.map": "/homeboy/static/js/runtime-main.73350fa6.js.map",
     "static/css/2.4e0883bb.chunk.css": "/homeboy/static/css/2.4e0883bb.chunk.css",
-    "static/js/2.dcece3d0.chunk.js": "/homeboy/static/js/2.dcece3d0.chunk.js",
-    "static/js/2.dcece3d0.chunk.js.map": "/homeboy/static/js/2.dcece3d0.chunk.js.map",
+    "static/js/2.0e39b5ae.chunk.js": "/homeboy/static/js/2.0e39b5ae.chunk.js",
+    "static/js/2.0e39b5ae.chunk.js.map": "/homeboy/static/js/2.0e39b5ae.chunk.js.map",
     "index.html": "/homeboy/index.html",
-    "precache-manifest.7c48a572e9033a32f7b4b76eec266096.js": "/homeboy/precache-manifest.7c48a572e9033a32f7b4b76eec266096.js",
+    "precache-manifest.e6a48ae2775c67c35cb31bb1b215f2a7.js": "/homeboy/precache-manifest.e6a48ae2775c67c35cb31bb1b215f2a7.js",
     "service-worker.js": "/homeboy/service-worker.js",
     "static/css/2.4e0883bb.chunk.css.map": "/homeboy/static/css/2.4e0883bb.chunk.css.map",
     "static/css/main.b0c57f36.chunk.css.map": "/homeboy/static/css/main.b0c57f36.chunk.css.map",
@@ -18,8 +18,8 @@
   "entrypoints": [
     "static/js/runtime-main.73350fa6.js",
     "static/css/2.4e0883bb.chunk.css",
-    "static/js/2.dcece3d0.chunk.js",
+    "static/js/2.0e39b5ae.chunk.js",
     "static/css/main.b0c57f36.chunk.css",
-    "static/js/main.8928e14e.chunk.js"
+    "static/js/main.96dff340.chunk.js"
   ]
 }
