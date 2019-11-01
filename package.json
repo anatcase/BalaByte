@@ -2,7 +2,7 @@
   "name": "homeboy",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://anatcase.github.io/homeboy/",
+  "homepage": "https://anatcase.github.io/homeboy",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "bootstrap-less": "^3.3.8",
