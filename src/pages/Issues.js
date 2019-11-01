@@ -19,6 +19,16 @@ class Issues extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        // activeUser: null,
+        activeUser:   {
+                "id": 1,
+                "fname": "Nir",
+                "lname": "Channes",
+                "email": "nir@nir.com",
+                "pwd": "123"
+        },
+        allIssues: "",
+        activeUserIssues: [],
         activePage: 1,
         showModal: false,
         totalItemsCount: 100, // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
@@ -33,7 +43,7 @@ class Issues extends React.Component {
       this.closeModal = this.closeModal.bind(this);
       this.createIssue = this.createIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
-
+      this.addIssue = this.addIssue.bind(this);
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
@@ -70,10 +80,23 @@ class Issues extends React.Component {
             img: this.state.newIssueImg.URL
         }
 
-        // this.props.addIssue(newIssue);
+        this.addIssue(newIssue);
         this.closeModal();
     }
 
+    addIssue(newIssue) {
+        //const {activeUser, allIssues, activeUserIssues} this.state.activeUser
+        // 1) add id and user to the Issue
+        newIssue.userId = this.state.activeUser.id;
+        newIssue.id = this.state.allIssues[this.state.allIssues.length - 1].id + 1;
+    
+        // 2) update all Issues and active user Issues
+        const allIssues = this.state.allIssues.concat(newIssue);
+        const activeUserIssues = this.state.activeUserIssues.concat(newIssue);
+    
+        this.setState({allIssues, activeUserIssues});
+      }
+    
     
     handlePageChange(e) {
       let val = parseInt(e.target.innerHTML);
