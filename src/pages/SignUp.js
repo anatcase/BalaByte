@@ -82,14 +82,7 @@ class SignUp extends React.Component {
         user.set('password', this.state.password);
         user.set('communityName', this.state.community);
         user.set('address', this.state.address);
-
-        //UserDB.CreateTenant(user, this.OnSignUpSuccess, this.OnSignUpError)
-        // UserDB.GetAllUsers(this.OnGetAllUsersSuccess, this.OnGetAllUsersError)
-        //
-        // UserDB.FindUserByEmail("ooo@gmail.com", this.OnFindUserSuccess, this.OnFindUserError)
-        //
-         UserDB.SignUpCommitteeMember(user, this.OnSignUpSuccess, this.OnSignUpError);
-         //UserDB.LogOut(this.OnSignUpSuccess, this.OnSignUpError)
+        UserDB.SignUpCommitteeMember(user, this.OnSignUpSuccess, this.OnSignUpError);
       }
 
     handleSubmit(e) {
@@ -104,12 +97,11 @@ class SignUp extends React.Component {
       }
 
     render() {
-        debugger;
 
         const destination = (
             <div>
             {
-                this.state.signUpSuccess ?  <Dashboard /> :
+                this.state.signUpSuccess ?  <Dashboard userType="admin"/> :
                                             <div className="SignUp">
                                                 <h1>Create a Homeboy Account</h1>
                                                 <p>or <a href="#/login">or log in to your account</a></p>

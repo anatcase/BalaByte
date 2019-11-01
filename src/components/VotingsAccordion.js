@@ -40,7 +40,7 @@ class VotingsAccordion extends React.Component {
                                             </Col>
                                             {this.props.votingStatus === "results"? null:
                                                 
-                                            <Col className={this.props.user === "tenant"? "hide" : "px-0"}>
+                                            <Col className={this.props.userType === "tenant"? "hide" : "px-0"}>
                                                 <DatePicker placeholderText="Update End Date" withPortal showTimeSelect
                                                 timeFormat="HH:mm"
                                                 timeIntervals={30}
@@ -49,7 +49,7 @@ class VotingsAccordion extends React.Component {
                                             </Col>
                                             }
                                         </Row>
-                                        <Row className={this.props.votingStatus === "results" || this.props.user === "admin" ? "hide" : "py-1 mx-0 mobile-center"}>
+                                        <Row className={this.props.votingStatus === "results" || this.props.userType === "admin" ? "hide" : "py-1 mx-0 mobile-center"}>
                                              <Col className="px-0 d-flex align-items-center">
                                                 <Form.Group as={Row} controlId="formPrioritySelect" className="vote-form mx-0 mobile-center w-100">
                                                         <Form.Label column lg={3}>

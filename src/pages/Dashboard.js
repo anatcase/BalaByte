@@ -90,7 +90,7 @@ class TenantDashboard extends React.Component {
     
     render() {
       const Dashboard = (
-        this.props.activeUser === "admin"? <CommitteeDashboard /> : <TenantDashboard />
+        this.props.userType === "admin"? <CommitteeDashboard /> : <TenantDashboard />
       );
 
       return (
