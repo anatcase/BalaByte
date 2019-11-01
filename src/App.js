@@ -41,7 +41,7 @@ handleLogout() {
 
     return (
       <div className="App">
-        ss
+        test
       </div>
     );
   }
