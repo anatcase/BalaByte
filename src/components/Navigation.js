@@ -24,7 +24,7 @@ class Navigation extends React.Component {
                           <Nav.Link href="Tenants">Tenants</Nav.Link>
                           <Nav.Link href="Messages">Messages</Nav.Link>
                           <Nav.Link href="Issues">Issues</Nav.Link>
-                          <Nav.Link href="Voting">Voting</Nav.Link>
+                          <Nav.Link href="Votings">Voting</Nav.Link>
                         </Nav>
 
                         <Nav className={isLoggedIn? "hide" : "ml-auto"}>
@@ -35,7 +35,7 @@ class Navigation extends React.Component {
                         </Nav>
 
                         <Nav className={isLoggedIn? "ml-auto" : "hide"}>
-                            <Nav.Link href="Logout">Logout</Nav.Link>
+                            <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                   </Col>

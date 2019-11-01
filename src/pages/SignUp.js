@@ -3,8 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import UserDB from '../components/UserDB';
-import CommitteeDashboard from './CommitteeDashboard';
-//import TenantDashboard from './TenantDashboard';
+import Dashboard from './Dashboard';
 
 
 class SignUp extends React.Component {
@@ -110,7 +109,7 @@ class SignUp extends React.Component {
         const destination = (
             <div>
             {
-                this.state.signUpSuccess ?  <CommitteeDashboard /> :
+                this.state.signUpSuccess ?  <Dashboard /> :
                                             <div className="SignUp">
                                                 <h1>Create a Homeboy Account</h1>
                                                 <p>or <a href="#/login">or log in to your account</a></p>

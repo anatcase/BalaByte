@@ -47,8 +47,6 @@ class Issues extends React.Component {
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
-
-
     }
 
     imgChange(ev) {

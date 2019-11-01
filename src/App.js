@@ -22,18 +22,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // activeUser: null,
-      isLoggedIn: false,
+      activeUser: null,
+      isLoggedIn: true,
       // allUsers: jsonUsers,
   }
 
-  // this.handleLogout = this.handleLogout.bind(this);
+  this.handleLogout = this.handleLogout.bind(this);
   // this.handleLogin = this.handleLogin.bind(this);
 }
 
-// handleLogout() {
-//   this.setState({activeUser: null});
-// }
+handleLogout() {
+  this.setState({isLoggedIn: false, activeUser: null});
+}
 
 
   render() {
@@ -44,28 +44,28 @@ class App extends React.Component {
          <Router>
             <Switch>
             <Route exact path="/">
-              <Home activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <Home activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Login">
-              <Login users={allUsers} handleLogin={this.handleLogin}/>
+              <Login users={allUsers} handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Issues">
-              <Issues activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <Issues activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Messages">
-              <Messages activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <Messages activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/SignUp">
-              <SignUp activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <SignUp activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Dashboard">
-              <Dashboard activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <Dashboard activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Tenants">
-              <Tenants activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <Tenants activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
             <Route path="/Votings">
-              <Votings activeUser={activeUser} handleLogout={this.handleLogout}/>
+              <Votings activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
           </Switch>
         </Router>
