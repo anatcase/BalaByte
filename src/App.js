@@ -23,7 +23,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeUser: null,
-      isLoggedIn: fal,
+      isLoggedIn: false,
       // allUsers: jsonUsers,
   }
 
