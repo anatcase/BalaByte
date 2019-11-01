@@ -41,7 +41,9 @@ handleLogout() {
 
     return (
       <div className="App">
-          <Router>
+                      <Home />
+
+          {/* <Router>
             <Switch>
             <Route exact path="/">
               <Home activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
@@ -68,7 +70,7 @@ handleLogout() {
               <Votings activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
             </Route>
           </Switch>
-        </Router>
+        </Router> */}
       </div>
     );
   }
