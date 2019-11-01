@@ -24,9 +24,10 @@ class App extends React.Component {
     this.state = {
       activeUser: null,
       isLoggedIn: false,
+      activePage: "Home"
       // allUsers: jsonUsers,
   }
-
+  this.changeActivePage = this.changeActivePage.bind(this);
   this.handleLogout = this.handleLogout.bind(this);
   // this.handleLogin = this.handleLogin.bind(this);
 }
@@ -35,12 +36,22 @@ handleLogout() {
   this.setState({isLoggedIn: false, activeUser: null});
 }
 
+changeActivePage(pageName){
+this.state.activePage = pageName;
+this.setState(this.state);
+}
 
   render() {
     const { activeUser, allUsers } = this.state;
+    const navigation = (
+      this.state.activePage !== "Login" || "Signup" ?
+      <Navigation isLoggedIn={this.state.isLoggedIn} activePage={this.state.activePage} changeActivePage={this.changeActivePage}/>
+      : null
+    );
 
     return (
       <div className="App">
+          {navigation}
           <Router>
             <Switch>
             <Route exact path="/">

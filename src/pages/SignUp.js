@@ -100,7 +100,7 @@ class SignUp extends React.Component {
 
     render() {
         if (this.state.signUpSuccess) {
-            return <Redirect to={"/Dashboard" + this.props.isLoggedIn}/>
+            return <Redirect to="/Dashboard"/>
         }
 
         const destination = (

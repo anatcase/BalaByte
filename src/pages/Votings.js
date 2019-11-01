@@ -55,7 +55,7 @@ class Votings extends React.Component {
       
             return (
                     <div className="Votings h-100">
-                        <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Votings"/>
+                        {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Votings"/> */}
 
                         <Container fluid className="py-6 px-5">
                             <Row>

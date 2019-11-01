@@ -95,7 +95,7 @@ class TenantDashboard extends React.Component {
 
       return (
         <div className="Dashboard h-100">
-            <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Dashboard"/>
+            {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Dashboard"/> */}
             {Dashboard}
         </div>
         );

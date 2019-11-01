@@ -60,7 +60,7 @@ class Messages extends React.Component {
       
       return (
                 <div className="Messages h-100">
-                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Messages"/>
+                    {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Messages"/> */}
 
                     <Container className="py-6 px-5">
                         <InnerNavbar />

@@ -91,7 +91,7 @@ class Home extends React.Component {
   render () {
     return (
       <div className="Home">
-        <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Home" handleLogout={this.props.handleLogout}/>
+        {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Home" handleLogout={this.props.handleLogout}/> */}
         <Main />
       </div>
     );

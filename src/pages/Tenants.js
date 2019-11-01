@@ -61,7 +61,7 @@ class Tenants extends React.Component {
       
       return (
         <div className="Tenants h-100">
-           <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Tenants"/>
+           {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Tenants"/> */}
 
             {/* {votingAccordion}   */}
             
