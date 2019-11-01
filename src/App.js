@@ -16,6 +16,7 @@ import Tenants from './pages/Tenants';
 import Votings from './pages/Votings';
 import Issues from './pages/Issues';
 import Dashboard from './pages/Dashboard';
+import Navigation from './components/Navigation'
 
 class App extends React.Component {
   
