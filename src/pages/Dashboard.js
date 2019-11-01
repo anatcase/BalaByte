@@ -16,9 +16,7 @@ class CommitteeDashboard extends React.Component {
     render() {
       
       return (
-                <div className="Dashboard h-100">
-                    <Navigation isLoggedIn={this.props.isLoggedIn} pageName="CommitteeDashboard"/>
-
+                
                     <Container fluid className="px-4"> 
                             <Row className="pb-2">
                                 <Col lg={6} className="issue-box">
@@ -44,8 +42,7 @@ class CommitteeDashboard extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-            </div>
-        );
+            
 
     }
   }   
@@ -56,8 +53,7 @@ class TenantDashboard extends React.Component {
     render() {
      
       return (
-                <div className="Dashboard h-100">
-                   <Navigation isLoggedIn={this.props.isLoggedIn} pageName="TenantDashboard"/>
+               
 
                     <Container fluid className="px-4">
                             <Row className="pb-2">
@@ -88,7 +84,7 @@ class TenantDashboard extends React.Component {
                                  </Col>
                             </Row>
                         </Container>
-            </div>
+           
         );
 
     }
@@ -102,7 +98,10 @@ class TenantDashboard extends React.Component {
       );
 
       return (
-        {Dashboard}
+        <div className="Dashboard h-100">
+            <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Dashboard"/>
+            {Dashboard}
+        </div>
         );
 
     }
