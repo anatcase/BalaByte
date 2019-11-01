@@ -65,6 +65,7 @@ class SignUp extends React.Component {
     OnSignUpSuccess(user) {
         this.state.signUpError = false;
         this.state.signUpSuccess = true;
+        this.props.isLoggedIn = true;
         this.setState(this.state);
 
     }
