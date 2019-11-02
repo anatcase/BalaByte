@@ -142,6 +142,10 @@ ul.pagination{
 
 
 @media only screen and (max-width: 768px) {
+  .SignUp, .Login {
+    max-width: 90% !important;
+  }
+
   .issue-box {
     padding-bottom:2rem;
   }
