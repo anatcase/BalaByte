@@ -8,9 +8,9 @@ function Login() {
     <div className="Login">
       <h1>Login to Homeboy</h1>
       <p>or <a href="/SignUp">or create an account</a></p>
-      {/* <Alert variant="danger" show={props.state.invalidLogin}>
+      <Alert variant="danger" show={props.state.invalidLogin}>
           Invalid email or password!
-      </Alert> */}
+      </Alert>
      <Form>        
         <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
