@@ -68,7 +68,7 @@ const UserDB = {
       console.log('Logged out');
     }).catch(error => {
       onError(error);
-      console.error('Error while logging in user', error);
+      console.error('Error while logging out user', error);
     })
   },
 

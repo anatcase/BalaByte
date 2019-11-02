@@ -7,6 +7,12 @@ import Row from 'react-bootstrap/Row'
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+
+}
+
+handleLogout (e) {
+  this.props.handleLogout();
 }
   
 

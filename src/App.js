@@ -35,7 +35,11 @@ class App extends React.Component {
 
   // this.changeActivePage = this.changeActivePage.bind(this);
   this.handleLogin = this.handleLogin.bind(this);
+
+
   this.handleLogout = this.handleLogout.bind(this);
+  this.handleLogoutSuccess = this.handleLogoutSuccess.bind(this);
+  this.handleLogoutError = this.handleLogoutError.bind(this);
 }
 
 handleLogin() {
@@ -46,7 +50,16 @@ handleLogin() {
 }
 
 handleLogout() {
-  this.setState({isLoggedIn: false, activeUser: null});
+  UserDB.LogOut(this.handleLogoutSuccess, this.handleLogoutError);
+}
+
+handleLogoutSuccess() {
+  this.state.isLoggedIn = false;
+  this.state.userType = null;
+  this.setState(this.state);
+}
+
+handleLogoutError() {
 }
 
 // changeActivePage(pageName){
@@ -90,31 +103,31 @@ handleLogout() {
 
     const issuesDestination = (
       this.state.isLoggedIn? <Issues activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-      :  <Redirect to="/SignUp"/>
+      :  <Redirect to="/Login"/>
     );
 
     const messagesDestination = (
       this.state.isLoggedIn? <Messages activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-      : <Redirect to="/SignUp"/>
+      : <Redirect to="/Login"/>
     );
 
     const dashboardDestination = (
       this.state.isLoggedIn? <Dashboard userType={this.state.userType} activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-      :  <Redirect to="/"/>
+      :  <Redirect to="/Login"/>
     );
 
     const tenantsDestination = (
       this.state.isLoggedIn? <Tenants activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-      :  <Redirect to="/"/>
+      :  <Redirect to="/Login"/>
     );
 
     const votingsDestination = (
       this.state.isLoggedIn? <Votings activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-      :  <Redirect to="/SignUp"/>
+      :  <Redirect to="/Login"/>
     );
 
     const navigation = (
-      <Navigation isLoggedIn={this.state.isLoggedIn} />
+      <Navigation isLoggedIn={this.state.isLoggedIn} handleLogout={this.handleLogout}/>
     );
 
     return (
