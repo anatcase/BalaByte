@@ -146,6 +146,11 @@ ul.pagination{
     max-width: 80% !important;
   }
 
+  .mobile-padding {
+    padding-right: 1rem !important;
+    padding-left:1rem !important;
+  }
+
   .issue-box {
     padding-bottom:2rem;
   }
