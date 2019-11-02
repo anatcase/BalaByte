@@ -146,6 +146,14 @@ ul.pagination{
     max-width: 80% !important;
   }
 
+  .Home p {
+    max-width: 85% !important;
+  }
+
+  .Home h1 {
+    font-size:2rem !important;
+  }
+  
   .mobile-padding {
     padding-right: 1rem !important;
     padding-left:1rem !important;
@@ -154,6 +162,7 @@ ul.pagination{
   .issue-box {
     padding-bottom:2rem;
   }
+  
 
   div.mobile-center, h6.mobile-center, li.mobile-center {
     text-align: center !important;
