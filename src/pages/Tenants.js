@@ -9,6 +9,7 @@ import RecordsDisplay from '../components/RecordsDisplay'
 import Container from 'react-bootstrap/Container'
 //import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 // import PaginationNav from '../components/PaginationNav';
+import Button from 'react-bootstrap/Button'
 
 
 //import Modal from 'react-bootstrap/Modal'

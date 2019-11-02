@@ -8,10 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Comments from '../components/Comments'
 
 class MessagesAccordion extends React.Component {
-    constructor(props) {
-        super(props);
-    }    
-
+    
     render() {
         return (
            <div className="MessagesAccordion">
