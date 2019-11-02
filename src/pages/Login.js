@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import UserDB from '../components/UserDB';
-
+import Alert from 'react-bootstrap/Alert'
 
 class Login extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Login extends React.Component {
           loginError:false,
           errorMsg:"",
         };
-        
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.Login = this.Login.bind(this);
         this.OnLoginSuccess = this.OnLoginSuccess.bind(this);
