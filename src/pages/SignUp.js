@@ -19,7 +19,7 @@ class SignUp extends React.Component {
           validated:false,
           signUpError:false,
           errorMsg:"",
-          signUpSuccess:false
+          //signUpSuccess:false
         };
 
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -64,11 +64,10 @@ class SignUp extends React.Component {
     }
     
     OnSignUpSuccess(user) {
-        this.state.signUpError = false;
-        this.state.signUpSuccess = true;
-        this.props.isLoggedIn = true;
-        this.setState(this.state);
-
+        // this.state.signUpError = false;
+        // this.state.signUpSuccess = true;
+        // this.setState(this.state);
+        this.props.handleLogin();
     }
 
     OnSignUpError(error) {
@@ -99,14 +98,15 @@ class SignUp extends React.Component {
       }
 
     render() {
-        if (this.state.signUpSuccess) {
-            return <Redirect to="/Dashboard"/>
-        }
+        // if (this.state.signUpSuccess) {
+        //     console.log();
+        //     this.props.changeActivePage("Dashboard");
+        // }
 
         const destination = (
             <div className="SignUp">
                 <h1>Create a Homeboy Account</h1>
-                <p>or <a href="#/login">or log in to your account</a></p>
+                <p>or <a href="/Login">or log in to your account</a></p>
                 <Alert variant="danger" show={this.state.signUpError}>
                 {this.state.errorMsg}
                 </Alert>
@@ -121,7 +121,7 @@ class SignUp extends React.Component {
         
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} required/>
+                        <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" required/>
                         <Form.Control.Feedback type="invalid">
                             Please provide a valid email.
                         </Form.Control.Feedback>
@@ -132,9 +132,9 @@ class SignUp extends React.Component {
         
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} required/>
+                        <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} pattern="(?=.*\d)(?=.*[a-z]).{8,20}" required/>
                         <Form.Control.Feedback type="invalid">
-                            Please provide a valid password.
+                        Password must be 8-20 characters, contain lowercase letters and numbers, and no spaces, special characters, or emoji.
                         </Form.Control.Feedback>
                     </Form.Group>
         

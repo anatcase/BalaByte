@@ -7,7 +7,7 @@ function Login() {
   return (
     <div className="Login">
       <h1>Login to Homeboy</h1>
-      <p>or <a href="#/signup">or create an account</a></p>
+      <p>or <a href="/SignUp">or create an account</a></p>
       {/* <Alert variant="danger" show={props.state.invalidLogin}>
           Invalid email or password!
       </Alert> */}
@@ -16,7 +16,6 @@ function Login() {
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email"/>
             <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
             </Form.Text>
         </Form.Group>
 

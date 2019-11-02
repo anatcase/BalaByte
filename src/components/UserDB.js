@@ -108,6 +108,10 @@ const UserDB = {
     });
   },
 
+  IsLoggedIn: function IsLoggedIn() {
+    return Parse.User.current() != null;
+  },
+
   GetCurrentUser: function GetCurrentUser() {
     return Parse.User.current();
   },
@@ -118,7 +122,21 @@ const UserDB = {
     } else {
       return "";
     }
-  }
+  },
+
+  
+  GetCurrentUserType: function GetCurrentUserType() {
+    const user = Parse.User.current();
+    if (user == null) {
+      return null;
+    } else {
+      if (user.get('isCommitteeMember')) {
+        return "admin";
+      } else {
+        return "tenant";
+      }
+    }
+  },
 
 }
 

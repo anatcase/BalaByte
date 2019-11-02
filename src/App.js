@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages//Login';
@@ -17,6 +18,8 @@ import Votings from './pages/Votings';
 import Issues from './pages/Issues';
 import Dashboard from './pages/Dashboard';
 import Navigation from './components/Navigation'
+import UserDB from './components/UserDB';
+
 
 class App extends React.Component {
   
@@ -24,60 +27,129 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeUser: null,
-      isLoggedIn: false,
-      activePage: "Home"
+      isLoggedIn: null,
+      activePage: "Home",
+      userType: null
       // allUsers: jsonUsers,
   }
-  this.changeActivePage = this.changeActivePage.bind(this);
+
+  // this.changeActivePage = this.changeActivePage.bind(this);
+  this.handleLogin = this.handleLogin.bind(this);
   this.handleLogout = this.handleLogout.bind(this);
-  // this.handleLogin = this.handleLogin.bind(this);
+}
+
+handleLogin() {
+  this.state.isLoggedIn = true;
+  //Check userType with the DB
+  this.state.userType = UserDB.GetCurrentUserType();
+  this.setState(this.state);
 }
 
 handleLogout() {
   this.setState({isLoggedIn: false, activeUser: null});
 }
 
-changeActivePage(pageName){
-this.state.activePage = pageName;
-this.setState(this.state);
-}
+// changeActivePage(pageName){
+// if(pageName === "Dashboard") {
+//   this.state.isLoggedIn = true;
+// }
+//   this.state.activePage = pageName;
+//   this.setState(this.state);
+// }
+
 
   render() {
-    const { activeUser, allUsers } = this.state;
+    //Make sure you have all the information you need
+    if ( this.state.isLoggedIn == null) {
+      this.state.isLoggedIn = UserDB.IsLoggedIn();
+      this.setState(this.state); 
+    }
+    if (this.state.isLoggedIn && this.state.userType == null) {
+      this.state.userType = UserDB.GetCurrentUserType();
+      this.setState(this.state); 
+    }
+    //////
+
+
+    const activeUser = this.state.activeUser;
+
+    const signUpDestination = (
+      this.state.isLoggedIn? <Redirect to="/Dashboard"/>
+      : <SignUp handleLogin={this.handleLogin} />
+    );
+
+    const loginDestination = (
+      this.state.isLoggedIn? <Redirect to="/Dashboard"/>
+      : <Login handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn}/>
+    );
+
+    const homeDestination = (
+      this.state.isLoggedIn? <Redirect to="/Dashboard"/>
+      : <Home />
+    );
+
+    const issuesDestination = (
+      this.state.isLoggedIn? <Issues activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+      :  <Redirect to="/SignUp"/>
+    );
+
+    const messagesDestination = (
+      this.state.isLoggedIn? <Messages activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+      : <Redirect to="/SignUp"/>
+    );
+
+    const dashboardDestination = (
+      this.state.isLoggedIn? <Dashboard userType={this.state.userType} activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+      :  <Redirect to="/"/>
+    );
+
+    const tenantsDestination = (
+      this.state.isLoggedIn? <Tenants activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+      :  <Redirect to="/"/>
+    );
+
+    const votingsDestination = (
+      this.state.isLoggedIn? <Votings activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+      :  <Redirect to="/SignUp"/>
+    );
+
     const navigation = (
-      this.state.activePage !== "Login" || "SignUp" ?
-      <Navigation isLoggedIn={this.state.isLoggedIn} activePage={this.state.activePage} changeActivePage={this.changeActivePage}/>
-      : null
+      <Navigation isLoggedIn={this.state.isLoggedIn} />
     );
 
     return (
       <div className="App">
-          {navigation}
           <Router>
             <Switch>
             <Route exact path="/">
-              <Home activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+              {navigation}
+              {homeDestination}
             </Route>
             <Route path="/Login">
-              <Login users={allUsers} handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn}/>
+              {loginDestination}
             </Route>
             <Route path="/Issues">
-              <Issues activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+              {navigation}
+              {issuesDestination}
             </Route>
             <Route path="/Messages">
-              <Messages activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+              {navigation}
+              {messagesDestination}
             </Route>
             <Route path="/SignUp">
-              <SignUp activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
-            </Route>
+              {signUpDestination}
+              </Route>
             <Route path="/Dashboard">
-              <Dashboard activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+              {navigation}
+              {dashboardDestination}
             </Route>
             <Route path="/Tenants">
-              <Tenants activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+              {navigation}
+              {tenantsDestination}
             </Route>
             <Route path="/Votings">
-              <Votings activeUser={activeUser} handleLogout={this.handleLogout} isLoggedIn={this.state.isLoggedIn}/>
+              {navigation}
+              {votingsDestination}
             </Route>
           </Switch>
         </Router>

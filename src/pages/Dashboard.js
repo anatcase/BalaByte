@@ -89,14 +89,15 @@ class TenantDashboard extends React.Component {
   class Dashboard extends React.Component {
     
     render() {
-      const Dashboard = (
+        console.log("this.props.userType = " + this.props.userType);
+      const dashboard = (
         this.props.userType === "admin"? <CommitteeDashboard /> : <TenantDashboard />
       );
 
       return (
         <div className="Dashboard h-100">
             {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Dashboard"/> */}
-            {Dashboard}
+            {dashboard}
         </div>
         );
 
