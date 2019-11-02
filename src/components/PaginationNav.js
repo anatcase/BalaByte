@@ -1,5 +1,5 @@
 import React from 'react'
-import Pagination from 'react-bootstrap/Pagination'
+// import Pagination from 'react-bootstrap/Pagination'
 //import Container from 'react-bootstrap/Container';
 
 class PaginationNav extends React.Component {

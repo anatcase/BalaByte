@@ -7,7 +7,7 @@ import MessagesNavbar from '../components/MessagesNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
 import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
-import PaginationNav from '../components/PaginationNav';
+// import PaginationNav from '../components/PaginationNav';
 import InnerNavbar from '../components/InnerNavbar'
 
 //import Modal from 'react-bootstrap/Modal'

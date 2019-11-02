@@ -1,5 +1,5 @@
 import React from 'react'
-import PaginationNav from '../components/PaginationNav';
+// import PaginationNav from '../components/PaginationNav';
 import IssuesAccordion from '../components/IssuesAccordion';
 import DashboardIssuesAccordion from '../components/DashboardIssuesAccordion';
 import TenantsAccordion from '../components/TenantsAccordion';
@@ -72,7 +72,7 @@ class RecordsDisplay extends React.Component {
             this.props.hasRecords? 
                 <div className="recordsDisplay">
                     <Records recordType={this.props.recordType}/>
-                    <PaginationNav /> 
+                    {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}
                 </div>

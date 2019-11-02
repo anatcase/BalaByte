@@ -8,7 +8,7 @@ import Navigation from '../components/Navigation'
 import RecordsDisplay from '../components/RecordsDisplay'
 import Container from 'react-bootstrap/Container'
 //import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
-import PaginationNav from '../components/PaginationNav';
+// import PaginationNav from '../components/PaginationNav';
 
 
 //import Modal from 'react-bootstrap/Modal'
