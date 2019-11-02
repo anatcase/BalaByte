@@ -50,7 +50,7 @@ const UserDB = {
 
   LogIn: function LogIn(email, password, onSuccess, onError) {
     // Pass the username and password to logIn function
-    Parse.User.logIn("newUserName","#Password123").then((user) => {
+    Parse.User.logIn(email,password).then((user) => {
       // Do stuff after successful login
       onSuccess(user);
       console.log('Logged in user', user);

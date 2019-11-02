@@ -19,6 +19,8 @@ class Login extends React.Component {
         this.Login = this.Login.bind(this);
         this.OnLoginSuccess = this.OnLoginSuccess.bind(this);
         this.OnLoginError = this.OnLoginError.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
     handleEmailChange (e) {
@@ -47,7 +49,7 @@ class Login extends React.Component {
     }
 
     Login() {
-        UserDB.Login(this.state.email, this.state.password, this.OnLoginSuccess, this.OnLoginError);
+        UserDB.LogIn(this.state.email, this.state.password, this.OnLoginSuccess, this.OnLoginError);
         // user.set('username', this.state.username);
         // user.set('email', this.state.email);
         // user.set('password', this.state.password);
@@ -57,6 +59,7 @@ class Login extends React.Component {
       }
 
     handleSubmit(e) {
+        debugger;
         const form = e.target;
         this.state.validated = true;
         this.setState(this.state);
@@ -78,20 +81,20 @@ class Login extends React.Component {
                     <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email"/>
-                            {/* <Form.Control.Feedback type="invalid">
+                            <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" required/>
+                            <Form.Control.Feedback type="invalid">
                                 Missing email \ There's no account for this email
-                            </Form.Control.Feedback> */}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password"/>
-                            {/* <Form.Control.Feedback type="invalid">
+                            <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange}/>
+{/*                              <Form.Control.Feedback type="invalid">
                                 Invalid password
                             </Form.Control.Feedback> */}
                         </Form.Group>
-                        <Button variant="success" type="button" block>
+                        <Button variant="success" type="submit" block>
                             Come On In!
                         </Button>
                     </Form>
