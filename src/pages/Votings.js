@@ -57,7 +57,7 @@ class Votings extends React.Component {
                     <div className="Votings h-100">
                         {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Votings"/> */}
 
-                        <Container fluid className="py-6 px-5">
+                        <Container fluid className="py-6 px-5 mobile-padding">
                             <Row>
                                 <Col lg={6} className="issue-box">
                                         <h2>Active Votings</h2>

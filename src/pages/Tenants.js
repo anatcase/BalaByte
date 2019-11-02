@@ -65,7 +65,7 @@ class Tenants extends React.Component {
 
             {/* {votingAccordion}   */}
             
-            <Container className="py-6 px-5">
+            <Container className="py-6 px-5 mobile-padding">
                 <TenantsNavbar />
                 <div className="text-right pt-4 pb-1">
                     <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
