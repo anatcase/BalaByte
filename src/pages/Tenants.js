@@ -67,8 +67,8 @@ class Tenants extends React.Component {
             
             <Container className="py-6 px-5 mobile-padding">
                 <TenantsNavbar />
-                <div className="text-right pt-4 pb-1">
-                    <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Tenant</a>
+                <div className="text-right pt-4 pb-1 mobile-center">
+                    <Button variant="link" className="new-btn">New Tenant</Button>
                 </div>
                 <RecordsDisplay hasRecords={true} recordType="tenants" /> 
             </Container>
