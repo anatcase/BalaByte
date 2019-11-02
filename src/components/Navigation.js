@@ -24,7 +24,7 @@ handleLogout (e) {
             <Navbar fixed="top" collapseOnSelect expand="lg">
               <Row className="w-100">
                     <Col lg={1} sm= {4} xs={4}>
-                      <Navbar.Brand href="#/"><img className={logo} src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
+                      <Navbar.Brand href="/#/"><img className={logo} src="./images/homeboy.png" alt="Homeboy - Your Buddy In Da Building" /></Navbar.Brand>
                     </Col>
                    
                   <Col lg={11} sm= {4} xs={4} className="px-0">

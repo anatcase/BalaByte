@@ -64,9 +64,6 @@ class SignUp extends React.Component {
     }
     
     OnSignUpSuccess(user) {
-        // this.state.signUpError = false;
-        // this.state.signUpSuccess = true;
-        // this.setState(this.state);
         this.props.handleLogin();
     }
 
@@ -98,10 +95,6 @@ class SignUp extends React.Component {
       }
 
     render() {
-        // if (this.state.signUpSuccess) {
-        //     console.log();
-        //     this.props.changeActivePage("Dashboard");
-        // }
 
         const destination = (
             <div className="SignUp">

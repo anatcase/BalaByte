@@ -43,23 +43,17 @@ class Login extends React.Component {
     }
 
     OnLoginError(error) {
-        this.state.errorMsg = error.message;
+        let errorMsg = error.message.replace("username", "email");
+        this.state.errorMsg = errorMsg;
         this.state.loginError = true;
         this.setState(this.state);
     }
 
     Login() {
         UserDB.LogIn(this.state.email, this.state.password, this.OnLoginSuccess, this.OnLoginError);
-        // user.set('username', this.state.username);
-        // user.set('email', this.state.email);
-        // user.set('password', this.state.password);
-        // user.set('communityName', this.state.community);
-        // user.set('address', this.state.address);
-        // UserDB.SignUpCommitteeMember(user, this.OnSignUpSuccess, this.OnSignUpError);
       }
 
     handleSubmit(e) {
-        debugger;
         const form = e.target;
         this.state.validated = true;
         this.setState(this.state);
@@ -83,16 +77,14 @@ class Login extends React.Component {
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" required/>
                             <Form.Control.Feedback type="invalid">
-                                Missing email \ There's no account for this email
                             </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange}/>
-{/*                              <Form.Control.Feedback type="invalid">
-                                Invalid password
-                            </Form.Control.Feedback> */}
+                            <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} pattern="(?=.*\d)(?=.*[a-z]).{8,20}" required/>
+                             <Form.Control.Feedback type="invalid">
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Button variant="success" type="submit" block>
                             Come On In!
