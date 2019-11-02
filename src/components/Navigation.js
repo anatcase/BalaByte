@@ -30,16 +30,16 @@ handleLogout (e) {
                   <Col lg={11} sm= {4} xs={4} className="px-0">
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className={isLoggedIn? "mr-auto" : "hide"}>
-                          <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
-                          <Nav.Link href="/Tenants">Tenants</Nav.Link>
-                          <Nav.Link href="/Messages">Messages</Nav.Link>
-                          <Nav.Link href="/Issues">Issues</Nav.Link>
-                          <Nav.Link href="/Votings">Voting</Nav.Link>
+                          <Nav.Link href="#/Dashboard">Dashboard</Nav.Link>
+                          <Nav.Link href="#/Tenants">Tenants</Nav.Link>
+                          <Nav.Link href="#/Messages">Messages</Nav.Link>
+                          <Nav.Link href="#/Issues">Issues</Nav.Link>
+                          <Nav.Link href="#/Votings">Voting</Nav.Link>
                         </Nav>
 
                         <Nav className={isLoggedIn? "hide" : "ml-auto"}>
-                            <Nav.Link href="/Login">Login</Nav.Link>
-                            <Nav.Link eventKey={2} href="/SignUp">
+                            <Nav.Link href="#/Login">Login</Nav.Link>
+                            <Nav.Link eventKey={2} href="#/SignUp">
                             Sign Up
                             </Nav.Link>
                         </Nav>

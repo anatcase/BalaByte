@@ -74,7 +74,7 @@ class Login extends React.Component {
                 return (
                     <div className="Login">
                     <h1>Login to Homeboy</h1>
-                    <p>or <a href="/SignUp">or create an account</a></p>
+                    <p>or <a href="#/SignUp">or create an account</a></p>
                     <Alert variant="danger" show={this.state.loginError}>
                         {this.state.errorMsg}
                     </Alert>
