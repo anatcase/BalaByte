@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/homeboy/static/css/main.141a9c3f.chunk.css",
+    "main.css": "/homeboy/static/css/main.d1158ad5.chunk.css",
     "main.js": "/homeboy/static/js/main.6909f515.chunk.js",
     "main.js.map": "/homeboy/static/js/main.6909f515.chunk.js.map",
     "runtime-main.js": "/homeboy/static/js/runtime-main.73350fa6.js",
@@ -9,17 +9,17 @@
     "static/js/2.7c8a4c51.chunk.js": "/homeboy/static/js/2.7c8a4c51.chunk.js",
     "static/js/2.7c8a4c51.chunk.js.map": "/homeboy/static/js/2.7c8a4c51.chunk.js.map",
     "index.html": "/homeboy/index.html",
-    "precache-manifest.e2512211965b234d42d27c45b39392e5.js": "/homeboy/precache-manifest.e2512211965b234d42d27c45b39392e5.js",
+    "precache-manifest.2427ffd6982de5a946c01612b4065e72.js": "/homeboy/precache-manifest.2427ffd6982de5a946c01612b4065e72.js",
     "service-worker.js": "/homeboy/service-worker.js",
     "static/css/2.4e0883bb.chunk.css.map": "/homeboy/static/css/2.4e0883bb.chunk.css.map",
-    "static/css/main.141a9c3f.chunk.css.map": "/homeboy/static/css/main.141a9c3f.chunk.css.map",
+    "static/css/main.d1158ad5.chunk.css.map": "/homeboy/static/css/main.d1158ad5.chunk.css.map",
     "static/media/App.css": "/homeboy/static/media/angle-down-solid.6060a92e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.73350fa6.js",
     "static/css/2.4e0883bb.chunk.css",
     "static/js/2.7c8a4c51.chunk.js",
-    "static/css/main.141a9c3f.chunk.css",
+    "static/css/main.d1158ad5.chunk.css",
     "static/js/main.6909f515.chunk.js"
   ]
 }
