@@ -18,7 +18,7 @@ class Records extends React.Component {
                             (() => {
                             switch(this.props.recordType) {
                                 case 'issues':
-                                return <IssuesAccordion />;
+                                return <IssuesAccordion records={this.props.records}/>;
                                 case 'new issues':
                                 return <DashboardIssuesAccordion />;
                                 case 'overdue issues':

@@ -137,7 +137,7 @@ class Issues extends React.Component {
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn" onClick={this.openModal}>New Issue</Button>
                         </div>
-                        <RecordsDisplay hasRecords={true} recordType="issues" /> 
+                        <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} /> 
                     </Container>
                     
                     <Modal show={showModal} onHide={this.closeModal} size="lg">
