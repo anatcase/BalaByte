@@ -150,6 +150,10 @@ ul.pagination{
     max-width: 85% !important;
   }
 
+  .Home p.card-text {
+    max-width: 100% !important;
+  }
+
   .Home h1 {
     font-size:2rem !important;
   }

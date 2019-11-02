@@ -29,7 +29,7 @@ class Main extends React.Component {
         <Container className="featureWrapper text-center mt-4">
           <h2>Love Thy Neighbor</h2>
           <p>
-          Use Homeboy to make it good in the hood! We’ve got the features you need to avoid gang fights and promote happy neighboring!
+          Use Homeboy to make it good in the hood! We’ve got the features you need to prevent gang fights and promote happy neighboring!
           </p>
           <CardDeck>
             <Col lg={4}>
