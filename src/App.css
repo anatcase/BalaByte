@@ -143,7 +143,7 @@ ul.pagination{
 
 @media only screen and (max-width: 768px) {
   .SignUp, .Login {
-    max-width: 90% !important;
+    max-width: 80% !important;
   }
 
   .issue-box {
