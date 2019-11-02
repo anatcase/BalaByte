@@ -106,7 +106,7 @@ class SignUp extends React.Component {
                 <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter name" onChange={this.handleNameChange} pattern="^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$" required/>
+                        <Form.Control type="text" placeholder="Enter name" onChange={this.handleNameChange} pattern="[a-zA-9]{4,0}" required/>
                         <Form.Control.Feedback type="invalid">
                             Please provide a valid name.
                         </Form.Control.Feedback>
@@ -133,7 +133,7 @@ class SignUp extends React.Component {
         
                     <Form.Group controlId="formBasicCommunity">
                         <Form.Label>Building Community Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter community name" onChange={this.handleCommunityChange} pattern="^[a-z0-9_-]{2,20}$" required/>
+                        <Form.Control type="text" placeholder="Enter community name" onChange={this.handleCommunityChange} pattern="[a-zA-Z0-9]{2,}" required/>
                         <Form.Control.Feedback type="invalid">
                             Please choose a name for your building.
                         </Form.Control.Feedback>
@@ -142,7 +142,7 @@ class SignUp extends React.Component {
         
                     <Form.Group controlId="formBasicAddress">
                         <Form.Label>Full Address</Form.Label>
-                        <Form.Control type="text" placeholder="Enter address" onChange={this.handleAddressChange} pattern="(\d{1,}) [a-zA-Z0-9\s]+(\.)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}" required/>
+                        <Form.Control type="text" placeholder="Enter address" onChange={this.handleAddressChange} required/>
                         <Form.Control.Feedback type="invalid">
                         Address is a required field.
                         </Form.Control.Feedback>
