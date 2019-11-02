@@ -61,8 +61,8 @@ class Votings extends React.Component {
                             <Row>
                                 <Col lg={6} className="issue-box">
                                         <h2>Active Votings</h2>
-                                         <div className="text-right pt-4 pb-2 mobile-center">
-                                            <a href="#" style={{textDecoration:"underline", fontWeight:"bolder"}}>New Voting</a>
+                                         <div className="text-right pt-4 pb-1 mobile-center">
+                                            <Button variant="link" className="new-btn">New Voting</Button>
                                         </div>
                                     <RecordsDisplay hasRecords={true} recordType="active votings" /> 
                                 </Col>
