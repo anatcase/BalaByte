@@ -3,6 +3,7 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
+import IssueDB from '../components/IssueDB';
 import InnerNavbar from '../components/InnerNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
 import IssuesAccordion from '../components/IssuesAccordion'
@@ -27,7 +28,7 @@ class Issues extends React.Component {
                 "email": "nir@nir.com",
                 "pwd": "123"
         },
-        allIssues: "",
+        issues: null, //Get from Parse DB
         activeUserIssues: [],
         activePage: 1,
         showModal: false,
@@ -39,6 +40,10 @@ class Issues extends React.Component {
     }
       
       this.handlePageChange = this.handlePageChange.bind(this);
+      this.onGetAllIssuesSuccess = this.onGetAllIssuesSuccess.bind(this);
+      this.onGetAllIssuesError = this.onGetAllIssuesError.bind(this);
+
+
       this.openModal = this.openModal.bind(this);
       this.closeModal = this.closeModal.bind(this);
       this.createIssue = this.createIssue.bind(this);
@@ -47,6 +52,13 @@ class Issues extends React.Component {
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
+    //   IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+
+    }
+
+    componentDidMount(){
+        console.log("Getting All Issues");
+        IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
     imgChange(ev) {
@@ -69,6 +81,12 @@ class Issues extends React.Component {
     closeModal() {
         this.setState({ showModal: false })
     }
+
+    // getAllIssues() {
+    //     const issues = IssueDB.GetAllIssues();
+    //     this.state.issues = issues;
+    //     this.setState(this.state);
+    // }
     
     createIssue() {
         const newIssue = {
@@ -124,9 +142,31 @@ class Issues extends React.Component {
       this.setState({activePage:pageNumber});
       console.log(this.state.activePage);
     }
-  
+
+    onGetAllIssuesSuccess(issues) {
+        console.log("onGetAllIssuesSuccess");
+    this.state.issues = issues;
+    this.setState(this.state);
+}
+
+    onGetAllIssuesError(error) {
+        console.log("printing "+ error);
+    }
+
     render() {
-    const { showModal, newIssueImg } = this.state;
+        let recordsDisplay = null;
+        if (this.state.issues == null) {
+            //loading
+            recordsDisplay = "Loading...";
+        }
+        else {
+            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} /> ;
+        }
+
+
+        console.log("rendering issues " + this.state.issues);
+
+        const { showModal, newIssueImg } = this.state;
 
       return (
                 <div className="Issues h-100">
@@ -137,7 +177,7 @@ class Issues extends React.Component {
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn" onClick={this.openModal}>New Issue</Button>
                         </div>
-                        <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} /> 
+                        {recordsDisplay}
                     </Container>
                     
                     <Modal show={showModal} onHide={this.closeModal} size="lg">

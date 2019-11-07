@@ -12,6 +12,7 @@ import PendingVotingsAccordion from '../components/PendingVotingsAccordion';
 class Records extends React.Component {
     
     render () {
+        console.log("rendering records " + this.props.records);
         const accordion = (
                     <div>
                         {
@@ -67,11 +68,11 @@ class NoRecords extends React.Component {
 class RecordsDisplay extends React.Component {
   
     render() {
-        
+        console.log("rendering RecordsDisplay " + this.props.records);
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records recordType={this.props.recordType}/>
+                    <Records recordType={this.props.recordType} records={this.props.records}/>
                     {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}

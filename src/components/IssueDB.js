@@ -1,3 +1,4 @@
+import CommentDB from '../components/CommentDB';
 var Parse = require('parse');
 
 Initialize();
@@ -37,8 +38,8 @@ const IssueDB = {
     const Issue = Parse.Object.extend('Issue');
     const query = new Parse.Query(Issue);
     query.find().then((results) => {
-      onSuccess(results);
       console.log('Issues found', results);
+      onSuccess(results);
     }, (error) => {
       onError(error);
       console.error('Error while fetching Issues', error);
