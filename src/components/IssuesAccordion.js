@@ -41,9 +41,9 @@ class IssuesAccordion extends React.Component {
                                                                 </Col>
                                                                 <Col lg={8}>                    
                                                                     <Card.Text>
-                                                                        <li className="list-group-item"><span className="font-weight-bold">Details: </span>***Dynamic Content for Issue details**</li>
-                                                                        <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>**Dynamic Content for Issue details**</li>
-                                                                        <li className="list-group-item"><span  className="font-weight-bold">Status: </span>**Dynamic Status for Issue**</li>
+                                                                        <li className="list-group-item"><span className="font-weight-bold">Details: </span>{issue.get("details")}</li>
+                                                                        <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>{issue.get("priority")}</li>
+                                                                        <li className="list-group-item"><span  className="font-weight-bold">Status: </span>{issue.get("status")}</li>
                                                                     </Card.Text>
                                                                 </Col>
                                                             </Row>

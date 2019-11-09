@@ -63,7 +63,7 @@ class Messages extends React.Component {
                     {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Messages"/> */}
 
                     <Container className="py-6 px-5 mobile-padding">
-                        <InnerNavbar />
+                        <InnerNavbar filterType="messages"/>
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn">New Message</Button>
                         </div>

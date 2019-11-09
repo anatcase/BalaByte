@@ -11,7 +11,22 @@ class InnerNavbar extends React.Component {
         this.state = { }
     }
     render() {
-        //const { recipe } = this.props;
+        const filters = (
+            this.props.filterType === "messages"?
+            <select className="browser-default custom-select mobile-center">
+                <option>Filter by priority</option>
+                <option value="1">Info</option>
+                <option value="2">Important</option>     
+            </select>
+            :
+            <select className="browser-default custom-select mobile-center">
+                <option>Filter by priority</option>
+                <option value="1">Normal</option>
+                <option value="2">Important</option>     
+                <option value="3">Urgent</option>     
+            </select>
+        );
+
         return (
             <Container className="NavBar">
                 {/* <Row className="border justify-content-center rounded">
@@ -39,11 +54,7 @@ class InnerNavbar extends React.Component {
                             <Dropdown.Item as="button">Important</Dropdown.Item>
                         </DropdownButton> */}
 
-                         <select className="browser-default custom-select mobile-center">
-                            <option>Filter by priority</option>
-                            <option value="1">Info</option>
-                            <option value="2">Important</option>                            
-                        </select>
+                            {filters}                           
                     </Col>
                     <Col lg={3} className="px-0 text-right mobile-center pb-2">
                         <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
