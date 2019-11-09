@@ -20,6 +20,8 @@ const IssueDB = {
 
   CreateIssue: function CreateIssue(newIssue, onSuccess, onError){
     newIssue.set('createdBy', Parse.User.current());
+    newIssue.set('comments', null);
+    newIssue.set('status', 'open');
 
     newIssue.save().then(
       (result) => {

@@ -42,6 +42,9 @@ class Issues extends React.Component {
       this.handlePageChange = this.handlePageChange.bind(this);
       this.onGetAllIssuesSuccess = this.onGetAllIssuesSuccess.bind(this);
       this.onGetAllIssuesError = this.onGetAllIssuesError.bind(this);
+      
+      this.onCreateIssueSuccess = this.onCreateIssueSuccess.bind(this);
+      this.onCreateIssueError = this.onCreateIssueError.bind(this);
 
 
       this.openModal = this.openModal.bind(this);
@@ -87,30 +90,48 @@ class Issues extends React.Component {
     //     this.state.issues = issues;
     //     this.setState(this.state);
     // }
+    onCreateIssueSuccess(issueId, issue) {
+        console.log("Getting All Issues");
+        IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+    }
+
+    onCreateIssueError(error) {
+        
+    }
     
     createIssue() {
-        const newIssue = {
-            title: this.titleInput.value,
-            details: this.detailsInput.value,
-            priority: this.priorityInput.value,
-            img: this.state.newIssueImg.URL
-        }
+         const newIssue = IssueDB.GetIssue();
+         newIssue.set('title', this.titleInput.current.value);
+         newIssue.set('details', this.detailsInput.current.value);
+         newIssue.set('priority', this.priorityInput.current.value);
+         //newIssue.set('image', this.state.newIssueImg.URL);
 
-        this.addIssue(newIssue);
+        // const newIssue = {
+        //     title: this.titleInput.value,
+        //     details: this.detailsInput.value,
+        //     priority: this.priorityInput.value,
+        //     img: this.state.newIssueImg.URL
+        // }
+
+        // this.addIssue(newIssue);
+        IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
+
         this.closeModal();
     }
 
     addIssue(newIssue) {
-        //const {activeUser, allIssues, activeUserIssues} this.state.activeUser
-        // 1) add id and user to the Issue
-        newIssue.userId = this.state.activeUser.id;
-        newIssue.id = this.state.allIssues[this.state.allIssues.length - 1].id + 1;
+        // //const {activeUser, allIssues, activeUserIssues} this.state.activeUser
+        // // 1) add id and user to the Issue
+        // newIssue.createdBy = this.state.activeUser.id;
+        // // newIssue.id = this.state.allIssues[this.state.allIssues.length - 1].id + 1;
+        // // newIssue.createdAt = this.state.allIssues[this.state.allIssues.length - 1].id + 1;
+
+        // // 2) update all Issues and active user Issues
+        // const allIssues = this.state.allIssues.concat(newIssue);
+        // const activeUserIssues = this.state.activeUserIssues.concat(newIssue);
     
-        // 2) update all Issues and active user Issues
-        const allIssues = this.state.allIssues.concat(newIssue);
-        const activeUserIssues = this.state.activeUserIssues.concat(newIssue);
-    
-        this.setState({allIssues, activeUserIssues});
+        //IssueDB.CreateIssue(newIssue, null, null)
+        //this.setState({allIssues, activeUserIssues});
       }
     
     

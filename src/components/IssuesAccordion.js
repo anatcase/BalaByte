@@ -3,17 +3,21 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Comments from '../components/Comments'
+import IssueDB from '../components/IssueDB';
 
 class IssuesAccordion extends React.Component {
     constructor(props) {
         super(props);
 
         this.getPriorityIcon = this.getPriorityIcon.bind(this);
+        this.handleComment = this.addComment.bind(this);
+        this.getAllComments = this.getAllComments.bind(this);
+
 
     }
+
     getPriorityIcon(priority) {
         if (priority == "urgent") {
             return "exclamation";
@@ -23,21 +27,47 @@ class IssuesAccordion extends React.Component {
             return "";
         }
     }
+
+    getCardImage(image) {
+        if(image == null) {
+            return "./images/placeholder-square.jpg";
+        }
+        else {
+            return image;
+        }
+    }
+
+    getAllComments(issueId, onGetAllCommentsSuccess, onGetAllCommentsError) {
+        IssueDB.GetIssueComments(issueId, onGetAllCommentsSuccess, onGetAllCommentsError)
+    }
+
+    addComment (issueId, commentText, onAddCommentSuccess, onAddCommentError) {
+        console.log(issueId + " " + commentText);
+        IssueDB.CommentIssue(issueId, commentText, onAddCommentSuccess, onAddCommentError);
+    }
+
+    // getIssueComments(issue) {
+    //     const issueComments = issue.get("comments");
+    //     const issueId = issue.id;
+    //     return <Comments comments={issueComments} onCommentAdd={this.onCommentAdd}/>
+    // }
+    
     render() {
         const issues = this.props.records;
-        const issueCards = issues.map(issue =>
+        
+        const issueCards = issues.map((issue, index) =>
                                         <Card>
-                                            <Accordion.Toggle as={Card.Header} eventKey="0" className="font-weight-bold">
+                                            <Accordion.Toggle as={Card.Header} eventKey={index} className="font-weight-bold">
                                                 {issue.get("title")}
                                                 <i className={"fas fa-" + this.getPriorityIcon(issue.get("priority")) + "-circle float-right"}></i>
                                             </Accordion.Toggle>
-                                            <Accordion.Collapse eventKey="0">
+                                            <Accordion.Collapse eventKey={index}>
                                                 <Card.Body>
                                                     <Row>
                                                         <Col className="issue-box" lg={6}>
                                                             <Row>
                                                                 <Col lg={4}>
-                                                                    <Card.Img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg"/>
+                                                                    <Card.Img src={this.getCardImage(issue.get("image"))}/>
                                                                 </Col>
                                                                 <Col lg={8}>                    
                                                                     <Card.Text>
@@ -51,7 +81,8 @@ class IssuesAccordion extends React.Component {
                                                         <Col lg={4}>
                                                             <Row>
                                                                 <Col>
-                                                                <Comments />
+                                                                    <Comments addComment={this.addComment} parentId={issue.id} getAllComments={this.getAllComments}/>
+                                                                    {/* {this.getIssueComments(issue)} */}
                                                                 </Col>
                                                             </Row>
                                                         </Col>
