@@ -12,7 +12,7 @@ class IssuesAccordion extends React.Component {
         super(props);
 
         this.getPriorityIcon = this.getPriorityIcon.bind(this);
-        this.handleComment = this.addComment.bind(this);
+        this.handleComment = this.addCommentHanlder.bind(this);
         this.getAllComments = this.getAllComments.bind(this);
 
 
@@ -41,8 +41,7 @@ class IssuesAccordion extends React.Component {
         IssueDB.GetIssueComments(issueId, onGetAllCommentsSuccess, onGetAllCommentsError)
     }
 
-    addComment (issueId, commentText, onAddCommentSuccess, onAddCommentError) {
-        console.log(issueId + " " + commentText);
+    addCommentHanlder (issueId, commentText, onAddCommentSuccess, onAddCommentError) {
         IssueDB.CommentIssue(issueId, commentText, onAddCommentSuccess, onAddCommentError);
     }
 
@@ -81,7 +80,7 @@ class IssuesAccordion extends React.Component {
                                                         <Col lg={4}>
                                                             <Row>
                                                                 <Col>
-                                                                    <Comments addComment={this.addComment} parentId={issue.id} getAllComments={this.getAllComments}/>
+                                                                    <Comments addComment={this.addCommentHanlder} parentId={issue.id}/>
                                                                     {/* {this.getIssueComments(issue)} */}
                                                                 </Col>
                                                             </Row>

@@ -11,12 +11,12 @@ function Initialize() {
 }
 
 function addCommentToObject(object, commentText) {
-
   var comments = object.get("comments")
   if (comments == null) {
     comments = [];
   }
   const newComment = CommentDB.GetComment();
+  newComment.set('parentId', object.id)
   newComment.set('createdBy', Parse.User.current());
   newComment.set('text', commentText);
   comments.push(newComment)
@@ -65,6 +65,18 @@ const CommentDB = {
         onError(error);
         console.error('Error while updating Comment', error);
       });
+    });
+  },
+  GetObjecComments: function GetObjecComments(objectId, onSucces, onError) {
+    const Comment = Parse.Object.extend('Comment');
+    const query = new Parse.Query(Comment);
+    query.equalTo("parentId", objectId);
+      query.find().then((results) => {
+      onSucces(results);
+      console.log('Comments found', results);
+    }, (error) => {
+      onError(error)
+      console.error('Error while fetching comments', error);
     });
   },
 }
