@@ -40,6 +40,16 @@ class App extends React.Component {
   this.handleLogout = this.handleLogout.bind(this);
   this.handleLogoutSuccess = this.handleLogoutSuccess.bind(this);
   this.handleLogoutError = this.handleLogoutError.bind(this);
+
+  //Make sure you have all the information you need
+  if ( this.state.isLoggedIn == null) {
+    this.state.isLoggedIn = UserDB.IsLoggedIn();
+    //this.setState(this.state); 
+  }
+  if (this.state.isLoggedIn && this.state.userType == null) {
+    this.state.userType = UserDB.GetCurrentUserType();
+    //this.setState(this.state); 
+  }
 }
 
 handleLogin() {
@@ -70,23 +80,7 @@ handleLogoutError() {
 //   this.setState(this.state);
 // }
 
-componentDidMount() {
-  
-}
-
   render() {
-    //Make sure you have all the information you need
-    if ( this.state.isLoggedIn == null) {
-      this.state.isLoggedIn = UserDB.IsLoggedIn();
-      this.setState(this.state); 
-    }
-    if (this.state.isLoggedIn && this.state.userType == null) {
-      this.state.userType = UserDB.GetCurrentUserType();
-      this.setState(this.state); 
-    }
-    //////
-
-
     const activeUser = this.state.activeUser;
 
     const signUpDestination = (
