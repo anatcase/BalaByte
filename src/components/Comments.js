@@ -24,6 +24,8 @@ class Comments extends React.Component {
 
         CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
 
+        this.commentInput = React.createRef();
+
     }
 
     componentDidMount(){
@@ -43,8 +45,9 @@ class Comments extends React.Component {
     }
 
     onAddCommentSuccess(response) {
-        CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
-        
+      this.commentInput.current.value = "";
+
+        CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError);
         // this.props.getAllComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
     }
 
@@ -102,7 +105,7 @@ class Comments extends React.Component {
         <div className="Comments">
             <h6>Comments:</h6>
             {this.getCommentRows(comments)}
-            <Form.Control as="textarea" rows="3" placeholder="Add a comment" className="mt-4" onKeyPress={this.handleKeyPress}/>                   
+            <Form.Control as="textarea" rows="3" ref={this.commentInput} placeholder="Add a comment" className="mt-4" onKeyPress={this.handleKeyPress}/>                   
         </div>
     );
   }
