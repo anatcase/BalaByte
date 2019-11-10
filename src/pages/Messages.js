@@ -114,7 +114,7 @@ class Messages extends React.Component {
                                     <Col sm={7}>
                                         <div className="custom-file">
                                             <input type="file" className="custom-file-input" id="customFile" />
-                                            <label className="custom-file-label" for="customFile">Choose image</label>
+                                            <label className="custom-file-label" htmlFor="customFile">Choose image</label>
                                         </div>
                                     </Col>
                                     <Col sm={3}>

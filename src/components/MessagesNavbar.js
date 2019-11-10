@@ -49,11 +49,11 @@ class MessagesNavbar extends React.Component {
                         <h6 className="d-inline-block align-middle mr-3">Sort by:</h6>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked/>
-                            <label className="form-check-label" for="inlineRadio1">Date</label>
+                            <label className="form-check-label" htmlFor="inlineRadio1">Date</label>
                             </div>
                             <div className="form-check form-check-inline mr-0">
                             <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                            <label className="form-check-label" for="inlineRadio2">Priority</label>
+                            <label className="form-check-label" htmlFor="inlineRadio2">Priority</label>
                         </div>
                         
                         {/* <Form.Check inline label="Date" type="radio" id="inline-radio-1" />

@@ -14,7 +14,8 @@ class IssuesAccordion extends React.Component {
         this.getPriorityIcon = this.getPriorityIcon.bind(this);
         this.handleComment = this.addCommentHanlder.bind(this);
         this.getAllComments = this.getAllComments.bind(this);
-
+        this.handleUpdateClick = this.handleUpdateClick.bind(this);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
 
     }
 
@@ -43,6 +44,14 @@ class IssuesAccordion extends React.Component {
 
     addCommentHanlder (issueId, commentText, onAddCommentSuccess, onAddCommentError) {
         IssueDB.CommentIssue(issueId, commentText, onAddCommentSuccess, onAddCommentError);
+    }
+
+    handleUpdateClick(e) {
+        this.props.openModal(e);
+    }
+
+    handleDeleteClick () {
+
     }
 
     // getIssueComments(issue) {
@@ -88,10 +97,10 @@ class IssuesAccordion extends React.Component {
                                                         <Col lg={2} className="p-0 d-flex align-items-end justify-content-end pt-3">
                                                             <Row className="w-100 mx-0 text-center">
                                                                 <Col lg={6} className="px-0 responsive-btn-wrapper">
-                                                                    <Button variant="outline-dark" className="m-0 responsive-btn">Update</Button>
+                                                                    <Button variant="outline-dark" className="m-0 responsive-btn" onClick={this.handleUpdateClick}>Update</Button>
                                                                 </Col>
                                                                 <Col lg={6} className="px-0 responsive-btn-wrapper">
-                                                                    <Button variant="danger" className="m-0 responsive-btn">Delete</Button>
+                                                                    <Button variant="danger" className="m-0 responsive-btn" onClick={this.handleDeleteClick}>Delete</Button>
                                                                 </Col>
                                                             </Row>
                                                         </Col>

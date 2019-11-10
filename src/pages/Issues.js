@@ -32,6 +32,7 @@ class Issues extends React.Component {
         activeUserIssues: [],
         activePage: 1,
         showModal: false,
+        modalTrigger: null,
         totalItemsCount: 100, // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
         newIssueImg: {
             file: null,
@@ -50,6 +51,7 @@ class Issues extends React.Component {
       this.openModal = this.openModal.bind(this);
       this.closeModal = this.closeModal.bind(this);
       this.createIssue = this.createIssue.bind(this);
+      this.updateIssue = this.updateIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
       this.addIssue = this.addIssue.bind(this);
       this.titleInput = React.createRef();
@@ -77,8 +79,12 @@ class Issues extends React.Component {
         this.setState({newIssueImg});
     }
 
-    openModal() {
-        this.setState({ showModal: true })
+    openModal(e) {
+        let modalTrigger = e.target.innerHTML;
+        if(modalTrigger === "Update") {
+            modalTrigger = "Update Issue";
+        }
+        this.setState({ showModal: true, modalTrigger: modalTrigger })
     }
 
     closeModal() {
@@ -118,6 +124,18 @@ class Issues extends React.Component {
 
         this.closeModal();
     }
+
+    updateIssue() {
+    //     const newIssue = IssueDB.GetIssue();
+    //     newIssue.set('title', this.titleInput.current.value);
+    //     newIssue.set('details', this.detailsInput.current.value);
+    //     newIssue.set('priority', this.priorityInput.current.value);
+    //     //newIssue.set('image', this.state.newIssueImg.URL);
+
+    //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
+
+    //    this.closeModal();
+   }
 
     addIssue(newIssue) {
         // //const {activeUser, allIssues, activeUserIssues} this.state.activeUser
@@ -183,13 +201,17 @@ class Issues extends React.Component {
             recordsDisplay = "Loading...";
         }
         else {
-            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} /> ;
+            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} openModal={this.openModal}/> ;
         }
 
 
         // console.log("rendering issues " + this.state.issues);
 
         const { showModal, newIssueImg } = this.state;
+        const modalAction = (
+            this.state.modalTrigger === "New Issue"?  <Button variant="primary" onClick={this.createIssue}>Create Issue</Button>
+                                        :   <Button variant="primary" onClick={this.updateIssue}>Update Issue</Button>
+        );
 
       return (
                 <div className="Issues h-100">
@@ -205,7 +227,7 @@ class Issues extends React.Component {
                     
                     <Modal show={showModal} onHide={this.closeModal} size="lg">
                         <Modal.Header closeButton>
-                            <Modal.Title>New Issue</Modal.Title>
+                            <Modal.Title>{this.state.modalTrigger}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <Form className="issueModalFrm">
@@ -214,7 +236,7 @@ class Issues extends React.Component {
                                         Title:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control required type="text" ref={this.titleInput}/>
+                                        <Form.Control required type="text" ref={this.titleInput} required/>
                                     </Col>
                                 </Form.Group>
 
@@ -223,7 +245,7 @@ class Issues extends React.Component {
                                         Details:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.detailsInput} required as="textarea" rows="3" />
+                                        <Form.Control ref={this.detailsInput} required as="textarea" rows="3" required/>
                                     </Col>
                                 </Form.Group>
 
@@ -232,7 +254,7 @@ class Issues extends React.Component {
                                         Priority:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.priorityInput} required as="select" className="priority-select">
+                                        <Form.Control ref={this.priorityInput} required as="select" className="priority-select" required>
                                             <option value="urgent">Urgent</option>
                                             <option value="important">Important</option>
                                             <option value="normal">Normal</option>
@@ -248,7 +270,7 @@ class Issues extends React.Component {
                                         <div className="custom-file">
                                             <input type="file" className="custom-file-input" id="customFile" accept="image/*" onChange={this.imgChange}/>
                                             {/* <Form.Control type="file" placeholder="Issue image URL" accept="image/*" onChange={this.imgChange}/> */}
-                                            <label className="custom-file-label" for="customFile">Choose image</label>
+                                            <label className="custom-file-label" htmlFor="customFile">Choose image</label>
                                         </div>
                                     </Col>
                                     <Col sm={3}>
@@ -261,9 +283,7 @@ class Issues extends React.Component {
                             <Button variant="secondary" onClick={this.closeModal}>
                                 Close
                             </Button>
-                            <Button variant="primary" onClick={this.createIssue}>
-                                Create Issue
-                            </Button>
+                           {modalAction}
                         </Modal.Footer>
                     </Modal>
             </div>
