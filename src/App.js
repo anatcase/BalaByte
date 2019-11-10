@@ -70,6 +70,9 @@ handleLogoutError() {
 //   this.setState(this.state);
 // }
 
+componentDidMount() {
+  
+}
 
   render() {
     //Make sure you have all the information you need

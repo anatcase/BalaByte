@@ -19,9 +19,9 @@ class IssuesAccordion extends React.Component {
     }
 
     getPriorityIcon(priority) {
-        if (priority == "urgent") {
+        if (priority === "urgent") {
             return "exclamation";
-        } else if (priority == "important") {
+        } else if (priority === "important") {
             return "info";
         } else {
             return "";

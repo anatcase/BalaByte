@@ -1,10 +1,7 @@
 import React from 'react'
-import Accordion from 'react-bootstrap/Accordion'
-import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import CommentDB from '../components/CommentDB';
 
 
@@ -28,7 +25,6 @@ class Comments extends React.Component {
 
     componentDidMount(){
         console.log("Getting All Comments for " + this.state.parentId);
-        debugger;
         CommentDB.GetObjecComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
         //this.props.getAllComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
     }
