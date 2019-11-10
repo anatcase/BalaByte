@@ -72,7 +72,7 @@ class Main extends React.Component {
                   <Card.Img variant="top" src="./images/voting.png" />
                   <Card.Body>
                     <Card.Text>
-                    Dreaming of improving the way financial desicions are made in your building? 
+                    Dreaming of improving the way financial decisions are made in your building? 
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer className="border-0">
