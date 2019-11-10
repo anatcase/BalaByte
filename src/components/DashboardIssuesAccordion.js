@@ -1,15 +1,15 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion'
-import Card from 'react-bootstrap/Card'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// import Card from 'react-bootstrap/Card'
+// import Row from 'react-bootstrap/Row'
+// import Col from 'react-bootstrap/Col'
+// import Form from 'react-bootstrap/Form'
+// import Button from 'react-bootstrap/Button'
 
 class DashboardIssuesAccordion extends React.Component {
     
     render () {
-        const issues = this.props.records;
+        // const issues = this.props.records;
         //  const priority = (
         //                     issue.priority == "important"? "star" : "exclamation"
         //                  );

@@ -21,17 +21,21 @@ class Comments extends React.Component {
         this.onGetAllCommentsError = this.onGetAllCommentsError.bind(this);
         this.onAddCommentSuccess = this.onAddCommentSuccess.bind(this);
         this.onAddCommentError = this.onAddCommentError.bind(this);
+        
+        CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
+
     }
 
     componentDidMount(){
-        console.log("Getting All Comments for " + this.state.parentId);
-        CommentDB.GetObjecComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
+        // console.log("Getting All Comments for " + this.state.parentId);
+       // CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
         //this.props.getAllComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
     }
 
     onGetAllCommentsSuccess(comments) {
-        this.state.comments = comments;
-        this.setState(this.state);
+        //this.state.comments = comments;
+        //this.setState(this.state);
+        this.setState({comments: comments});
     }
 
     onGetAllCommentsError(error) {
@@ -39,7 +43,7 @@ class Comments extends React.Component {
     }
 
     onAddCommentSuccess(response) {
-        CommentDB.GetObjecComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
+        CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
 
         // this.props.getAllComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
     }
@@ -51,7 +55,7 @@ class Comments extends React.Component {
     handleKeyPress(e) {
         if (e.key === "Enter") {
             const commentText = e.target.value;     
-            console.log(commentText);
+            // console.log(commentText);
             this.props.addComment(this.props.parentId, commentText, this.onAddCommentSuccess, this.onAddCommentError);
             // var newComment = { text: event.target.value };
             // this.state.allTasks.push(newTask);
@@ -70,8 +74,8 @@ class Comments extends React.Component {
             return null;
         }
         else {
-            const commentRows = comments.map(comment =>
-                <Row className="Comment mt-4 my-2 mx-0">                                            
+            const commentRows = comments.map((comment,index) =>
+                <Row className="Comment mt-4 my-2 mx-0" key={index}>                                            
                     <Col lg={2} sm={2} xs={2} className="p-0">
                         <img className="rounded-circle avatar" src={this.getUserImage(comment.get("createdBy"))} alt="Avatar"></img>
                     </Col>

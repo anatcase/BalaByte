@@ -3,8 +3,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import UserDB from '../components/UserDB';
-import Dashboard from './Dashboard';
-import { Redirect } from 'react-router-dom'
 
 
 class SignUp extends React.Component {
@@ -35,32 +33,37 @@ class SignUp extends React.Component {
 
     handleNameChange (e) {
         let value = e.target.value;
-        this.state.username = value;
-        this.setState(this.state);
+        this.setState({username:value});
+        // this.state.username = value;
+        // this.setState(this.state);
     }
 
     handleEmailChange (e) {
         let value = e.target.value;
-        this.state.email = value;
-        this.setState(this.state);
+        this.setState({email:value});
+        // this.state.email = value;
+        // this.setState(this.state);
     }
 
     handlePasswordChange (e) {
         let value = e.target.value;
-        this.state.password = value;
-        this.setState(this.state);
+        this.setState({password:value});
+        // this.state.password = value;
+        // this.setState(this.state);
     }
 
     handleCommunityChange (e) {
         let value = e.target.value;
-        this.state.community = value;
-        this.setState(this.state);
+        this.setState({community:value});
+        // this.state.community = value;
+        // this.setState(this.state);
     }
 
     handleAddressChange (e) {
         let value = e.target.value;
-        this.state.address = value;
-        this.setState(this.state);
+        this.setState({address:value});
+        // this.state.address = value;
+        // this.setState(this.state);
     }
     
     OnSignUpSuccess(user) {
@@ -68,9 +71,11 @@ class SignUp extends React.Component {
     }
 
     OnSignUpError(error) {
-        this.state.errorMsg = error.message;
-        this.state.signUpError = true;
-        this.setState(this.state);
+        // this.state.errorMsg = error.message;
+        this.setState({errorMsg:error.message, signUpError:true});
+
+        // this.state.signUpError = true;
+        // this.setState(this.state);
     }
 
     SignUp() {
@@ -85,8 +90,10 @@ class SignUp extends React.Component {
 
     handleSubmit(e) {
         const form = e.target;
-        this.state.validated = true;
-        this.setState(this.state);
+        // this.state.validated = true;
+        // this.setState(this.state);
+        this.setState({validated:true});
+
         e.preventDefault();
         e.stopPropagation();
         if (form.checkValidity() === true) {

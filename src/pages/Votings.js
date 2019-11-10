@@ -6,11 +6,11 @@ import Button from 'react-bootstrap/Button'
 import VotingsNavbar from '../components/VotingsNav'
 import RecordsDisplay from '../components/RecordsDisplay'
 import { Container, Row, Col} from 'react-bootstrap'
-import Navigation from '../components/Navigation';
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
+// import Navigation from '../components/Navigation';
+// import Modal from 'react-bootstrap/Modal'
+// import Form from 'react-bootstrap/Form'
+// import InputGroup from 'react-bootstrap/InputGroup'
+// import FormControl from 'react-bootstrap/FormControl'
 
 class Votings extends React.Component {
     constructor(props) {

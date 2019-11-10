@@ -41,10 +41,10 @@ const CommentDB = {
     query.get(commentId).then((results) => {
       const comments = results.get("comments")
       onSucces(comments);
-      console.log('Comments found', comments);
+      // console.log('Comments found', comments);
     }, (error) => {
       onError(error)
-      console.error('Error while fetching comments', error);
+      // console.error('Error while fetching comments', error);
     });
   },
 
@@ -60,23 +60,23 @@ const CommentDB = {
       addCommentToObject(object, comment);
       object.save().then((response) => {
         onSuccess(response);
-        console.log('Updated Comment', response);
+        // console.log('Updated Comment', response);
       }, (error) => {
         onError(error);
-        console.error('Error while updating Comment', error);
+        // console.error('Error while updating Comment', error);
       });
     });
   },
-  GetObjecComments: function GetObjecComments(objectId, onSucces, onError) {
+  GetObjectComments: function GetObjectComments(objectId, onSucces, onError) {
     const Comment = Parse.Object.extend('Comment');
     const query = new Parse.Query(Comment);
     query.equalTo("parentId", objectId);
       query.find().then((results) => {
       onSucces(results);
-      console.log('Comments found', results);
+      // console.log('Comments found', results);
     }, (error) => {
       onError(error)
-      console.error('Error while fetching comments', error);
+      // console.error('Error while fetching comments', error);
     });
   },
 }

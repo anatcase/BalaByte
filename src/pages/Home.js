@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
-import Navigation from '../components/Navigation'
+// import Navigation from '../components/Navigation'
 import Container from 'react-bootstrap/Container'
 
 

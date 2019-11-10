@@ -6,8 +6,8 @@ import React from 'react';
 import IssueDB from '../components/IssueDB';
 import InnerNavbar from '../components/InnerNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
-import IssuesAccordion from '../components/IssuesAccordion'
-import Navigation from '../components/Navigation'
+// import IssuesAccordion from '../components/IssuesAccordion'
+// import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 // import PaginationNav from '../components/PaginationNav';
 
@@ -60,7 +60,7 @@ class Issues extends React.Component {
     }
 
     componentDidMount(){
-        console.log("Getting All Issues");
+        // console.log("Getting All Issues");
         IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
@@ -91,7 +91,7 @@ class Issues extends React.Component {
     //     this.setState(this.state);
     // }
     onCreateIssueSuccess(issueId, issue) {
-        console.log("Getting All Issues");
+        // console.log("Getting All Issues");
         IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
@@ -140,38 +140,40 @@ class Issues extends React.Component {
       let pageNumber = this.state.activePage;
   
       if (isNaN(val)) {
-        console.log('Not a number ' + val);
+        // console.log('Not a number ' + val);
         val = e.target.innerText;
         if (val.includes("‹")) {
-          console.log("Previous");
+        //   console.log("Previous");
           pageNumber--;
         }
         else if (val.includes("›")) {
-          console.log("Next");
+        //   console.log("Next");
           pageNumber++;
         }
         
       }
       else {
-        console.log('number ' + val);
+        // console.log('number ' + val);
         pageNumber =  val;
       }
-      console.log('active page is ' + pageNumber);
+    //   console.log('active page is ' + pageNumber);
       //this.state.activePage = pageNumber;
-      console.log(this.state.activePage);
+    //   console.log(this.state.activePage);
       //this.setState(this.state);
       this.setState({activePage:pageNumber});
-      console.log(this.state.activePage);
+    //   console.log(this.state.activePage);
     }
 
     onGetAllIssuesSuccess(issues) {
-        console.log("onGetAllIssuesSuccess");
-    this.state.issues = issues;
-    this.setState(this.state);
+        // console.log("onGetAllIssuesSuccess");
+    // this.state.issues = issues;
+    // this.setState(this.state);
+
+    this.setState({issues:issues});
 }
 
     onGetAllIssuesError(error) {
-        console.log("printing "+ error);
+        // console.log("printing "+ error);
     }
 
     render() {
@@ -185,7 +187,7 @@ class Issues extends React.Component {
         }
 
 
-        console.log("rendering issues " + this.state.issues);
+        // console.log("rendering issues " + this.state.issues);
 
         const { showModal, newIssueImg } = this.state;
 

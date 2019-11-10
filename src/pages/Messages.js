@@ -3,10 +3,11 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import MessagesNavbar from '../components/MessagesNavbar'
+// import MessagesNavbar from '../components/MessagesNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
-import Navigation from '../components/Navigation'
-import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
+// import Navigation from '../components/Navigation'
+// import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 // import PaginationNav from '../components/PaginationNav';
 import InnerNavbar from '../components/InnerNavbar'
 

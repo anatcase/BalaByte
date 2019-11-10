@@ -4,7 +4,7 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import TenantsNavbar from '../components/TenantsNavbar'
-import Navigation from '../components/Navigation'
+// import Navigation from '../components/Navigation'
 import RecordsDisplay from '../components/RecordsDisplay'
 import Container from 'react-bootstrap/Container'
 //import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'

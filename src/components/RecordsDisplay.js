@@ -12,7 +12,7 @@ import PendingVotingsAccordion from '../components/PendingVotingsAccordion';
 class Records extends React.Component {
     
     render () {
-        console.log("rendering records " + this.props.records);
+        // console.log("rendering records " + this.props.records);
         const accordion = (
                     <div>
                         {
@@ -68,7 +68,7 @@ class NoRecords extends React.Component {
 class RecordsDisplay extends React.Component {
   
     render() {
-        console.log("rendering RecordsDisplay " + this.props.records);
+        // console.log("rendering RecordsDisplay " + this.props.records);
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">

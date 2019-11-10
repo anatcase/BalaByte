@@ -55,7 +55,7 @@ class IssuesAccordion extends React.Component {
         const issues = this.props.records;
         
         const issueCards = issues.map((issue, index) =>
-                                        <Card>
+                                        <Card key={index}>
                                             <Accordion.Toggle as={Card.Header} eventKey={index} className="font-weight-bold">
                                                 {issue.get("title")}
                                                 <i className={"fas fa-" + this.getPriorityIcon(issue.get("priority")) + "-circle float-right"}></i>

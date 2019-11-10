@@ -53,10 +53,10 @@ const UserDB = {
     Parse.User.logIn(email,password).then((user) => {
       // Do stuff after successful login
       onSuccess(user);
-      console.log('Logged in user', user);
+      //console.log('Logged in user', user);
     }).catch(error => {
       onError(error);
-      console.error('Error while logging in user', error);
+      //console.error('Error while logging in user', error);
     })
   },
 
@@ -65,10 +65,10 @@ const UserDB = {
     Parse.User.logOut().then(() => {
       // Do stuff after successful login
       onSuccess();
-      console.log('Logged out');
+      //console.log('Logged out');
     }).catch(error => {
       onError(error);
-      console.error('Error while logging out user', error);
+      //console.error('Error while logging out user', error);
     })
   },
 
@@ -84,7 +84,7 @@ const UserDB = {
       onSuccess(results);
     }).catch((error) =>  {
       onError(error);
-      console.error('Error while trying to GetAllUsers', error);
+      //console.error('Error while trying to GetAllUsers', error);
 
     });
   },
@@ -103,7 +103,7 @@ const UserDB = {
       onSuccess(results);
     }).catch((error) =>  {
       onError(error);
-      console.error('Error while trying to FindUserByEmail', error);
+      //console.error('Error while trying to FindUserByEmail', error);
 
     });
   },

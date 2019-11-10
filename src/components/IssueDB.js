@@ -27,11 +27,11 @@ const IssueDB = {
       (result) => {
         const id = result.id;
         onSuccess(id, result);
-        console.log('Issue created', result);
+        // console.log('Issue created', result);
       },
       (error) => {
         onError(error);
-        console.error('Error while creating Issue: ', error);
+        // console.error('Error while creating Issue: ', error);
       }
     );
   },
@@ -42,11 +42,11 @@ const IssueDB = {
     query.descending("createdAt");
 
     query.find().then((results) => {
-      console.log('Issues found', results);
+      // console.log('Issues found', results);
       onSuccess(results);
     }, (error) => {
       onError(error);
-      console.error('Error while fetching Issues', error);
+      // console.error('Error while fetching Issues', error);
     });
   },
 
@@ -63,10 +63,10 @@ const IssueDB = {
       object.set('status', updatedIssue.get('status'));
       object.save().then((response) => {
         onSuccess(response);
-        console.log('Updated Issue', response);
+        // console.log('Updated Issue', response);
       }, (error) => {
         onError(error);
-        console.error('Error while updating Issue', error);
+        // console.error('Error while updating Issue', error);
       });
     });
   },
@@ -77,10 +77,10 @@ const IssueDB = {
     query.get(issueId).then((results) => {
       const comments = results.get("comments")
       onSucces(comments);
-      console.log('Comments found', comments);
+      // console.log('Comments found', comments);
     }, (error) => {
       onError(error)
-      console.error('Error while fetching comments', error);
+      // console.error('Error while fetching comments', error);
     });
   },
 
@@ -92,10 +92,10 @@ const IssueDB = {
       CommentDB.AddCommentToObject(object, commentText);
       object.save().then((response) => {
         onSuccess(response);
-        console.log('Updated Issue', response);
+        // console.log('Updated Issue', response);
       }, (error) => {
         onError(error);
-        console.error('Error while updating Issue', error);
+        // console.error('Error while updating Issue', error);
       });
     });
   },
@@ -106,9 +106,9 @@ const IssueDB = {
     query.get(issueId).then((object) => {
       object.destroy().then((response) => {
         onSuccess(response);
-        console.log('Deleted Issue', response);
+        // console.log('Deleted Issue', response);
       }, (error) => {
-        console.error('Error while deleting Issue', error);
+        // console.error('Error while deleting Issue', error);
       });
     });
   }

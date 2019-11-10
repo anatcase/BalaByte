@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import UserDB from '../components/UserDB';
+import UserDB from '../components/UserDB'
 import Alert from 'react-bootstrap/Alert'
 
 class Login extends React.Component {
@@ -25,14 +25,16 @@ class Login extends React.Component {
 
     handleEmailChange (e) {
         let value = e.target.value;
-        this.state.email = value;
-        this.setState(this.state);
+        //this.state.email = value;
+        //this.setState(this.state);
+        this.setState({email:value});
     }
 
     handlePasswordChange (e) {
         let value = e.target.value;
-        this.state.password = value;
-        this.setState(this.state);
+        this.setState({password:value});
+        // this.state.password = value;
+        // this.setState(this.state);
     }
 
     OnLoginSuccess(user) {
@@ -44,9 +46,14 @@ class Login extends React.Component {
 
     OnLoginError(error) {
         let errorMsg = error.message.replace("username", "email");
-        this.state.errorMsg = errorMsg;
-        this.state.loginError = true;
-        this.setState(this.state);
+        this.setState({
+                        errorMsg:errorMsg,
+                        loginError:true
+                      });
+
+        // this.state.errorMsg = errorMsg;
+        // this.state.loginError = true;
+        // this.setState(this.state);
     }
 
     Login() {
@@ -55,8 +62,10 @@ class Login extends React.Component {
 
     handleSubmit(e) {
         const form = e.target;
-        this.state.validated = true;
-        this.setState(this.state);
+        // this.state.validated = true;
+        // this.setState(this.state);
+        this.setState({validated:true});
+
         e.preventDefault();
         e.stopPropagation();
         if (form.checkValidity() === true) {
@@ -75,14 +84,14 @@ class Login extends React.Component {
                     <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" required/>
+                            <Form.Control type="email" placeholder="Enter email" autoComplete="username" onChange={this.handleEmailChange} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" required/>
                             <Form.Control.Feedback type="invalid">
                             </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" onChange={this.handlePasswordChange} pattern="(?=.*\d)(?=.*[a-z]).{8,20}" required/>
+                            <Form.Control type="password" placeholder="Password" autoComplete="current-password" onChange={this.handlePasswordChange} pattern="(?=.*\d)(?=.*[a-z]).{8,20}" required/>
                              <Form.Control.Feedback type="invalid">
                             </Form.Control.Feedback>
                         </Form.Group>

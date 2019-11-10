@@ -6,10 +6,10 @@ import React from 'react';
 //import DashboardIssuesAccordion from '../components/RecordsDisplay'
 import { Container, Row, Col } from 'react-bootstrap'
 import RecordsDisplay from '../components/RecordsDisplay';
-import Navigation from '../components/Navigation';
+// import Navigation from '../components/Navigation';
 import ChartsDisplay from '../components/ChartsDisplay';
 import Badge from 'react-bootstrap/Badge';
-import PieChart from 'react-minimal-pie-chart'
+// import PieChart from 'react-minimal-pie-chart'
 
 class CommitteeDashboard extends React.Component {
     
@@ -89,7 +89,7 @@ class TenantDashboard extends React.Component {
   class Dashboard extends React.Component {
     
     render() {
-        console.log("this.props.userType = " + this.props.userType);
+        // console.log("this.props.userType = " + this.props.userType);
       const dashboard = (
         this.props.userType === "admin"? <CommitteeDashboard /> : <TenantDashboard />
       );

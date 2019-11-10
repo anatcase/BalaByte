@@ -6,7 +6,7 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 import Home from './pages/Home';
@@ -27,36 +27,42 @@ class App extends React.Component {
     super(props);
     this.state = {
       activeUser: null,
-      isLoggedIn: null,
+      isLoggedIn: UserDB.IsLoggedIn(),
+      // isLoggedIn: null,
       activePage: "Home",
-      userType: null
+      //userType: null
+      userType: UserDB.IsLoggedIn() ? UserDB.GetCurrentUserType() : null
       // allUsers: jsonUsers,
   }
 
   // this.changeActivePage = this.changeActivePage.bind(this);
   this.handleLogin = this.handleLogin.bind(this);
-
-
   this.handleLogout = this.handleLogout.bind(this);
   this.handleLogoutSuccess = this.handleLogoutSuccess.bind(this);
   this.handleLogoutError = this.handleLogoutError.bind(this);
 
-  //Make sure you have all the information you need
-  if ( this.state.isLoggedIn == null) {
-    this.state.isLoggedIn = UserDB.IsLoggedIn();
-    //this.setState(this.state); 
-  }
-  if (this.state.isLoggedIn && this.state.userType == null) {
-    this.state.userType = UserDB.GetCurrentUserType();
-    //this.setState(this.state); 
-  }
+  // //Make sure you have all the information you need
+  // if ( this.state.isLoggedIn == null) {
+  //   // this.state.isLoggedIn = UserDB.IsLoggedIn();
+  //   //this.setState(this.state); 
+  //   this.setState({isLoggedIn:UserDB.IsLoggedIn()}); 
+  // }
+  // if (this.state.isLoggedIn && this.state.userType == null) {
+  //   this.setState({userType:UserDB.GetCurrentUserType()}); 
+
+  //   // this.state.userType = UserDB.GetCurrentUserType();
+  //   //this.setState(this.state); 
+  // }
 }
 
 handleLogin() {
-  this.state.isLoggedIn = true;
+ // this.state.isLoggedIn = true;
   //Check userType with the DB
-  this.state.userType = UserDB.GetCurrentUserType();
-  this.setState(this.state);
+  //this.state.userType = UserDB.GetCurrentUserType();
+
+  this.setState({isLoggedIn:true, userType:UserDB.GetCurrentUserType()}); 
+
+  // this.setState(this.state);
 }
 
 handleLogout() {
@@ -64,9 +70,11 @@ handleLogout() {
 }
 
 handleLogoutSuccess() {
-  this.state.isLoggedIn = false;
-  this.state.userType = null;
-  this.setState(this.state);
+  // this.state.isLoggedIn = false;
+  // this.state.userType = null;
+  // this.setState(this.state);
+
+  this.setState({isLoggedIn:false, userType:null});
 }
 
 handleLogoutError() {
