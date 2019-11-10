@@ -18,6 +18,9 @@ function addCommentToObject(object, commentText) {
   const newComment = CommentDB.GetComment();
   newComment.set('parentId', object.id)
   newComment.set('createdBy', Parse.User.current());
+  newComment.set('createdByUserName', Parse.User.current().get('username'));
+  newComment.set('createdByUserImage', Parse.User.current().get('userImage'));
+
   newComment.set('text', commentText);
   comments.push(newComment)
   object.set('comments', comments);

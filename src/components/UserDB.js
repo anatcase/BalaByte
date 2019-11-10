@@ -108,6 +108,25 @@ const UserDB = {
     });
   },
 
+  FindUserById: function FindUserById(userId, onSuccess, onError) {
+
+    const UserClass = Parse.Object.extend("User");
+
+    // Creates a new Query object to help us fetch UserClass objects
+    const query = new Parse.Query(UserClass);
+
+    query.equalTo("objectId", userId);
+
+    // Executes the query, which returns an array of UserClass
+    query.find().then(results => {
+      onSuccess(results);
+    }).catch((error) =>  {
+      onError(error);
+      //console.error('Error while trying to FindUserByEmail', error);
+
+    });
+  },
+
   IsLoggedIn: function IsLoggedIn() {
     return Parse.User.current() != null;
   },

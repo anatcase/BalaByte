@@ -21,7 +21,7 @@ class Comments extends React.Component {
         this.onGetAllCommentsError = this.onGetAllCommentsError.bind(this);
         this.onAddCommentSuccess = this.onAddCommentSuccess.bind(this);
         this.onAddCommentError = this.onAddCommentError.bind(this);
-        
+
         CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
 
     }
@@ -44,7 +44,7 @@ class Comments extends React.Component {
 
     onAddCommentSuccess(response) {
         CommentDB.GetObjectComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
-
+        
         // this.props.getAllComments(this.state.parentId, this.onGetAllCommentsSuccess, this.onGetAllCommentsError)
     }
 
@@ -64,9 +64,14 @@ class Comments extends React.Component {
           }
     }
 
-    getUserImage(user){
-        //console.log(user);
-        return null;
+    getUserImage(comment){
+        const image = comment.get('createdByUserImage');
+        if(image == null) {
+            return "./images/avatar-placeholder.gif";
+        }
+        else {
+            return image;
+        }
     }
 
     getCommentRows(comments) {
@@ -77,10 +82,10 @@ class Comments extends React.Component {
             const commentRows = comments.map((comment,index) =>
                 <Row className="Comment mt-4 my-2 mx-0" key={index}>                                            
                     <Col lg={2} sm={2} xs={2} className="p-0">
-                        <img className="rounded-circle avatar" src={this.getUserImage(comment.get("createdBy"))} alt="Avatar"></img>
+                        <img className="rounded-circle avatar" src={this.getUserImage(comment)} alt="Avatar"></img>
                     </Col>
                     <Col lg={10} sm={10} xs={10} className="pl-0">
-                        {/* <p className="font-weight-bold m-0">{UserDB.getUserName(userId)}</p> */}
+                        <p className="font-weight-bold m-0">{comment.get('createdByUserName')}</p>
                         <p>{comment.get('text')}</p>
                     </Col>
                 </Row>
