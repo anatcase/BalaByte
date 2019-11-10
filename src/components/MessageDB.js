@@ -38,6 +38,7 @@ const MessageDB = {
   GetAllMessages: function GetAllMessages(onSuccess, onError) {
     const Message = Parse.Object.extend('Message');
     const query = new Parse.Query(Message);
+    query.descending("createdAt");
     query.find().then((results) => {
       onSuccess(results);
       console.log('Message found', results);

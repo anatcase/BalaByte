@@ -39,6 +39,8 @@ const IssueDB = {
   GetAllIssues: function GetAllIssues(onSuccess, onError) {
     const Issue = Parse.Object.extend('Issue');
     const query = new Parse.Query(Issue);
+    query.descending("createdAt");
+
     query.find().then((results) => {
       console.log('Issues found', results);
       onSuccess(results);
