@@ -144,7 +144,7 @@ class Issues extends React.Component {
     }
 
     closeModal() {
-        this.setState({ showModal: false })
+        this.setState({ currentIssueId: null, newIssueImg:{file: null, URL: ""}, showModal: false })
     }
 
     // getAllIssues() {
