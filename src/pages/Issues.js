@@ -37,6 +37,8 @@ class Issues extends React.Component {
         currentIssuePriority: null,
         currentIssueImage: null,
         modalTrigger: null,
+        showStatusSelect: "hide",
+        currentIssueStatus: null,
         totalItemsCount: 100, // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
         newIssueImg: {
             file: null,
@@ -61,11 +63,14 @@ class Issues extends React.Component {
       this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
       this.handleDetailsChange = this.handleDetailsChange.bind(this);
       this.handlePriorityChange = this.handlePriorityChange.bind(this);
+      this.handleStatusChange = this.handleStatusChange.bind(this);
       this.handleImageChange = this.handleImageChange.bind(this);
       this.currentIssueId = React.createRef();
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
+      this.statusInput = React.createRef();
+      this.imgInput = React.createRef();
     //   IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
 
     }
@@ -100,25 +105,42 @@ class Issues extends React.Component {
         this.setState({currentIssuePriority: e.target.value});
     }
 
+    handleStatusChange(e) {
+        this.setState({currentIssueStatus: e.target.value});
+    }
+
     handleImageChange(e) {
         this.setState({currentIssueImage: e.target.value});
     }
 
     openModal(e, issue) {
+        debugger;
         let modalTrigger = e.target.innerHTML;
+        let showStatusSelect;
         let currentIssueTitle = "";
         let currentIssueDetails = "";
+        let currentIssuePriority = "";
+        let currentIssueStatus = "";
+        let currentIssueImage = "";
 
         if(modalTrigger === "Update") {
             modalTrigger = "Update Issue";
+            showStatusSelect = "show";
             //this.titleInput.current.value = issue.get("title");
             //this.detailsInput = issue.get("details");
             //this.priorityInput = issue.get("priority");
             currentIssueTitle = issue.get("title");
             currentIssueDetails = issue.get("details");
+            currentIssuePriority = issue.get("priority");
+            currentIssueStatus = issue.get("status");
+            currentIssueImage = issue.get("image");
+
             this.currentIssueId = issue.id;
         }
-        this.setState({ showModal: true, modalTrigger: modalTrigger, currentIssueTitle: currentIssueTitle, currentIssueDetails:currentIssueDetails})
+        else {
+            showStatusSelect = "hide";
+        }
+        this.setState({ showModal: true, showStatusSelect: showStatusSelect, modalTrigger: modalTrigger, currentIssueTitle: currentIssueTitle, currentIssueDetails:currentIssueDetails, currentIssuePriority: currentIssuePriority, currentIssueStatus: currentIssueStatus, currentIssueImage: currentIssueImage})
     }
 
     closeModal() {
@@ -144,6 +166,7 @@ class Issues extends React.Component {
          newIssue.set('title', this.titleInput.current.value);
          newIssue.set('details', this.detailsInput.current.value);
          newIssue.set('priority', this.priorityInput.current.value);
+         newIssue.set('status', this.statusInput.current.value);
          //newIssue.set('image', this.state.newIssueImg.URL);
 
         // const newIssue = {
@@ -164,7 +187,8 @@ class Issues extends React.Component {
         newIssue.set('title', this.titleInput);
         newIssue.set('details', this.detailsInput);
         newIssue.set('priority', this.priorityInput);
-        //newIssue.set('image', this.state.newIssueImg.URL);
+        newIssue.set('status', this.statusInput);
+        newIssue.set('image', this.state.newIssueImg.URL);
 
     //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
@@ -305,13 +329,25 @@ class Issues extends React.Component {
                                     </Form.Label>
                                     <Col sm={7}>
                                         <div className="custom-file">
-                                            <input type="file" className="custom-file-input" id="customFile" accept="image/*" onChange={this.imgChange}/>
+                                            <input ref={this.imgInput} type="file" className="custom-file-input" id="customFile" accept="image/*" onChange={this.imgChange}/>
                                             {/* <Form.Control type="file" placeholder="Issue image URL" accept="image/*" onChange={this.imgChange}/> */}
                                             <label className="custom-file-label" htmlFor="customFile">Choose image</label>
                                         </div>
                                     </Col>
                                     <Col sm={3}>
                                         <Image src={newIssueImg.URL} fluid/>
+                                    </Col>
+                                </Form.Group>
+                                
+                                <Form.Group as={Row} controlId="formStatusSelect" className={this.state.showStatusSelect}>
+                                    <Form.Label column sm={2}>
+                                        Status:
+                                    </Form.Label>
+                                    <Col sm={10}>
+                                        <Form.Control ref={this.statusInput} value={this.state.currentIssueStatus} onChange={this.handleStatusChange} as="select" className="status-select" required>
+                                            <option value="open">Open</option>
+                                            <option value="closed">Closed</option>
+                                        </Form.Control>
                                     </Col>
                                 </Form.Group>
                             </Form>
