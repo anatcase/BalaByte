@@ -32,6 +32,7 @@ class Issues extends React.Component {
         activeUserIssues: [],
         activePage: 1,
         showModal: false,
+        currentIssueId: null,
         currentIssueTitle: null,
         currentIssueDetails: null,
         currentIssuePriority: null,
@@ -59,13 +60,12 @@ class Issues extends React.Component {
       this.createIssue = this.createIssue.bind(this);
       this.updateIssue = this.updateIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
-      this.addIssue = this.addIssue.bind(this);
+      //this.addIssue = this.addIssue.bind(this);
       this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
       this.handleDetailsChange = this.handleDetailsChange.bind(this);
       this.handlePriorityChange = this.handlePriorityChange.bind(this);
       this.handleStatusChange = this.handleStatusChange.bind(this);
       this.handleImageChange = this.handleImageChange.bind(this);
-      this.currentIssueId = React.createRef();
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
@@ -117,6 +117,7 @@ class Issues extends React.Component {
         debugger;
         let modalTrigger = e.target.innerHTML;
         let showStatusSelect;
+        let currentIssueId;
         let currentIssueTitle = "";
         let currentIssueDetails = "";
         let currentIssuePriority = "";
@@ -134,13 +135,12 @@ class Issues extends React.Component {
             currentIssuePriority = issue.get("priority");
             currentIssueStatus = issue.get("status");
             currentIssueImage = issue.get("image");
-
-            this.currentIssueId = issue.id;
+            currentIssueId = issue.id;
         }
         else {
             showStatusSelect = "hide";
         }
-        this.setState({ showModal: true, showStatusSelect: showStatusSelect, modalTrigger: modalTrigger, currentIssueTitle: currentIssueTitle, currentIssueDetails:currentIssueDetails, currentIssuePriority: currentIssuePriority, currentIssueStatus: currentIssueStatus, currentIssueImage: currentIssueImage})
+        this.setState({ showModal: true, showStatusSelect: showStatusSelect, modalTrigger: modalTrigger, currentIssueId: currentIssueId, currentIssueTitle: currentIssueTitle, currentIssueDetails:currentIssueDetails, currentIssuePriority: currentIssuePriority, currentIssueStatus: currentIssueStatus, currentIssueImage: currentIssueImage})
     }
 
     closeModal() {
@@ -183,37 +183,23 @@ class Issues extends React.Component {
     }
 
     updateIssue() {
+        debugger;
         const newIssue = IssueDB.GetIssue();
-        newIssue.set('title', this.titleInput);
-        newIssue.set('details', this.detailsInput);
-        newIssue.set('priority', this.priorityInput);
-        newIssue.set('status', this.statusInput);
-        newIssue.set('image', this.state.newIssueImg.URL);
+        newIssue.set('title', this.titleInput.current.value);
+        newIssue.set('details', this.detailsInput.current.value);
+        newIssue.set('priority', this.priorityInput.current.value);
+        newIssue.set('status', this.statusInput.current.value);
+        //newIssue.set('image', this.state.newIssueImg.URL);
 
     //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
-        IssueDB.UpdateIssue(this.currentIssueId, newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
+        IssueDB.UpdateIssue(this.state.currentIssueId, newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
 
         this.closeModal();
    }
 
-    addIssue(newIssue) {
-        // //const {activeUser, allIssues, activeUserIssues} this.state.activeUser
-        // // 1) add id and user to the Issue
-        // newIssue.createdBy = this.state.activeUser.id;
-        // // newIssue.id = this.state.allIssues[this.state.allIssues.length - 1].id + 1;
-        // // newIssue.createdAt = this.state.allIssues[this.state.allIssues.length - 1].id + 1;
-
-        // // 2) update all Issues and active user Issues
-        // const allIssues = this.state.allIssues.concat(newIssue);
-        // const activeUserIssues = this.state.activeUserIssues.concat(newIssue);
-    
-        //IssueDB.CreateIssue(newIssue, null, null)
-        //this.setState({allIssues, activeUserIssues});
-      }
-    
-    
+  
     handlePageChange(e) {
       let val = parseInt(e.target.innerHTML);
       let pageNumber = this.state.activePage;
