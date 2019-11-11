@@ -46,8 +46,8 @@ class IssuesAccordion extends React.Component {
         IssueDB.CommentIssue(issueId, commentText, onAddCommentSuccess, onAddCommentError);
     }
 
-    handleUpdateClick(e) {
-        this.props.openModal(e);
+    handleUpdateClick(e, issue) {
+        this.props.openModal(e, issue);
     }
 
     handleDeleteClick () {
@@ -97,7 +97,7 @@ class IssuesAccordion extends React.Component {
                                                         <Col lg={2} className="p-0 d-flex align-items-end justify-content-end pt-3">
                                                             <Row className="w-100 mx-0 text-center">
                                                                 <Col lg={6} className="px-0 responsive-btn-wrapper">
-                                                                    <Button variant="outline-dark" className="m-0 responsive-btn" onClick={this.handleUpdateClick}>Update</Button>
+                                                                    <Button variant="outline-dark" className="m-0 responsive-btn" onClick={(e)=>{this.handleUpdateClick(e, issue)}}>Update</Button>
                                                                 </Col>
                                                                 <Col lg={6} className="px-0 responsive-btn-wrapper">
                                                                     <Button variant="danger" className="m-0 responsive-btn" onClick={this.handleDeleteClick}>Delete</Button>

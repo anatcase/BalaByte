@@ -32,6 +32,10 @@ class Issues extends React.Component {
         activeUserIssues: [],
         activePage: 1,
         showModal: false,
+        currentIssueTitle: null,
+        currentIssueDetails: null,
+        currentIssuePriority: null,
+        currentIssueImage: null,
         modalTrigger: null,
         totalItemsCount: 100, // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
         newIssueImg: {
@@ -54,6 +58,11 @@ class Issues extends React.Component {
       this.updateIssue = this.updateIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
       this.addIssue = this.addIssue.bind(this);
+      this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
+      this.handleDetailsChange = this.handleDetailsChange.bind(this);
+      this.handlePriorityChange = this.handlePriorityChange.bind(this);
+      this.handleImageChange = this.handleImageChange.bind(this);
+      this.currentIssueId = React.createRef();
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
@@ -79,12 +88,37 @@ class Issues extends React.Component {
         this.setState({newIssueImg});
     }
 
-    openModal(e) {
+    handleTitleInputChange(e) {
+        this.setState({currentIssueTitle: e.target.value});
+    }
+
+    handleDetailsChange(e) {
+        this.setState({currentIssueDetails: e.target.value});
+    }
+
+    handlePriorityChange(e) {
+        this.setState({currentIssuePriority: e.target.value});
+    }
+
+    handleImageChange(e) {
+        this.setState({currentIssueImage: e.target.value});
+    }
+
+    openModal(e, issue) {
         let modalTrigger = e.target.innerHTML;
+        let currentIssueTitle = "";
+        let currentIssueDetails = "";
+
         if(modalTrigger === "Update") {
             modalTrigger = "Update Issue";
+            //this.titleInput.current.value = issue.get("title");
+            //this.detailsInput = issue.get("details");
+            //this.priorityInput = issue.get("priority");
+            currentIssueTitle = issue.get("title");
+            currentIssueDetails = issue.get("details");
+            this.currentIssueId = issue.id;
         }
-        this.setState({ showModal: true, modalTrigger: modalTrigger })
+        this.setState({ showModal: true, modalTrigger: modalTrigger, currentIssueTitle: currentIssueTitle, currentIssueDetails:currentIssueDetails})
     }
 
     closeModal() {
@@ -126,15 +160,18 @@ class Issues extends React.Component {
     }
 
     updateIssue() {
-    //     const newIssue = IssueDB.GetIssue();
-    //     newIssue.set('title', this.titleInput.current.value);
-    //     newIssue.set('details', this.detailsInput.current.value);
-    //     newIssue.set('priority', this.priorityInput.current.value);
-    //     //newIssue.set('image', this.state.newIssueImg.URL);
+        const newIssue = IssueDB.GetIssue();
+        newIssue.set('title', this.titleInput);
+        newIssue.set('details', this.detailsInput);
+        newIssue.set('priority', this.priorityInput);
+        //newIssue.set('image', this.state.newIssueImg.URL);
 
     //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
-    //    this.closeModal();
+        IssueDB.UpdateIssue(this.currentIssueId, newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
+
+
+        this.closeModal();
    }
 
     addIssue(newIssue) {
@@ -236,7 +273,7 @@ class Issues extends React.Component {
                                         Title:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control required type="text" ref={this.titleInput} required/>
+                                        <Form.Control type="text" ref={this.titleInput} value={this.state.currentIssueTitle} onChange={this.handleTitleInputChange} required/>
                                     </Col>
                                 </Form.Group>
 
@@ -245,7 +282,7 @@ class Issues extends React.Component {
                                         Details:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.detailsInput} required as="textarea" rows="3" required/>
+                                        <Form.Control ref={this.detailsInput} value={this.state.currentIssueDetails} onChange={this.handleDetailsChange} as="textarea" rows="3" required/>
                                     </Col>
                                 </Form.Group>
 
@@ -254,7 +291,7 @@ class Issues extends React.Component {
                                         Priority:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.priorityInput} required as="select" className="priority-select" required>
+                                        <Form.Control ref={this.priorityInput} value={this.state.currentIssuePriority} onChange={this.handlePriorityChange} as="select" className="priority-select" required>
                                             <option value="urgent">Urgent</option>
                                             <option value="important">Important</option>
                                             <option value="normal">Normal</option>
