@@ -4,6 +4,7 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import IssueDB from '../components/IssueDB';
+import ImageHandler from '../components/ImageHandler'
 import InnerNavbar from '../components/InnerNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
 // import IssuesAccordion from '../components/IssuesAccordion'
@@ -41,10 +42,10 @@ class Issues extends React.Component {
         showStatusSelect: "hide",
         currentIssueStatus: null,
         totalItemsCount: 100, // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
-        newIssueImg: {
-            file: null,
-            URL: ""
-        },
+        // newIssueImg: {
+        //     file: null,
+        //     URL: ""
+        // },
         validated: false,
         issueError: false,
         errorMsg:""
@@ -56,7 +57,9 @@ class Issues extends React.Component {
       
       this.onCreateIssueSuccess = this.onCreateIssueSuccess.bind(this);
       this.onCreateIssueError = this.onCreateIssueError.bind(this);
-
+      this.onImageUploadSuccess = this.onImageUploadSuccess.bind(this);
+      this.onImageUploadError = this.onImageUploadError.bind(this);
+      this.onImageUploadProgress = this.onImageUploadProgress.bind(this);
 
       this.openModal = this.openModal.bind(this);
       this.closeModal = this.closeModal.bind(this);
@@ -84,17 +87,36 @@ class Issues extends React.Component {
         IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
+    onImageUploadSuccess(imageId) {
+        //console.log("Image uploaded to: " + ImageHandler.GetImageUrl(imageId));
+        let currentIssueImage = imageId;
+        this.setState({currentIssueImage: currentIssueImage})
+    }
+
+    onImageUploadError(error) {
+        //console.log("Error uploading image: " + error);
+    }
+
+    onImageUploadProgress(progress) {
+        if (progress < 100) {
+            document.getElementById("image_progress").innerHTML = "Image Uploading: " + progress + "%";
+        } else {
+            document.getElementById("image_progress").innerHTML = "Image Uploaded Successfully";
+
+        }
+    }
     imgChange(ev) {
 
         let newIssueImg = {};
         newIssueImg.file = ev.target.files[0];
         if (newIssueImg.file) {
-            newIssueImg.URL = URL.createObjectURL(newIssueImg.file);
+            // newIssueImg.URL = URL.createObjectURL(newIssueImg.file);
+            ImageHandler.UploadImage(newIssueImg.file, this.onImageUploadProgress, this.onImageUploadSuccess, this.onImageUploadError);
+
         } else {
             newIssueImg.URL = "";
         }
 
-        this.setState({newIssueImg});
     }
 
     // handleTitleInputChange(e) {
@@ -166,7 +188,7 @@ class Issues extends React.Component {
     }
 
     closeModal() {
-        this.setState({ currentIssueId: null, newIssueImg:{file: null, URL: ""}, showModal: false, validated: false, issueError: false })
+        this.setState({ currentIssueId: null, currentIssueImage:null, showModal: false, validated: false, issueError: false })
     }
 
     // getAllIssues() {
@@ -189,7 +211,7 @@ class Issues extends React.Component {
          newIssue.set('details', this.detailsInput.current.value);
          newIssue.set('priority', this.priorityInput.current.value);
          newIssue.set('status', this.statusInput.current.value);
-         //newIssue.set('image', this.state.newIssueImg.URL);
+         newIssue.set('image', this.state.currentIssueImage);
 
         // const newIssue = {
         //     title: this.titleInput.value,
@@ -210,7 +232,7 @@ class Issues extends React.Component {
         newIssue.set('details', this.detailsInput.current.value);
         newIssue.set('priority', this.priorityInput.current.value);
         newIssue.set('status', this.statusInput.current.value);
-        //newIssue.set('image', this.state.newIssueImg.URL);
+        newIssue.set('image', this.state.currentIssueImage);
 
     //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
@@ -275,7 +297,8 @@ class Issues extends React.Component {
 
         // console.log("rendering issues " + this.state.issues);
 
-        const { showModal, newIssueImg } = this.state;
+        const { showModal, currentIssueImage } = this.state;
+        const currentIssueImageUrl = ImageHandler.GetImageUrl(currentIssueImage);
         const modalAction = (
             this.state.modalTrigger === "New Issue" ?  <Button variant="primary" type="submit">Create Issue</Button>
                                                     :  <Button variant="primary" type="submit">Update Issue</Button>
@@ -347,11 +370,12 @@ class Issues extends React.Component {
                                         <div className="custom-file">
                                             <input ref={this.imgInput} type="file" className="custom-file-input" id="customFile" accept="image/*" onChange={this.imgChange}/>
                                             {/* <Form.Control type="file" placeholder="Issue image URL" accept="image/*" onChange={this.imgChange}/> */}
+                                            <p id="image_progress"></p>
                                             <label className="custom-file-label" htmlFor="customFile">Choose image</label>
                                         </div>
                                     </Col>
                                     <Col sm={3}>
-                                        <Image src={newIssueImg.URL} fluid/>
+                                        <Image src={currentIssueImageUrl} fluid className="thumbnail"/>
                                     </Col>
                                 </Form.Group>
                                 

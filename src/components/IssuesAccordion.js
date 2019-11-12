@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Comments from '../components/Comments'
 import IssueDB from '../components/IssueDB';
+import ImageHandler from '../components/ImageHandler';
+
 
 class IssuesAccordion extends React.Component {
     constructor(props) {
@@ -29,12 +31,12 @@ class IssuesAccordion extends React.Component {
         }
     }
 
-    getCardImage(image) {
-        if(image == null) {
+    getCardImage(imageId) {
+        if(imageId == null) {
             return "./images/placeholder-square.jpg";
         }
         else {
-            return image;
+            return ImageHandler.GetImageUrl(imageId);
         }
     }
 
@@ -73,9 +75,9 @@ class IssuesAccordion extends React.Component {
                                                 <Card.Body>
                                                     <Row>
                                                         <Col className="issue-box" lg={6}>
-                                                            <Row>
+                                                            <Row className="h-100">
                                                                 <Col lg={4}>
-                                                                    <Card.Img src={this.getCardImage(issue.get("image"))}/>
+                                                                    <Card.Img className="thumbnail" src={this.getCardImage(issue.get("image"))}/>
                                                                 </Col>
                                                                 <Col lg={8}>                    
                                                                     <Card.Text>
