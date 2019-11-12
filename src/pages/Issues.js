@@ -10,7 +10,7 @@ import RecordsDisplay from '../components/RecordsDisplay'
 // import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
 // import PaginationNav from '../components/PaginationNav';
-
+import Alert from 'react-bootstrap/Alert'
 //import Modal from 'react-bootstrap/Modal'
 //import Form from 'react-bootstrap/Form'
 //import Row from 'react-bootstrap/Row'
@@ -21,13 +21,13 @@ class Issues extends React.Component {
       super(props);
       this.state = {
         // activeUser: null,
-        activeUser:   {
-                "id": 1,
-                "fname": "Nir",
-                "lname": "Channes",
-                "email": "nir@nir.com",
-                "pwd": "123"
-        },
+        // activeUser:   {
+        //         "id": 1,
+        //         "fname": "Nir",
+        //         "lname": "Channes",
+        //         "email": "nir@nir.com",
+        //         "pwd": "123"
+        // },
         issues: null, //Get from Parse DB
         activeUserIssues: [],
         activePage: 1,
@@ -44,7 +44,10 @@ class Issues extends React.Component {
         newIssueImg: {
             file: null,
             URL: ""
-        }
+        },
+        validated: false,
+        issueError: false,
+        errorMsg:""
     }
       
       this.handlePageChange = this.handlePageChange.bind(this);
@@ -60,12 +63,13 @@ class Issues extends React.Component {
       this.createIssue = this.createIssue.bind(this);
       this.updateIssue = this.updateIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
       //this.addIssue = this.addIssue.bind(this);
-      this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
-      this.handleDetailsChange = this.handleDetailsChange.bind(this);
-      this.handlePriorityChange = this.handlePriorityChange.bind(this);
-      this.handleStatusChange = this.handleStatusChange.bind(this);
-      this.handleImageChange = this.handleImageChange.bind(this);
+    //   this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
+    //   this.handleDetailsChange = this.handleDetailsChange.bind(this);
+    //   this.handlePriorityChange = this.handlePriorityChange.bind(this);
+    //   this.handleStatusChange = this.handleStatusChange.bind(this);
+    //   this.handleImageChange = this.handleImageChange.bind(this);
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
@@ -93,28 +97,46 @@ class Issues extends React.Component {
         this.setState({newIssueImg});
     }
 
-    handleTitleInputChange(e) {
-        this.setState({currentIssueTitle: e.target.value});
-    }
+    // handleTitleInputChange(e) {
+    //     this.setState({currentIssueTitle: e.target.value});
+    // }
 
-    handleDetailsChange(e) {
-        this.setState({currentIssueDetails: e.target.value});
-    }
+    // handleDetailsChange(e) {
+    //     this.setState({currentIssueDetails: e.target.value});
+    // }
 
-    handlePriorityChange(e) {
-        this.setState({currentIssuePriority: e.target.value});
-    }
+    // handlePriorityChange(e) {
+    //     this.setState({currentIssuePriority: e.target.value});
+    // }
 
-    handleStatusChange(e) {
-        this.setState({currentIssueStatus: e.target.value});
-    }
+    // handleStatusChange(e) {
+    //     this.setState({currentIssueStatus: e.target.value});
+    // }
 
-    handleImageChange(e) {
-        this.setState({currentIssueImage: e.target.value});
-    }
+    // handleImageChange(e) {
+    //     this.setState({currentIssueImage: e.target.value});
+    // }
+    
+    handleSubmit(e) {
+        const form = e.target;
+        // this.state.validated = true;
+        // this.setState(this.state);
+        this.setState({validated:true});
+
+        e.preventDefault();
+        e.stopPropagation();
+        if (form.checkValidity() === true) {
+            if(this.state.modalTrigger === "New Issue"){
+                this.createIssue();
+            }
+            else {
+                this.updateIssue();
+            }
+        }
+      }
+
 
     openModal(e, issue) {
-        debugger;
         let modalTrigger = e.target.innerHTML;
         let showStatusSelect;
         let currentIssueId;
@@ -144,7 +166,7 @@ class Issues extends React.Component {
     }
 
     closeModal() {
-        this.setState({ currentIssueId: null, newIssueImg:{file: null, URL: ""}, showModal: false })
+        this.setState({ currentIssueId: null, newIssueImg:{file: null, URL: ""}, showModal: false, validated: false, issueError: false })
     }
 
     // getAllIssues() {
@@ -183,7 +205,6 @@ class Issues extends React.Component {
     }
 
     updateIssue() {
-        debugger;
         const newIssue = IssueDB.GetIssue();
         newIssue.set('title', this.titleInput.current.value);
         newIssue.set('details', this.detailsInput.current.value);
@@ -256,8 +277,8 @@ class Issues extends React.Component {
 
         const { showModal, newIssueImg } = this.state;
         const modalAction = (
-            this.state.modalTrigger === "New Issue"?  <Button variant="primary" onClick={this.createIssue}>Create Issue</Button>
-                                        :   <Button variant="primary" onClick={this.updateIssue}>Update Issue</Button>
+            this.state.modalTrigger === "New Issue" ?  <Button variant="primary" type="submit">Create Issue</Button>
+                                                    :  <Button variant="primary" type="submit">Update Issue</Button>
         );
 
       return (
@@ -273,17 +294,24 @@ class Issues extends React.Component {
                     </Container>
                     
                     <Modal show={showModal} onHide={this.closeModal} size="lg">
+                    <Form className="issueModalFrm" noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
+
                         <Modal.Header closeButton>
                             <Modal.Title>{this.state.modalTrigger}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <Form className="issueModalFrm">
+                            <Alert variant="danger" show={this.state.issueError}>
+                                {this.state.errorMsg}
+                            </Alert>
                                 <Form.Group as={Row} controlId="formNameTxt">
                                     <Form.Label column sm={2}>
                                         Title:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" ref={this.titleInput} value={this.state.currentIssueTitle} onChange={this.handleTitleInputChange} required/>
+                                        <Form.Control type="text" ref={this.titleInput} defaultValue={this.state.currentIssueTitle} pattern="([a-zA-Z0-9]{1,20}\s?){1,10}" required/>
+
+                                        <Form.Control.Feedback type="invalid">
+                                        </Form.Control.Feedback>
                                     </Col>
                                 </Form.Group>
 
@@ -292,7 +320,9 @@ class Issues extends React.Component {
                                         Details:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.detailsInput} value={this.state.currentIssueDetails} onChange={this.handleDetailsChange} as="textarea" rows="3" required/>
+                                        <Form.Control ref={this.detailsInput} defaultValue={this.state.currentIssueDetails} as="textarea" rows="3"/>
+                                        <Form.Control.Feedback type="invalid">
+                                        </Form.Control.Feedback>
                                     </Col>
                                 </Form.Group>
 
@@ -301,7 +331,7 @@ class Issues extends React.Component {
                                         Priority:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.priorityInput} value={this.state.currentIssuePriority} onChange={this.handlePriorityChange} as="select" className="priority-select" required>
+                                        <Form.Control ref={this.priorityInput} defaultValue={this.state.currentIssuePriority} as="select" className="priority-select" required>
                                             <option value="urgent">Urgent</option>
                                             <option value="important">Important</option>
                                             <option value="normal">Normal</option>
@@ -330,13 +360,12 @@ class Issues extends React.Component {
                                         Status:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control ref={this.statusInput} value={this.state.currentIssueStatus} onChange={this.handleStatusChange} as="select" className="status-select" required>
+                                        <Form.Control ref={this.statusInput} defaultValue={this.state.currentIssueStatus} as="select" className="status-select">
                                             <option value="open">Open</option>
                                             <option value="closed">Closed</option>
                                         </Form.Control>
                                     </Col>
                                 </Form.Group>
-                            </Form>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.closeModal}>
@@ -344,6 +373,7 @@ class Issues extends React.Component {
                             </Button>
                            {modalAction}
                         </Modal.Footer>
+                        </Form>
                     </Modal>
             </div>
         );

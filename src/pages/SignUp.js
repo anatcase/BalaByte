@@ -113,7 +113,7 @@ class SignUp extends React.Component {
                 <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter name" onChange={this.handleNameChange} pattern="[a-zA-9]{4,0}" required/>
+                        <Form.Control type="text" placeholder="Enter name" onChange={this.handleNameChange} pattern="[a-zA-Z]{4,0}" required/>
                         <Form.Control.Feedback type="invalid">
                             Please provide a valid name.
                         </Form.Control.Feedback>
