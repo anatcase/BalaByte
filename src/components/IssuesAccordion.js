@@ -52,8 +52,8 @@ class IssuesAccordion extends React.Component {
         this.props.openModal(e, issue);
     }
 
-    handleDeleteClick () {
-
+    handleDeleteClick (issue) {
+        this.props.deleteIssue(issue);
     }
 
     // getIssueComments(issue) {
@@ -67,11 +67,11 @@ class IssuesAccordion extends React.Component {
         
         const issueCards = issues.map((issue, index) =>
                                         <Card key={issue.id}>
-                                            <Accordion.Toggle as={Card.Header} eventKey={index} className="font-weight-bold">
+                                            <Accordion.Toggle as={Card.Header} eventKey={issue.id} className="font-weight-bold">
                                                 {issue.get("title")}
                                                 <i className={"fas fa-" + this.getPriorityIcon(issue.get("priority")) + "-circle float-right"}></i>
                                             </Accordion.Toggle>
-                                            <Accordion.Collapse eventKey={index}>
+                                            <Accordion.Collapse eventKey={issue.id}>
                                                 <Card.Body>
                                                     <Row>
                                                         <Col className="issue-box" lg={6}>
@@ -102,7 +102,7 @@ class IssuesAccordion extends React.Component {
                                                                     <Button variant="outline-dark" className="m-0 responsive-btn" onClick={(e)=>{this.handleUpdateClick(e, issue)}}>Update</Button>
                                                                 </Col>
                                                                 <Col lg={6} className="px-0 responsive-btn-wrapper">
-                                                                    <Button variant="danger" className="m-0 responsive-btn" onClick={this.handleDeleteClick}>Delete</Button>
+                                                                    <Button variant="danger" className="m-0 responsive-btn" onClick={(e)=>{this.handleDeleteClick(issue)}}>Delete</Button>
                                                                 </Col>
                                                             </Row>
                                                         </Col>

@@ -19,7 +19,7 @@ class Records extends React.Component {
                             (() => {
                             switch(this.props.recordType) {
                                 case 'issues':
-                                return <IssuesAccordion records={this.props.records} openModal={this.props.openModal}/>;
+                                return <IssuesAccordion records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue}/>;
                                 case 'new issues':
                                 return <DashboardIssuesAccordion />;
                                 case 'overdue issues':
@@ -72,7 +72,7 @@ class RecordsDisplay extends React.Component {
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal}/>
+                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue}/>
                     {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}

@@ -65,6 +65,9 @@ class Issues extends React.Component {
       this.closeModal = this.closeModal.bind(this);
       this.createIssue = this.createIssue.bind(this);
       this.updateIssue = this.updateIssue.bind(this);
+      this.onDeleteIssueError = this.onDeleteIssueError.bind(this);
+      this.onDeleteIssueSuccess = this.onDeleteIssueSuccess.bind(this);
+      this.deleteIssue = this.deleteIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       //this.addIssue = this.addIssue.bind(this);
@@ -242,6 +245,22 @@ class Issues extends React.Component {
         this.closeModal();
    }
 
+   onDeleteIssueSuccess(issueId, issue) {
+    // console.log("Getting All Issues");
+    IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+    }
+
+    onDeleteIssueError(error) {
+        
+    }
+
+
+   deleteIssue(issue) {
+    debugger;
+    IssueDB.DeleteIssue(issue.id, this.onDeleteIssueSuccess, this.onDeleteIssueError)
+    this.closeModal();
+}
+
   
     handlePageChange(e) {
       let val = parseInt(e.target.innerHTML);
@@ -291,7 +310,7 @@ class Issues extends React.Component {
             recordsDisplay = "Loading...";
         }
         else {
-            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} openModal={this.openModal}/> ;
+            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} openModal={this.openModal} deleteIssue={this.deleteIssue}/> ;
         }
 
 
@@ -300,7 +319,7 @@ class Issues extends React.Component {
         const { showModal, currentIssueImage } = this.state;
         const currentIssueImageUrl = ImageHandler.GetImageUrl(currentIssueImage);
         const modalAction = (
-            this.state.modalTrigger === "New Issue" ?  <Button variant="primary" type="submit">Create Issue</Button>
+            this.state.modalTrigger === "New Issue" ?  <Button variant="primary"                                                             type="submit">Create Issue</Button>
                                                     :  <Button variant="primary" type="submit">Update Issue</Button>
         );
 
