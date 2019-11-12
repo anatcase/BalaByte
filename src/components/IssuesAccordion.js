@@ -18,6 +18,7 @@ class IssuesAccordion extends React.Component {
         this.getAllComments = this.getAllComments.bind(this);
         this.handleUpdateClick = this.handleUpdateClick.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
+        this.handleAccordionToggle = this.handleAccordionToggle.bind(this);
 
     }
 
@@ -61,13 +62,23 @@ class IssuesAccordion extends React.Component {
     //     const issueId = issue.id;
     //     return <Comments comments={issueComments} onCommentAdd={this.onCommentAdd}/>
     // }
-    
+    handleAccordionToggle(e) {
+        const cardClassName = e.target.className;
+        if ((cardClassName).includes("active"))
+        {
+            e.target.className = cardClassName.replace(" active", "");
+        }
+        else {
+            e.target.className = cardClassName.concat(" active");
+        }
+        
+    }
+
     render() {
         const issues = this.props.records;
-        
         const issueCards = issues.map((issue, index) =>
                                         <Card key={issue.id}>
-                                            <Accordion.Toggle as={Card.Header} eventKey={issue.id} className="font-weight-bold">
+                                            <Accordion.Toggle as={Card.Header} eventKey={issue.id} className="font-weight-bold" onClick={this.handleAccordionToggle}>
                                                 {issue.get("title")}
                                                 <i className={"fas fa-" + this.getPriorityIcon(issue.get("priority")) + "-circle float-right"}></i>
                                             </Accordion.Toggle>

@@ -411,6 +411,10 @@ ul.pagination{
   }
 }
 
+.accordion>.card .active {
+  background-color: #25212136;
+}
+
 .new-btn {
   font-weight: 500 !important;
   text-decoration: underline !important;
