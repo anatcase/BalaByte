@@ -33,7 +33,7 @@ class IssuesAccordion extends React.Component {
     }
 
     getCardImage(imageId) {
-        if(imageId == null) {
+        if(imageId == "") {
             return "./images/placeholder-square.jpg";
         }
         else {

@@ -317,7 +317,7 @@ class Issues extends React.Component {
         // console.log("rendering issues " + this.state.issues);
 
         const { showModal, currentIssueImage } = this.state;
-        const currentIssueImageUrl = ImageHandler.GetImageUrl(currentIssueImage);
+        const currentIssueImageUrl = (currentIssueImage === ""? "./images/placeholder-square.jpg" : ImageHandler.GetImageUrl(currentIssueImage));
         const modalAction = (
             this.state.modalTrigger === "New Issue" ?  <Button variant="primary"                                                             type="submit">Create Issue</Button>
                                                     :  <Button variant="primary" type="submit">Update Issue</Button>
