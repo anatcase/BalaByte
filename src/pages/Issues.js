@@ -22,6 +22,8 @@ class Issues extends React.Component {
       super(props);
       this.state = {
         issues: null, //Get from Parse DB
+        filter: null,
+        filteredIssues: null, 
         activeUserIssues: [],
         activePage: 1,
         showModal: false,
@@ -39,10 +41,10 @@ class Issues extends React.Component {
         errorMsg:""
     }
       
-      this.handlePageChange = this.handlePageChange.bind(this);
+    //   this.handlePageChange = this.handlePageChange.bind(this);
       this.onGetAllIssuesSuccess = this.onGetAllIssuesSuccess.bind(this);
       this.onGetAllIssuesError = this.onGetAllIssuesError.bind(this);
-      
+      this.filterIssues = this.filterIssues.bind(this);
       this.onCreateIssueSuccess = this.onCreateIssueSuccess.bind(this);
       this.onCreateIssueError = this.onCreateIssueError.bind(this);
       this.onImageUploadSuccess = this.onImageUploadSuccess.bind(this);
@@ -58,6 +60,7 @@ class Issues extends React.Component {
       this.deleteIssue = this.deleteIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleFilterChange = this.handleFilterChange.bind(this);
       //this.addIssue = this.addIssue.bind(this);
     //   this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
     //   this.handleDetailsChange = this.handleDetailsChange.bind(this);
@@ -77,6 +80,28 @@ class Issues extends React.Component {
         // console.log("Getting All Issues");
         IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
+
+    filterIssues(filter) {
+        var originalIssues = this.state.issues;
+        var filteredIssues = [];
+        // Loop through all issues keys, and add those who match the search query to matches array
+        for (var i = 0; i < originalIssues.length; i++) {
+            var currentIssueTitle = originalIssues[i].get("title").toUpperCase();
+            var currentIssueDetails = originalIssues[i].get("details").toUpperCase();
+          if (currentIssueTitle.indexOf(filter) > -1 || currentIssueDetails.indexOf(filter) > -1) {
+            filteredIssues.push(originalIssues[i]);
+          }
+         }
+        this.setState({filter:filter, filteredIssues:filteredIssues});
+    }
+
+    handleFilterChange(e) {
+        var input, filter;
+        input = e.target;
+        filter = input.value.toUpperCase();
+        this.filterIssues(filter);
+      }
+    
 
     onImageUploadSuccess(imageId) {
         //console.log("Image uploaded to: " + ImageHandler.GetImageUrl(imageId));
@@ -228,8 +253,6 @@ class Issues extends React.Component {
     //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
         IssueDB.UpdateIssue(this.state.currentIssueId, newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
-
-
         this.closeModal();
    }
 
@@ -244,47 +267,50 @@ class Issues extends React.Component {
 
 
    deleteIssue(issue) {
-    debugger;
     IssueDB.DeleteIssue(issue.id, this.onDeleteIssueSuccess, this.onDeleteIssueError)
     this.closeModal();
 }
 
   
-    handlePageChange(e) {
-      let val = parseInt(e.target.innerHTML);
-      let pageNumber = this.state.activePage;
+    // handlePageChange(e) {
+    //   let val = parseInt(e.target.innerHTML);
+    //   let pageNumber = this.state.activePage;
   
-      if (isNaN(val)) {
-        // console.log('Not a number ' + val);
-        val = e.target.innerText;
-        if (val.includes("‹")) {
-        //   console.log("Previous");
-          pageNumber--;
-        }
-        else if (val.includes("›")) {
-        //   console.log("Next");
-          pageNumber++;
-        }
+    //   if (isNaN(val)) {
+    //     // console.log('Not a number ' + val);
+    //     val = e.target.innerText;
+    //     if (val.includes("‹")) {
+    //     //   console.log("Previous");
+    //       pageNumber--;
+    //     }
+    //     else if (val.includes("›")) {
+    //     //   console.log("Next");
+    //       pageNumber++;
+    //     }
         
-      }
-      else {
-        // console.log('number ' + val);
-        pageNumber =  val;
-      }
-    //   console.log('active page is ' + pageNumber);
-      //this.state.activePage = pageNumber;
-    //   console.log(this.state.activePage);
-      //this.setState(this.state);
-      this.setState({activePage:pageNumber});
-    //   console.log(this.state.activePage);
-    }
+    //   }
+    //   else {
+    //     // console.log('number ' + val);
+    //     pageNumber =  val;
+    //   }
+    // //   console.log('active page is ' + pageNumber);
+    //   //this.state.activePage = pageNumber;
+    // //   console.log(this.state.activePage);
+    //   //this.setState(this.state);
+    //   this.setState({activePage:pageNumber});
+    // //   console.log(this.state.activePage);
+    // }
 
     onGetAllIssuesSuccess(issues) {
         // console.log("onGetAllIssuesSuccess");
     // this.state.issues = issues;
     // this.setState(this.state);
 
-    this.setState({issues:issues});
+    this.setState({issues:issues, filteredIssues:issues});
+    if(this.state.filter !== null) {
+        this.filterIssues(this.state.filter);
+    }
+    //this.handleFilterChange();
 }
 
     onGetAllIssuesError(error) {
@@ -298,7 +324,7 @@ class Issues extends React.Component {
             recordsDisplay = "Loading...";
         }
         else {
-            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.issues} openModal={this.openModal} deleteIssue={this.deleteIssue}/> ;
+            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.filteredIssues} openModal={this.openModal} deleteIssue={this.deleteIssue}/> ;
         }
 
 
@@ -316,7 +342,7 @@ class Issues extends React.Component {
                     {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/> */}
 
                     <Container className="py-6 px-5 mobile-padding">
-                        <InnerNavbar filterType="issues"/>
+                        <InnerNavbar filterType="issues" handleFilterChange={this.handleFilterChange}/>
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn" onClick={this.openModal}>New Issue</Button>
                         </div>

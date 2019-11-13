@@ -34,7 +34,7 @@ class InnerNavbar extends React.Component {
                         <i className="fas fa-search"></i>
                     </Col>
                     <Col className="col-11 px-0">
-                        <Form.Control className="border-0" type="text" placeholder="Filter by text in title and details" onChange={this.handleChange} />
+                        <Form.Control className="border-0" type="text" placeholder="Filter by text in title and details" onChange={this.handleFilterChange} />
                     </Col>
                 </Row> */}
                 <Row>
@@ -44,7 +44,7 @@ class InnerNavbar extends React.Component {
                                 <i className="fas fa-search"></i>
                             </div>
                             <div className="col-11 px-0">
-                                <Form.Control className="border-0" type="text" placeholder="Filter title or details" onChange={this.handleChange} />
+                                <Form.Control className="border-0" type="text" placeholder="Filter title or details" onChange={this.props.handleFilterChange} />
                             </div>
                         </Row>
                     </Col>
