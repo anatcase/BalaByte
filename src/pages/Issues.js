@@ -60,7 +60,7 @@ class Issues extends React.Component {
       this.deleteIssue = this.deleteIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleFilterChange = this.handleFilterChange.bind(this);
+      this.handleSearchChange = this.handleSearchChange.bind(this);
       //this.addIssue = this.addIssue.bind(this);
     //   this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
     //   this.handleDetailsChange = this.handleDetailsChange.bind(this);
@@ -95,7 +95,7 @@ class Issues extends React.Component {
         this.setState({filter:filter, filteredIssues:filteredIssues});
     }
 
-    handleFilterChange(e) {
+    handleSearchChange(e) {
         var input, filter;
         input = e.target;
         filter = input.value.toUpperCase();
@@ -310,7 +310,7 @@ class Issues extends React.Component {
     if(this.state.filter !== null) {
         this.filterIssues(this.state.filter);
     }
-    //this.handleFilterChange();
+    //this.handleSearchChange();
 }
 
     onGetAllIssuesError(error) {
@@ -342,7 +342,7 @@ class Issues extends React.Component {
                     {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/> */}
 
                     <Container className="py-6 px-5 mobile-padding">
-                        <InnerNavbar filterType="issues" handleFilterChange={this.handleFilterChange}/>
+                        <InnerNavbar filterType="issues" handleSearchChange={this.handleSearchChange}/>
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn" onClick={this.openModal}>New Issue</Button>
                         </div>
