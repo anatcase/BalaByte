@@ -21,14 +21,6 @@ class Issues extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        // activeUser: null,
-        // activeUser:   {
-        //         "id": 1,
-        //         "fname": "Nir",
-        //         "lname": "Channes",
-        //         "email": "nir@nir.com",
-        //         "pwd": "123"
-        // },
         issues: null, //Get from Parse DB
         activeUserIssues: [],
         activePage: 1,
@@ -41,11 +33,7 @@ class Issues extends React.Component {
         modalTrigger: null,
         showStatusSelect: "hide",
         currentIssueStatus: null,
-        totalItemsCount: 100, // This will come from the relevant page: Issues\votings\issues etc, where the total number of records will be stored in the page's state.
-        // newIssueImg: {
-        //     file: null,
-        //     URL: ""
-        // },
+        //totalItemsCount: null, 
         validated: false,
         issueError: false,
         errorMsg:""
