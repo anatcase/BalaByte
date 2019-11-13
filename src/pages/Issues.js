@@ -38,7 +38,8 @@ class Issues extends React.Component {
         //totalItemsCount: null, 
         validated: false,
         issueError: false,
-        errorMsg:""
+        errorMsg:"",
+        sortByPriority: false
     }
       
     //   this.handlePageChange = this.handlePageChange.bind(this);
@@ -61,6 +62,8 @@ class Issues extends React.Component {
       this.imgChange = this.imgChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleSearchChange = this.handleSearchChange.bind(this);
+      this.handleSortChange = this.handleSortChange.bind(this);
+
       //this.addIssue = this.addIssue.bind(this);
     //   this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
     //   this.handleDetailsChange = this.handleDetailsChange.bind(this);
@@ -78,7 +81,7 @@ class Issues extends React.Component {
 
     componentDidMount(){
         // console.log("Getting All Issues");
-        IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+        IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
     filterIssues(filter) {
@@ -101,6 +104,12 @@ class Issues extends React.Component {
         filter = input.value.toUpperCase();
         this.filterIssues(filter);
       }
+
+    handleSortChange(sortByPriority) {
+        this.setState({sortByPriority: sortByPriority});
+        IssueDB.GetAllIssues(sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+
+    }
     
 
     onImageUploadSuccess(imageId) {
@@ -214,7 +223,7 @@ class Issues extends React.Component {
     // }
     onCreateIssueSuccess(issueId, issue) {
         // console.log("Getting All Issues");
-        IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+        IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
     onCreateIssueError(error) {
@@ -258,7 +267,7 @@ class Issues extends React.Component {
 
    onDeleteIssueSuccess(issueId, issue) {
     // console.log("Getting All Issues");
-    IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
+    IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
     onDeleteIssueError(error) {
@@ -342,7 +351,7 @@ class Issues extends React.Component {
                     {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/> */}
 
                     <Container className="py-6 px-5 mobile-padding">
-                        <InnerNavbar filterType="issues" handleSearchChange={this.handleSearchChange}/>
+                        <InnerNavbar filterType="issues" handleSearchChange={this.handleSearchChange} handleSortChange={this.handleSortChange}/>
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn" onClick={this.openModal}>New Issue</Button>
                         </div>
@@ -388,9 +397,9 @@ class Issues extends React.Component {
                                     </Form.Label>
                                     <Col sm={10}>
                                         <Form.Control ref={this.priorityInput} defaultValue={this.state.currentIssuePriority} as="select" className="priority-select" required>
-                                            <option value="urgent">Urgent</option>
-                                            <option value="important">Important</option>
-                                            <option value="normal">Normal</option>
+                                            <option value="1">Urgent</option>
+                                            <option value="2">Important</option>
+                                            <option value="3">Normal</option>
                                         </Form.Control>
                                     </Col>
                                 </Form.Group>

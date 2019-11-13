@@ -35,10 +35,14 @@ const MessageDB = {
     );
   },
 
-  GetAllMessages: function GetAllMessages(onSuccess, onError) {
+  GetAllMessages: function GetAllMessages(sortByPriority, onSuccess, onError) {
     const Message = Parse.Object.extend('Message');
     const query = new Parse.Query(Message);
-    query.descending("createdAt");
+
+    if (sortByPriority) {
+      query.ascending("priority");
+    }
+    query.descending("updatedAt");
     query.find().then((results) => {
       onSuccess(results);
       console.log('Message found', results);

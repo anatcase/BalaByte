@@ -26,15 +26,24 @@ class IssuesAccordion extends React.Component {
     }
 
     getPriorityIcon(priority) {
-        if (priority === "urgent") {
+        if (priority === "1") {
             return "exclamation";
-        } else if (priority === "important") {
+        } else if (priority === "2") {
             return "info";
         } else {
             return "";
         }
     }
 
+    getPriorityString(priority) {
+        if (priority === "1") {
+            return "Urgent";
+        } else if (priority === "2") {
+            return "Important";
+        } else {
+            return "Normal";
+        }   
+    }
     getCardImage(imageId) {
         if(imageId === "") {
             return "./images/placeholder-square.jpg";
@@ -67,14 +76,12 @@ class IssuesAccordion extends React.Component {
     // }
 
     getToggleClass(issue) { //Presentation logic
-        debugger;
         if(issue.id === this.state.activeCardId) { //User triggered re-rendering
             return "active";
         }
     }
 
     handleAccordionToggle(issue) { //Business logic
-        debugger;
         let activeCardId;
         if(issue.id !== this.state.activeCardId) { //First click on card toggle
             activeCardId = issue.id;
@@ -86,7 +93,6 @@ class IssuesAccordion extends React.Component {
     }
 
     render() {
-        debugger;
         const issues = this.props.records;
         const issueCards = issues.map((issue) => 
             
@@ -106,7 +112,7 @@ class IssuesAccordion extends React.Component {
                                                                 <Col lg={8}>                    
                                                                     <Card.Text>
                                                                         <li className="list-group-item"><span className="font-weight-bold">Details: </span>{issue.get("details")}</li>
-                                                                        <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>{issue.get("priority")}</li>
+                                                                        <li className="list-group-item"><span  className="font-weight-bold">Priority: </span>{this.getPriorityString(issue.get("priority"))}</li>
                                                                         <li className="list-group-item"><span  className="font-weight-bold">Status: </span>{issue.get("status")}</li>
                                                                     </Card.Text>
                                                                 </Col>

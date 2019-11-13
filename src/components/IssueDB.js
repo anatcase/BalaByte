@@ -36,10 +36,15 @@ const IssueDB = {
     );
   },
 
-  GetAllIssues: function GetAllIssues(onSuccess, onError) {
+  GetAllIssues: function GetAllIssues(sortByPriority, onSuccess, onError) {
     const Issue = Parse.Object.extend('Issue');
     const query = new Parse.Query(Issue);
-    query.descending("createdAt");
+    if (sortByPriority === true) {
+      query.ascending("priority");
+      query.addDescending("updatedAt");
+    } else {
+      query.descending("updatedAt");
+    }
 
     query.find().then((results) => {
       // console.log('Issues found', results);
