@@ -12,6 +12,9 @@ import ImageHandler from '../components/ImageHandler';
 class IssuesAccordion extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            activeCardId: null
+        }
 
         this.getPriorityIcon = this.getPriorityIcon.bind(this);
         this.handleComment = this.addCommentHanlder.bind(this);
@@ -19,7 +22,7 @@ class IssuesAccordion extends React.Component {
         this.handleUpdateClick = this.handleUpdateClick.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
         this.handleAccordionToggle = this.handleAccordionToggle.bind(this);
-
+        this.getToggleClass = this.getToggleClass.bind(this);
     }
 
     getPriorityIcon(priority) {
@@ -33,7 +36,7 @@ class IssuesAccordion extends React.Component {
     }
 
     getCardImage(imageId) {
-        if(imageId == "") {
+        if(imageId === "") {
             return "./images/placeholder-square.jpg";
         }
         else {
@@ -62,24 +65,34 @@ class IssuesAccordion extends React.Component {
     //     const issueId = issue.id;
     //     return <Comments comments={issueComments} onCommentAdd={this.onCommentAdd}/>
     // }
-    handleAccordionToggle(e) {
-        const cardClassName = e.target.className;
-        if ((cardClassName).includes("active"))
-        {
-            e.target.className = cardClassName.replace(" active", "");
+
+    getToggleClass(issue) { //Presentation logic
+        debugger;
+        if(issue.id === this.state.activeCardId) { //User triggered re-rendering
+            return "active";
         }
-        else {
-            e.target.className = cardClassName.concat(" active");
+    }
+
+    handleAccordionToggle(issue) { //Business logic
+        debugger;
+        let activeCardId;
+        if(issue.id !== this.state.activeCardId) { //First click on card toggle
+            activeCardId = issue.id;
         }
-        
+        else {                                   //Second click on card toggle
+            activeCardId = null; 
+        }
+            this.setState({activeCardId: activeCardId}); //Re-render - getToggleClass will be be triggered again
     }
 
     render() {
+        debugger;
         const issues = this.props.records;
-        const issueCards = issues.map((issue, index) =>
+        const issueCards = issues.map((issue) => 
+            
                                         <Card key={issue.id}>
-                                            <Accordion.Toggle as={Card.Header} eventKey={issue.id} className="font-weight-bold" onClick={this.handleAccordionToggle}>
-                                                {issue.get("title")}
+                                            <Accordion.Toggle as={Card.Header} eventKey={issue.id} className={this.getToggleClass(issue)} onClick={(e)=>{this.handleAccordionToggle(issue)}}>
+                                                {issue.get("title")}{Accordion.Toggle.eventKey}
                                                 <i className={"fas fa-" + this.getPriorityIcon(issue.get("priority")) + "-circle float-right"}></i>
                                             </Accordion.Toggle>
                                             <Accordion.Collapse eventKey={issue.id}>

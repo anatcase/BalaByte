@@ -411,7 +411,7 @@ ul.pagination{
   }
 }
 
-.accordion>.card .active {
+.accordion>.card .active  {
   background-color: #25212136;
 }
 
