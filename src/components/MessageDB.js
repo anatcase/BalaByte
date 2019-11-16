@@ -39,10 +39,13 @@ const MessageDB = {
     const Message = Parse.Object.extend('Message');
     const query = new Parse.Query(Message);
 
-    if (sortByPriority) {
-      query.ascending("priority");
+    if (sortByPriority === true) {
+      query.descending("priority");
+      query.addDescending("updatedAt");
+    } else {
+      query.descending("updatedAt");
     }
-    query.descending("updatedAt");
+    
     query.find().then((results) => {
       onSuccess(results);
       console.log('Message found', results);

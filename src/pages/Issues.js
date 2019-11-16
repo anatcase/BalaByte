@@ -22,7 +22,10 @@ class Issues extends React.Component {
       super(props);
       this.state = {
         issues: null, //Get from Parse DB
-        filter: null,
+        filter: {
+            inputFilter:"",
+            selectFilter:"123"
+        },
         filteredIssues: null, 
         activeUserIssues: [],
         activePage: 1,
@@ -61,7 +64,7 @@ class Issues extends React.Component {
       this.deleteIssue = this.deleteIssue.bind(this);
       this.imgChange = this.imgChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleSearchChange = this.handleSearchChange.bind(this);
+      this.handleFilterChange = this.handleFilterChange.bind(this);
       this.handleSortChange = this.handleSortChange.bind(this);
 
       //this.addIssue = this.addIssue.bind(this);
@@ -84,32 +87,124 @@ class Issues extends React.Component {
         IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
-    filterIssues(filter) {
-        var originalIssues = this.state.issues;
-        var filteredIssues = [];
-        // Loop through all issues keys, and add those who match the search query to matches array
-        for (var i = 0; i < originalIssues.length; i++) {
-            var currentIssueTitle = originalIssues[i].get("title").toUpperCase();
-            var currentIssueDetails = originalIssues[i].get("details").toUpperCase();
-          if (currentIssueTitle.indexOf(filter) > -1 || currentIssueDetails.indexOf(filter) > -1) {
-            filteredIssues.push(originalIssues[i]);
-          }
-         }
-        this.setState({filter:filter, filteredIssues:filteredIssues});
+    checkCurrentIssue(filter, currentIssueTitle, currentIssueDetails, currentIssuePriority) {
+        if (
+            // filter by select
+            (filter.selectFilter.indexOf(currentIssuePriority) > -1) && 
+            
+            //Filter by Input
+            (
+                //Input filter is not empty
+                ((filter.inputFilter !== "") && (currentIssueTitle.indexOf(filter.inputFilter) > -1 || currentIssueDetails.indexOf(filter.inputFilter) > -1)) ||
+                //Input Filter is empty so accept any
+                (filter.inputFilter === "")
+             )
+        ) 
+        {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    handleSearchChange(e) {
-        var input, filter;
+    filterIssues(filter, originalIssues, filteredIssues) {
+        //debugger;
+        // var originalIssues = this.state.issues;
+        //var filter = this.state.filter;
+        // Loop through all issues keys, and add those who match the search query to matches array
+        for (var i = 0; i < originalIssues.length; i++) {
+                var currentIssueTitle = originalIssues[i].get("title").toUpperCase();
+                var currentIssueDetails = originalIssues[i].get("details").toUpperCase();
+                var currentIssuePriority = originalIssues[i].get("priority").toUpperCase();
+
+                // if (
+                //         (filter.selectFilter.indexOf(currentIssuePriority)) &&
+                //         (currentIssueTitle.indexOf(filter.inputFilter) > -1 || currentIssueDetails.indexOf(filter.inputFilter) > -1)
+                //     ) 
+
+                //     {
+                //         filteredIssues.push(originalIssues[i]);
+                //     }
+
+                if (this.checkCurrentIssue(filter, currentIssueTitle, currentIssueDetails, currentIssuePriority)) {
+                    filteredIssues.push(originalIssues[i]);
+                }
+
+                // if(input.tagName === "INPUT") {
+                //     if (currentIssueTitle.indexOf(filter) > -1 || currentIssueDetails.indexOf(filter) > -1) {
+                //         filteredIssues.push(originalIssues[i]);
+                //       }
+                // }
+                // else if (input.tagName === "SELECT") {
+                //     if (currentIssuePriority === filter) {
+                //         filteredIssues.push(originalIssues[i]);
+                //       }
+                // }
+         }
+    }
+
+    handleFilterChange(e) {
+        //debugger;
+        var input;
         input = e.target;
-        filter = input.value.toUpperCase();
-        this.filterIssues(filter);
+        var inputFilter = this.state.filter.inputFilter;
+        var selectFilter = this.state.filter.selectFilter;
+        //var originalIssues = this.state.issues;
+        var filteredIssues = [];
+
+        if(input.tagName === "INPUT") {
+            inputFilter = input.value.toUpperCase();
+        }
+        else if (input.tagName === "SELECT") {
+            selectFilter = input.value;
+        }
+
+        const newFilter = {
+            inputFilter: inputFilter,
+            selectFilter:selectFilter
+        }
+
+        this.setState({
+            filter:newFilter
+        });  
+
+
+
+        //     inputFilter = input.value.toUpperCase();
+
+        // }
+        // else if (input.tagName === "SELECT") {
+        //     selectFilter = input.value;
+        // }
+
+        //inputFilter = input.value.toUpperCase();
+        //selectFilter =
+        //debugger;
+
+        // if (inputFilter === "" && selectFilter === "123") {            
+        //         filteredIssues = this.state.issues;
+        //     }
+        // else {
+            this.filterIssues(newFilter, this.state.issues, filteredIssues);
+        // }
+
+        this.setState({filteredIssues:filteredIssues});
       }
+
+
 
     handleSortChange(sortByPriority) {
         this.setState({sortByPriority: sortByPriority});
         IssueDB.GetAllIssues(sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
 
     }
+
+    // handleFilterChange(e) {
+    //     var input, filter;
+    //     input = e.target;
+    //     filter = input.value.toUpperCase();
+    //     this.filterIssues(filter);
+    // }
     
 
     onImageUploadSuccess(imageId) {
@@ -311,16 +406,23 @@ class Issues extends React.Component {
     // }
 
     onGetAllIssuesSuccess(issues) {
-        // console.log("onGetAllIssuesSuccess");
-    // this.state.issues = issues;
-    // this.setState(this.state);
+            // console.log("onGetAllIssuesSuccess");
+        // this.state.issues = issues;
+        // this.setState(this.state);
 
-    this.setState({issues:issues, filteredIssues:issues});
-    if(this.state.filter !== null) {
-        this.filterIssues(this.state.filter);
+        var filteredIssues = []
+
+        if(this.state.filter !== null) {
+            this.filterIssues(this.state.filter, issues, filteredIssues);
+        }
+
+        this.setState({issues:issues, filteredIssues:filteredIssues});
+
+        // if(this.state.filter !== null) {
+        //     this.filterIssues(this.state.filter);
+        // }
+        //this.handleFilterChange();
     }
-    //this.handleSearchChange();
-}
 
     onGetAllIssuesError(error) {
         // console.log("printing "+ error);
@@ -351,7 +453,7 @@ class Issues extends React.Component {
                     {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/> */}
 
                     <Container className="py-6 px-5 mobile-padding">
-                        <InnerNavbar filterType="issues" handleSearchChange={this.handleSearchChange} handleSortChange={this.handleSortChange}/>
+                        <InnerNavbar filterType="issues" handleFilterChange={this.handleFilterChange} handleSortChange={this.handleSortChange}/>
                         <div className="text-right pt-4 pb-1 mobile-center">
                             <Button variant="link" className="new-btn" onClick={this.openModal}>New Issue</Button>
                         </div>
@@ -397,9 +499,9 @@ class Issues extends React.Component {
                                     </Form.Label>
                                     <Col sm={10}>
                                         <Form.Control ref={this.priorityInput} defaultValue={this.state.currentIssuePriority} as="select" className="priority-select" required>
-                                            <option value="1">Urgent</option>
+                                            <option value="1">Normal</option>
                                             <option value="2">Important</option>
-                                            <option value="3">Normal</option>
+                                            <option value="3">Urgent</option>
                                         </Form.Control>
                                     </Col>
                                 </Form.Group>

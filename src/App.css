@@ -258,6 +258,7 @@ ul.pagination{
   .accordion .card-header {
     cursor: pointer;
     min-height: 52px;
+    font-weight:bold;
   }
 
   .accordion .card {

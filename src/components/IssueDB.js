@@ -40,7 +40,7 @@ const IssueDB = {
     const Issue = Parse.Object.extend('Issue');
     const query = new Parse.Query(Issue);
     if (sortByPriority === true) {
-      query.ascending("priority");
+      query.descending("priority");
       query.addDescending("updatedAt");
     } else {
       query.descending("updatedAt");

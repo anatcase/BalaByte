@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+// import { thisExpression } from '@babel/types'
 
 
 class InnerNavbar extends React.Component {
@@ -27,14 +28,14 @@ class InnerNavbar extends React.Component {
     render() {
         const filters = (
             this.props.filterType === "messages"?
-            <select className="browser-default custom-select mobile-center">
-                <option>Filter by priority</option>
-                <option value="1">Info</option>
+            <select className="browser-default custom-select mobile-center" onChange={this.props.handleFilterChange}>
+                <option value="12">Filter by priority</option>
+                <option value="1">Normal</option>
                 <option value="2">Important</option>     
             </select>
             :
-            <select className="browser-default custom-select mobile-center">
-                <option>Filter by priority</option>
+            <select className="browser-default custom-select mobile-center" onChange={this.props.handleFilterChange}>
+                <option value="123">Filter by priority</option>
                 <option value="1">Normal</option>
                 <option value="2">Important</option>     
                 <option value="3">Urgent</option>     
@@ -48,7 +49,7 @@ class InnerNavbar extends React.Component {
                         <i className="fas fa-search"></i>
                     </Col>
                     <Col className="col-11 px-0">
-                        <Form.Control className="border-0" type="text" placeholder="Filter by text in title and details" onChange={this.handleSearchChange} />
+                        <Form.Control className="border-0" type="text" placeholder="Filter by text in title and details" onChange={this.handleFilterChange} />
                     </Col>
                 </Row> */}
                 <Row>
@@ -58,7 +59,7 @@ class InnerNavbar extends React.Component {
                                 <i className="fas fa-search"></i>
                             </div>
                             <div className="col-11 px-0">
-                                <Form.Control className="border-0" type="text" placeholder="Filter by title or details" onChange={this.props.handleSearchChange} />
+                                <Form.Control className="border-0" type="text" placeholder="Filter by title or details" onChange={this.props.handleFilterChange} />
                             </div>
                         </Row>
                     </Col>
