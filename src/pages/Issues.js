@@ -45,7 +45,6 @@ class Issues extends React.Component {
         sortByPriority: false
     }
       
-    //   this.handlePageChange = this.handlePageChange.bind(this);
       this.onGetAllIssuesSuccess = this.onGetAllIssuesSuccess.bind(this);
       this.onGetAllIssuesError = this.onGetAllIssuesError.bind(this);
       this.filterIssues = this.filterIssues.bind(this);
@@ -67,89 +66,56 @@ class Issues extends React.Component {
       this.handleFilterChange = this.handleFilterChange.bind(this);
       this.handleSortChange = this.handleSortChange.bind(this);
 
-      //this.addIssue = this.addIssue.bind(this);
-    //   this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
-    //   this.handleDetailsChange = this.handleDetailsChange.bind(this);
-    //   this.handlePriorityChange = this.handlePriorityChange.bind(this);
-    //   this.handleStatusChange = this.handleStatusChange.bind(this);
-    //   this.handleImageChange = this.handleImageChange.bind(this);
       this.titleInput = React.createRef();
       this.detailsInput = React.createRef();
       this.priorityInput = React.createRef();
       this.statusInput = React.createRef();
       this.imgInput = React.createRef();
-    //   IssueDB.GetAllIssues(this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
 
     }
 
     componentDidMount(){
-        // console.log("Getting All Issues");
         IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
     checkCurrentIssue(filter, currentIssueTitle, currentIssueDetails, currentIssuePriority) {
         if (
-            // filter by select
-            (filter.selectFilter.indexOf(currentIssuePriority) > -1) && 
-            
-            //Filter by Input
-            (
-                //Input filter is not empty
-                ((filter.inputFilter !== "") && (currentIssueTitle.indexOf(filter.inputFilter) > -1 || currentIssueDetails.indexOf(filter.inputFilter) > -1)) ||
-                //Input Filter is empty so accept any
-                (filter.inputFilter === "")
-             )
-        ) 
-        {
-            return true;
-        } else {
-            return false;
-        }
+                // filter by select
+                (filter.selectFilter.indexOf(currentIssuePriority) > -1) && 
+
+                //Filter by Input
+                (
+                    //Input filter is not empty
+                    ((filter.inputFilter !== "") && (currentIssueTitle.indexOf(filter.inputFilter) > -1 || currentIssueDetails.indexOf(filter.inputFilter) > -1)) ||
+                    //Input Filter is empty so accept any
+                    (filter.inputFilter === "")
+                )
+            ) 
+        { return true; }
+        
+        else
+        { return false; }
     }
 
     filterIssues(filter, originalIssues, filteredIssues) {
-        //debugger;
-        // var originalIssues = this.state.issues;
-        //var filter = this.state.filter;
         // Loop through all issues keys, and add those who match the search query to matches array
         for (var i = 0; i < originalIssues.length; i++) {
                 var currentIssueTitle = originalIssues[i].get("title").toUpperCase();
                 var currentIssueDetails = originalIssues[i].get("details").toUpperCase();
                 var currentIssuePriority = originalIssues[i].get("priority").toUpperCase();
 
-                // if (
-                //         (filter.selectFilter.indexOf(currentIssuePriority)) &&
-                //         (currentIssueTitle.indexOf(filter.inputFilter) > -1 || currentIssueDetails.indexOf(filter.inputFilter) > -1)
-                //     ) 
-
-                //     {
-                //         filteredIssues.push(originalIssues[i]);
-                //     }
-
                 if (this.checkCurrentIssue(filter, currentIssueTitle, currentIssueDetails, currentIssuePriority)) {
                     filteredIssues.push(originalIssues[i]);
                 }
 
-                // if(input.tagName === "INPUT") {
-                //     if (currentIssueTitle.indexOf(filter) > -1 || currentIssueDetails.indexOf(filter) > -1) {
-                //         filteredIssues.push(originalIssues[i]);
-                //       }
-                // }
-                // else if (input.tagName === "SELECT") {
-                //     if (currentIssuePriority === filter) {
-                //         filteredIssues.push(originalIssues[i]);
-                //       }
-                // }
          }
     }
 
     handleFilterChange(e) {
-        //debugger;
         var input;
         input = e.target;
         var inputFilter = this.state.filter.inputFilter;
         var selectFilter = this.state.filter.selectFilter;
-        //var originalIssues = this.state.issues;
         var filteredIssues = [];
 
         if(input.tagName === "INPUT") {
@@ -169,24 +135,7 @@ class Issues extends React.Component {
         });  
 
 
-
-        //     inputFilter = input.value.toUpperCase();
-
-        // }
-        // else if (input.tagName === "SELECT") {
-        //     selectFilter = input.value;
-        // }
-
-        //inputFilter = input.value.toUpperCase();
-        //selectFilter =
-        //debugger;
-
-        // if (inputFilter === "" && selectFilter === "123") {            
-        //         filteredIssues = this.state.issues;
-        //     }
-        // else {
             this.filterIssues(newFilter, this.state.issues, filteredIssues);
-        // }
 
         this.setState({filteredIssues:filteredIssues});
       }
@@ -199,22 +148,13 @@ class Issues extends React.Component {
 
     }
 
-    // handleFilterChange(e) {
-    //     var input, filter;
-    //     input = e.target;
-    //     filter = input.value.toUpperCase();
-    //     this.filterIssues(filter);
-    // }
-    
 
     onImageUploadSuccess(imageId) {
-        //console.log("Image uploaded to: " + ImageHandler.GetImageUrl(imageId));
         let currentIssueImage = imageId;
         this.setState({currentIssueImage: currentIssueImage})
     }
 
     onImageUploadError(error) {
-        //console.log("Error uploading image: " + error);
     }
 
     onImageUploadProgress(progress) {
@@ -230,7 +170,6 @@ class Issues extends React.Component {
         let newIssueImg = {};
         newIssueImg.file = ev.target.files[0];
         if (newIssueImg.file) {
-            // newIssueImg.URL = URL.createObjectURL(newIssueImg.file);
             ImageHandler.UploadImage(newIssueImg.file, this.onImageUploadProgress, this.onImageUploadSuccess, this.onImageUploadError);
 
         } else {
@@ -238,31 +177,9 @@ class Issues extends React.Component {
         }
 
     }
-
-    // handleTitleInputChange(e) {
-    //     this.setState({currentIssueTitle: e.target.value});
-    // }
-
-    // handleDetailsChange(e) {
-    //     this.setState({currentIssueDetails: e.target.value});
-    // }
-
-    // handlePriorityChange(e) {
-    //     this.setState({currentIssuePriority: e.target.value});
-    // }
-
-    // handleStatusChange(e) {
-    //     this.setState({currentIssueStatus: e.target.value});
-    // }
-
-    // handleImageChange(e) {
-    //     this.setState({currentIssueImage: e.target.value});
-    // }
     
     handleSubmit(e) {
         const form = e.target;
-        // this.state.validated = true;
-        // this.setState(this.state);
         this.setState({validated:true});
 
         e.preventDefault();
@@ -291,9 +208,6 @@ class Issues extends React.Component {
         if(modalTrigger === "Update") {
             modalTrigger = "Update Issue";
             showStatusSelect = "show";
-            //this.titleInput.current.value = issue.get("title");
-            //this.detailsInput = issue.get("details");
-            //this.priorityInput = issue.get("priority");
             currentIssueTitle = issue.get("title");
             currentIssueDetails = issue.get("details");
             currentIssuePriority = issue.get("priority");
@@ -311,13 +225,7 @@ class Issues extends React.Component {
         this.setState({ currentIssueId: null, currentIssueImage:null, showModal: false, validated: false, issueError: false })
     }
 
-    // getAllIssues() {
-    //     const issues = IssueDB.GetAllIssues();
-    //     this.state.issues = issues;
-    //     this.setState(this.state);
-    // }
     onCreateIssueSuccess(issueId, issue) {
-        // console.log("Getting All Issues");
         IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
@@ -333,14 +241,6 @@ class Issues extends React.Component {
          newIssue.set('status', this.statusInput.current.value);
          newIssue.set('image', this.state.currentIssueImage);
 
-        // const newIssue = {
-        //     title: this.titleInput.value,
-        //     details: this.detailsInput.value,
-        //     priority: this.priorityInput.value,
-        //     img: this.state.newIssueImg.URL
-        // }
-
-        // this.addIssue(newIssue);
         IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
 
         this.closeModal();
@@ -354,14 +254,11 @@ class Issues extends React.Component {
         newIssue.set('status', this.statusInput.current.value);
         newIssue.set('image', this.state.currentIssueImage);
 
-    //    IssueDB.CreateIssue(newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
-
         IssueDB.UpdateIssue(this.state.currentIssueId, newIssue, this.onCreateIssueSuccess, this.onCreateIssueError)
         this.closeModal();
    }
 
    onDeleteIssueSuccess(issueId, issue) {
-    // console.log("Getting All Issues");
     IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
@@ -375,41 +272,8 @@ class Issues extends React.Component {
     this.closeModal();
 }
 
-  
-    // handlePageChange(e) {
-    //   let val = parseInt(e.target.innerHTML);
-    //   let pageNumber = this.state.activePage;
-  
-    //   if (isNaN(val)) {
-    //     // console.log('Not a number ' + val);
-    //     val = e.target.innerText;
-    //     if (val.includes("‹")) {
-    //     //   console.log("Previous");
-    //       pageNumber--;
-    //     }
-    //     else if (val.includes("›")) {
-    //     //   console.log("Next");
-    //       pageNumber++;
-    //     }
-        
-    //   }
-    //   else {
-    //     // console.log('number ' + val);
-    //     pageNumber =  val;
-    //   }
-    // //   console.log('active page is ' + pageNumber);
-    //   //this.state.activePage = pageNumber;
-    // //   console.log(this.state.activePage);
-    //   //this.setState(this.state);
-    //   this.setState({activePage:pageNumber});
-    // //   console.log(this.state.activePage);
-    // }
 
     onGetAllIssuesSuccess(issues) {
-            // console.log("onGetAllIssuesSuccess");
-        // this.state.issues = issues;
-        // this.setState(this.state);
-
         var filteredIssues = []
 
         if(this.state.filter !== null) {
@@ -417,15 +281,9 @@ class Issues extends React.Component {
         }
 
         this.setState({issues:issues, filteredIssues:filteredIssues});
-
-        // if(this.state.filter !== null) {
-        //     this.filterIssues(this.state.filter);
-        // }
-        //this.handleFilterChange();
     }
 
     onGetAllIssuesError(error) {
-        // console.log("printing "+ error);
     }
 
     render() {
@@ -437,9 +295,6 @@ class Issues extends React.Component {
         else {
             recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.filteredIssues} openModal={this.openModal} deleteIssue={this.deleteIssue}/> ;
         }
-
-
-        // console.log("rendering issues " + this.state.issues);
 
         const { showModal, currentIssueImage } = this.state;
         const currentIssueImageUrl = (currentIssueImage === ""? "./images/placeholder-square.jpg" : ImageHandler.GetImageUrl(currentIssueImage));

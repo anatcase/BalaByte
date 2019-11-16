@@ -4,6 +4,8 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
 import TenantsNavbar from '../components/TenantsNavbar'
+import InnerNavbar from '../components/InnerNavbar'
+
 // import Navigation from '../components/Navigation'
 import RecordsDisplay from '../components/RecordsDisplay'
 import Container from 'react-bootstrap/Container'
@@ -67,7 +69,9 @@ class Tenants extends React.Component {
             {/* {votingAccordion}   */}
             
             <Container className="py-6 px-5 mobile-padding">
-                <TenantsNavbar />
+                {/* <TenantsNavbar /> */}
+                <InnerNavbar filterType="tenants" handleFilterChange={this.handleFilterChange}/>
+
                 <div className="text-right pt-4 pb-1 mobile-center">
                     <Button variant="link" className="new-btn">New Tenant</Button>
                 </div>

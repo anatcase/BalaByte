@@ -4,6 +4,8 @@ import React from 'react';
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
 import VotingsNavbar from '../components/VotingsNav'
+import InnerNavbar from '../components/InnerNavbar'
+
 import RecordsDisplay from '../components/RecordsDisplay'
 import { Container, Row, Col} from 'react-bootstrap'
 // import Navigation from '../components/Navigation';
@@ -68,7 +70,9 @@ class Votings extends React.Component {
                                 </Col>
                                 <Col lg={6}>
                                     <h2>Voting Results</h2>
-                                    <VotingsNavbar />
+                                    {/* <VotingsNavbar /> */}
+                                    <InnerNavbar filterType="voting" handleFilterChange={this.handleFilterChange}/>
+
                                     <RecordsDisplay hasRecords={true} recordType="voting results" /> 
                                 </Col>
                             </Row>
