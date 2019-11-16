@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/homeboy/static/css/main.3d20ea96.chunk.css",
-    "main.js": "/homeboy/static/js/main.d737c745.chunk.js",
-    "main.js.map": "/homeboy/static/js/main.d737c745.chunk.js.map",
+    "main.css": "/homeboy/static/css/main.45e530be.chunk.css",
+    "main.js": "/homeboy/static/js/main.8c37b28f.chunk.js",
+    "main.js.map": "/homeboy/static/js/main.8c37b28f.chunk.js.map",
     "runtime-main.js": "/homeboy/static/js/runtime-main.73350fa6.js",
     "runtime-main.js.map": "/homeboy/static/js/runtime-main.73350fa6.js.map",
     "static/css/2.9028a4ae.chunk.css": "/homeboy/static/css/2.9028a4ae.chunk.css",
     "static/js/2.90afaee6.chunk.js": "/homeboy/static/js/2.90afaee6.chunk.js",
     "static/js/2.90afaee6.chunk.js.map": "/homeboy/static/js/2.90afaee6.chunk.js.map",
     "index.html": "/homeboy/index.html",
-    "precache-manifest.8ec42e4444ed9f57be47af63009f2464.js": "/homeboy/precache-manifest.8ec42e4444ed9f57be47af63009f2464.js",
+    "precache-manifest.f509d9a511288a4fa23f9d708fe8695f.js": "/homeboy/precache-manifest.f509d9a511288a4fa23f9d708fe8695f.js",
     "service-worker.js": "/homeboy/service-worker.js",
     "static/css/2.9028a4ae.chunk.css.map": "/homeboy/static/css/2.9028a4ae.chunk.css.map",
-    "static/css/main.3d20ea96.chunk.css.map": "/homeboy/static/css/main.3d20ea96.chunk.css.map",
+    "static/css/main.45e530be.chunk.css.map": "/homeboy/static/css/main.45e530be.chunk.css.map",
     "static/media/App.css": "/homeboy/static/media/angle-down-solid.6060a92e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.73350fa6.js",
     "static/css/2.9028a4ae.chunk.css",
     "static/js/2.90afaee6.chunk.js",
-    "static/css/main.3d20ea96.chunk.css",
-    "static/js/main.d737c745.chunk.js"
+    "static/css/main.45e530be.chunk.css",
+    "static/js/main.8c37b28f.chunk.js"
   ]
 }
