@@ -22,6 +22,7 @@ class Issues extends React.Component {
       super(props);
       this.state = {
         issues: null, //Get from Parse DB
+        hasRecords: false,
         filter: {
             inputFilter:"",
             selectFilter:"123"
@@ -280,7 +281,7 @@ class Issues extends React.Component {
             this.filterIssues(this.state.filter, issues, filteredIssues);
         }
 
-        this.setState({issues:issues, filteredIssues:filteredIssues});
+        this.setState({issues:issues, filteredIssues:filteredIssues, hasRecords:true});
     }
 
     onGetAllIssuesError(error) {
@@ -293,7 +294,7 @@ class Issues extends React.Component {
             recordsDisplay = "Loading...";
         }
         else {
-            recordsDisplay = <RecordsDisplay hasRecords={true} recordType="issues" records={this.state.filteredIssues} openModal={this.openModal} deleteIssue={this.deleteIssue}/> ;
+            recordsDisplay = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="issues" records={this.state.filteredIssues} openModal={this.openModal} deleteIssue={this.deleteIssue}/> ;
         }
 
         const { showModal, currentIssueImage } = this.state;

@@ -3,7 +3,7 @@ import React from 'react';
 //import Navbar from 'react-bootstrap/Navbar'
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import Button from 'react-bootstrap/Button'
-import TenantsNavbar from '../components/TenantsNavbar'
+// import TenantsNavbar from '../components/TenantsNavbar'
 import InnerNavbar from '../components/InnerNavbar'
 
 // import Navigation from '../components/Navigation'

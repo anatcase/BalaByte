@@ -58,6 +58,22 @@ class Messages extends React.Component {
     }
   
     render() {
+        // let recordsDisplay = null;
+        // if (this.state.messages == null) {
+        //     //loading
+        //     recordsDisplay = "Loading...";
+        // }
+        // else {
+        //     recordsDisplay = <RecordsDisplay hasRecords={true} recordType="messages" records={this.state.filteredMessages} openModal={this.openModal} deleteMessage={this.deleteMessage}/> ;
+        // }
+
+        // const { showModal, currentIssueImage } = this.state;
+        // const currentIssueImageUrl = (currentIssueImage === ""? "./images/placeholder-square.jpg" : ImageHandler.GetImageUrl(currentIssueImage));
+        // const modalAction = (
+        //     this.state.modalTrigger === "New Issue" ?  <Button variant="primary"                                                             type="submit">Create Issue</Button>
+        //                                             :  <Button variant="primary" type="submit">Update Issue</Button>
+        // );
+
       
       return (
                 <div className="Messages h-100">
