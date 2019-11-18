@@ -13,6 +13,36 @@ class PaginationNav extends React.Component {
 
     this.handlePageChange = this.handlePageChange.bind(this);
   }
+
+  // handlePageChange(e) {
+  //   let val = parseInt(e.target.innerHTML);
+  //   let pageNumber = this.state.activePage;
+
+  //   if (isNaN(val)) {
+  //     console.log('Not a number ' + val);
+  //     val = e.target.innerText;
+  //     if (val.includes("‹")) {
+  //       console.log("Previous");
+  //       pageNumber--;
+  //     }
+  //     else if (val.includes("›")) {
+  //       console.log("Next");
+  //       pageNumber++;
+  //     }
+      
+  //   }
+  //   else {
+  //     console.log('number ' + val);
+  //     pageNumber =  val;
+  //   }
+  //   console.log('active page is ' + pageNumber);
+  //   //this.state.activePage = pageNumber;
+  //   console.log(this.state.activePage);
+  //   //this.setState(this.state);
+  //   this.setState({activePage:pageNumber});
+  //   console.log(this.state.activePage);
+  // }
+
   
   handlePageChange(e) {
     let val = parseInt(e.target.innerHTML);

@@ -29,7 +29,7 @@ class Records extends React.Component {
                                 case 'tenants':
                                 return <TenantsAccordion />;
                                 case 'messasges':
-                                return <MessagesAccordion />;
+                                return <MessagesAccordion records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} />;
                                 case 'new messages':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':

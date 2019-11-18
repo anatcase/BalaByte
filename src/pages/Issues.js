@@ -1,44 +1,33 @@
 import React from 'react';
-//import Nav from 'react-bootstrap/Nav'
-//import Navbar from 'react-bootstrap/Navbar'
-//import Jumbotron from 'react-bootstrap/Jumbotron'
-//import Button from 'react-bootstrap/Button'
 import IssueDB from '../components/IssueDB';
 import ImageHandler from '../components/ImageHandler'
 import InnerNavbar from '../components/InnerNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
-// import IssuesAccordion from '../components/IssuesAccordion'
-// import Navigation from '../components/Navigation'
 import { Container, Row, Col, Button, Modal, Form, Image } from 'react-bootstrap'
-// import PaginationNav from '../components/PaginationNav';
 import Alert from 'react-bootstrap/Alert'
-//import Modal from 'react-bootstrap/Modal'
-//import Form from 'react-bootstrap/Form'
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
 
 class Issues extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         issues: null, //Get from Parse DB
-        hasRecords: false,
+        hasRecords: null,
         filter: {
             inputFilter:"",
             selectFilter:"123"
         },
         filteredIssues: null, 
-        activeUserIssues: [],
-        activePage: 1,
+        // activeUserIssues: [],
+        // activePage: 1,
         showModal: false,
         currentIssueId: null,
         currentIssueTitle: null,
         currentIssueDetails: null,
         currentIssuePriority: null,
         currentIssueImage: null,
+        currentIssueStatus: null,
         modalTrigger: null,
         showStatusSelect: "hide",
-        currentIssueStatus: null,
         //totalItemsCount: null, 
         validated: false,
         issueError: false,
@@ -54,7 +43,6 @@ class Issues extends React.Component {
       this.onImageUploadSuccess = this.onImageUploadSuccess.bind(this);
       this.onImageUploadError = this.onImageUploadError.bind(this);
       this.onImageUploadProgress = this.onImageUploadProgress.bind(this);
-
       this.openModal = this.openModal.bind(this);
       this.closeModal = this.closeModal.bind(this);
       this.createIssue = this.createIssue.bind(this);
@@ -79,7 +67,7 @@ class Issues extends React.Component {
         IssueDB.GetAllIssues(this.state.sortByPriority, this.onGetAllIssuesSuccess, this.onGetAllIssuesError);
     }
 
-    checkCurrentIssue(filter, currentIssueTitle, currentIssueDetails, currentIssuePriority) {
+    checkCurrentIssue(filter, currentIssueTitle, currentIssueDetails, currentIssuePriority) { //Check if current issue matches filter
         if (
                 // filter by select
                 (filter.selectFilter.indexOf(currentIssuePriority) > -1) && 
@@ -276,12 +264,16 @@ class Issues extends React.Component {
 
     onGetAllIssuesSuccess(issues) {
         var filteredIssues = []
-
+        var hasRecords = false;
+        if (issues.length > 0) {
+            hasRecords = true;
+        }
+        
         if(this.state.filter !== null) {
             this.filterIssues(this.state.filter, issues, filteredIssues);
         }
 
-        this.setState({issues:issues, filteredIssues:filteredIssues, hasRecords:true});
+        this.setState({issues:issues, filteredIssues:filteredIssues, hasRecords:hasRecords});
     }
 
     onGetAllIssuesError(error) {
