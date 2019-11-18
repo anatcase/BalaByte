@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b3cf5ca43e89b25c9953b0a528649a58",
+    "revision": "f695d8e4da40f4392ebc3c2b1618224a",
     "url": "/homeboy/index.html"
   },
   {
-    "revision": "b695f6f81b5a5c325c24",
-    "url": "/homeboy/static/css/2.9028a4ae.chunk.css"
+    "revision": "e31c49a582af1de8279c",
+    "url": "/homeboy/static/css/2.4e0883bb.chunk.css"
   },
   {
-    "revision": "d54fa3ebbb6c5a4ea548",
+    "revision": "4709edbf7123cb9c0b46",
     "url": "/homeboy/static/css/main.45e530be.chunk.css"
   },
   {
-    "revision": "b695f6f81b5a5c325c24",
-    "url": "/homeboy/static/js/2.90afaee6.chunk.js"
+    "revision": "e31c49a582af1de8279c",
+    "url": "/homeboy/static/js/2.b6811504.chunk.js"
   },
   {
-    "revision": "d54fa3ebbb6c5a4ea548",
-    "url": "/homeboy/static/js/main.8c37b28f.chunk.js"
+    "revision": "4709edbf7123cb9c0b46",
+    "url": "/homeboy/static/js/main.2ba467e1.chunk.js"
   },
   {
     "revision": "82477de94d4184d17e50",
