@@ -36,7 +36,7 @@ class InnerNavbar extends React.Component {
             this.props.filterType === "messages"?
             <select className="browser-default custom-select mobile-center" onChange={this.props.handleFilterChange}>
                 <option value="12">Filter by priority</option>
-                <option value="1">Normal</option>
+                <option value="1">Information</option>
                 <option value="2">Important</option>     
             </select>
             : this.props.filterType === "issues"?

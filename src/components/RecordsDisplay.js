@@ -28,8 +28,8 @@ class Records extends React.Component {
                                 return <DashboardIssuesAccordion />;
                                 case 'tenants':
                                 return <TenantsAccordion />;
-                                case 'messasges':
-                                return <MessagesAccordion records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} />;
+                                case 'messages':
+                                return <MessagesAccordion records={this.props.records} openModal={this.props.openModal} deleteMessage={this.props.deleteMessage} />;
                                 case 'new messages':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':
@@ -72,7 +72,7 @@ class RecordsDisplay extends React.Component {
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue}/>
+                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage}/>
                     {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}

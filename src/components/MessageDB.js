@@ -1,5 +1,4 @@
 import CommentDB from '../components/CommentDB';
-
 var Parse = require('parse');
 
 Initialize();
@@ -26,11 +25,11 @@ const MessageDB = {
       (result) => {
         const id = result.id;
         onSuccess(id, result);
-        console.log('Message created', result);
+        // console.log('Message created', result);
       },
       (error) => {
         onError(error);
-        console.error('Error while creating Message: ', error);
+        // console.error('Error while creating Message: ', error);
       }
     );
   },
@@ -48,10 +47,10 @@ const MessageDB = {
     
     query.find().then((results) => {
       onSuccess(results);
-      console.log('Message found', results);
+      // console.log('Message found', results);
     }, (error) => {
       onError(error);
-      console.error('Error while fetching Message', error);
+      // console.error('Error while fetching Message', error);
     });
   },
 
@@ -66,10 +65,10 @@ const MessageDB = {
       object.set('priority', updatedMessage.get('priority'));
       object.save().then((response) => {
         onSuccess(response);
-        console.log('Updated Message', response);
+        // console.log('Updated Message', response);
       }, (error) => {
         onError(error);
-        console.error('Error while updating Message', error);
+        // console.error('Error while updating Message', error);
       });
     });
   },
@@ -80,10 +79,10 @@ const MessageDB = {
     query.get(messageId).then((results) => {
       const comments = results.get("comments")
       onSucces(comments);
-      console.log('Comments found', comments);
+      // console.log('Comments found', comments);
     }, (error) => {
       onError(error)
-      console.error('Error while fetching comments', error);
+      // console.error('Error while fetching comments', error);
     });
 
   },
@@ -96,13 +95,27 @@ const MessageDB = {
       CommentDB.AddCommentToObject(object, commentText);
       object.save().then((response) => {
         onSuccess(response);
-        console.log('Updated Message', response);
+        // console.log('Updated Message', response);
       }, (error) => {
         onError(error);
-        console.error('Error while updating Message', error);
+        // console.error('Error while updating Message', error);
+      });
+    });
+  },
+
+  DeleteMessage: function DeleteMessage(MessageId, onSuccess, onError) {
+    const Message = Parse.Object.extend('Message');
+    const query = new Parse.Query(Message);
+    query.get(MessageId).then((object) => {
+      object.destroy().then((response) => {
+        onSuccess(response);
+        // console.log('Deleted Message', response);
+      }, (error) => {
+        // console.error('Error while deleting Message', error);
       });
     });
   }
+
 }
 
 export default MessageDB;

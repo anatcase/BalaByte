@@ -69,12 +69,6 @@ class IssuesAccordion extends React.Component {
         this.props.deleteIssue(issue);
     }
 
-    // getIssueComments(issue) {
-    //     const issueComments = issue.get("comments");
-    //     const issueId = issue.id;
-    //     return <Comments comments={issueComments} onCommentAdd={this.onCommentAdd}/>
-    // }
-
     getToggleClass(issue) { //Presentation logic
         if(issue.id === this.state.activeCardId) { //User triggered re-rendering
             return "active";

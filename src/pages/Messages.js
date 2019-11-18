@@ -319,7 +319,7 @@ class Messages extends React.Component {
                                         Title:
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" ref={this.titleInput} defaultValue={this.state.currentMessageTitle} pattern="([a-zA-Z0-9!?.,:-#\/]{1,20}\s?){1,10}" required/>
+                                        <Form.Control type="text" ref={this.titleInput} defaultValue={this.state.currentMessageTitle} pattern="([a-zA-Z0-9]{1,20}\s?){1,10}" required/>
                                         <Form.Control.Feedback type="invalid">
                                         </Form.Control.Feedback>
                                     </Col>

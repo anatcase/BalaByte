@@ -14,7 +14,6 @@ function Initialize() {
 const IssueDB = {
   GetIssue: function GetIssue() {
     const Issue = Parse.Object.extend('Issue');
-
     return new Issue();
   },
 
