@@ -27,6 +27,7 @@ const UserDB = {
   },
 
   CreateTenant: function CreateTenant(user, onSuccess, onError){
+    debugger;
     //Check if I'm logged in as a committee member.
     if ((Parse.User.current() == null) || (!Parse.User.current().get("isCommitteeMember"))) {
       onError(new Error("Not logged in as committee member."))
@@ -86,6 +87,26 @@ const UserDB = {
       onError(error);
       //console.error('Error while trying to GetAllUsers', error);
 
+    });
+  },
+
+  UpdateUser: function UpdateUser(tenantId, updatedTenant, onSuccess, onError) {
+    const Tenant = Parse.Object.extend('Tenant');
+    const query = new Parse.Query(Tenant);
+    // here you put the objectId that you want to update
+    query.get(tenantId).then((object) => {
+      object.set('createdBy', Parse.User.current());
+      object.set('username', updatedTenant.get('username'));
+      object.set('email', updatedTenant.get('email'));
+      object.set('apartment', updatedTenant.get('apartment'));
+      object.set('userImage', updatedTenant.get('userImage'));
+      object.save().then((response) => {
+        onSuccess(response);
+        // console.log('Updated Tenant', response);
+      }, (error) => {
+        onError(error);
+        // console.error('Error while updating Tenant', error);
+      });
     });
   },
 

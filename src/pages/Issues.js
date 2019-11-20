@@ -60,7 +60,6 @@ class Issues extends React.Component {
       this.priorityInput = React.createRef();
       this.statusInput = React.createRef();
       this.imgInput = React.createRef();
-
     }
 
     componentDidMount(){
@@ -298,8 +297,6 @@ class Issues extends React.Component {
 
       return (
                 <div className="Issues h-100">
-                    {/* <Navigation isLoggedIn={this.props.isLoggedIn} pageName="Issues"/> */}
-
                     <Container className="py-6 px-5 mobile-padding">
                         <InnerNavbar filterType="issues" handleFilterChange={this.handleFilterChange} handleSortChange={this.handleSortChange}/>
                         <div className="text-right pt-4 pb-1 mobile-center">
