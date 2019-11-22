@@ -39,7 +39,7 @@ const UserDB = {
     //I save this user session for use later so I can revert back to who I am.
     var sessionToken = Parse.User.current().get("sessionToken");
     var email = user.get('mail');
-    user.set('mail', email);
+    user.set('email', email);
     user.set('isCommitteeMember', false);
     user.set('password', '#Password123');
     user.signUp().then((user) => {
@@ -231,7 +231,7 @@ const UserDB = {
     query.get(userId).then((object) => {
       //Login as tenantId
       var mail = object.get('mail')
-      Parse.User.logIn(mail,"123456").then((user) => {
+      Parse.User.logIn(mail,"#Password123").then((user) => {
         //console.log('Logged in as: ', mail);
         object.destroy().then((response) => {
           Parse.User.become(sessionToken).then((user) => {
