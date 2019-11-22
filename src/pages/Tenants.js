@@ -81,11 +81,8 @@ class Tenants extends React.Component {
         // Loop through all users keys, and add those who match the search query to matches array
         for (var i = 0; i < originalUsers.length; i++) {
                 var currentUserName = originalUsers[i].get("username").toUpperCase();
-                var currentUserEmail = originalUsers[i].get("email").toUpperCase();
-                //var currentUserEmail = "a@a.com";
+                var currentUserEmail = originalUsers[i].get("mail").toUpperCase();
                 var currentUserApt = originalUsers[i].get("apartment").toUpperCase();
-                //console.log(originalUsers[i]);
-                //console.log(currentUserEmail);
 
                 if (this.checkCurrentUser(filter, currentUserName, currentUserEmail, currentUserApt)) {
                     filteredUsers.push(originalUsers[i]);
@@ -175,13 +172,17 @@ class Tenants extends React.Component {
         let currentUserImage = "";
 
         if(modalTrigger === "Update") {
+            console.log("modal trigger - update");
+            debugger;
             modalTrigger = "Update User";
             showStatusSelect = "show";
             currentUserName = user.get("username");
-            currentUserEmail = user.get("email");
+            currentUserEmail = user.get("mail");
             currentUserApt = user.get("apartment");
             currentUserImage = user.get("userImage");
             currentUserId = user.id;
+            console.log(user.id);
+
         }
         else {
             showStatusSelect = "hide";
@@ -205,7 +206,7 @@ class Tenants extends React.Component {
     createTenant() {
          const newUser = UserDB.GetUser();
          newUser.set('username', this.nameInput.current.value);
-         newUser.set('email', this.emailInput.current.value);
+         newUser.set('mail', this.emailInput.current.value);
          newUser.set('apartment', this.aptInput.current.value);
          newUser.set('userImage', this.state.currentUserImage);
 
@@ -215,9 +216,11 @@ class Tenants extends React.Component {
     }
 
     updateUser() {
+        debugger;
+        console.log(this.state.currentUserId);
         const newUser = UserDB.GetUser();
         newUser.set('username', this.nameInput.current.value);
-        newUser.set('email', this.emailInput.current.value);
+        newUser.set('mail', this.emailInput.current.value);
         newUser.set('apartment', this.aptInput.current.value);
         newUser.set('userImage', this.state.currentUserImage);
 
@@ -235,6 +238,7 @@ class Tenants extends React.Component {
 
 
    deleteUser(user) {
+    debugger;
     UserDB.DeleteUser(user.id, this.onDeleteUserSuccess, this.onDeleteUserError)
     this.closeModal();
 }
@@ -243,6 +247,7 @@ class Tenants extends React.Component {
     onGetAllUsersSuccess(users) {
         console.log("get all users success");
         console.log(users.length);
+
         var filteredUsers = []
         var hasRecords = false;
         if (users.length > 0) {

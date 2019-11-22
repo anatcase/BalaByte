@@ -14,15 +14,15 @@ function Initialize() {
 
 function addVoteToVoting(voting, voteText) {
 
-  var votes = object.get("votes")
-  if (votes == null) {
-    votes = [];
-  }
-  const newVote = VoteDB.GetVote();
-  newVote.set('votedBy', Parse.User.current());
-  newVote.set('vote', voteText);
-  votes.push(newVote)
-  voting.set('votes', votes);
+  // var votes = object.get("votes")
+  // if (votes == null) {
+  //   votes = [];
+  // }
+  // const newVote = VoteDB.GetVote();
+  // newVote.set('votedBy', Parse.User.current());
+  // newVote.set('vote', voteText);
+  // votes.push(newVote)
+  // voting.set('votes', votes);
 }
 
 const VotingDB = {

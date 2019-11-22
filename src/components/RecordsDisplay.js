@@ -33,11 +33,11 @@ class Records extends React.Component {
                                 case 'new messages':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':
-                                return <VotingsAccordion votingStatus="active" userType="tenant"/>;
+                                return <VotingsAccordion records={this.props.records} openModal={this.props.openModal} votingStatus="active" userType={this.props.userType} />;
                                 case 'pending votings':
                                 return <PendingVotingsAccordion />;
                                 case 'voting results':
-                                return <VotingsAccordion votingStatus="results"/>;
+                                return <VotingsAccordion records={this.props.records} openModal={this.props.openModal} votingStatus="results" userType={this.props.userType} />;
                                 default:
                                 return null;
                             }
@@ -72,7 +72,7 @@ class RecordsDisplay extends React.Component {
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage} deleteUser={this.props.deleteUser}/>
+                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage} deleteUser={this.props.deleteUser} votingStatus={this.props.votingStatus} userType={this.props.userType}/>
                     {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}

@@ -18,6 +18,8 @@ const UserDB = {
   },
 
   SignUpCommitteeMember: function SignUpCommitteeMember(user, onSuccess, onError){
+    var email = user.get('mail');
+    user.set('mail', email);
     user.set('isCommitteeMember', true);
     user.signUp().then((user) => {
       onSuccess(user);
@@ -36,7 +38,10 @@ const UserDB = {
     
     //I save this user session for use later so I can revert back to who I am.
     var sessionToken = Parse.User.current().get("sessionToken");
+    var email = user.get('mail');
+    user.set('mail', email);
     user.set('isCommitteeMember', false);
+    user.set('password', '#Password123');
     user.signUp().then((user) => {
       Parse.User.become(sessionToken).then((user) => {
         // The current user is now set back to creator.
@@ -90,34 +95,72 @@ const UserDB = {
     });
   },
 
-  UpdateUser: function UpdateUser(tenantId, updatedTenant, onSuccess, onError) {
-    const Tenant = Parse.Object.extend('Tenant');
-    const query = new Parse.Query(Tenant);
-    // here you put the objectId that you want to update
-    query.get(tenantId).then((object) => {
-      object.set('createdBy', Parse.User.current());
-      object.set('username', updatedTenant.get('username'));
-      object.set('email', updatedTenant.get('email'));
-      object.set('apartment', updatedTenant.get('apartment'));
-      object.set('userImage', updatedTenant.get('userImage'));
-      object.save().then((response) => {
-        onSuccess(response);
-        // console.log('Updated Tenant', response);
-      }, (error) => {
-        onError(error);
-        // console.error('Error while updating Tenant', error);
+  UpdateUser: function UpdateUser(userId, updatedUser, onSuccess, onError) {
+    const User = Parse.Object.extend('User');
+    const query = new Parse.Query(User);
+
+    if (Parse.User.current().id === userId) {
+      query.get(userId).then((object) => {
+        // object.set('createdBy', Parse.User.current());
+        object.set('username', updatedUser.get('username'));
+        object.set('password', updatedUser.get('password'));
+        object.set('mail', updatedUser.get('mail'));
+        object.set('apartment', updatedUser.get('apartment'));
+        object.set('userImage', updatedUser.get('userImage'));
+        object.save().then((response) => {
+            onSuccess(response);
+        }, (error) => {
+          onError(error);
+          //console.error('Error while updating Tenant', error);
+        });
+  
+      });      
+    } else 
+    {
+      var sessionToken = Parse.User.current().get("sessionToken");
+
+      // here you put the objectId that you want to update
+      query.get(userId).then((object) => {
+        //Login as tenantId
+        var mail = object.get('mail')
+        Parse.User.logIn(mail,"#Password123").then((user) => {
+          console.log('Logged in as: ', mail);
+
+          // object.set('createdBy', Parse.User.current());
+          object.set('username', updatedUser.get('username'));
+          object.set('password', updatedUser.get('password'));
+          object.set('mail', updatedUser.get('mail'));
+          object.set('apartment', updatedUser.get('apartment'));
+          object.set('userImage', updatedUser.get('userImage'));
+          object.save().then((response) => {
+            Parse.User.become(sessionToken).then((user) => {
+              //console.log('back to user: ', Parse.User.current().getEmail());
+              onSuccess(response);
+            }).catch(error => {
+              //console.error('Error while going back to user', error);
+            });
+
+          }, (error) => {
+            onError(error);
+            console.error('Error while updating Tenant', error);
+          });
+        }).catch(error => {
+          onError(error);
+          console.error('Error while logging in as user', error);
+        })
+
       });
-    });
+    }
   },
 
-  FindUserByEmail: function FindUserByEmail(email, onSuccess, onError) {
+  FindUserBymail: function FindUserByEmail(email, onSuccess, onError) {
 
     const UserClass = Parse.Object.extend("User");
 
     // Creates a new Query object to help us fetch UserClass objects
     const query = new Parse.Query(UserClass);
 
-    query.equalTo("email", email);
+    query.equalTo("mail", email);
 
     // Executes the query, which returns an array of UserClass
     query.find().then(results => {
@@ -177,6 +220,77 @@ const UserDB = {
       }
     }
   },
+
+  DeleteUser: function DeleteUser(userId, onSuccess, onError) {
+    debugger;
+    const User = new Parse.User();
+    const query = new Parse.Query(User);
+    var sessionToken = Parse.User.current().get("sessionToken");
+
+    // here you put the objectId that you want to update
+    query.get(userId).then((object) => {
+      //Login as tenantId
+      var mail = object.get('mail')
+      Parse.User.logIn(mail,"123456").then((user) => {
+        //console.log('Logged in as: ', mail);
+        object.destroy().then((response) => {
+          Parse.User.become(sessionToken).then((user) => {
+            //console.log('back to user: ', Parse.User.current().getEmail());
+            onSuccess(response);
+          }).catch(error => {
+            //console.error('Error while going back to user', error);
+          });
+
+        }, (error) => {
+          onError(error);
+          //console.error('Error while updating Tenant', error);
+        });
+      }).catch(error => {
+        onError(error);
+        //console.error('Error while logging in as user', error);
+      })
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var originalsession = Parse.User.current().get("sessionToken");
+    query.get(userId).then((object) => {
+      // Parse.User.become(object.sessionToken).then((user) => {
+      //     // user.destroy().then((response) => {
+      //     //   //onSuccess(response);
+      //     //   console.log('Deleted User', response);
+      //     //   Parse.User.become(originalsession).then((user) => {
+      //     //     // The current user is now set back to creator.
+      //     //     onSuccess(user);
+      //     //   }).catch(error => {
+      //     //     onError(error);
+      //     //   });            
+      //     // }, (error) => {
+      //     //   console.error('Error while deleting User', error);
+      //     // });
+      // }).catch(error => {
+      //   onError(error);
+      // });
+
+
+    });
+  }
+  
 
 }
 

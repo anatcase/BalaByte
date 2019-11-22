@@ -73,7 +73,7 @@ class TenantsAccordion extends React.Component {
                                                                 <Col lg={8}>                    
                                                                     <Card.Text>
                                                                         <li className="list-group-item"><span className="font-weight-bold">Name: </span>{user.get("username")}</li>
-                                                                        <li className="list-group-item"><span  className="font-weight-bold">Email: </span>{user.get("email")}</li>
+                                                                        <li className="list-group-item"><span  className="font-weight-bold">Email: </span>{user.get("mail")}</li>
                                                                         <li className="list-group-item"><span  className="font-weight-bold">Apartment: </span>{user.get("apartment")}</li>
                                                                     </Card.Text>
                                                                 </Col>
