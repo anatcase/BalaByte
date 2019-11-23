@@ -28,7 +28,8 @@ class Tenants extends React.Component {
         validated: false,
         userError: false,
         errorMsg:"",
-        sortByPriority: false
+        sortByPriority: false,
+        loggedInUserId: UserDB.GetCurrentUser().id
     }
 
     this.onGetAllUsersSuccess = this.onGetAllUsersSuccess.bind(this);
@@ -272,7 +273,7 @@ class Tenants extends React.Component {
             recordsDisplay = "Loading...";
         }
         else {
-            recordsDisplay = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="tenants" records={this.state.filteredUsers} openModal={this.openModal} deleteUser={this.deleteUser}/> ;
+            recordsDisplay = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="tenants" records={this.state.filteredUsers} openModal={this.openModal} deleteUser={this.deleteUser} loggedInUserId={this.state.loggedInUserId}/> ;
         }
 
         const { showModal, currentUserImage } = this.state;

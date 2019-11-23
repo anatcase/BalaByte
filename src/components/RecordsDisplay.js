@@ -27,7 +27,7 @@ class Records extends React.Component {
                                 case 'new resolved issues':
                                 return <DashboardIssuesAccordion />;
                                 case 'tenants':
-                                return <TenantsAccordion records={this.props.records} openModal={this.props.openModal} deleteUser={this.props.deleteUser} />;
+                                return <TenantsAccordion records={this.props.records} openModal={this.props.openModal} deleteUser={this.props.deleteUser} loggedInUserId={this.props.loggedInUserId}/>;
                                 case 'messages':
                                 return <MessagesAccordion records={this.props.records} openModal={this.props.openModal} deleteMessage={this.props.deleteMessage} />;
                                 case 'new messages':
@@ -72,7 +72,7 @@ class RecordsDisplay extends React.Component {
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage} deleteUser={this.props.deleteUser} votingStatus={this.props.votingStatus} userType={this.props.userType}/>
+                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage} deleteUser={this.props.deleteUser} votingStatus={this.props.votingStatus} userType={this.props.userType} loggedInUserId={this.props.loggedInUserId}/>
                     {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}

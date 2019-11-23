@@ -106,6 +106,7 @@ const UserDB = {
         object.set('username', updatedUser.get('username'));
         object.set('password', updatedUser.get('password'));
         object.set('mail', updatedUser.get('mail'));
+        object.set('email', updatedUser.get('mail'));
         object.set('apartment', updatedUser.get('apartment'));
         object.set('userImage', updatedUser.get('userImage'));
         object.save().then((response) => {
@@ -131,6 +132,7 @@ const UserDB = {
           object.set('username', updatedUser.get('username'));
           object.set('password', updatedUser.get('password'));
           object.set('mail', updatedUser.get('mail'));
+          object.set('email', updatedUser.get('mail'));
           object.set('apartment', updatedUser.get('apartment'));
           object.set('userImage', updatedUser.get('userImage'));
           object.save().then((response) => {

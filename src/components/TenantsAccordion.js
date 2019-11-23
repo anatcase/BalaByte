@@ -10,7 +10,7 @@ class TenantsAccordion extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeCardId: null
+            activeCardId: null,
         }
 
         this.handleUpdateClick = this.handleUpdateClick.bind(this);
@@ -55,6 +55,7 @@ class TenantsAccordion extends React.Component {
 
 
     render() {
+        debugger;
         const users = this.props.records;
         const userCards = users.map((user) => 
             
@@ -86,7 +87,7 @@ class TenantsAccordion extends React.Component {
                                                                     <Button variant="outline-dark" className="m-0 responsive-btn" onClick={(e)=>{this.handleUpdateClick(e, user)}}>Update</Button>
                                                                 </Col>
                                                                 <Col lg={6} className="px-0 responsive-btn-wrapper">
-                                                                    <Button variant="danger" className="m-0 responsive-btn" onClick={(e)=>{this.handleDeleteClick(user)}}>Delete</Button>
+                                                                    <Button disabled={this.props.loggedInUserId === user.id? true : false} variant="danger" className="m-0 responsive-btn" onClick={(e)=>{this.handleDeleteClick(user)}}>Delete</Button>
                                                                 </Col>
                                                             </Row>
                                                         </Col>
