@@ -84,6 +84,7 @@ const UserDB = {
 
     // Creates a new Query object to help us fetch UserClass objects
     const query = new Parse.Query(UserClass);
+    query.addDescending("updatedAt");
 
     // Executes the query, which returns an array of UserClass
     query.find().then(results => {
