@@ -180,6 +180,11 @@ ul.pagination{
 }
 
 @media only screen and (min-width: 768px) {
+
+  .col-width-20 {
+    max-width: 20% !important;
+  }
+
   .issue-box {
     border-right: 2px solid rgba(0,0,0,.125);
   }

@@ -55,7 +55,6 @@ class TenantsAccordion extends React.Component {
 
 
     render() {
-        debugger;
         const users = this.props.records;
         const userCards = users.map((user) => 
             
@@ -68,10 +67,10 @@ class TenantsAccordion extends React.Component {
                                                     <Row>
                                                         <Col lg={10} className="user-box">
                                                             <Row className="h-100">
-                                                                <Col lg={4}>
+                                                                <Col lg={3} className="col-width-20">
                                                                     <Card.Img className="thumbnail" src={this.getCardImage(user.get("userImage"))}/>
                                                                 </Col>
-                                                                <Col lg={8}>                    
+                                                                <Col lg={9}>                    
                                                                     <Card.Text>
                                                                         <li className="list-group-item"><span className="font-weight-bold">Name: </span>{user.get("username")}</li>
                                                                         <li className="list-group-item"><span  className="font-weight-bold">Email: </span>{user.get("mail")}</li>
