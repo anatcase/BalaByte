@@ -252,44 +252,6 @@ const UserDB = {
       })
 
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    var originalsession = Parse.User.current().get("sessionToken");
-    query.get(userId).then((object) => {
-      // Parse.User.become(object.sessionToken).then((user) => {
-      //     // user.destroy().then((response) => {
-      //     //   //onSuccess(response);
-      //     //   console.log('Deleted User', response);
-      //     //   Parse.User.become(originalsession).then((user) => {
-      //     //     // The current user is now set back to creator.
-      //     //     onSuccess(user);
-      //     //   }).catch(error => {
-      //     //     onError(error);
-      //     //   });            
-      //     // }, (error) => {
-      //     //   console.error('Error while deleting User', error);
-      //     // });
-      // }).catch(error => {
-      //   onError(error);
-      // });
-
-
-    });
   }
   
 
