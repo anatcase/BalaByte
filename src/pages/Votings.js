@@ -41,7 +41,9 @@ class Votings extends React.Component {
         this.updateVoting = this.updateVoting.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFilterChange = this.handleFilterChange.bind(this);
-  
+        this.calcVotingResult = this.calcVotingResult.bind(this);
+        this.getVotes = this.getVotes.bind(this);
+
         this.titleInput = React.createRef();
         this.detailsInput = React.createRef();
         this.endDateInput = React.createRef();
@@ -202,6 +204,39 @@ class Votings extends React.Component {
     onGetAllVotingsError(error) {
     }
 
+    getVotes(voting) {
+        const optionACount = 0;
+        const optionBCount = 0;
+        const votesCounters = [];
+        const votes = voting.get("votes");
+        votes.map((vote) => {
+                        if (vote === voting.get("options")[0]) {
+                            optionACount++;
+                        }
+                        else if (vote === voting.get("options")[1]) {
+                            optionBCount++;
+                        }
+                    }
+                 );
+        votesCounters.push(optionACount, optionBCount);
+        return votesCounters;
+    }
+
+    calcVotingResult(voting) {
+        const votesCount = this.getVotes(voting);
+        const optionA = votesCount[0];
+        const optionB = votesCount[1];
+        
+        if (optionA > optionB) {
+            return voting.get("options")[0];
+        }
+        else if(optionB > optionA) {
+            return voting.get("options")[1];
+        }
+        else {
+            return "Unanimous";
+        }
+    }
   
     render() {
         let recordsDisplayActive = null;
@@ -212,7 +247,7 @@ class Votings extends React.Component {
             recordsDisplayActive = "Loading...";
         }
         else {
-            recordsDisplayActive = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="active votings" records={this.state.votings} openModal={this.openModal}/> ;
+            recordsDisplayActive = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="active votings" records={this.state.votings} openModal={this.openModal} votesCount={this.getVotes}/> ;
         }
 
         
@@ -221,7 +256,7 @@ class Votings extends React.Component {
             recordsDisplayResults = "Loading...";
         }
         else {
-            recordsDisplayResults = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="voting results" records={this.state.votings} openModal={this.openModal}/> ;
+            recordsDisplayResults = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="voting results" records={this.state.votings} openModal={this.openModal} calcVotingResult={this.calcVotingResult} votesCount={this.getVotes}/> ;
         }
 
         const { showModal } = this.state;
