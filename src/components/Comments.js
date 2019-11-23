@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import CommentDB from '../components/CommentDB';
+import ImageHandler from '../components/ImageHandler';
 
 
 class Comments extends React.Component {
@@ -73,7 +74,7 @@ class Comments extends React.Component {
             return "./images/avatar-placeholder.gif";
         }
         else {
-            return image;
+            return ImageHandler.GetImageUrl(image);
         }
     }
 
