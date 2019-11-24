@@ -115,8 +115,8 @@ class VotingsAccordion extends React.Component {
                                                                     <h6 className="text-center mb-3">Voting Precentage</h6>
                                                                     <PieChart className="chart"
                                                                         data={[
-                                                                            { title: 'Total votes', value: voting.get("votes").length, color: '#90ee90' },
-                                                                            // { title: '', value: voting.get("votes").length, color: '#a2012c' },
+                                                                            { title:  this.props.getVotingPrecentage(voting) + '% Voted', value: this.props.getVotingPrecentage(voting), color: '#90ee90' },
+                                                                            { title: 100-(this.props.getVotingPrecentage(voting)) + '% have not voted', value: 100-(this.props.getVotingPrecentage(voting)), color: '#a2012c' },
                                                                         ]}
                                                                         />
                                                                 </Col>    

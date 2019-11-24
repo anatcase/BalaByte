@@ -1,4 +1,5 @@
 import React from 'react';
+import UserDB from '../components/UserDB';
 import VotingDB from '../components/VotingDB';
 import InnerNavbar from '../components/InnerNavbar'
 import RecordsDisplay from '../components/RecordsDisplay'
@@ -27,7 +28,8 @@ class Votings extends React.Component {
         //   currentVotingAgainst: null,
           validated: false,
           votingError: false,
-          errorMsg:""
+          errorMsg:"",
+          tenantCount: null
       }
         
         this.onGetAllVotingsSuccess = this.onGetAllVotingsSuccess.bind(this);
@@ -43,6 +45,7 @@ class Votings extends React.Component {
         this.handleFilterChange = this.handleFilterChange.bind(this);
         this.calcVotingResult = this.calcVotingResult.bind(this);
         this.getVotes = this.getVotes.bind(this);
+        this.getVotingPrecentage = this.getVotingPrecentage.bind(this);
 
         this.titleInput = React.createRef();
         this.detailsInput = React.createRef();
@@ -51,10 +54,22 @@ class Votings extends React.Component {
         this.optionInput1 = React.createRef();
         this.optionInput2 = React.createRef();
         this.endDateInput = React.createRef();
+
+        this.onGetAllUsersSuccess = this.onGetAllUsersSuccess.bind(this);
+        this.onGetAllUsersError = this.onGetAllUsersError.bind(this);
       }
       
       componentDidMount(){
         VotingDB.GetAllVotings(this.onGetAllVotingsSuccess, this.onGetAllVotingsError);
+        UserDB.GetAllUsers(this.onGetAllUsersSuccess, this.onGetAllUsersError);
+        
+    }
+
+    onGetAllUsersSuccess(users) {
+        this.setState({tenantCount: users.length});
+    }
+
+    onGetAllUsersError(error) {
     }
 
     checkCurrentVoting(filter, currentVotingTitle, currentVotingDetails) { //Check if current voting matches filter
@@ -238,7 +253,17 @@ class Votings extends React.Component {
         }
     }
   
+    getVotingPrecentage(voting) {
+        const votesCount = voting.get("votes").length;
+        const votingPercentage = (votesCount / this.state.tenantCount) *100;
+        return votingPercentage;
+    }
+
     render() {
+        if (this.state.tenantCount === null) {
+            return <p>Loading...</p>; //Don't render if non tenant count info. 
+        }
+
         let recordsDisplayActive = null;
         let recordsDisplayResults = null;
 
@@ -247,7 +272,7 @@ class Votings extends React.Component {
             recordsDisplayActive = "Loading...";
         }
         else {
-            recordsDisplayActive = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="active votings" records={this.state.votings} openModal={this.openModal} votesCount={this.getVotes}/> ;
+            recordsDisplayActive = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="active votings" records={this.state.votings} openModal={this.openModal} votesCount={this.getVotes} getVotingPrecentage={this.getVotingPrecentage}/> ;
         }
 
         
@@ -256,7 +281,7 @@ class Votings extends React.Component {
             recordsDisplayResults = "Loading...";
         }
         else {
-            recordsDisplayResults = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="voting results" records={this.state.votings} openModal={this.openModal} calcVotingResult={this.calcVotingResult} votesCount={this.getVotes}/> ;
+            recordsDisplayResults = <RecordsDisplay hasRecords={this.state.hasRecords} recordType="voting results" records={this.state.votings} openModal={this.openModal} calcVotingResult={this.calcVotingResult} votesCount={this.getVotes} getVotingPrecentage={this.getVotingPrecentage}/> ;
         }
 
         const { showModal } = this.state;

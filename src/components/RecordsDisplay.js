@@ -33,11 +33,11 @@ class Records extends React.Component {
                                 case 'new messages':
                                 return <DashboardNewMessagesAccordion />;
                                 case 'active votings':
-                                return <VotingsAccordion records={this.props.records} openModal={this.props.openModal} votingStatus="active" userType={this.props.userType} votesCount={this.props.votesCount}/>;
+                                return <VotingsAccordion records={this.props.records} openModal={this.props.openModal} votingStatus="active" userType={this.props.userType} votesCount={this.props.votesCount} getVotingPrecentage={this.props.getVotingPrecentage}/>;
                                 case 'pending votings':
                                 return <PendingVotingsAccordion records={this.props.records} votingStatus="active" userType={this.props.userType} votesCount={this.props.votesCount}/>;
                                 case 'voting results':
-                                return <VotingsAccordion records={this.props.records} openModal={this.props.openModal} votingStatus="results" userType={this.props.userType} calcVotingResult={this.props.calcVotingResult} votesCount={this.props.votesCount}/>;
+                                return <VotingsAccordion records={this.props.records} openModal={this.props.openModal} votingStatus="results" userType={this.props.userType} calcVotingResult={this.props.calcVotingResult} votesCount={this.props.votesCount} getVotingPrecentage={this.props.getVotingPrecentage}/>;
                                 default:
                                 return null;
                             }
@@ -72,7 +72,7 @@ class RecordsDisplay extends React.Component {
         return (
             this.props.hasRecords? 
                 <div className="recordsDisplay">
-                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage} deleteUser={this.props.deleteUser} votingStatus={this.props.votingStatus} userType={this.props.userType} loggedInUserId={this.props.loggedInUserId} calcVotingResult={this.props.calcVotingResult} votesCount={this.props.votesCount} />
+                    <Records recordType={this.props.recordType} records={this.props.records} openModal={this.props.openModal} deleteIssue={this.props.deleteIssue} deleteMessage={this.props.deleteMessage} deleteUser={this.props.deleteUser} votingStatus={this.props.votingStatus} userType={this.props.userType} loggedInUserId={this.props.loggedInUserId} calcVotingResult={this.props.calcVotingResult} votesCount={this.props.votesCount} getVotingPrecentage={this.props.getVotingPrecentage}/>
                     {/* <PaginationNav />  */}
                     {/* which class should manage the activePage and totalItemsCount? */}
                     {/* <PaginationNav activePage={this.state.activePage} totalItemsCount={this.state.totalItemsCount}/> */}
